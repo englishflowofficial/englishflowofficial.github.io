@@ -25,13 +25,16 @@
 
     <style>
         :root {
+            /* BILLION DOLLAR LIGHT THEME PALETTE */
             --bg: #FAFAFC;
             --bg-soft: #FFFFFF;
             --surface: rgba(255, 255, 255, 0.85);
+            --surface-strong: #FFFFFF;
             --stroke: rgba(0, 0, 0, 0.08);
             --stroke-soft: rgba(0, 0, 0, 0.04);
             --teal: #00A699;
             --teal-deep: #008F84;
+            --gold: #D4AF37;
             --text: #1D1D1F;
             --text-dim: #86868B;
             --text-faint: #A1A1A6;
@@ -54,11 +57,22 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Ambient multi-layer backdrop (Light Mode) */
         .ambient {
             position: fixed; inset: 0; z-index: -2;
-            background: radial-gradient(1100px 700px at 85% -10%, rgba(0, 166, 153, 0.04), transparent 60%), radial-gradient(900px 600px at 10% 25%, rgba(99, 102, 241, 0.03), transparent 55%), linear-gradient(180deg, #FFFFFF 0%, #FAFAFC 100%);
+            background:
+                radial-gradient(1100px 700px at 85% -10%, rgba(0, 166, 153, 0.04), transparent 60%),
+                radial-gradient(900px 600px at 10% 25%, rgba(99, 102, 241, 0.03), transparent 55%),
+                linear-gradient(180deg, #FFFFFF 0%, #FAFAFC 100%);
         }
 
+        .ambient::after {
+            content: ""; position: absolute; inset: 0; opacity: 0.02;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        /* Floating glass header */
         .header {
             position: fixed; top: 18px; left: 50%; transform: translateX(-50%);
             width: min(1060px, calc(100% - 32px)); z-index: 100;
@@ -66,85 +80,359 @@
             padding: 14px 24px; border-radius: 20px;
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-            border: 1px solid var(--stroke); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--stroke);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
             transition: box-shadow 0.6s var(--ease), border-color 0.6s var(--ease);
         }
 
         .header:hover { border-color: rgba(0, 166, 153, 0.25); }
 
-        .logo { font-size: 17px; font-weight: 800; letter-spacing: -0.4px; color: var(--text); display: flex; align-items: center; gap: 9px; }
-        .logo .mic { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; font-size: 16px; background: linear-gradient(135deg, rgba(0, 166, 153, 0.1), rgba(0, 166, 153, 0.05)); border: 1px solid rgba(0, 166, 153, 0.2); }
+        .logo {
+            font-size: 17px; font-weight: 800; letter-spacing: -0.4px;
+            color: var(--text); white-space: nowrap;
+            display: flex; align-items: center; gap: 9px;
+        }
+
+        .logo .mic {
+            display: inline-grid; place-items: center; width: 34px; height: 34px;
+            border-radius: 11px; font-size: 16px;
+            background: linear-gradient(135deg, rgba(0, 166, 153, 0.1), rgba(0, 166, 153, 0.05));
+            border: 1px solid rgba(0, 166, 153, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 166, 153, 0.1);
+        }
+
         .logo span.brand-light { font-weight: 400; color: var(--teal); }
 
-        .header-cta { font-size: 13px; font-weight: 700; color: #FFFFFF; text-decoration: none; padding: 10px 18px; border-radius: 12px; background: linear-gradient(135deg, var(--teal), var(--teal-deep)); box-shadow: var(--glow); transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease); }
-        .header-cta:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 12px 24px rgba(0, 166, 153, 0.3); }
+        .header-cta {
+            font-size: 13px; font-weight: 700; color: #FFFFFF; text-decoration: none;
+            padding: 10px 18px; border-radius: 12px;
+            background: linear-gradient(135deg, var(--teal), var(--teal-deep));
+            box-shadow: var(--glow);
+            transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease);
+            white-space: nowrap;
+        }
 
-        .hero { max-width: 880px; margin: 0 auto; padding: 150px 24px 28px; text-align: center; }
-        .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--teal-deep); padding: 8px 16px; border-radius: 999px; border: 1px solid rgba(0, 166, 153, 0.2); background: rgba(0, 166, 153, 0.05); margin-bottom: 26px; }
-        .hero-eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 12px var(--teal); animation: pulse 2.4s ease-in-out infinite; }
+        .header-cta:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 12px 24px rgba(0, 166, 153, 0.3);
+        }
+
+        /* Hero */
+        .hero {
+            max-width: 880px; margin: 0 auto; padding: 150px 24px 28px; text-align: center;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 12px; font-weight: 800; letter-spacing: 2.5px;
+            text-transform: uppercase; color: var(--teal-deep);
+            padding: 8px 16px; border-radius: 999px;
+            border: 1px solid rgba(0, 166, 153, 0.2);
+            background: rgba(0, 166, 153, 0.05);
+            margin-bottom: 26px; animation: riseIn 1s var(--ease) both;
+        }
+
+        .hero-eyebrow .dot {
+            width: 7px; height: 7px; border-radius: 50%; background: var(--teal);
+            box-shadow: 0 0 12px var(--teal); animation: pulse 2.4s ease-in-out infinite;
+        }
 
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
 
-        .hero h1 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(38px, 6vw, 64px); margin: 0 0 20px; color: var(--text); }
-        .hero h1 em { font-style: italic; font-weight: 600; background: linear-gradient(110deg, var(--teal), var(--teal-deep)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { color: var(--text-dim); font-size: 18px; line-height: 1.7; max-width: 580px; margin: 0 auto; }
+        .hero h1 {
+            font-family: 'Playfair Display', serif; font-weight: 700;
+            font-size: clamp(38px, 6vw, 64px); line-height: 1.12;
+            letter-spacing: -0.5px; margin: 0 0 20px;
+            color: var(--text); animation: riseIn 1s var(--ease) 0.1s both;
+        }
 
-        .tabbar-wrap { position: sticky; top: 86px; z-index: 90; display: flex; justify-content: center; padding: 22px 16px; }
-        .tabbar { position: relative; display: flex; gap: 4px; padding: 6px; border-radius: 18px; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(24px); border: 1px solid var(--stroke); box-shadow: 0 14px 38px rgba(0, 0, 0, 0.04); }
-        .tab-pill { position: absolute; top: 6px; left: 0; height: calc(100% - 12px); border-radius: 13px; background: linear-gradient(135deg, rgba(0, 166, 153, 0.1), rgba(0, 166, 153, 0.05)); border: 1px solid rgba(0, 166, 153, 0.2); transition: transform 0.5s var(--ease), width 0.5s var(--ease); pointer-events: none; }
-        .tab-btn { position: relative; z-index: 1; appearance: none; background: transparent; border: 0; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: var(--text-dim); padding: 12px 22px; border-radius: 13px; transition: color 0.3s var(--ease), transform 0.3s var(--ease); }
+        .hero h1 em {
+            font-style: italic; font-weight: 600;
+            background: linear-gradient(110deg, var(--teal), var(--teal-deep));
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-dim); font-size: 18px; font-weight: 400;
+            max-width: 580px; margin: 0 auto; line-height: 1.7;
+            animation: riseIn 1s var(--ease) 0.2s both;
+        }
+
+        @keyframes riseIn {
+            from { opacity: 0; transform: translateY(26px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Fluid tab switcher */
+        .tabbar-wrap {
+            position: sticky; top: 86px; z-index: 90; display: flex;
+            justify-content: center; padding: 22px 16px;
+            animation: riseIn 1s var(--ease) 0.3s both;
+        }
+
+        .tabbar {
+            position: relative; display: flex; gap: 4px; padding: 6px;
+            border-radius: 18px; background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--stroke);
+            box-shadow: 0 14px 38px rgba(0, 0, 0, 0.04);
+        }
+
+        .tab-pill {
+            position: absolute; top: 6px; left: 0; height: calc(100% - 12px);
+            border-radius: 13px;
+            background: linear-gradient(135deg, rgba(0, 166, 153, 0.1), rgba(0, 166, 153, 0.05));
+            border: 1px solid rgba(0, 166, 153, 0.2);
+            transition: transform 0.5s var(--ease), width 0.5s var(--ease);
+            pointer-events: none;
+        }
+
+        .tab-btn {
+            position: relative; z-index: 1; appearance: none; background: transparent;
+            border: 0; cursor: pointer; font-family: 'Inter', sans-serif;
+            font-size: 14px; font-weight: 600; color: var(--text-dim);
+            padding: 12px 22px; border-radius: 13px; display: flex;
+            align-items: center; gap: 8px; white-space: nowrap;
+            transition: color 0.3s var(--ease), transform 0.3s var(--ease);
+        }
+
+        .tab-btn:hover { color: var(--text); transform: translateY(-1px); }
         .tab-btn.active { color: var(--teal-deep); font-weight: 700; }
 
+        /* Panels */
         .stage { max-width: 1060px; margin: 0 auto; padding: 8px 24px 110px; }
         .panel { display: none; }
         .panel.active { display: block; animation: panelIn 0.8s var(--ease) both; }
 
-        @keyframes panelIn { from { opacity: 0; transform: translateY(24px); filter: blur(6px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
+        @keyframes panelIn {
+            from { opacity: 0; transform: translateY(24px) scale(0.985); filter: blur(6px); }
+            to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        }
 
         .panel-head { text-align: center; margin: 26px 0 42px; }
-        .panel-head h2 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 4vw, 38px); margin: 0 0 12px; color: var(--text); }
-        .panel-head p { color: var(--text-dim); max-width: 520px; margin: 0 auto; line-height: 1.65; }
+        .panel-head h2 {
+            font-family: 'Playfair Display', serif; font-weight: 700;
+            font-size: clamp(26px, 4vw, 38px); margin: 0 0 12px;
+            letter-spacing: -0.3px; color: var(--text);
+        }
+        .panel-head p { color: var(--text-dim); margin: 0 auto; max-width: 520px; line-height: 1.65; font-size: 15.5px; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        /* Video cards */
+        .grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
+        }
+        
+        /* CINEMATIC FOCUS MODE */
         .grid:hover .card:not(:hover) { opacity: 0.6; transform: scale(0.98); }
 
-        .card { background: var(--bg-soft); border: 1px solid var(--stroke); border-radius: 24px; overflow: hidden; transition: transform 0.6s var(--ease), opacity 0.6s var(--ease), box-shadow 0.6s var(--ease); }
-        .card:hover { transform: translateY(-8px) scale(1.02); z-index: 2; border-color: rgba(0, 166, 153, 0.3); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08), var(--glow); }
+        .card {
+            position: relative; background: var(--bg-soft);
+            border: 1px solid var(--stroke); border-radius: 24px;
+            overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: transform 0.6s var(--ease), opacity 0.6s var(--ease), border-color 0.6s var(--ease), box-shadow 0.6s var(--ease);
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02); z-index: 2;
+            border-color: rgba(0, 166, 153, 0.3); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08), var(--glow);
+        }
 
         .thumb-wrap { position: relative; overflow: hidden; border-bottom: 1px solid var(--stroke-soft); }
-        .card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; transform: scale(1.01); transition: transform 1.2s var(--ease); }
+        .card img {
+            width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block;
+            background-color: #F0F0F0; transform: scale(1.01); transition: transform 1.2s var(--ease);
+        }
         .card:hover img { transform: scale(1.06); }
-        .play-badge { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0.92); width: 62px; height: 62px; border-radius: 50%; display: grid; place-items: center; font-size: 20px; color: #FFFFFF; background: linear-gradient(135deg, var(--teal), var(--teal-deep)); opacity: 0; transition: opacity 0.4s var(--ease), transform 0.4s var(--ease); }
+
+        .play-badge {
+            position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0.92);
+            width: 62px; height: 62px; border-radius: 50%; display: grid; place-items: center;
+            font-size: 20px; color: #FFFFFF;
+            background: linear-gradient(135deg, var(--teal), var(--teal-deep));
+            box-shadow: 0 8px 24px rgba(0, 166, 153, 0.3);
+            opacity: 0; transition: opacity 0.4s var(--ease), transform 0.4s var(--ease); pointer-events: none;
+        }
         .card:hover .play-badge { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 
         .card-content { padding: 28px; text-align: center; }
-        .tag { display: inline-block; background: rgba(0, 166, 153, 0.08); color: var(--teal-deep); font-size: 11px; font-weight: 800; padding: 6px 14px; border-radius: 999px; margin-bottom: 16px; text-transform: uppercase; border: 1px solid rgba(0, 166, 153, 0.15); }
-        .card-title { font-family: 'Playfair Display', serif; font-size: 22px; margin: 0 0 12px; }
+
+        .tag {
+            display: inline-block; background: rgba(0, 166, 153, 0.08);
+            color: var(--teal-deep); font-size: 11px; font-weight: 800;
+            padding: 6px 14px; border-radius: 999px; margin-bottom: 16px;
+            letter-spacing: 1.5px; text-transform: uppercase;
+            border: 1px solid rgba(0, 166, 153, 0.15);
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700;
+            margin: 0 0 12px; line-height: 1.35; color: var(--text);
+        }
+
         .card-desc { font-size: 14.5px; color: var(--text-dim); line-height: 1.65; margin: 0 0 20px; }
-        .price { font-size: 14px; font-weight: 700; color: var(--teal-deep); margin-bottom: 22px; }
+        .price { font-size: 14px; font-weight: 700; letter-spacing: 1px; color: var(--teal-deep); margin-bottom: 22px; }
 
         .btn-group { display: flex; flex-direction: column; gap: 12px; }
-        .btn { padding: 14px 22px; border-radius: 12px; font-weight: 700; text-decoration: none; font-size: 14px; transition: transform 0.4s var(--ease), background 0.4s var(--ease); }
-        .btn-primary { background: var(--text); color: #FFFFFF; }
-        .btn-primary:hover { transform: translateY(-2px); background: #000000; }
+        
+        .btn {
+            display: inline-block; padding: 14px 22px; border-radius: 12px;
+            font-weight: 700; text-decoration: none; font-size: 14px;
+            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), background 0.4s var(--ease), color 0.4s var(--ease);
+        }
+
+        .btn-primary {
+            background: var(--text); color: #FFFFFF;
+            border: 1px solid var(--text);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); background: #000000; }
+
         .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--stroke); }
-        .btn-outline:hover { background: var(--bg); transform: translateY(-2px); }
+        .btn-outline:hover { background: var(--bg); border-color: var(--text); transform: translateY(-2px); }
 
-        /* QUIZ & STORIES CSS SKIPPED TO KEEP CODE CLEAN (Kept original logic) */
-        .quiz-shell { max-width: 660px; margin: 0 auto; background: var(--bg-soft); border: 1px solid var(--stroke); border-radius: 28px; padding: 36px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05); }
-        .story-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 34px; }
-        .story-tab { padding: 11px 20px; border-radius: 999px; border: 1px solid var(--stroke); cursor: pointer; font-weight: 600; background: var(--bg-soft); }
-        .story-tab.active { background: var(--text); color: #FFF; }
-        .story-card { display: none; max-width: 720px; margin: 0 auto; background: var(--bg-soft); border-radius: 28px; padding: 44px; box-shadow: 0 20px 50px rgba(0,0,0,0.04); }
-        .story-card.active { display: block; }
+        /* Quiz engine */
+        .quiz-shell {
+            max-width: 660px; margin: 0 auto; background: var(--bg-soft);
+            border: 1px solid var(--stroke); border-radius: 28px; padding: 36px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05); position: relative; overflow: hidden;
+        }
+        .quiz-meta {
+            display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;
+            font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+        }
+        .quiz-meta .step { color: var(--teal-deep); }
+        .quiz-meta .score { color: var(--text); }
 
-        .footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--stroke); color: var(--text-faint); font-size: 13px; }
+        .quiz-progress {
+            height: 6px; border-radius: 999px; background: var(--stroke-soft); overflow: hidden; margin-bottom: 30px;
+        }
+        .quiz-progress-fill {
+            height: 100%; width: 0%; border-radius: 999px;
+            background: linear-gradient(90deg, var(--teal-deep), var(--teal));
+            transition: width 0.6s var(--ease);
+        }
+
+        .quiz-question { font-family: 'Playfair Display', serif; font-size: clamp(20px, 3vw, 25px); font-weight: 700; margin: 0 0 8px; min-height: 72px; }
+        .quiz-context { font-size: 13.5px; color: var(--text-faint); margin: 0 0 26px; font-style: italic; }
+        
+        .quiz-options { display: flex; flex-direction: column; gap: 12px; }
+        .quiz-option {
+            appearance: none; font-family: 'Inter', sans-serif; text-align: left;
+            font-size: 15px; font-weight: 600; color: var(--text);
+            background: var(--bg); border: 1px solid var(--stroke);
+            border-radius: 16px; padding: 16px 20px; cursor: pointer; display: flex; align-items: center; gap: 14px;
+            transition: transform 0.4s var(--ease), border-color 0.4s var(--ease), background 0.4s var(--ease);
+        }
+
+        .quiz-option .key {
+            flex: 0 0 auto; width: 28px; height: 28px; display: grid; place-items: center;
+            border-radius: 9px; font-size: 12px; font-weight: 800; color: var(--teal-deep);
+            background: rgba(0, 166, 153, 0.08); border: 1px solid rgba(0, 166, 153, 0.15);
+        }
+
+        .quiz-option:hover:not(:disabled) {
+            transform: translateX(6px); border-color: var(--teal); background: rgba(0, 166, 153, 0.03);
+        }
+        .quiz-option:disabled { cursor: default; }
+
+        .quiz-option.correct { border-color: var(--green); background: rgba(52, 199, 89, 0.08); }
+        .quiz-option.correct .key { color: var(--green); border-color: var(--green); background: #FFFFFF; }
+        .quiz-option.incorrect { border-color: var(--red); background: rgba(255, 59, 48, 0.05); }
+        .quiz-option.incorrect .key { color: var(--red); border-color: var(--red); background: #FFFFFF; }
+        .quiz-option.dimmed { opacity: 0.4; }
+
+        .quiz-feedback {
+            margin-top: 22px; font-size: 14px; line-height: 1.65; color: var(--text-dim);
+            background: var(--bg); border-left: 3px solid var(--teal);
+            border-radius: 0 12px 12px 0; padding: 14px 18px;
+            opacity: 0; transform: translateY(8px); transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+        }
+        .quiz-feedback.show { opacity: 1; transform: translateY(0); }
+        .quiz-feedback strong { color: var(--text); }
+
+        .quiz-next {
+            margin-top: 24px; width: 100%; appearance: none; font-family: 'Inter', sans-serif;
+            font-size: 15px; font-weight: 700; padding: 16px; border-radius: 14px; cursor: pointer;
+            color: #FFFFFF; background: var(--text); border: none;
+            opacity: 0; pointer-events: none; transform: translateY(8px);
+            transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+        }
+        .quiz-next.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+        .quiz-next:hover { background: #000000; transform: translateY(-2px); }
+
+        .quiz-result { text-align: center; padding: 26px 6px 10px; }
+        .quiz-result .trophy { font-size: 52px; display: block; margin-bottom: 12px; }
+        .quiz-result h3 { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; margin: 0 0 10px; }
+        .quiz-result .final-score { font-size: 46px; font-weight: 900; color: var(--teal-deep); margin: 6px 0 12px; }
+        .quiz-result p { color: var(--text-dim); line-height: 1.65; margin: 0 0 26px; }
+
+        /* Stories */
+        .story-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 34px; }
+        .story-tab {
+            appearance: none; cursor: pointer; font-family: 'Inter', sans-serif;
+            font-size: 13.5px; font-weight: 600; color: var(--text-dim);
+            background: var(--bg-soft); border: 1px solid var(--stroke);
+            padding: 11px 20px; border-radius: 999px; transition: all 0.4s var(--ease);
+        }
+        .story-tab:hover { color: var(--text); transform: translateY(-2px); border-color: var(--teal); }
+        .story-tab.active { color: #FFFFFF; background: var(--text); border-color: var(--text); }
+
+        .story-card {
+            display: none; max-width: 720px; margin: 0 auto; background: var(--bg-soft);
+            border: 1px solid var(--stroke); border-radius: 28px; padding: 44px clamp(26px, 5vw, 52px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.04);
+        }
+        .story-card.active { display: block; animation: panelIn 0.8s var(--ease) both; }
+
+        .story-kicker { font-size: 11px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--teal-deep); margin-bottom: 14px; }
+        .story-card h3 { font-family: 'Playfair Display', serif; font-size: clamp(24px, 4vw, 32px); font-weight: 700; margin: 0 0 22px; line-height: 1.3; }
+        .story-card p { font-size: 16.5px; line-height: 1.95; color: var(--text-dim); margin: 0 0 20px; font-weight: 400; }
+
+        .vocab {
+            position: relative; cursor: pointer; color: var(--teal-deep); font-weight: 600; font-style: italic;
+            border-bottom: 1px dashed var(--teal); padding-bottom: 1px; transition: color 0.3s var(--ease);
+            -webkit-tap-highlight-color: transparent;
+        }
+        .vocab:hover { color: var(--text); border-bottom-color: var(--text); }
+        .vocab.revealed { color: var(--text); border-bottom-style: solid; }
+
+        .vocab-reveal {
+            display: block; font-style: normal; font-weight: 400; font-size: 14px; line-height: 1.6;
+            color: var(--text-dim); background: var(--bg); border: 1px solid var(--stroke);
+            border-left: 3px solid var(--teal); border-radius: 8px; padding: 0 16px; margin: 0;
+            max-height: 0; opacity: 0; overflow: hidden; transition: all 0.5s var(--ease);
+        }
+        .vocab-reveal.open { max-height: 220px; opacity: 1; padding: 13px 16px; margin: 10px 0 4px; }
+        .vocab-reveal strong { color: var(--text); font-weight: 700; }
+        .vocab-reveal .impact { color: var(--teal-deep); font-weight: 600; }
+
+        .story-hint { text-align: center; font-size: 13px; color: var(--text-faint); margin-bottom: 24px; }
+        .story-hint span { color: var(--teal-deep); font-weight: 600; }
+
+        /* Footer */
+        .footer { text-align: center; padding: 40px 20px 56px; border-top: 1px solid var(--stroke); color: var(--text-faint); font-size: 13px; }
+        .footer .f-logo { font-weight: 800; color: var(--text-dim); letter-spacing: -0.3px; margin-bottom: 8px; }
+        .footer .f-logo span { color: var(--teal); font-weight: 400; }
+
+        /* Responsive */
+        @media (max-width: 560px) {
+            .header { top: 12px; padding: 11px 16px; border-radius: 16px; }
+            .logo { font-size: 14.5px; }
+            .logo .mic { width: 28px; height: 28px; border-radius: 9px; font-size: 13px; }
+            .hero { padding-top: 122px; }
+            .tabbar-wrap { top: 72px; }
+            .quiz-shell, .story-card { padding: 26px 20px; border-radius: 22px; }
+            .card-content { padding: 22px; }
+        }
     </style>
 </head>
 <body>
+
     <div class="ambient"></div>
+
     <header class="header">
         <div class="logo"><span class="mic">🎙️</span> ENGLISH FLOW <span class="brand-light">PODCAST</span></div>
+        <a class="header-cta" href="https://youtu.be/Ydw12US4fxs" target="_blank">Start Free</a>
     </header>
 
     <section class="hero">
@@ -157,87 +445,411 @@
         <nav class="tabbar" id="tabbar">
             <div class="tab-pill" id="tabPill"></div>
             <button class="tab-btn active" data-panel="panel-videos">Video Lessons</button>
+            <button class="tab-btn" data-panel="panel-quiz">Interactive Quizzes</button>
             <button class="tab-btn" data-panel="panel-stories">Vocabulary Stories</button>
         </nav>
     </div>
 
     <main class="stage">
-        <!-- VIDEO PANEL -->
+
         <section class="panel active" id="panel-videos">
             <div class="panel-head">
                 <h2>Free Video Lessons & Guides</h2>
                 <p>Watch free lessons and download companion guides to study useful phrases from English Flow Podcast.</p>
             </div>
             
-            <!-- JS WILL AUTOMATICALLY INJECT VIDEOS HERE -->
-            <div class="grid" id="auto-video-grid"></div>
+            <div class="grid">
+
+                <article class="card" id="new-video">
+                    <div class="thumb-wrap">
+                        <img src="https://img.youtube.com/vi/oNvM8YVt7Yk/maxresdefault.jpg" alt="New Video Thumbnail">
+                        <div class="play-badge">▶</div>
+                    </div>
+                    <div class="card-content">
+                        <span class="tag">New Release</span>
+                        <h2 class="card-title">The Latest Masterclass</h2>
+                        <p class="card-desc">Download the exclusive PDF guide that goes with our newest YouTube release.</p>
+                        <div class="price">$0 Forever Free</div>
+                        <div class="btn-group">
+                            <a href="new-video-guide.pdf" download class="btn btn-primary">⬇ Download PDF Guide</a>
+                            <a href="https://youtu.be/oNvM8YVt7Yk" target="_blank" class="btn btn-outline">▶ Watch Video</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="thumb-wrap">
+                        <img src="https://img.youtube.com/vi/i4djUcQAgNU/maxresdefault.jpg" alt="Morning Routine Thumbnail">
+                        <div class="play-badge">▶</div>
+                    </div>
+                    <div class="card-content">
+                        <span class="tag">Free Guide</span>
+                        <h2 class="card-title">My Productive Morning Routine</h2>
+                        <p class="card-desc">Download the free companion PDF and watch the full English listening lesson.</p>
+                        <div class="price">$0 Forever Free</div>
+                        <div class="btn-group">
+                            <a href="english_flow_podcast_guide.pdf" download class="btn btn-primary">⬇ Download PDF</a>
+                            <a href="https://youtu.be/i4djUcQAgNU" target="_blank" class="btn btn-outline">▶ Watch Video</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="thumb-wrap">
+                        <img src="free-product-thumbnail.png" alt="Free English Flow Podcast Lesson Thumbnail" onerror="this.src='https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600&auto=format&fit=crop'">
+                        <div class="play-badge">▶</div>
+                    </div>
+                    <div class="card-content">
+                        <span class="tag">Free Product</span>
+                        <h2 class="card-title">Free English Listening Lesson</h2>
+                        <p class="card-desc">A free English Flow Podcast lesson to help you listen, learn useful phrases, and improve daily English.</p>
+                        <div class="price">$0 Instant Access</div>
+                        <div class="btn-group">
+                            <a href="https://youtu.be/Ydw12US4fxs" target="_blank" class="btn btn-primary">▶ Get Free Access</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
         </section>
 
-        <!-- STORIES PANEL -->
+        <section class="panel" id="panel-quiz">
+            <div class="panel-head">
+                <h2>The Flow Challenge</h2>
+                <p>Five precision-built questions for ambitious learners. Instant feedback, zero fluff.</p>
+            </div>
+            
+            <div class="quiz-shell">
+                <div id="quizActive">
+                    <div class="quiz-meta">
+                        <span class="step" id="quizStep">Question 1 / 5</span>
+                        <span class="score" id="quizScore">Score: 0</span>
+                    </div>
+                    <div class="quiz-progress"><div class="quiz-progress-fill" id="quizBar"></div></div>
+                    <h3 class="quiz-question" id="quizQuestion"></h3>
+                    <p class="quiz-context" id="quizContext"></p>
+                    <div class="quiz-options" id="quizOptions"></div>
+                    <div class="quiz-feedback" id="quizFeedback"></div>
+                    <button class="quiz-next" id="quizNext">Next Question ➔</button>
+                </div>
+                
+                <div class="quiz-result" id="quizResult" style="display:none;">
+                    <span class="trophy" id="resultEmoji"></span>
+                    <h3 id="resultTitle">Flawless Flow!</h3>
+                    <div class="final-score" id="resultScore">5 / 5</div>
+                    <p id="resultMessage"></p>
+                    <button class="quiz-next show" id="quizRestart" style="opacity:1; pointer-events:auto; transform:none;">↻ Retake the Challenge</button>
+                </div>
+            </div>
+        </section>
+
         <section class="panel" id="panel-stories">
             <div class="panel-head">
                 <h2>Immersive Vocabulary Stories</h2>
+                <p>Deep narratives that plant advanced vocabulary in your long-term memory through context and emotion.</p>
             </div>
+            <p class="story-hint">Tap any <span>glowing phrase</span> to reveal its meaning and psychological impact.</p>
+            
             <div class="story-tabs" id="storyTabs">
                 <button class="story-tab active" data-story="story-1">The Lighthouse Keeper</button>
+                <button class="story-tab" data-story="story-2">The Interview</button>
+                <button class="story-tab" data-story="story-3">The Night Market</button>
             </div>
+
             <article class="story-card active" id="story-1">
+                <div class="story-kicker">Story I • Solitude & Resolve</div>
                 <h3>The Lighthouse Keeper</h3>
-                <p>For thirty years, Elias kept the lamp burning... a cinematic test of resolve.</p>
+                <p>
+                    For thirty years, Elias kept the lamp burning on a rock the maps barely acknowledged. Visitors assumed his life was lonely, but Elias had learned to
+                    <span class="vocab" data-meaning="To accept or tolerate something unpleasant without complaint." data-impact="Signals quiet emotional strength far more powerful than saying 'put up with'.">endure</span><span class="vocab-reveal"></span>
+                    the silence until it became a companion. Each evening, as the fog
+                    <span class="vocab" data-meaning="To move in slowly and quietly, almost unnoticed." data-impact="Creates suspense; makes the listener feel the slow approach of something inevitable.">crept in</span><span class="vocab-reveal"></span>
+                    from the cold Atlantic, he would climb the spiral stairs with a
+                    <span class="vocab" data-meaning="Firm determination to do something, even when it is difficult." data-impact="A word interviewers and leaders love; it frames persistence as identity.">steadfast resolve</span><span class="vocab-reveal"></span>
+                    that no storm had ever broken.
+                </p>
+                <p>
+                    One winter night, a freighter lost power two miles offshore. The radio crackled with panic, but Elias remained
+                    <span class="vocab" data-meaning="Calm and composed, especially in a difficult situation." data-impact="Describes grace under pressure—the trait every high performer wants attached to their name.">unflappable</span><span class="vocab-reveal"></span>.
+                    He had rehearsed this moment in his mind a thousand times, and when it finally arrived, his hands did not
+                    <span class="vocab" data-meaning="To hesitate or lose strength or courage." data-impact="The negative form, 'did not falter', is a classic rhetorical move that amplifies confidence.">falter</span><span class="vocab-reveal"></span>.
+                    By dawn, twelve sailors stood on his rock, alive. And Elias, as always, simply made tea.
+                </p>
+            </article>
+
+            <article class="story-card" id="story-2">
+                <div class="story-kicker">Story II • Ambition & Nerve</div>
+                <h3>The Interview</h3>
+                <p>
+                    Amira had prepared for weeks, yet the moment she entered the glass tower, doubt began to
+                    <span class="vocab" data-meaning="To weaken or damage something gradually, often secretly." data-impact="Perfect for describing invisible forces—self-doubt, gossip, bad habits—eroding success.">undermine</span><span class="vocab-reveal"></span>
+                    her confidence. The interviewer's first question was deliberately vague, a test to see if she would ramble. Instead, she gave a
+                    <span class="vocab" data-meaning="Brief and clearly expressed; no wasted words." data-impact="Saying someone is 'concise' is elite praise in business English—it means they respect your time.">concise</span><span class="vocab-reveal"></span>
+                    answer that landed like a closed door clicking perfectly into its frame.
+                </p>
+                <p>
+                    "Most candidates," the interviewer admitted, "try to
+                    <span class="vocab" data-meaning="To make something seem better or more impressive than it really is." data-impact="Recognizing this word protects you—it is the vocabulary of spotting exaggeration.">embellish</span><span class="vocab-reveal"></span>
+                    their achievements. You didn't." Amira smiled. She knew that genuine
+                    <span class="vocab" data-meaning="The quality of being honest and having strong moral principles." data-impact="One of the most respected words in English—it describes character that cannot be bought.">integrity</span><span class="vocab-reveal"></span>
+                    was rarer than talent, and that the quiet truth always
+                    <span class="vocab" data-meaning="To be more powerful or important than something else." data-impact="A sophisticated alternative to 'beats' or 'is better than'—instantly elevates your speech.">outweighs</span><span class="vocab-reveal"></span>
+                    a loud performance.
+                </p>
+            </article>
+
+            <article class="story-card" id="story-3">
+                <div class="story-kicker">Story III • Wonder & Memory</div>
+                <h3>The Night Market</h3>
+                <p>
+                    The market only appeared after midnight, its lanterns casting an
+                    <span class="vocab" data-meaning="Strange and mysterious in a way that feels almost supernatural." data-impact="A cinematic word—using it instantly paints atmosphere the way 'weird' never could.">eerie</span><span class="vocab-reveal"></span>
+                    amber glow over streets that were empty an hour before. Tomas wandered between the stalls, where the smell of caramelized ginger was so
+                    <span class="vocab" data-meaning="Impossible to resist; extremely tempting." data-impact="Describes desire with elegance—useful for food, ideas, offers, and people.">irresistible</span><span class="vocab-reveal"></span>
+                    that strangers stopped mid-sentence just to breathe it in.
+                </p>
+                <p>
+                    An old woman sold memories in glass jars—or so her sign claimed. "Most people," she said, "let their best moments
+                    <span class="vocab" data-meaning="To gradually disappear or become weaker." data-impact="A gentle, poetic verb for loss—it makes listeners feel time slipping away.">fade</span><span class="vocab-reveal"></span>.
+                    I simply teach them to pay attention." Tomas bought nothing, yet walked home feeling strangely
+                    <span class="vocab" data-meaning="Filled with energy, life, and renewed strength." data-impact="The perfect word after rest, inspiration, or a breakthrough—it signals transformation.">invigorated</span><span class="vocab-reveal"></span>,
+                    as if the night itself had handed him a jar and whispered: <em>notice everything</em>.
+                </p>
             </article>
         </section>
     </main>
 
-    <footer class="footer">ENGLISH FLOW PODCAST</footer>
-
-    <!-- INJECTING YOUR DATABASE -->
-    <script src="videos.js"></script>
+    <footer class="footer">
+        <div class="f-logo">ENGLISH FLOW <span>PODCAST</span></div>
+        Free lessons, guides & tools crafted for ambitious English learners.
+    </footer>
 
     <script>
-        // THIS SCRIPT MAKES YOUR WEBSITE AUTOMATIC
-        window.onload = function() {
-            const grid = document.getElementById('auto-video-grid');
-            if(typeof VIDEO_DATA !== 'undefined') {
-                let html = '';
-                VIDEO_DATA.forEach((video, index) => {
-                    let tagText = index === 0 ? "New Release" : "Free Guide";
-                    html += `
-                    <article class="card" id="${video.anchor}">
-                        <div class="thumb-wrap">
-                            <img src="https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg" alt="Video Thumbnail">
-                            <div class="play-badge">▶</div>
-                        </div>
-                        <div class="card-content">
-                            <span class="tag">${tagText}</span>
-                            <h2 class="card-title">${video.title}</h2>
-                            <p class="card-desc">${video.description}</p>
-                            <div class="price">$0 Forever Free</div>
-                            <div class="btn-group">
-                                <a href="${video.pdfName}" download class="btn btn-primary">⬇ Download PDF Guide</a>
-                                <a href="https://youtu.be/${video.youtubeId}" target="_blank" class="btn btn-outline">▶ Watch Video</a>
-                            </div>
-                        </div>
-                    </article>`;
-                });
-                grid.innerHTML = html;
-            }
+        (function () {
+            'use strict';
 
-            // Simple Tab Switcher
-            var tabButtons = document.querySelectorAll('.tab-btn');
-            var panels = document.querySelectorAll('.panel');
+            /* ============ Fluid tab switcher ============ */
+            var tabbar = document.getElementById('tabbar');
             var pill = document.getElementById('tabPill');
+            var tabButtons = Array.prototype.slice.call(tabbar.querySelectorAll('.tab-btn'));
+            var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
 
-            function activateTab(btn) {
-                tabButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                panels.forEach(p => p.classList.remove('active'));
-                document.getElementById(btn.getAttribute('data-panel')).classList.add('active');
+            function movePill(btn) {
                 pill.style.width = btn.offsetWidth + 'px';
                 pill.style.transform = 'translateX(' + btn.offsetLeft + 'px)';
             }
-            tabButtons.forEach(btn => btn.addEventListener('click', () => activateTab(btn)));
-            if(tabButtons.length > 0) activateTab(tabButtons[0]);
-        };
+
+            function activateTab(btn) {
+                tabButtons.forEach(function (b) { b.classList.toggle('active', b === btn); });
+                panels.forEach(function (p) {
+                    p.classList.toggle('active', p.id === btn.getAttribute('data-panel'));
+                });
+                movePill(btn);
+            }
+
+            tabButtons.forEach(function (btn) {
+                btn.addEventListener('click', function () { activateTab(btn); });
+            });
+
+            window.addEventListener('resize', function () {
+                var active = tabbar.querySelector('.tab-btn.active');
+                if (active) movePill(active);
+            });
+
+            window.addEventListener('load', function () { movePill(tabButtons[0]); });
+            movePill(tabButtons[0]);
+
+            /* ============ Quiz engine ============ */
+            var quizData = [
+                {
+                    question: 'She delivered her argument with such conviction that even her critics began to _______ their position.',
+                    context: 'Advanced verb choice • formal debate register',
+                    options: ['reconsider', 'reconcile', 'replicate', 'reprimand'],
+                    answer: 0,
+                    feedback: '<strong>Reconsider</strong> means to think again and possibly change your opinion. "Reconcile" means to restore harmony, "replicate" means to copy, and "reprimand" means to scold.'
+                },
+                {
+                    question: 'Choose the sentence with flawless grammar:',
+                    context: 'Subjunctive mood • the mark of polished English',
+                    options: [
+                        'If I was the CEO, I would change the policy.',
+                        'If I were the CEO, I would change the policy.',
+                        'If I am the CEO, I would change the policy.',
+                        'If I would be the CEO, I will change the policy.'
+                    ],
+                    answer: 1,
+                    feedback: 'Hypothetical conditions use the subjunctive: <strong>"If I were..."</strong> Native professionals notice this detail instantly—it signals mastery.'
+                },
+                {
+                    question: 'The startup\'s growth was nothing short of meteoric. What does <em>meteoric</em> imply?',
+                    context: 'Idiomatic metaphor • business English',
+                    options: [
+                        'Slow and steady, like a planet\'s orbit',
+                        'Unstable and likely to fail',
+                        'Extremely rapid and dramatic',
+                        'Driven by outside investment'
+                    ],
+                    answer: 2,
+                    feedback: '<strong>Meteoric</strong> describes a sudden, spectacular rise—like a meteor streaking across the sky. It says nothing about stability or funding.'
+                },
+                {
+                    question: 'Your colleague says: "Let\'s not reinvent the wheel." What are they suggesting?',
+                    context: 'Workplace idiom • meetings & collaboration',
+                    options: [
+                        'The current process should be redesigned from zero',
+                        'Use an existing solution instead of creating a new one',
+                        'The project requires more innovative thinking',
+                        'Transportation costs should be reduced'
+                    ],
+                    answer: 1,
+                    feedback: '<strong>"Don\'t reinvent the wheel"</strong> means a good solution already exists—duplicating that effort wastes time. It is one of the most common idioms in professional meetings.'
+                },
+                {
+                    question: 'Which word best completes this nuance: "His apology felt polite on the surface, but empty underneath."',
+                    context: 'Precision vocabulary • reading between the lines',
+                    options: ['heartfelt', 'perfunctory', 'eloquent', 'audacious'],
+                    answer: 1,
+                    feedback: '<strong>Perfunctory</strong> means done as a routine duty, without real feeling or effort. "Heartfelt" is the opposite; "eloquent" means beautifully expressed; "audacious" means bold.'
+                }
+            ];
+
+            var qIndex = 0;
+            var score = 0;
+            var keys = ['A', 'B', 'C', 'D'];
+
+            var elStep = document.getElementById('quizStep');
+            var elScore = document.getElementById('quizScore');
+            var elBar = document.getElementById('quizBar');
+            var elQuestion = document.getElementById('quizQuestion');
+            var elContext = document.getElementById('quizContext');
+            var elOptions = document.getElementById('quizOptions');
+            var elFeedback = document.getElementById('quizFeedback');
+            var elNext = document.getElementById('quizNext');
+            var elActive = document.getElementById('quizActive');
+            var elResult = document.getElementById('quizResult');
+
+            function renderQuestion() {
+                var q = quizData[qIndex];
+                elStep.textContent = 'Question ' + (qIndex + 1) + ' / ' + quizData.length;
+                elScore.textContent = 'Score: ' + score;
+                elBar.style.width = (qIndex / quizData.length * 100) + '%';
+                
+                elQuestion.innerHTML = q.question;
+                elContext.textContent = q.context;
+                
+                elFeedback.classList.remove('show');
+                elFeedback.innerHTML = '';
+                elNext.classList.remove('show');
+                elNext.textContent = (qIndex === quizData.length - 1) ? 'See My Results ➔' : 'Next Question ➔';
+                
+                elOptions.innerHTML = '';
+                q.options.forEach(function (opt, i) {
+                    var btn = document.createElement('button');
+                    btn.className = 'quiz-option';
+                    btn.innerHTML = '<span class="key">' + keys[i] + '</span><span>' + opt + '</span>';
+                    btn.addEventListener('click', function () { selectOption(i, btn); });
+                    elOptions.appendChild(btn);
+                });
+            }
+
+            function selectOption(i, btn) {
+                var q = quizData[qIndex];
+                var buttons = Array.prototype.slice.call(elOptions.children);
+                buttons.forEach(function (b) { b.disabled = true; });
+
+                if (i === q.answer) {
+                    score++;
+                    btn.classList.add('correct');
+                    elFeedback.innerHTML = '✨ <strong>Correct.</strong> ' + q.feedback;
+                } else {
+                    btn.classList.add('incorrect');
+                    buttons[q.answer].classList.add('correct');
+                    elFeedback.innerHTML = '❌ <strong>Not quite.</strong> ' + q.feedback;
+                }
+
+                buttons.forEach(function (b, idx) {
+                    if (idx !== i && idx !== q.answer) b.classList.add('dimmed');
+                });
+
+                elScore.textContent = 'Score: ' + score;
+                elBar.style.width = ((qIndex + 1) / quizData.length * 100) + '%';
+                elFeedback.classList.add('show');
+                elNext.classList.add('show');
+            }
+
+            function showResult() {
+                elActive.style.display = 'none';
+                elResult.style.display = 'block';
+                var pct = score / quizData.length;
+                document.getElementById('resultScore').textContent = score + ' / ' + quizData.length;
+                
+                var emoji = document.getElementById('resultEmoji');
+                var title = document.getElementById('resultTitle');
+                var msg = document.getElementById('resultMessage');
+
+                if (pct === 1) {
+                    emoji.textContent = '🏆';
+                    title.textContent = 'Flawless Flow!';
+                    msg.textContent = 'Perfect score. Your English instincts are operating at an elite level—keep feeding them with our lessons.';
+                } else if (pct >= 0.6) {
+                    emoji.textContent = '🔥';
+                    title.textContent = 'Impressive Momentum';
+                    msg.textContent = 'Strong performance. Review the explanations above, then dive into the Vocabulary Stories to close the gap.';
+                } else {
+                    emoji.textContent = '🌱';
+                    title.textContent = 'Your Journey Begins';
+                    msg.textContent = 'Every expert started exactly here. Watch the free video lessons, read the stories, and retake the challenge—growth is inevitable.';
+                }
+            }
+
+            elNext.addEventListener('click', function () {
+                if (qIndex < quizData.length - 1) {
+                    qIndex++;
+                    renderQuestion();
+                } else {
+                    showResult();
+                }
+            });
+
+            document.getElementById('quizRestart').addEventListener('click', function () {
+                qIndex = 0; score = 0;
+                elResult.style.display = 'none';
+                elActive.style.display = 'block';
+                renderQuestion();
+            });
+
+            renderQuestion();
+
+            /* ============ Story tabs ============ */
+            var storyTabs = Array.prototype.slice.call(document.querySelectorAll('.story-tab'));
+            var storyCards = Array.prototype.slice.call(document.querySelectorAll('.story-card'));
+
+            storyTabs.forEach(function (tab) {
+                tab.addEventListener('click', function () {
+                    storyTabs.forEach(function (t) { t.classList.toggle('active', t === tab); });
+                    storyCards.forEach(function (c) {
+                        c.classList.toggle('active', c.id === tab.getAttribute('data-story'));
+                    });
+                });
+            });
+
+            /* ============ Tappable vocabulary reveals ============ */
+            var vocabWords = Array.prototype.slice.call(document.querySelectorAll('.vocab'));
+            
+            vocabWords.forEach(function (word) {
+                var reveal = word.nextElementSibling;
+                reveal.innerHTML = '<strong>"' + word.textContent.trim() + '"</strong> - ' + 
+                                   word.getAttribute('data-meaning') + 
+                                   '<br><span class="impact">Why it matters:</span> ' + 
+                                   word.getAttribute('data-impact');
+                
+                word.addEventListener('click', function () {
+                    var isOpen = reveal.classList.contains('open');
+                    reveal.classList.toggle('open', !isOpen);
+                    word.classList.toggle('revealed', !isOpen);
+                });
+            });
+        })();
     </script>
 </body>
 </html>
