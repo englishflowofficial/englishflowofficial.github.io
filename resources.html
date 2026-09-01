@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EnglishFlow — Interactive Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <!-- pdf library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="nav-wrap">
+      <a href="index.html" class="brand">
+        <div class="brand-title">EnglishFlow <span>RESOURCES</span></div>
+      </a>
+      <button class="btn-3d btn-primary" onclick="exportToPDF()">⬇️ Export to PDF</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <div id="pdf-content" style="background:#fff; padding:30px; border-radius:16px;">
+      <h1 class="hero-title" style="margin-bottom:10px;">12 English Tenses <span>Simplified</span></h1>
+      <p class="hero-sub">The ultimate cheat sheet for mastering time in English.</p>
+      
+      <div class="card" style="margin-bottom:20px; border-color:var(--secondary);">
+        <h3 class="card-heading">📺 Companion Video Lesson</h3>
+        <!-- English Flow Podcast video embed -->
+        <iframe width="100%" height="450" src="https://www.youtube.com/embed/HF-N541LsHg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius:12px; margin-top:14px;"></iframe>
+      </div>
+
+      <div class="grid-2-col">
+        <div class="card">
+          <h3 class="card-heading">Past Simple</h3>
+          <p style="margin-top:10px;">Used for completed actions.</p>
+          <div style="background:#F8FAFB; padding:10px; border-left:4px solid var(--secondary); margin-top:10px;">"I <strong>went</strong> to the store yesterday."</div>
+        </div>
+        <div class="card">
+          <h3 class="card-heading">Present Perfect</h3>
+          <p style="margin-top:10px;">Used for actions that started in the past and continue to the present.</p>
+          <div style="background:#F8FAFB; padding:10px; border-left:4px solid var(--primary); margin-top:10px;">"I <strong>have lived</strong> here for 5 years."</div>
+        </div>
+      </div>
+    </div>
+    
+    <div style="margin-top:40px; text-align:center;">
+       <button class="btn-3d btn-secondary" onclick="window.location.href='index.html'">🔙 Back to Home</button>
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+  <script>
+    window.exportToPDF = function() {
+      const element = document.getElementById('pdf-content');
+      if (!element || typeof html2pdf === 'undefined') {
+        window.print();
+        return;
+      }
+      const opt = {
+        margin:       1,
+        filename:     'englishflow-resource.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
+    };
+  </script>
+</body>
+</html>

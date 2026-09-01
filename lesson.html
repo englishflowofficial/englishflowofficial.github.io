@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EnglishFlow — Lesson</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="nav-wrap">
+      <a href="index.html" class="brand">
+        <div class="brand-title">EnglishFlow <span>LESSON</span></div>
+      </a>
+      <div class="header-stats">
+        <div class="stat-pill stat-xp"><span>⚡</span> <span id="user-xp-text">... XP</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container" style="max-width: 800px; margin: 40px auto;">
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-heading" id="lesson-title">Active Lesson</h2>
+        <span class="card-chip">MODULE 1</span>
+      </div>
+      
+      <!-- English Flow Podcast Video Embed -->
+      <iframe width="100%" height="400" src="https://www.youtube.com/embed/videoseries?list=PLvG3-5pWk_T1QZ3L6nO055MstJ3o2c-9B" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius:16px; margin-bottom:20px;"></iframe>
+      
+      <h3 style="margin-bottom: 10px; font-weight:800;">Lesson Notes: Be, Been & Being Explained Simply</h3>
+      <div style="background:#F8FAFB; padding:20px; border-radius:16px; border:2px solid var(--border); margin-bottom:24px; color:var(--text-sub); line-height:1.6;">
+        <p>In this session, brought to you by the <strong>English Flow Podcast</strong>, we practice understanding when to use "be", "been", and "being" in natural conversations.</p>
+        <br>
+        <p><strong>Pro Tip:</strong> Try to mimic the pronunciation out loud after the speaker finishes a sentence. Shadowing builds muscle memory. Subscribe to <a href="https://youtube.com/@englishflowpodcastt?si=rEx1unxiJ0zSEudK" target="_blank" style="color: #0284c7; font-weight: bold;">@englishflowpodcastt</a> for more!</p>
+      </div>
+
+      <button class="btn-3d btn-primary" style="width:100%; font-size:1.1rem; padding:16px;" onclick="completeLesson()">
+        ✅ Complete Lesson (+50 XP)
+      </button>
+    </div>
+    
+    <!-- Comments Section for the lesson -->
+    <section class="comments-section" style="margin-top: 24px;">
+      <div class="card-header">
+        <div class="card-heading"><span>💬</span> Lesson Discussion</div>
+      </div>
+      <div class="comment-input-area">
+        <input type="text" id="comment-input" placeholder="Ask a question about this lesson..." />
+        <button class="btn-3d btn-secondary" onclick="submitComment()">Post</button>
+      </div>
+      <div class="comments-list" id="comments-list"></div>
+    </section>
+  </div>
+
+  <script type="module" src="main.js"></script>
+  <script>
+    function completeLesson() {
+      if(window.addXP) {
+        window.addXP(50);
+        alert("🎉 Lesson completed! You earned 50 XP. Keep up the great work.");
+        window.location.href = "index.html";
+      }
+    }
+  </script>
+</body>
+</html>

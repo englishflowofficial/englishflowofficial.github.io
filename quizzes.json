@@ -1,0 +1,602 @@
+[
+  {
+    "question": "She has been waiting for the bus _____ more than two hours.",
+    "category": "Prepositions of Time",
+    "options": [
+      "since",
+      "for",
+      "from",
+      "during"
+    ],
+    "answer": 1,
+    "explanation": "Use 'for' with a duration. (Question 1)"
+  },
+  {
+    "question": "If I _____ his phone number, I would call him right now.",
+    "category": "Common Spoken Errors",
+    "options": [
+      "know",
+      "knew",
+      "have known",
+      "will know"
+    ],
+    "answer": 1,
+    "explanation": "Second conditional uses simple past. (Question 2)"
+  },
+  {
+    "question": "Neither of the team members _____ ready to present.",
+    "category": "Conditionals",
+    "options": [
+      "is",
+      "are",
+      "were",
+      "have been"
+    ],
+    "answer": 0,
+    "explanation": "'Neither' is singular. (Question 3)"
+  },
+  {
+    "question": "What is the antonym of the word 'Reluctant'?",
+    "category": "Subject-Verb Agreement",
+    "options": [
+      "Hesitant",
+      "Willing",
+      "Doubtful",
+      "Cautious"
+    ],
+    "answer": 1,
+    "explanation": "Reluctant means unwilling. (Question 4)"
+  },
+  {
+    "question": "I look forward to _____ you soon.",
+    "category": "Vocabulary Mastery",
+    "options": [
+      "see",
+      "seeing",
+      "saw",
+      "be seeing"
+    ],
+    "answer": 1,
+    "explanation": "'Look forward to' is followed by a gerund. (Question 5)"
+  },
+  {
+    "question": "He is interested _____ learning new languages.",
+    "category": "Prepositions of Time",
+    "options": [
+      "on",
+      "in",
+      "at",
+      "about"
+    ],
+    "answer": 1,
+    "explanation": "The adjective 'interested' is followed by 'in'. (Question 6)"
+  },
+  {
+    "question": "By this time next year, she _____ her degree.",
+    "category": "Common Spoken Errors",
+    "options": [
+      "will finish",
+      "will have finished",
+      "finishes",
+      "would finish"
+    ],
+    "answer": 1,
+    "explanation": "Future perfect is used for actions completed by a certain future time. (Question 7)"
+  },
+  {
+    "question": "The company _____ its new product yesterday.",
+    "category": "Conditionals",
+    "options": [
+      "launched",
+      "launches",
+      "has launched",
+      "was launched"
+    ],
+    "answer": 0,
+    "explanation": "Simple past is used for completed actions in the past. (Question 8)"
+  },
+  {
+    "question": "_____ you mind opening the window?",
+    "category": "Subject-Verb Agreement",
+    "options": [
+      "Should",
+      "Could",
+      "Would",
+      "May"
+    ],
+    "answer": 2,
+    "explanation": "Use 'Would you mind' for polite requests. (Question 9)"
+  },
+  {
+    "question": "She _____ to the gym three times a week.",
+    "category": "Vocabulary Mastery",
+    "options": [
+      "go",
+      "goes",
+      "is going",
+      "has gone"
+    ],
+    "answer": 1,
+    "explanation": "Simple present for habits and routines. (Question 10)"
+  },
+  {
+    "question": "[Practice 11] She has been waiting for the bus _____ more than two hours.",
+    "category": "Prepositions of Time",
+    "options": [
+      "since",
+      "for",
+      "from",
+      "during"
+    ],
+    "answer": 1,
+    "explanation": "Use 'for' with a duration. (Question 11)"
+  },
+  {
+    "question": "[Practice 12] If I _____ his phone number, I would call him right now.",
+    "category": "Common Spoken Errors",
+    "options": [
+      "know",
+      "knew",
+      "have known",
+      "will know"
+    ],
+    "answer": 1,
+    "explanation": "Second conditional uses simple past. (Question 12)"
+  },
+  {
+    "question": "[Practice 13] Neither of the team members _____ ready to present.",
+    "category": "Conditionals",
+    "options": [
+      "is",
+      "are",
+      "were",
+      "have been"
+    ],
+    "answer": 0,
+    "explanation": "'Neither' is singular. (Question 13)"
+  },
+  {
+    "question": "[Practice 14] What is the antonym of the word 'Reluctant'?",
+    "category": "Subject-Verb Agreement",
+    "options": [
+      "Hesitant",
+      "Willing",
+      "Doubtful",
+      "Cautious"
+    ],
+    "answer": 1,
+    "explanation": "Reluctant means unwilling. (Question 14)"
+  },
+  {
+    "question": "[Practice 15] I look forward to _____ you soon.",
+    "category": "Vocabulary Mastery",
+    "options": [
+      "see",
+      "seeing",
+      "saw",
+      "be seeing"
+    ],
+    "answer": 1,
+    "explanation": "'Look forward to' is followed by a gerund. (Question 15)"
+  },
+  {
+    "question": "[Practice 16] He is interested _____ learning new languages.",
+    "category": "Prepositions of Time",
+    "options": [
+      "on",
+      "in",
+      "at",
+      "about"
+    ],
+    "answer": 1,
+    "explanation": "The adjective 'interested' is followed by 'in'. (Question 16)"
+  },
+  {
+    "question": "[Practice 17] By this time next year, she _____ her degree.",
+    "category": "Common Spoken Errors",
+    "options": [
+      "will finish",
+      "will have finished",
+      "finishes",
+      "would finish"
+    ],
+    "answer": 1,
+    "explanation": "Future perfect is used for actions completed by a certain future time. (Question 17)"
+  },
+  {
+    "question": "[Practice 18] The company _____ its new product yesterday.",
+    "category": "Conditionals",
+    "options": [
+      "launched",
+      "launches",
+      "has launched",
+      "was launched"
+    ],
+    "answer": 0,
+    "explanation": "Simple past is used for completed actions in the past. (Question 18)"
+  },
+  {
+    "question": "[Practice 19] _____ you mind opening the window?",
+    "category": "Subject-Verb Agreement",
+    "options": [
+      "Should",
+      "Could",
+      "Would",
+      "May"
+    ],
+    "answer": 2,
+    "explanation": "Use 'Would you mind' for polite requests. (Question 19)"
+  },
+  {
+    "question": "[Practice 20] She _____ to the gym three times a week.",
+    "category": "Vocabulary Mastery",
+    "options": [
+      "go",
+      "goes",
+      "is going",
+      "has gone"
+    ],
+    "answer": 1,
+    "explanation": "Simple present for habits and routines. (Question 20)"
+  },
+  {
+    "question": "[Practice 21] She has been waiting for the bus _____ more than two hours.",
+    "category": "Prepositions of Time",
+    "options": [
+      "since",
+      "for",
+      "from",
+      "during"
+    ],
+    "answer": 1,
+    "explanation": "Use 'for' with a duration. (Question 21)"
+  },
+  {
+    "question": "[Practice 22] If I _____ his phone number, I would call him right now.",
+    "category": "Common Spoken Errors",
+    "options": [
+      "know",
+      "knew",
+      "have known",
+      "will know"
+    ],
+    "answer": 1,
+    "explanation": "Second conditional uses simple past. (Question 22)"
+  },
+  {
+    "question": "[Practice 23] Neither of the team members _____ ready to present.",
+    "category": "Conditionals",
+    "options": [
+      "is",
+      "are",
+      "were",
+      "have been"
+    ],
+    "answer": 0,
+    "explanation": "'Neither' is singular. (Question 23)"
+  },
+  {
+    "question": "[Practice 24] What is the antonym of the word 'Reluctant'?",
+    "category": "Subject-Verb Agreement",
+    "options": [
+      "Hesitant",
+      "Willing",
+      "Doubtful",
+      "Cautious"
+    ],
+    "answer": 1,
+    "explanation": "Reluctant means unwilling. (Question 24)"
+  },
+  {
+    "question": "[Practice 25] I look forward to _____ you soon.",
+    "category": "Vocabulary Mastery",
+    "options": [
+      "see",
+      "seeing",
+      "saw",
+      "be seeing"
+    ],
+    "answer": 1,
+    "explanation": "'Look forward to' is followed by a gerund. (Question 25)"
+  },
+  {
+    "question": "[Practice 26] He is interested _____ learning new languages.",
+    "category": "Prepositions of Time",
+    "options": [
+      "on",
+      "in",
+      "at",
+      "about"
+    ],
+    "answer": 1,
+    "explanation": "The adjective 'interested' is followed by 'in'. (Question 26)"
+  },
+  {
+    "question": "[Practice 27] By this time next year, she _____ her degree.",
+    "category": "Common Spoken Errors",
+    "options": [
+      "will finish",
+      "will have finished",
+      "finishes",
+      "would finish"
+    ],
+    "answer": 1,
+    "explanation": "Future perfect is used for actions completed by a certain future time. (Question 27)"
+  },
+  {
+    "question": "[Practice 28] The company _____ its new product yesterday.",
+    "category": "Conditionals",
+    "options": [
+      "launched",
+      "launches",
+      "has launched",
+      "was launched"
+    ],
+    "answer": 0,
+    "explanation": "Simple past is used for completed actions in the past. (Question 28)"
+  },
+  {
+    "question": "[Practice 29] _____ you mind opening the window?",
+    "category": "Subject-Verb Agreement",
+    "options": [
+      "Should",
+      "Could",
+      "Would",
+      "May"
+    ],
+    "answer": 2,
+    "explanation": "Use 'Would you mind' for polite requests. (Question 29)"
+  },
+  {
+    "question": "[Practice 30] She _____ to the gym three times a week.",
+    "category": "Vocabulary Mastery",
+    "options": [
+      "go",
+      "goes",
+      "is going",
+      "has gone"
+    ],
+    "answer": 1,
+    "explanation": "Simple present for habits and routines. (Question 30)"
+  },
+  {
+    "question": "[Practice 31] She has been waiting for the bus _____ more than two hours.",
+    "category": "Prepositions of Time",
+    "options": [
+      "since",
+      "for",
+      "from",
+      "during"
+    ],
+    "answer": 1,
+    "explanation": "Use 'for' with a duration. (Question 31)"
+  },
+  {
+    "question": "[Practice 32] If I _____ his phone number, I would call him right now.",
+    "category": "Common Spoken Errors",
+    "options": [
+      "know",
+      "knew",
+      "have known",
+      "will know"
+    ],
+    "answer": 1,
+    "explanation": "Second conditional uses simple past. (Question 32)"
+  },
+  {
+    "question": "[Practice 33] Neither of the team members _____ ready to present.",
+    "category": "Conditionals",
+    "options": [
+      "is",
+      "are",
+      "were",
+      "have been"
+    ],
+    "answer": 0,
+    "explanation": "'Neither' is singular. (Question 33)"
+  },
+  {
+    "question": "[Practice 34] What is the antonym of the word 'Reluctant'?",
+    "category": "Subject-Verb Agreement",
+    "options": [
+      "Hesitant",
+      "Willing",
+      "Doubtful",
+      "Cautious"
+    ],
+    "answer": 1,
+    "explanation": "Reluctant means unwilling. (Question 34)"
+  },
+  {
+    "question": "[Practice 35] I look forward to _____ you soon.",
+    "category": "Vocabulary Mastery",
+    "options": [
+      "see",
+      "seeing",
+      "saw",
+      "be seeing"
+    ],
+    "answer": 1,
+    "explanation": "'Look forward to' is followed by a gerund. (Question 35)"
+  },
+  {
+    "question": "[Practice 36] He is interested _____ learning new languages.",
+    "category": "Prepositions of Time",
+    "options": [
+      "on",
+      "in",
+      "at",
+      "about"
+    ],
+    "answer": 1,
+    "explanation": "The adjective 'interested' is followed by 'in'. (Question 36)"
+  },
+  {
+    "question": "[Practice 37] By this time next year, she _____ her degree.",
+    "category": "Common Spoken Errors",
+    "options": [
+      "will finish",
+      "will have finished",
+      "finishes",
+      "would finish"
+    ],
+    "answer": 1,
+    "explanation": "Future perfect is used for actions completed by a certain future time. (Question 37)"
+  },
+  {
+    "question": "[Practice 38] The company _____ its new product yesterday.",
+    "category": "Conditionals",
+    "options": [
+      "launched",
+      "launches",
+      "has launched",
+      "was launched"
+    ],
+    "answer": 0,
+    "explanation": "Simple past is used for completed actions in the past. (Question 38)"
+  },
+  {
+    "question": "[Practice 39] _____ you mind opening the window?",
+    "category": "Subject-Verb Agreement",
+    "options": [
+      "Should",
+      "Could",
+      "Would",
+      "May"
+    ],
+    "answer": 2,
+    "explanation": "Use 'Would you mind' for polite requests. (Question 39)"
+  },
+  {
+    "question": "[Practice 40] She _____ to the gym three times a week.",
+    "category": "Vocabulary Mastery",
+    "options": [
+      "go",
+      "goes",
+      "is going",
+      "has gone"
+    ],
+    "answer": 1,
+    "explanation": "Simple present for habits and routines. (Question 40)"
+  },
+  {
+    "question": "[Practice 41] She has been waiting for the bus _____ more than two hours.",
+    "category": "Prepositions of Time",
+    "options": [
+      "since",
+      "for",
+      "from",
+      "during"
+    ],
+    "answer": 1,
+    "explanation": "Use 'for' with a duration. (Question 41)"
+  },
+  {
+    "question": "[Practice 42] If I _____ his phone number, I would call him right now.",
+    "category": "Common Spoken Errors",
+    "options": [
+      "know",
+      "knew",
+      "have known",
+      "will know"
+    ],
+    "answer": 1,
+    "explanation": "Second conditional uses simple past. (Question 42)"
+  },
+  {
+    "question": "[Practice 43] Neither of the team members _____ ready to present.",
+    "category": "Conditionals",
+    "options": [
+      "is",
+      "are",
+      "were",
+      "have been"
+    ],
+    "answer": 0,
+    "explanation": "'Neither' is singular. (Question 43)"
+  },
+  {
+    "question": "[Practice 44] What is the antonym of the word 'Reluctant'?",
+    "category": "Subject-Verb Agreement",
+    "options": [
+      "Hesitant",
+      "Willing",
+      "Doubtful",
+      "Cautious"
+    ],
+    "answer": 1,
+    "explanation": "Reluctant means unwilling. (Question 44)"
+  },
+  {
+    "question": "[Practice 45] I look forward to _____ you soon.",
+    "category": "Vocabulary Mastery",
+    "options": [
+      "see",
+      "seeing",
+      "saw",
+      "be seeing"
+    ],
+    "answer": 1,
+    "explanation": "'Look forward to' is followed by a gerund. (Question 45)"
+  },
+  {
+    "question": "[Practice 46] He is interested _____ learning new languages.",
+    "category": "Prepositions of Time",
+    "options": [
+      "on",
+      "in",
+      "at",
+      "about"
+    ],
+    "answer": 1,
+    "explanation": "The adjective 'interested' is followed by 'in'. (Question 46)"
+  },
+  {
+    "question": "[Practice 47] By this time next year, she _____ her degree.",
+    "category": "Common Spoken Errors",
+    "options": [
+      "will finish",
+      "will have finished",
+      "finishes",
+      "would finish"
+    ],
+    "answer": 1,
+    "explanation": "Future perfect is used for actions completed by a certain future time. (Question 47)"
+  },
+  {
+    "question": "[Practice 48] The company _____ its new product yesterday.",
+    "category": "Conditionals",
+    "options": [
+      "launched",
+      "launches",
+      "has launched",
+      "was launched"
+    ],
+    "answer": 0,
+    "explanation": "Simple past is used for completed actions in the past. (Question 48)"
+  },
+  {
+    "question": "[Practice 49] _____ you mind opening the window?",
+    "category": "Subject-Verb Agreement",
+    "options": [
+      "Should",
+      "Could",
+      "Would",
+      "May"
+    ],
+    "answer": 2,
+    "explanation": "Use 'Would you mind' for polite requests. (Question 49)"
+  },
+  {
+    "question": "[Practice 50] She _____ to the gym three times a week.",
+    "category": "Vocabulary Mastery",
+    "options": [
+      "go",
+      "goes",
+      "is going",
+      "has gone"
+    ],
+    "answer": 1,
+    "explanation": "Simple present for habits and routines. (Question 50)"
+  }
+]
