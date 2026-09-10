@@ -58,6 +58,16 @@
 
   <script type="module" src="main.js"></script>
   <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const course = urlParams.get('course');
+    if (course === 'fluency') {
+      const titleElem = document.getElementById('lesson-title');
+      if (titleElem) titleElem.innerText = 'Spoken English Fluency: Everyday Conversations';
+    } else if (course === 'grammar') {
+      const titleElem = document.getElementById('lesson-title');
+      if (titleElem) titleElem.innerText = 'Complete English Grammar: Zero to Hero';
+    }
+
     function completeLesson() {
       if(window.addXP) {
         window.addXP(50);

@@ -9,11 +9,16 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = 3000;
 
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok' });
+});
+
 app.use(express.static(__dirname));
 
 app.get('/api/firebase-config', (req, res) => {
   try {
-    const config = JSON.parse(fs.readFileSync('./firebase-applet-config.json', 'utf-8'));
+    const configPath = path.join(__dirname, 'firebase-applet-config.json');
+    const config = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
     res.json(config);
   } catch (err) {
     res.status(500).json({ error: 'Firebase config not found' });

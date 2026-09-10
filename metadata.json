@@ -1,0 +1,10 @@
+{
+  "name": "EnglishFlow",
+  "description": "English Flow — practical English practice for clear, confident conversations, featuring curated video lessons, 5-day speaking plans, and natural phrase pockets.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

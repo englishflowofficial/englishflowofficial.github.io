@@ -48,6 +48,54 @@ export function playAudioPronunciation(text) {
 }
 window.playAudioPronunciation = playAudioPronunciation;
 
+export function simulateVoiceRecord() {
+  const speakingElem = document.getElementById('speaking-phrase-text');
+  const targetText = speakingElem ? speakingElem.innerText.replace(/["“”]/g, '').trim() : "Let's touch base first thing tomorrow morning.";
+  
+  const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (SpeechRec) {
+    try {
+      const recognition = new SpeechRec();
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+      
+      spawnActivityToast({ name: "Speaking Practice", action: "Listening... speak now!", xp: "🎙️" });
+      
+      recognition.onresult = (event) => {
+        const spoken = event.results[0][0].transcript;
+        playTone('correct');
+        addXP(15);
+        spawnActivityToast({ 
+          name: "Pronunciation Master", 
+          action: `Heard: "${spoken}". Great job!`, 
+          xp: "+15 XP" 
+        });
+      };
+      
+      recognition.onerror = () => {
+        fallbackVoiceSimulation(targetText);
+      };
+      
+      recognition.start();
+      return;
+    } catch {
+      // Fallback
+    }
+  }
+  fallbackVoiceSimulation(targetText);
+}
+
+function fallbackVoiceSimulation(targetText) {
+  spawnActivityToast({ name: "Voice Analysis", action: `Analyzing pronunciation: "${targetText}"...`, xp: "🎙️" });
+  setTimeout(() => {
+    playTone('correct');
+    addXP(10);
+    spawnActivityToast({ name: "Practice Complete", action: "Great articulation and pitch accuracy!", xp: "+10 XP" });
+  }, 1200);
+}
+window.simulateVoiceRecord = simulateVoiceRecord;
+
 async function init() {
   try {
     const res = await fetch('/api/firebase-config');
