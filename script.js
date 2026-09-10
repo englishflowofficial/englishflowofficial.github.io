@@ -111,6 +111,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 6. Home Page Interactive Practice Quiz
   initPracticeQuiz();
+
+  // 7. Affiliate Products Integration & Smart Routing
+  renderAffiliateProducts();
+  handleSmartRouting();
+  setTimeout(handleSmartRouting, 150);
+  window.addEventListener('hashchange', handleSmartRouting);
 });
 
 // Interactive Practice Quiz System
@@ -261,4 +267,80 @@ function initPracticeQuiz() {
   });
 
   renderQuestion(0);
+}
+
+// 7. Affiliate Products System
+const affiliateProducts = [
+  {
+    id: "B05lrwxvR",
+    image: "https://m.media-amazon.com/images/I/71Ui4yvwEGL._AC_UL960_FMwebp_QL65_.jpg",
+    link: "https://link.amazon/B05lrwxvR",
+    title: "Amazon Product 1",
+    desc: "Tap to view details on Amazon."
+  },
+  {
+    id: "B0fIlbHVR",
+    image: "https://m.media-amazon.com/images/I/812RjRxsHRL._SY522_.jpg",
+    link: "https://link.amazon/B0fIlbHVR",
+    title: "Amazon Product 2",
+    desc: "Tap to view details on Amazon."
+  }
+];
+
+// Expose globally for convenience
+if (typeof window !== 'undefined') {
+  window.affiliateProducts = affiliateProducts;
+}
+
+function generateProductCard(product) {
+  const productLink = product.link || '#';
+  const image = product.image || 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80';
+  const category = product.category || 'FEATURED ON AMAZON';
+  const description = product.desc || product.description || 'Tap to view details on Amazon.';
+  const badge = product.badge || 'AMAZON';
+
+  return `
+    <article class="library-card product-card" id="${product.id}" data-id="${product.id}">
+      <a class="library-image" href="${productLink}" target="_blank" rel="nofollow sponsored noopener noreferrer" aria-label="View ${product.title} on Amazon">
+        <img src="${image}" alt="${product.title}" loading="lazy" />
+        <span>${badge}</span>
+      </a>
+      <p class="card-label">${category}</p>
+      <h3>${product.title}</h3>
+      <p>${description}</p>
+      <a class="product-btn" href="${productLink}" target="_blank" rel="nofollow sponsored noopener noreferrer">
+        <span>View on Amazon</span>
+        <b aria-hidden="true">↗</b>
+      </a>
+    </article>
+  `;
+}
+
+function renderAffiliateProducts() {
+  // Index page integration (limit 2)
+  const homeGrid = document.getElementById('home-product-grid');
+  if (homeGrid) {
+    const previewProducts = affiliateProducts.slice(0, 2);
+    homeGrid.innerHTML = previewProducts.map(generateProductCard).join('');
+  }
+
+  // Products page integration (all)
+  const productGrid = document.getElementById('product-grid');
+  if (productGrid) {
+    productGrid.innerHTML = affiliateProducts.map(generateProductCard).join('');
+  }
+}
+
+function handleSmartRouting() {
+  const rawHash = window.location.hash.replace(/^#/, '').trim();
+  if (!rawHash) return;
+
+  const targetCard = document.getElementById(rawHash);
+  if (targetCard) {
+    targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    targetCard.classList.add('product-highlight');
+    setTimeout(() => {
+      targetCard.classList.remove('product-highlight');
+    }, 2000);
+  }
 }

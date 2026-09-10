@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Explore recommended products, organizers, and home favorites from English Flow." />
+    <title>Recommended Products | English Flow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="pages.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#products">Skip to product collection</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="English Flow home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>English <b>Flow</b></span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span><span class="sr-only">Open menu</span></button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="library.html">Video library</a><a href="practice.html">Practice</a><a class="is-active" href="products.html">Products</a><a href="about.html">About</a></nav>
+      <a class="header-cta" href="practice.html">Start practising <span aria-hidden="true">→</span></a>
+    </header>
+
+    <main id="products">
+      <section class="page-hero page-hero-products">
+        <div class="section-shell">
+          <p class="eyebrow"><span class="pulse"></span> CURATED ESSENTIALS &amp; FINDS</p>
+          <h1>Recommended products for <em>daily life.</em></h1>
+          <p>Discover items, organizers, and home favorites shared across our videos and Instagram community.</p>
+          <div class="library-stat-row">
+            <span><b>Direct</b> Amazon Links</span>
+            <span><b>Curated</b> Recommendations</span>
+            <span><b>Community</b> Tested</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="library-content section-shell">
+        <div class="library-top">
+          <div>
+            <p class="eyebrow">COMMUNITY FAVORITES</p>
+            <h2>Click any item to view on Amazon.</h2>
+          </div>
+          <a class="channel-link" href="https://www.instagram.com/speak.english.with.confidence/" target="_blank" rel="noreferrer">Seen on Instagram <span>↗</span></a>
+        </div>
+
+        <!-- Dynamic Products Grid Container -->
+        <div id="product-grid" class="library-grid" style="margin-top: 36px;"></div>
+
+        <!-- Amazon Affiliate Disclosure -->
+        <aside class="affiliate-disclosure" aria-label="Amazon Affiliate Disclosure">
+          <p><b>Amazon Affiliate Disclosure:</b> As an Amazon Associate, English Flow earns from qualifying purchases. When you purchase items through links on this page, we may earn an affiliate commission at no additional cost to you. We only recommend products that we believe add genuine value, convenience, or enjoyment to daily routines.</p>
+        </aside>
+      </section>
+
+      <section class="library-banner">
+        <div class="section-shell">
+          <div>
+            <p class="eyebrow eyebrow-light">CONTINUE PRACTISING</p>
+            <h2>Ready to speak with <em>quiet confidence?</em></h2>
+          </div>
+          <a class="button button-sun" href="practice.html">Try the 5-day plan <span>→</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer section-shell">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>English <b>Flow</b></span></a>
+      <p>Slow down. Speak up. Keep flowing.</p>
+      <p>© <span id="year"></span> English Flow</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
