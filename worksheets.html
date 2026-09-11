@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>30-Day Workbook | English Flow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink:#182e44; --teal:#087e83; --coral:#ff725e; --muted:#668092; }
+      * { box-sizing: border-box; }
+      body { margin: 0; font-family: "DM Sans", sans-serif; color: var(--ink); background: #fffdf7; }
+      header.bar { position: sticky; top: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 22px; background: #173246; color: #fff; }
+      header.bar a, header.bar button { color: #fff; background: #087e83; border: 0; border-radius: 999px; padding: 10px 14px; font-weight: 700; text-decoration: none; cursor: pointer; }
+      header.bar .quiet { background: transparent; border: 1px solid rgba(255,255,255,.25); }
+      .cover, .sheet { width: min(780px, calc(100% - 32px)); margin: 28px auto; padding: 32px; border: 1px solid #d8e1e0; border-radius: 18px; background: #fff; break-inside: avoid; page-break-after: always; }
+      h1 { font-family: Fraunces, Georgia, serif; font-size: 42px; margin: 8px 0 12px; }
+      h2 { font-family: Fraunces, Georgia, serif; margin: 0 0 8px; }
+      .k { color: var(--coral); font-size: 11px; font-weight: 800; letter-spacing: 1.2px; }
+      .phrase { padding: 14px 16px; border-radius: 12px; background: #e8f4f1; color: #05636b; font-family: Fraunces, Georgia, serif; font-size: 22px; }
+      .muted { color: var(--muted); line-height: 1.55; }
+      .line { margin: 10px 0; padding-bottom: 8px; border-bottom: 1px dashed #cfdcd8; }
+      .check { margin-top: 16px; padding: 10px; border-radius: 10px; background: #fbe4da; font-size: 13px; font-weight: 700; }
+      @media print {
+        header.bar { display: none; }
+        body { background: #fff; }
+        .cover, .sheet { border: 0; margin: 0; width: auto; box-shadow: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="bar">
+      <strong>English Flow workbook</strong>
+      <span>
+        <a class="quiet" href="practice.html">Back to path</a>
+        <button type="button" onclick="window.print()">Print / save as PDF</button>
+      </span>
+    </header>
+    <section class="cover">
+      <p class="k">30-DAY SPEAKING WORKBOOK</p>
+      <h1>Little steps, real progress.</h1>
+      <p class="muted">One page a day. Fill the gaps, then say the speaking task out loud. Use Print → Save as PDF to keep the whole month on your phone.</p>
+    </section>
+    <div id="pages"></div>
+    <script src="days-data.js"></script>
+    <script>
+      const root = document.getElementById("pages");
+      (window.FLOW_DAYS || []).forEach((d) => {
+        const el = document.createElement("section");
+        el.className = "sheet";
+        el.id = "day-" + d.day;
+        el.innerHTML = `
+          <p class="k">DAY ${String(d.day).padStart(2,"0")} · ${d.theme.toUpperCase()}</p>
+          <h2>${d.title}</h2>
+          <p class="phrase">“${d.phrase}”</p>
+          <p class="muted">${d.meaning}</p>
+          <p><b>Tip.</b> ${d.tip}</p>
+          <p><b>Words to keep</b></p>
+          <ul>${d.vocab.map(v => `<li>${v[1]}</li>`).join("")}</ul>
+          <p><b>Fill the gaps</b></p>
+          ${d.fills.map((f,i)=>`<p class="line">${i+1}. ${f[0]}</p>`).join("")}
+          <p><b>Speak it</b><br>${d.speak}</p>
+          <p class="muted"><i>Answers: ${d.fills.map(f=>f[1]).join(" · ")}</i></p>
+          <p class="check">I said it out loud today &nbsp; [ &nbsp; ] &nbsp; &nbsp; Streak day ______</p>
+        `;
+        root.appendChild(el);
+      });
+      if (location.hash) {
+        const t = document.querySelector(location.hash);
+        if (t) t.scrollIntoView();
+      }
+    </script>
+  </body>
+</html>
