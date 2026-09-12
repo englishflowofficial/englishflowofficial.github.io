@@ -1,149 +1,59 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="A 30-day English speaking practice path from English Flow — quizzes, motion lessons and printable worksheets." />
-    <title>Practice Room | English Flow</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="pages.css" />
-    <link rel="stylesheet" href="practice-30.css" />
-  </head>
-  <body>
-    <a class="skip-link" href="#practice">Skip to your practice plan</a>
-    <header class="site-header">
-      <a class="brand" href="index.html" aria-label="English Flow home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>English <b>Flow</b></span></a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span><span class="sr-only">Open menu</span></button>
-      <nav id="site-nav" class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="library.html">Video library</a><a class="is-active" href="practice.html">Practice</a><a href="products.html">Products</a><a href="about.html">About</a></nav>
-      <a class="header-cta" href="#path">Today’s lesson <span aria-hidden="true">→</span></a>
-    </header>
-
-    <main id="practice">
-      <section class="flow-hero">
-        <div class="orb-motion orb-a" aria-hidden="true"></div>
-        <div class="orb-motion orb-b" aria-hidden="true"></div>
-        <div class="orb-motion orb-c" aria-hidden="true"></div>
-        <div class="mascot" aria-hidden="true"><span class="bars"><i></i><i></i><i></i></span></div>
-        <div class="section-shell">
-          <p class="eyebrow"><span class="pulse"></span> THE PRACTICE ROOM</p>
-          <h1>30 days.<br /><em>One honest voice.</em></h1>
-          <p>Duolingo-style quizzes, a moving path, and a printable workbook. Listen, tap, speak — then use the phrase in real life.</p>
-          <div class="hero-stats" aria-live="polite">
-            <div class="stat-pill"><span class="stat-flame" aria-hidden="true">✦</span><span><b id="stat-streak">0</b> day streak</span></div>
-            <div class="stat-pill"><span><b id="stat-xp">0</b> XP</span></div>
-            <div class="stat-pill"><span><b id="stat-days">0/30</b> days</span></div>
-          </div>
-          <div class="xp-rail">
-            <small>MONTH PROGRESS</small>
-            <div class="xp-track"><span id="xp-bar"></span></div>
-          </div>
-          <div class="flow-toolbar">
-            <button class="button button-primary" id="start-today" type="button">Start today’s lesson <span>→</span></button>
-            <a class="button button-ghost" href="30-day-english-flow-workbook.pdf" download>Download the PDF workbook</a>
-          </div>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7f8f2" />
+  <meta name="description" content="Build your English confidence one little lesson at a time. Interactive daily practice, sentence puzzles, streaks, XP and rewards. No account needed." />
+  <title>Your daily practice | English Flow</title>
+  <link rel="icon" href="favicon.jpg" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="practice-30.css" />
+  <script src="days-data.js" defer></script>
+  <script src="practice-core.js" defer></script>
+  <script src="practice-app.js" defer></script>
+</head>
+<body class="practice-page">
+  <a class="skip-link" href="#practice">Skip to practice</a>
+  <header class="practice-header">
+    <a class="brand" href="index.html" aria-label="English Flow home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>English <b>Flow</b><small> A LITTLE EVERY DAY.</small></span></a>
+    <nav aria-label="Main navigation"><a href="index.html">Home</a><a href="library.html">Library</a><a href="practice.html" aria-current="page">Practice <span class="nav-dot"></span></a><a href="products.html">Resources</a></nav>
+    <button type="button" class="sound-toggle" id="sound-toggle" aria-pressed="true" aria-label="Sound feedback on. Toggle sound">Sound on</button>
+  </header>
+  <div class="app-layout">
+    <aside class="learn-sidebar" aria-label="Practice navigation">
+      <p class="overline">YOUR LEARNING SPACE</p>
+      <a href="#path" class="side-link active"><span aria-hidden="true">◎</span> Learning path <b>30</b></a>
+      <a href="#rewards" class="side-link"><span aria-hidden="true">◇</span> Your rewards</a>
+      <a href="library.html" class="side-link"><span aria-hidden="true">▷</span> Video lessons</a>
+      <a href="worksheets.html" class="side-link"><span aria-hidden="true">▤</span> Worksheets</a>
+      <div class="sidebar-note"><span class="note-mark" aria-hidden="true">“</span><p>A little progress is<br />still progress.</p><small>Show up. Try a phrase.<br />Make it yours.</small></div>
+      <a class="workbook-link" href="30-day-english-flow-workbook.pdf" download>Take practice offline <span aria-hidden="true">↗</span><small>Download your workbook</small></a>
+      <p class="local-note">Just you and your progress.<br />Saved on this device. No sign-in.</p>
+    </aside>
+    <main id="practice" tabindex="-1">
+      <div class="page-heading"><div><p class="overline">THE PRACTICE ROOM</p><h1>Little practice.<br /><em>Big confidence.</em></h1></div><div class="chapter-tag"><span aria-hidden="true">✦</span> YOUR NEXT CHAPTER<br /><b>Starts with one phrase.</b></div></div>
+      <p class="intro-text">Real-life English. Bite-sized lessons. A little more you, every day.</p>
+      <div class="storage-warning" id="storage-warning" role="status" hidden>Progress cannot be saved in this browser. You can still practise, but keep this tab open.</div>
+      <section class="today-card" aria-labelledby="today-title">
+        <div class="today-copy"><p class="overline"><span class="live-dot"></span> <span id="today-kicker">YOUR DAILY MOMENT</span></p><h2 id="today-title">Ready for your first hello?</h2><p id="today-description">One small conversation. A whole new beginning.</p><div class="lesson-meta"><span id="today-theme">Greetings</span><span>6 challenges</span><span>Up to 110 XP</span></div><button class="primary" type="button" id="start-today">Let's begin <span aria-hidden="true">→</span></button><small id="resume-note">No pressure. No lost lives. Just learning.</small></div>
+        <div class="phrase-preview" aria-hidden="true"><span class="preview-tag">YOUR NEXT REAL-LIFE PHRASE</span><span class="preview-quote">“</span><strong id="preview-phrase">Hey, how's<br />it going?</strong><div class="preview-bottom"><span class="mini-bars"><i></i><i></i><i></i><i></i><i></i></span><span>Small words. Real connection.</span></div><span class="preview-star">✦</span></div>
       </section>
-
-      <section id="path" class="path-wrap section-shell">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">YOUR 30-DAY PATH</p>
-            <h2>Tap a circle. Earn the next one.</h2>
-          </div>
-          <p class="plan-note">Every circle is open. Finish a day for XP and a teal check. Miss a day? Begin again.</p>
-        </div>
-        <p class="path-legend"><span><i class="lg-now"></i>Today</span><span><i class="lg-done"></i>Done</span><span><i class="lg-lock"></i>Still locked</span></p>
-        <div class="day-path" id="day-path"></div>
-      </section>
-
-      <section class="pdf-strip section-shell">
-        <article class="pdf-card">
-          <p class="eyebrow eyebrow-light">PRINTABLE WORKBOOK</p>
-          <h2>30 one-page PDFs, already packed.</h2>
-          <p>Each worksheet has the day’s phrase, gap-fills, and a speaking task. Print the month, or save it and write on your phone.</p>
-          <a class="button button-sun" href="30-day-english-flow-workbook.pdf" download>Download the 30-day PDF <span>→</span></a>
-        </article>
-        <article class="method-lite">
-          <p class="eyebrow">THE METHOD</p>
-          <h2>Listen. Copy. Use.</h2>
-          <ol>
-            <li>Hear the phrase.</li>
-            <li>Tap through 6 quick checks — like a short Duolingo session.</li>
-            <li>Say the speaking task out loud. That is the real win.</li>
-          </ol>
-        </article>
-      </section>
-
-      <section class="phrase-section">
-        <div class="section-shell">
-          <div class="section-heading">
-            <div><p class="eyebrow">PHRASE POCKET</p><h2>Keep these close.</h2></div>
-            <p class="plan-note">Tap a card, reveal the phrase, then make it yours.</p>
-          </div>
-          <div class="phrase-grid">
-            <article class="phrase-flip"><p>Someone shares a plan you like.</p><div class="phrase-answer"><span>“That sounds great to me.”</span><small>Warm agreement</small></div><button data-reveal type="button">Reveal phrase</button></article>
-            <article class="phrase-flip"><p>You need a little time to think.</p><div class="phrase-answer"><span>“Let me think about that for a second.”</span><small>Natural pause</small></div><button data-reveal type="button">Reveal phrase</button></article>
-            <article class="phrase-flip"><p>You want to show you are listening.</p><div class="phrase-answer"><span>“I see what you mean.”</span><small>Thoughtful response</small></div><button data-reveal type="button">Reveal phrase</button></article>
-          </div>
-        </div>
-      </section>
-
-      <section class="practice-cta">
-        <div class="section-shell">
-          <div><p class="eyebrow eyebrow-light">READY FOR ONE MORE?</p><h2>Choose your next English moment.</h2></div>
-          <a class="button button-sun" href="library.html">Browse all lessons <span>→</span></a>
-        </div>
-      </section>
+      <section class="path-section-new" id="path" aria-labelledby="path-heading"><div class="section-title"><div><p class="overline">ONE STEP AT A TIME</p><h2 id="path-heading">Your learning path</h2></div><span class="small-pill" id="path-count">0 of 30 complete</span></div><p class="path-help">Finish a lesson to unlock the next. Revisit any completed lesson, anytime.</p><div id="unit-tabs" class="unit-tabs" role="group" aria-label="Choose a learning unit"></div><div id="unit-heading" class="unit-heading"></div><div id="day-path" class="learning-path"></div><div class="path-end"><span aria-hidden="true">◇</span><p>Every conversation starts somewhere.<br /><b>You're in the right place.</b></p></div></section>
+      <noscript><p class="storage-warning">Please enable JavaScript for interactive lessons. You can still <a href="30-day-english-flow-workbook.pdf">download the practice workbook</a>.</p></noscript>
     </main>
-
-    <div class="lesson-layer" id="lesson-layer" role="dialog" aria-modal="true" aria-labelledby="lesson-title">
-      <div class="lesson-sheet">
-        <div class="sheet-top">
-          <p class="lesson-kicker" id="lesson-kicker">DAY</p>
-          <button type="button" id="close-lesson" aria-label="Close lesson">×</button>
-        </div>
-        <h2 id="lesson-title">Lesson</h2>
-        <div class="phrase-stage">
-          <p>TODAY’S PHRASE</p>
-          <strong id="lesson-phrase"></strong>
-          <div class="listen-row">
-            <button class="btn-speak" id="btn-listen" type="button">Hear it</button>
-            <button class="btn-print" id="btn-print-day" type="button">Day worksheet</button>
-          </div>
-        </div>
-        <p class="why-copy" id="lesson-meaning"></p>
-        <p class="tip-chip" id="lesson-tip"></p>
-        <p class="why-copy" id="speak-prompt"></p>
-
-        <div class="quiz-box" id="quiz-stage">
-          <div class="quiz-top" style="display:flex;justify-content:space-between;color:#758c96;font-size:10px;font-weight:700;letter-spacing:.9px;">
-            <span>QUICK PRACTICE</span><span id="q-count">01 / 06</span>
-          </div>
-          <div class="q-progress"><i id="q-bar"></i></div>
-          <div id="q-body"></div>
-          <p class="q-feed" id="q-feed" aria-live="polite"></p>
-          <button class="q-next" id="q-next" type="button" disabled>Check</button>
-        </div>
-
-        <div class="celebrate" id="celebrate-stage" hidden>
-          <p class="xp-pop" id="cele-xp">+XP</p>
-          <h3 id="cele-title">Day complete.</h3>
-          <p class="why-copy" id="cele-copy"></p>
-          <button class="button button-primary" id="btn-continue" type="button">Back to the path</button>
-        </div>
-      </div>
-    </div>
-
-    <footer class="site-footer section-shell">
-      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>English <b>Flow</b></span></a>
-      <p>Slow down. Speak up. Keep flowing.</p>
-      <p>© <span id="year"></span> English Flow</p>
-    </footer>
-    <script src="script.js"></script>
-    <script src="days-data.js"></script>
-    <script src="practice-app.js"></script>
-  </body>
+    <aside class="progress-sidebar" aria-label="Your learning progress">
+      <div class="stats-row"><div><span class="stat-icon amber" aria-hidden="true">✦</span><strong id="stat-streak">0</strong><small>day streak</small></div><div><span class="stat-icon green" aria-hidden="true">ϟ</span><strong id="stat-xp">0</strong><small>total XP</small></div><div><span class="stat-icon purple" aria-hidden="true">◇</span><strong id="stat-gems">0</strong><small>gems</small></div></div>
+      <section class="side-card goal-card" aria-labelledby="goal-title"><div class="card-title"><h2 id="goal-title">A little, every day</h2><span class="sun-mark" aria-hidden="true">☼</span></div><p id="goal-copy">One lesson is all it takes.</p><div class="goal-progress"><span id="goal-label">Daily goal</span><b id="goal-count">0 / 1 lesson</b></div><progress id="goal-bar" max="1" value="0" aria-label="Daily lesson goal"></progress><div id="week-dots" class="week-dots" aria-label="Practice this week"></div><p class="streak-note" id="streak-note">Your next streak starts today.</p></section>
+      <section class="side-card journey-card" aria-labelledby="journey-title"><p class="overline">YOUR MOMENTUM</p><h2 id="journey-title">Finding your voice</h2><p id="level-copy">Level 1 · Curious beginner</p><progress id="level-bar" max="300" value="0" aria-label="Progress to next level"></progress><small id="level-note">300 XP to your next level</small></section>
+      <section class="side-card reward-card" id="rewards" aria-labelledby="rewards-title"><div class="card-title"><h2 id="rewards-title">Little wins, collected</h2><span class="small-pill" id="badge-count">0 / 4</span></div><div id="badge-list" class="badge-list"></div><p class="reward-note">Earn gems when you finish a new lesson. They're a keepsake of your effort.</p></section>
+      <div class="gentle-note"><span aria-hidden="true">✧</span><p>Not perfect.<br /><b>Just a little better.</b></p></div>
+    </aside>
+  </div>
+  <footer class="practice-footer"><span>English Flow · Slow down. Speak up. Keep flowing.</span><span>© <span id="year"></span> <a href="about.html">About us</a></span></footer>
+  <dialog id="lesson-dialog" aria-labelledby="lesson-title">
+    <div class="session-shell"><header class="session-header"><button type="button" class="icon-button" id="close-lesson" aria-label="Save and close lesson">×</button><div class="session-progress"><span id="lesson-kicker">LESSON 01</span><progress id="session-bar" max="8" value="0" aria-label="Lesson progress"></progress></div><span class="session-xp" id="session-xp">0 / 6</span></header><div class="session-main"><p class="overline" id="step-label">MEET YOUR PHRASE</p><h2 id="lesson-title" tabindex="-1">First hellos</h2><div id="exercise"></div></div><footer class="session-footer"><div id="feedback" role="status" aria-live="polite"></div><button class="primary" type="button" id="next-step" disabled>Continue <span aria-hidden="true">→</span></button></footer></div>
+  </dialog>
+  <div class="toast" id="toast" role="status" hidden></div>
+</body>
 </html>
