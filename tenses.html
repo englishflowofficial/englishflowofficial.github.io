@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Learn all 12 English tenses in one place — clear formulas, real examples, signal words and an interactive quiz from English Flow."
+      content="All 12 English tenses in one colourful map — clear formulas, real examples, signal words and a 5-question practice set for every single tense."
     />
-    <title>Learn the English tenses | English Flow</title>
+    <title>All 12 English tenses + practice sets | English Flow</title>
     <link rel="icon" href="favicon.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,9 +16,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="pages.css" />
+    <link rel="stylesheet" href="tenses.css" />
   </head>
-  <body>
+  <body class="tense-page">
     <a class="skip-link" href="#main">Skip to the tenses</a>
 
     <header class="site-header">
@@ -28,400 +28,523 @@
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span><span class="sr-only">Open menu</span></button>
       <nav id="site-nav" class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="library.html">Video library</a><a class="is-active" href="tenses.html">Tenses</a><a href="practice.html">Practice</a><a href="products.html">Products</a><a href="about.html">About</a></nav>
-      <a class="header-cta" href="#tense-quiz">Test yourself <span aria-hidden="true">→</span></a>
+      <a class="header-cta" href="#tp-quiz">Take the challenge <span aria-hidden="true">→</span></a>
     </header>
 
     <main id="main">
-      <section class="page-hero page-hero-tenses">
-        <div class="section-shell">
-          <p class="eyebrow"><span class="pulse"></span> GRAMMAR, GENTLY EXPLAINED</p>
-          <h1>All 12 tenses,<br /><em>one clear map.</em></h1>
-          <p>
-            Tenses are just a way of saying <b>when</b> something happens. Follow the timeline, read one card at a time, then
-            check yourself with a short quiz. No grammar panic required.
-          </p>
-          <div class="library-stat-row">
-            <span><b>12</b> tenses explained</span>
-            <span><b>3</b> points in time</span>
-            <span><b>48</b> real examples</span>
-            <span><b>8</b> quiz questions</span>
+      <!-- ================= HERO ================= -->
+      <section class="tp-hero">
+        <span class="tp-blob tp-blob-1" aria-hidden="true"></span>
+        <span class="tp-blob tp-blob-2" aria-hidden="true"></span>
+        <span class="tp-blob tp-blob-3" aria-hidden="true"></span>
+        <div class="tp-shell">
+          <div class="tp-hero-copy">
+            <p class="tp-badge"><i aria-hidden="true"></i> GRAMMAR, BUT COLOURFUL</p>
+            <h1>
+              <span>All 12 tenses.</span>
+              <span class="tp-grad-text">All with practice.</span>
+            </h1>
+            <p class="tp-hero-lead">
+              Tenses are just a way of saying <b>when</b> something happens. Read one bright card at a time, tap
+              <b>Practice set</b> to test that exact tense, then finish with the 12-question challenge.
+            </p>
+            <div class="tp-hero-actions">
+              <a class="tp-btn tp-btn-main" href="#tp-cards">Explore the 12 tenses <span aria-hidden="true">→</span></a>
+              <a class="tp-btn tp-btn-alt" href="#tp-quiz">Take the challenge quiz <span aria-hidden="true">🏆</span></a>
+            </div>
+            <div class="tp-stats">
+              <span><b>12</b> tenses explained</span>
+              <span><b>12</b> practice sets</span>
+              <span><b>60</b> practice questions</span>
+              <span><b>3</b> points in time</span>
+            </div>
+          </div>
+
+          <div class="tp-hero-art" aria-hidden="true">
+            <div class="tp-mini" style="--mini-bg: #e6fbf3; --mini-col: #0a9c7b;">
+              <em>🔁</em>
+              <div><small>PRESENT SIMPLE</small><strong>“I check my messages every morning.”</strong></div>
+            </div>
+            <div class="tp-mini" style="--mini-bg: #ffeef0; --mini-col: #e0405f;">
+              <em>📅</em>
+              <div><small>PAST SIMPLE</small><strong>“I called my sister yesterday.”</strong></div>
+            </div>
+            <div class="tp-mini" style="--mini-bg: #eef0ff; --mini-col: #5b5bd6;">
+              <em>🚀</em>
+              <div><small>FUTURE SIMPLE</small><strong>“I will call you tomorrow.”</strong></div>
+            </div>
+            <span class="tp-mini-note">+ 9 more, each with its own quiz ✦</span>
           </div>
         </div>
       </section>
 
-      <!-- TIMELINE -->
-      <section class="tense-timeline-section section-shell" aria-labelledby="timeline-heading">
-        <div class="section-heading split-heading">
+      <!-- ================= TIMELINE ================= -->
+      <section class="tp-timeline-section tp-shell" aria-labelledby="tp-timeline-heading">
+        <div class="tp-section-head">
           <div>
-            <p class="eyebrow">START WITH THE FEELING</p>
-            <h2 id="timeline-heading">Every tense answers<br /><em>one small question.</em></h2>
+            <p class="tp-kicker" style="color: #e03177;">START WITH THE FEELING</p>
+            <h2 id="tp-timeline-heading">Every tense answers <span class="tp-grad-text">one small question.</span></h2>
           </div>
-          <p>When did it happen — and is it finished, still going, or connected to now? That is the whole idea.</p>
+          <p>When did it happen — and is it finished, still going, or connected to right now? That is the whole idea.</p>
         </div>
 
-        <div class="tense-timeline" role="list">
-          <div class="timeline-track" aria-hidden="true"></div>
-          <article class="time-point point-past" role="listitem">
-            <span class="point-dot" aria-hidden="true"></span>
+        <div class="tp-timeline">
+          <article class="tp-time-card" style="--card-bg: linear-gradient(140deg, #fff0f3, #ffe3e8); --card-border: #ffd2da; --card-accent: #e0405f;">
+            <div class="tp-time-top"><span class="tp-time-emoji" aria-hidden="true">⏪</span><span class="tp-time-count">4 TENSES</span></div>
             <h3>Past</h3>
             <p>It already happened. Finished, or happening around a moment before now.</p>
-            <a class="text-link" href="#past-tenses"><span class="play-dot">→</span> See past tenses</a>
+            <a class="tp-time-link" href="#past-tenses"><span aria-hidden="true">→</span> See the 4 past tenses</a>
           </article>
-          <article class="time-point point-present" role="listitem">
-            <span class="point-dot" aria-hidden="true"></span>
+          <article class="tp-time-card" style="--card-bg: linear-gradient(140deg, #eafaf4, #d9f5ea); --card-border: #bdeeda; --card-accent: #0a9c7b;">
+            <div class="tp-time-top"><span class="tp-time-emoji" aria-hidden="true">⏺️</span><span class="tp-time-count">4 TENSES</span></div>
             <h3>Present</h3>
             <p>Your routines, this exact moment, and the past that still touches today.</p>
-            <a class="text-link" href="#present-tenses"><span class="play-dot">→</span> See present tenses</a>
+            <a class="tp-time-link" href="#present-tenses"><span aria-hidden="true">→</span> See the 4 present tenses</a>
           </article>
-          <article class="time-point point-future" role="listitem">
-            <span class="point-dot" aria-hidden="true"></span>
+          <article class="tp-time-card" style="--card-bg: linear-gradient(140deg, #eef2ff, #e4e9ff); --card-border: #d3dbff; --card-accent: #4f52d8;">
+            <div class="tp-time-top"><span class="tp-time-emoji" aria-hidden="true">⏩</span><span class="tp-time-count">4 TENSES</span></div>
             <h3>Future</h3>
             <p>Plans, promises and predictions — what will be true later.</p>
-            <a class="text-link" href="#future-tenses"><span class="play-dot">→</span> See future tenses</a>
+            <a class="tp-time-link" href="#future-tenses"><span aria-hidden="true">→</span> See the 4 future tenses</a>
           </article>
         </div>
 
-        <div class="aspect-note">
-          <div><span aria-hidden="true">◌</span><b>Simple</b><p>A fact or a complete action.<br /><i>I work.</i></p></div>
-          <div><span aria-hidden="true">⌁</span><b>Continuous</b><p>In progress, unfinished.<br /><i>I am working.</i></p></div>
-          <div><span aria-hidden="true">✦</span><b>Perfect</b><p>Looking back from a point in time.<br /><i>I have worked.</i></p></div>
-          <div><span aria-hidden="true">◇</span><b>Perfect continuous</b><p>How long it has been going on.<br /><i>I have been working.</i></p></div>
+        <div class="tp-aspects">
+          <div class="tp-aspect" style="--a-col: #00b894;"><span aria-hidden="true">●</span><b>Simple</b><p>A fact or a complete action.</p><i>I work.</i></div>
+          <div class="tp-aspect" style="--a-col: #f97316;"><span aria-hidden="true">⌁</span><b>Continuous</b><p>In progress, unfinished.</p><i>I am working.</i></div>
+          <div class="tp-aspect" style="--a-col: #3b82f6;"><span aria-hidden="true">✦</span><b>Perfect</b><p>Looking back from a point in time.</p><i>I have worked.</i></div>
+          <div class="tp-aspect" style="--a-col: #8b5cf6;"><span aria-hidden="true">◇</span><b>Perfect continuous</b><p>How long it has been going on.</p><i>I have been working.</i></div>
         </div>
       </section>
 
-      <!-- THE 12 CARDS -->
-      <section class="tense-cards-section" aria-labelledby="cards-heading">
-        <div class="section-shell">
-          <div class="library-top">
+      <!-- ================= THE 12 CARDS ================= -->
+      <section class="tp-cards-section" id="tp-cards" aria-labelledby="tp-cards-heading">
+        <div class="tp-shell">
+          <div class="tp-section-head">
             <div>
-              <p class="eyebrow">THE FULL PICTURE</p>
-              <h2 id="cards-heading">The 12 tenses, card by card.</h2>
+              <p class="tp-kicker" style="color: #5b5bd6;">THE FULL PICTURE</p>
+              <h2 id="tp-cards-heading">12 tenses. <span class="tp-grad-text">12 practice sets.</span></h2>
             </div>
-            <button class="channel-link" type="button" id="print-tenses">Print this guide <span aria-hidden="true">↓</span></button>
+            <p>Each card explains one tense — then gives you 5 quick questions on that exact tense.</p>
           </div>
 
-          <div class="filter-bar tense-filter" role="group" aria-label="Filter tenses">
-            <button type="button" class="is-current" data-filter="all">All 12</button>
-            <button type="button" data-filter="present">Present</button>
-            <button type="button" data-filter="past">Past</button>
-            <button type="button" data-filter="future">Future</button>
-            <button type="button" data-filter="simple">Simple</button>
-            <button type="button" data-filter="continuous">Continuous</button>
-            <button type="button" data-filter="perfect">Perfect</button>
-          </div>
-          <p class="filter-count" id="filter-count" aria-live="polite">Showing all 12 tenses.</p>
-
-          <h3 class="tense-group-title" id="present-tenses" data-group="present"><span class="dot-present" aria-hidden="true"></span> Present tenses</h3>
-          <div class="tense-grid">
-            <article class="tense-card" id="present-simple" data-time="present" data-aspect="simple">
-              <div class="tense-card-top">
-                <span class="tense-tag tag-present">PRESENT · SIMPLE</span>
-                <button class="tense-listen" type="button" data-say="I check my messages every morning." aria-label="Listen to the example sentence">▶</button>
-              </div>
-              <h4>Present simple</h4>
-              <p class="tense-formula">subject + <b>verb</b> (+ s / es)</p>
-              <p class="tense-use">Habits, routines, schedules and things that are generally true.</p>
-              <p class="tense-example">“I check my messages every morning.”</p>
-              <details class="tense-more">
-                <summary>Negative, question &amp; signal words</summary>
-                <ul class="form-list">
-                  <li><span class="form-mark">−</span> I <b>do not check</b> my messages at night.</li>
-                  <li><span class="form-mark">?</span> <b>Do</b> you <b>check</b> your messages every morning?</li>
-                </ul>
-                <p class="signal-words">always · usually · often · every day · never · on Mondays</p>
-              </details>
-            </article>
-
-            <article class="tense-card" id="present-continuous" data-time="present" data-aspect="continuous">
-              <div class="tense-card-top">
-                <span class="tense-tag tag-present">PRESENT · CONTINUOUS</span>
-                <button class="tense-listen" type="button" data-say="I am learning English right now." aria-label="Listen to the example sentence">▶</button>
-              </div>
-              <h4>Present continuous</h4>
-              <p class="tense-formula">subject + <b>am / is / are</b> + verb-<b>ing</b></p>
-              <p class="tense-use">Happening at this moment, or a temporary situation around now.</p>
-              <p class="tense-example">“I am learning English right now.”</p>
-              <details class="tense-more">
-                <summary>Negative, question &amp; signal words</summary>
-                <ul class="form-list">
-                  <li><span class="form-mark">−</span> I <b>am not learning</b> French this year.</li>
-                  <li><span class="form-mark">?</span> <b>Are</b> you <b>learning</b> English right now?</li>
-                </ul>
-                <p class="signal-words">now · right now · at the moment · today · this week</p>
-              </details>
-            </article>
-
-            <article class="tense-card" id="present-perfect" data-time="present" data-aspect="perfect">
-              <div class="tense-card-top">
-                <span class="tense-tag tag-present">PRESENT · PERFECT</span>
-                <button class="tense-listen" type="button" data-say="I have lived here for three years." aria-label="Listen to the example sentence">▶</button>
-              </div>
-              <h4>Present perfect</h4>
-              <p class="tense-formula">subject + <b>have / has</b> + past participle</p>
-              <p class="tense-use">A past action with a result now, or an experience with no exact time.</p>
-              <p class="tense-example">“I have lived here for three years.”</p>
-              <details class="tense-more">
-                <summary>Negative, question &amp; signal words</summary>
-                <ul class="form-list">
-                  <li><span class="form-mark">−</span> She <b>has not finished</b> the course yet.</li>
-                  <li><span class="form-mark">?</span> <b>Have</b> you <b>ever visited</b> London?</li>
-                </ul>
-                <p class="signal-words">for · since · already · yet · just · ever · never</p>
-              </details>
-            </article>
-
-            <article class="tense-card" id="present-perfect-continuous" data-time="present" data-aspect="perfect continuous">
-              <div class="tense-card-top">
-                <span class="tense-tag tag-present">PRESENT · PERFECT CONTINUOUS</span>
-                <button class="tense-listen" type="button" data-say="I have been studying for two hours." aria-label="Listen to the example sentence">▶</button>
-              </div>
-              <h4>Present perfect continuous</h4>
-              <p class="tense-formula">subject + <b>have / has been</b> + verb-<b>ing</b></p>
-              <p class="tense-use">How long something has been going on — and it is usually still going.</p>
-              <p class="tense-example">“I have been studying for two hours.”</p>
-              <details class="tense-more">
-                <summary>Negative, question &amp; signal words</summary>
-                <ul class="form-list">
-                  <li><span class="form-mark">−</span> He <b>has not been sleeping</b> well lately.</li>
-                  <li><span class="form-mark">?</span> <b>How long have</b> you <b>been waiting</b>?</li>
-                </ul>
-                <p class="signal-words">for · since · all day · lately · how long</p>
-              </details>
-            </article>
-          </div>
-
-          <h3 class="tense-group-title" id="past-tenses" data-group="past"><span class="dot-past" aria-hidden="true"></span> Past tenses</h3>
-          <div class="tense-grid">
-            <article class="tense-card" id="past-simple" data-time="past" data-aspect="simple">
-              <div class="tense-card-top">
-                <span class="tense-tag tag-past">PAST · SIMPLE</span>
-                <button class="tense-listen" type="button" data-say="I called my sister yesterday." aria-label="Listen to the example sentence">▶</button>
-              </div>
-              <h4>Past simple</h4>
-              <p class="tense-formula">subject + <b>verb-ed</b> / irregular past</p>
-              <p class="tense-use">A finished action at a finished time in the past.</p>
-              <p class="tense-example">“I called my sister yesterday.”</p>
-              <details class="tense-more">
-                <summary>Negative, question &amp; signal words</summary>
-                <ul class="form-list">
-                  <li><span class="form-mark">−</span> I <b>did not call</b> her last night.</li>
-                  <li><span class="form-mark">?</span> <b>Did</b> you <b>call</b> your sister yesterday?</li>
-                </ul>
-                <p class="signal-words">yesterday · last week · in 2019 · ago · when I was young</p>
-              </details>
-            </article>
-
-            <article class="tense-card" id="past-continuous" data-time="past" data-aspect="continuous">
-              <div class="tense-card-top">
-                <span class="tense-tag tag-past">PAST · CONTINUOUS</span>
-                <button class="tense-listen" type="button" data-say="I was cooking when you called." aria-label="Listen to the example sentence">▶</button>
-              </div>
-              <h4>Past continuous</h4>
-              <p class="tense-formula">subject + <b>was / were</b> + verb-<b>ing</b></p>
-              <p class="tense-use">An action in progress in the past, often interrupted by something shorter.</p>
-              <p class="tense-example">“I was cooking when you called.”</p>
-              <details class="tense-more">
-                <summary>Negative, question &amp; signal words</summary>
-                <ul class="form-list">
-                  <li><span class="form-mark">−</span> We <b>were not listening</b> to the radio.</li>
-                  <li><span class="form-mark">?</span> <b>What were</b> you <b>doing</b> at 8pm?</li>
-                </ul>
-                <p class="signal-words">while · when · at 8pm · all evening · as</p>
-              </details>
-            </article>
-
-            <article class="tense-card" id="past-perfect" data-time="past" data-aspect="perfect">
-              <div class="tense-card-top">
-                <span class="tense-tag tag-past">PAST · PERFECT</span>
-                <button class="tense-listen" type="button" data-say="The film had already started when we arrived." aria-label="Listen to the example sentence">▶</button>
-              </div>
-              <h4>Past perfect</h4>
-              <p class="tense-formula">subject + <b>had</b> + past participle</p>
-              <p class="tense-use">The earlier of two past actions — the past before the past.</p>
-              <p class="tense-example">“The film had already started when we arrived.”</p>
-              <details class="tense-more">
-                <summary>Negative, question &amp; signal words</summary>
-                <ul class="form-list">
-                  <li><span class="form-mark">−</span> I <b>had not seen</b> that email before the meeting.</li>
-                  <li><span class="form-mark">?</span> <b>Had</b> the film <b>started</b> when you arrived?</li>
-                </ul>
-                <p class="signal-words">before · after · by the time · already · until then</p>
-              </details>
-            </article>
-
-            <article class="tense-card" id="past-perfect-continuous" data-time="past" data-aspect="perfect continuous">
-              <div class="tense-card-top">
-                <span class="tense-tag tag-past">PAST · PERFECT CONTINUOUS</span>
-                <button class="tense-listen" type="button" data-say="She had been working there for a year before she moved." aria-label="Listen to the example sentence">▶</button>
-              </div>
-              <h4>Past perfect continuous</h4>
-              <p class="tense-formula">subject + <b>had been</b> + verb-<b>ing</b></p>
-              <p class="tense-use">How long something had been happening before another past moment.</p>
-              <p class="tense-example">“She had been working there for a year before she moved.”</p>
-              <details class="tense-more">
-                <summary>Negative, question &amp; signal words</summary>
-                <ul class="form-list">
-                  <li><span class="form-mark">−</span> They <b>had not been waiting</b> long when the bus came.</li>
-                  <li><span class="form-mark">?</span> <b>How long had</b> she <b>been working</b> there?</li>
-                </ul>
-                <p class="signal-words">for · since · before · how long · until</p>
-              </details>
-            </article>
-          </div>
-
-          <h3 class="tense-group-title" id="future-tenses" data-group="future"><span class="dot-future" aria-hidden="true"></span> Future tenses</h3>
-          <div class="tense-grid">
-            <article class="tense-card" id="future-simple" data-time="future" data-aspect="simple">
-              <div class="tense-card-top">
-                <span class="tense-tag tag-future">FUTURE · SIMPLE</span>
-                <button class="tense-listen" type="button" data-say="I will call you tomorrow." aria-label="Listen to the example sentence">▶</button>
-              </div>
-              <h4>Future simple</h4>
-              <p class="tense-formula">subject + <b>will</b> + verb</p>
-              <p class="tense-use">Promises, offers, predictions and decisions made while you speak.</p>
-              <p class="tense-example">“I will call you tomorrow.”</p>
-              <details class="tense-more">
-                <summary>Negative, question &amp; signal words</summary>
-                <ul class="form-list">
-                  <li><span class="form-mark">−</span> I <b>will not forget</b>, I promise.</li>
-                  <li><span class="form-mark">?</span> <b>Will</b> you <b>call</b> me tomorrow?</li>
-                </ul>
-                <p class="signal-words">tomorrow · next week · soon · I think · probably</p>
-              </details>
-            </article>
-
-            <article class="tense-card" id="future-continuous" data-time="future" data-aspect="continuous">
-              <div class="tense-card-top">
-                <span class="tense-tag tag-future">FUTURE · CONTINUOUS</span>
-                <button class="tense-listen" type="button" data-say="This time tomorrow I will be flying to Rome." aria-label="Listen to the example sentence">▶</button>
-              </div>
-              <h4>Future continuous</h4>
-              <p class="tense-formula">subject + <b>will be</b> + verb-<b>ing</b></p>
-              <p class="tense-use">Something that will be in progress at a certain future moment.</p>
-              <p class="tense-example">“This time tomorrow I will be flying to Rome.”</p>
-              <details class="tense-more">
-                <summary>Negative, question &amp; signal words</summary>
-                <ul class="form-list">
-                  <li><span class="form-mark">−</span> I <b>will not be working</b> on Sunday.</li>
-                  <li><span class="form-mark">?</span> <b>Will</b> you <b>be using</b> the car tonight?</li>
-                </ul>
-                <p class="signal-words">at 9pm tomorrow · this time next week · all morning</p>
-              </details>
-            </article>
-
-            <article class="tense-card" id="future-perfect" data-time="future" data-aspect="perfect">
-              <div class="tense-card-top">
-                <span class="tense-tag tag-future">FUTURE · PERFECT</span>
-                <button class="tense-listen" type="button" data-say="By Friday I will have finished the report." aria-label="Listen to the example sentence">▶</button>
-              </div>
-              <h4>Future perfect</h4>
-              <p class="tense-formula">subject + <b>will have</b> + past participle</p>
-              <p class="tense-use">Something that will be complete before a deadline in the future.</p>
-              <p class="tense-example">“By Friday I will have finished the report.”</p>
-              <details class="tense-more">
-                <summary>Negative, question &amp; signal words</summary>
-                <ul class="form-list">
-                  <li><span class="form-mark">−</span> We <b>will not have arrived</b> by six.</li>
-                  <li><span class="form-mark">?</span> <b>Will</b> you <b>have finished</b> by Friday?</li>
-                </ul>
-                <p class="signal-words">by then · by Friday · before · in two years</p>
-              </details>
-            </article>
-
-            <article class="tense-card" id="future-perfect-continuous" data-time="future" data-aspect="perfect continuous">
-              <div class="tense-card-top">
-                <span class="tense-tag tag-future">FUTURE · PERFECT CONTINUOUS</span>
-                <button class="tense-listen" type="button" data-say="In June I will have been teaching for ten years." aria-label="Listen to the example sentence">▶</button>
-              </div>
-              <h4>Future perfect continuous</h4>
-              <p class="tense-formula">subject + <b>will have been</b> + verb-<b>ing</b></p>
-              <p class="tense-use">How long something will have been going on by a future point.</p>
-              <p class="tense-example">“In June I will have been teaching for ten years.”</p>
-              <details class="tense-more">
-                <summary>Negative, question &amp; signal words</summary>
-                <ul class="form-list">
-                  <li><span class="form-mark">−</span> He <b>will not have been living</b> here long by then.</li>
-                  <li><span class="form-mark">?</span> <b>How long will</b> you <b>have been waiting</b>?</li>
-                </ul>
-                <p class="signal-words">by then · for ten years · by the time</p>
-              </details>
-            </article>
-          </div>
-
-          <p class="empty-note" id="empty-note" hidden>No tenses match that filter. Try another one.</p>
-        </div>
-      </section>
-
-      <!-- CONFUSING PAIRS -->
-      <section class="confuse-section" aria-labelledby="confuse-heading">
-        <div class="section-shell">
-          <div class="section-heading split-heading">
+          <div class="tp-progress-panel">
             <div>
-              <p class="eyebrow">THE ONES THAT TRIP US UP</p>
-              <h2 id="confuse-heading">Two tenses, <em>one real difference.</em></h2>
+              <h3>Your practice progress · <b><span id="tp-done-count">0</span> of 12</b> sets cleared</h3>
+              <div class="tp-bar" id="tp-bar" role="progressbar" aria-label="Practice sets completed"><i></i></div>
+              <div class="tp-dots" id="tp-dots" aria-hidden="true"></div>
+              <p class="tp-filter-count" id="tp-progress-note" style="margin: 12px 0 0;">Tap “Practice set” on any card to begin — 5 quick questions each.</p>
+              <button type="button" class="tp-reset" id="tp-reset">Reset my progress</button>
             </div>
-            <p>Most tense mistakes come from three pairs. Read these once and a lot of English gets easier.</p>
+            <span class="tp-trophy" id="tp-trophy" aria-hidden="true">🌱</span>
           </div>
 
-          <div class="confuse-grid">
-            <article class="confuse-card">
-              <h3>Past simple <span aria-hidden="true">vs</span> present perfect</h3>
-              <div class="confuse-row"><span class="pill-a">Finished time</span><p>“I <b>saw</b> that film <i>last night</i>.” — the time is over, so use the past simple.</p></div>
-              <div class="confuse-row"><span class="pill-b">Still connected</span><p>“I <b>have seen</b> that film.” — when it happened does not matter, the experience counts now.</p></div>
-              <p class="confuse-tip"><b>Quick test.</b> If you can say <i>yesterday, last week</i> or <i>in 2020</i>, use the past simple.</p>
+          <div class="tp-filters" role="group" aria-label="Filter tenses">
+            <button type="button" class="is-current" data-filter="all" style="--f-col: #141a32; --f-soft: #f2f4fb;">✨ All 12</button>
+            <button type="button" data-filter="present" style="--f-col: #00b894; --f-soft: #e6fbf3;">🟢 Present</button>
+            <button type="button" data-filter="past" style="--f-col: #f43f5e; --f-soft: #fff0f3;">🔴 Past</button>
+            <button type="button" data-filter="future" style="--f-col: #6366f1; --f-soft: #eef0ff;">🔵 Future</button>
+            <button type="button" data-filter="simple" style="--f-col: #0ea5a5; --f-soft: #e7fafa;">● Simple</button>
+            <button type="button" data-filter="continuous" style="--f-col: #f97316; --f-soft: #fff4e8;">⌁ Continuous</button>
+            <button type="button" data-filter="perfect" style="--f-col: #8b5cf6; --f-soft: #f4efff;">✦ Perfect</button>
+            <button type="button" class="tp-print-btn" id="tp-print">🖨️ Print / save as PDF</button>
+          </div>
+          <p class="tp-filter-count" id="tp-filter-count" aria-live="polite">✨ Showing all 12 tenses — each one has its own practice set.</p>
+
+          <!-- PRESENT -->
+          <h3 class="tp-group-title" id="present-tenses" style="--g-bg: #e6fbf3; --g-col: #00b894;">
+            <em aria-hidden="true">🟢</em> Present tenses <small>NOW &amp; ALWAYS</small>
+          </h3>
+          <div class="tp-grid">
+            <article class="tp-card" data-tense="present-simple" data-time="present" data-aspect="simple" style="--c1: #00b894; --c2: #55efc4;">
+              <div class="tp-card-top">
+                <span class="tp-card-emoji" aria-hidden="true">🔁</span>
+                <div><span class="tp-card-tag">PRESENT · SIMPLE</span><h4>Present simple</h4></div>
+                <button class="tp-listen" type="button" data-say="I check my messages every morning." aria-label="Listen to the present simple example">▶</button>
+              </div>
+              <p class="tp-formula">subject + <b>verb</b> (+ s / es)</p>
+              <p class="tp-use">Habits, routines, schedules and things that are generally true.</p>
+              <p class="tp-example">“I check my messages every morning.”</p>
+              <div class="tp-forms">
+                <div><span class="m-neg" aria-hidden="true">−</span><p>I <b>do not check</b> my messages at night.</p></div>
+                <div><span class="m-q" aria-hidden="true">?</span><p><b>Do</b> you <b>check</b> your messages every morning?</p></div>
+              </div>
+              <p class="tp-signals"><b>SIGNAL WORDS</b>always · usually · often · every day · never · on Mondays</p>
+              <div class="tp-card-foot">
+                <span class="tp-status">Not practised yet</span>
+                <button class="tp-practice" type="button" data-practice="present-simple">Practice set <span aria-hidden="true">→</span></button>
+              </div>
             </article>
 
-            <article class="confuse-card">
-              <h3>Present simple <span aria-hidden="true">vs</span> present continuous</h3>
-              <div class="confuse-row"><span class="pill-a">Always true</span><p>“I <b>work</b> in a hospital.” — your usual routine or job.</p></div>
-              <div class="confuse-row"><span class="pill-b">Right now</span><p>“I <b>am working</b> from home this week.” — temporary, happening around now.</p></div>
-              <p class="confuse-tip"><b>Quick test.</b> Ask yourself: is this my normal life, or just this moment?</p>
+            <article class="tp-card" data-tense="present-continuous" data-time="present" data-aspect="continuous" style="--c1: #0ea5a5; --c2: #6ee7e7;">
+              <div class="tp-card-top">
+                <span class="tp-card-emoji" aria-hidden="true">🎬</span>
+                <div><span class="tp-card-tag">PRESENT · CONTINUOUS</span><h4>Present continuous</h4></div>
+                <button class="tp-listen" type="button" data-say="I am learning English right now." aria-label="Listen to the present continuous example">▶</button>
+              </div>
+              <p class="tp-formula">subject + <b>am / is / are</b> + verb-<b>ing</b></p>
+              <p class="tp-use">Happening at this moment, or a temporary situation around now.</p>
+              <p class="tp-example">“I am learning English right now.”</p>
+              <div class="tp-forms">
+                <div><span class="m-neg" aria-hidden="true">−</span><p>I <b>am not learning</b> French this year.</p></div>
+                <div><span class="m-q" aria-hidden="true">?</span><p><b>Are</b> you <b>learning</b> English right now?</p></div>
+              </div>
+              <p class="tp-signals"><b>SIGNAL WORDS</b>now · right now · at the moment · today · this week</p>
+              <div class="tp-card-foot">
+                <span class="tp-status">Not practised yet</span>
+                <button class="tp-practice" type="button" data-practice="present-continuous">Practice set <span aria-hidden="true">→</span></button>
+              </div>
             </article>
 
-            <article class="confuse-card">
-              <h3><i>Will</i> <span aria-hidden="true">vs</span> <i>going to</i></h3>
-              <div class="confuse-row"><span class="pill-a">Decided now</span><p>“The phone is ringing — I <b>will</b> get it.” — a decision made as you speak.</p></div>
-              <div class="confuse-row"><span class="pill-b">Already planned</span><p>“I <b>am going to</b> start a course in May.” — a plan or clear evidence.</p></div>
-              <p class="confuse-tip"><b>Quick test.</b> Look at those clouds — it <i>is going to</i> rain. The evidence is right there.</p>
+            <article class="tp-card" data-tense="present-perfect" data-time="present" data-aspect="perfect" style="--c1: #22c55e; --c2: #9ff2b4;">
+              <div class="tp-card-top">
+                <span class="tp-card-emoji" aria-hidden="true">✅</span>
+                <div><span class="tp-card-tag">PRESENT · PERFECT</span><h4>Present perfect</h4></div>
+                <button class="tp-listen" type="button" data-say="I have lived here for three years." aria-label="Listen to the present perfect example">▶</button>
+              </div>
+              <p class="tp-formula">subject + <b>have / has</b> + past participle</p>
+              <p class="tp-use">A past action with a result now, or an experience with no exact time.</p>
+              <p class="tp-example">“I have lived here for three years.”</p>
+              <div class="tp-forms">
+                <div><span class="m-neg" aria-hidden="true">−</span><p>She <b>has not finished</b> the course yet.</p></div>
+                <div><span class="m-q" aria-hidden="true">?</span><p><b>Have</b> you <b>ever visited</b> London?</p></div>
+              </div>
+              <p class="tp-signals"><b>SIGNAL WORDS</b>for · since · already · yet · just · ever · never</p>
+              <div class="tp-card-foot">
+                <span class="tp-status">Not practised yet</span>
+                <button class="tp-practice" type="button" data-practice="present-perfect">Practice set <span aria-hidden="true">→</span></button>
+              </div>
             </article>
+
+            <article class="tp-card" data-tense="present-perfect-continuous" data-time="present" data-aspect="perfect continuous" style="--c1: #84cc16; --c2: #d9f99d;">
+              <div class="tp-card-top">
+                <span class="tp-card-emoji" aria-hidden="true">⏱️</span>
+                <div><span class="tp-card-tag">PRESENT · PERFECT CONTINUOUS</span><h4>Present perfect continuous</h4></div>
+                <button class="tp-listen" type="button" data-say="I have been studying for two hours." aria-label="Listen to the present perfect continuous example">▶</button>
+              </div>
+              <p class="tp-formula">subject + <b>have / has been</b> + verb-<b>ing</b></p>
+              <p class="tp-use">How long something has been going on — and it is usually still going.</p>
+              <p class="tp-example">“I have been studying for two hours.”</p>
+              <div class="tp-forms">
+                <div><span class="m-neg" aria-hidden="true">−</span><p>He <b>has not been sleeping</b> well lately.</p></div>
+                <div><span class="m-q" aria-hidden="true">?</span><p><b>How long have</b> you <b>been waiting</b>?</p></div>
+              </div>
+              <p class="tp-signals"><b>SIGNAL WORDS</b>for · since · all day · lately · how long</p>
+              <div class="tp-card-foot">
+                <span class="tp-status">Not practised yet</span>
+                <button class="tp-practice" type="button" data-practice="present-perfect-continuous">Practice set <span aria-hidden="true">→</span></button>
+              </div>
+            </article>
+          </div>
+
+          <!-- PAST -->
+          <h3 class="tp-group-title" id="past-tenses" style="--g-bg: #ffeef1; --g-col: #f43f5e;">
+            <em aria-hidden="true">🔴</em> Past tenses <small>BEFORE NOW</small>
+          </h3>
+          <div class="tp-grid">
+            <article class="tp-card" data-tense="past-simple" data-time="past" data-aspect="simple" style="--c1: #f43f5e; --c2: #fda4af;">
+              <div class="tp-card-top">
+                <span class="tp-card-emoji" aria-hidden="true">📅</span>
+                <div><span class="tp-card-tag">PAST · SIMPLE</span><h4>Past simple</h4></div>
+                <button class="tp-listen" type="button" data-say="I called my sister yesterday." aria-label="Listen to the past simple example">▶</button>
+              </div>
+              <p class="tp-formula">subject + <b>verb-ed</b> / irregular past</p>
+              <p class="tp-use">A finished action at a finished time in the past.</p>
+              <p class="tp-example">“I called my sister yesterday.”</p>
+              <div class="tp-forms">
+                <div><span class="m-neg" aria-hidden="true">−</span><p>I <b>did not call</b> her last night.</p></div>
+                <div><span class="m-q" aria-hidden="true">?</span><p><b>Did</b> you <b>call</b> your sister yesterday?</p></div>
+              </div>
+              <p class="tp-signals"><b>SIGNAL WORDS</b>yesterday · last week · in 2019 · ago · when I was young</p>
+              <div class="tp-card-foot">
+                <span class="tp-status">Not practised yet</span>
+                <button class="tp-practice" type="button" data-practice="past-simple">Practice set <span aria-hidden="true">→</span></button>
+              </div>
+            </article>
+
+            <article class="tp-card" data-tense="past-continuous" data-time="past" data-aspect="continuous" style="--c1: #f97316; --c2: #fdba74;">
+              <div class="tp-card-top">
+                <span class="tp-card-emoji" aria-hidden="true">🎞️</span>
+                <div><span class="tp-card-tag">PAST · CONTINUOUS</span><h4>Past continuous</h4></div>
+                <button class="tp-listen" type="button" data-say="I was cooking when you called." aria-label="Listen to the past continuous example">▶</button>
+              </div>
+              <p class="tp-formula">subject + <b>was / were</b> + verb-<b>ing</b></p>
+              <p class="tp-use">An action in progress in the past, often interrupted by something shorter.</p>
+              <p class="tp-example">“I was cooking when you called.”</p>
+              <div class="tp-forms">
+                <div><span class="m-neg" aria-hidden="true">−</span><p>We <b>were not listening</b> to the radio.</p></div>
+                <div><span class="m-q" aria-hidden="true">?</span><p><b>What were</b> you <b>doing</b> at 8pm?</p></div>
+              </div>
+              <p class="tp-signals"><b>SIGNAL WORDS</b>while · when · at 8pm · all evening · as</p>
+              <div class="tp-card-foot">
+                <span class="tp-status">Not practised yet</span>
+                <button class="tp-practice" type="button" data-practice="past-continuous">Practice set <span aria-hidden="true">→</span></button>
+              </div>
+            </article>
+
+            <article class="tp-card" data-tense="past-perfect" data-time="past" data-aspect="perfect" style="--c1: #dc2626; --c2: #fca5a5;">
+              <div class="tp-card-top">
+                <span class="tp-card-emoji" aria-hidden="true">⏮️</span>
+                <div><span class="tp-card-tag">PAST · PERFECT</span><h4>Past perfect</h4></div>
+                <button class="tp-listen" type="button" data-say="The film had already started when we arrived." aria-label="Listen to the past perfect example">▶</button>
+              </div>
+              <p class="tp-formula">subject + <b>had</b> + past participle</p>
+              <p class="tp-use">The earlier of two past actions — the past before the past.</p>
+              <p class="tp-example">“The film had already started when we arrived.”</p>
+              <div class="tp-forms">
+                <div><span class="m-neg" aria-hidden="true">−</span><p>I <b>had not seen</b> that email before the meeting.</p></div>
+                <div><span class="m-q" aria-hidden="true">?</span><p><b>Had</b> the film <b>started</b> when you arrived?</p></div>
+              </div>
+              <p class="tp-signals"><b>SIGNAL WORDS</b>before · after · by the time · already · until then</p>
+              <div class="tp-card-foot">
+                <span class="tp-status">Not practised yet</span>
+                <button class="tp-practice" type="button" data-practice="past-perfect">Practice set <span aria-hidden="true">→</span></button>
+              </div>
+            </article>
+
+            <article class="tp-card" data-tense="past-perfect-continuous" data-time="past" data-aspect="perfect continuous" style="--c1: #d97706; --c2: #fcd34d;">
+              <div class="tp-card-top">
+                <span class="tp-card-emoji" aria-hidden="true">⌛</span>
+                <div><span class="tp-card-tag">PAST · PERFECT CONTINUOUS</span><h4>Past perfect continuous</h4></div>
+                <button class="tp-listen" type="button" data-say="She had been working there for a year before she moved." aria-label="Listen to the past perfect continuous example">▶</button>
+              </div>
+              <p class="tp-formula">subject + <b>had been</b> + verb-<b>ing</b></p>
+              <p class="tp-use">How long something had been happening before another past moment.</p>
+              <p class="tp-example">“She had been working there for a year before she moved.”</p>
+              <div class="tp-forms">
+                <div><span class="m-neg" aria-hidden="true">−</span><p>They <b>had not been waiting</b> long when the bus came.</p></div>
+                <div><span class="m-q" aria-hidden="true">?</span><p><b>How long had</b> she <b>been working</b> there?</p></div>
+              </div>
+              <p class="tp-signals"><b>SIGNAL WORDS</b>for · since · before · how long · until</p>
+              <div class="tp-card-foot">
+                <span class="tp-status">Not practised yet</span>
+                <button class="tp-practice" type="button" data-practice="past-perfect-continuous">Practice set <span aria-hidden="true">→</span></button>
+              </div>
+            </article>
+          </div>
+
+          <!-- FUTURE -->
+          <h3 class="tp-group-title" id="future-tenses" style="--g-bg: #eef0ff; --g-col: #6366f1;">
+            <em aria-hidden="true">🔵</em> Future tenses <small>AFTER NOW</small>
+          </h3>
+          <div class="tp-grid">
+            <article class="tp-card" data-tense="future-simple" data-time="future" data-aspect="simple" style="--c1: #3b82f6; --c2: #93c5fd;">
+              <div class="tp-card-top">
+                <span class="tp-card-emoji" aria-hidden="true">🚀</span>
+                <div><span class="tp-card-tag">FUTURE · SIMPLE</span><h4>Future simple</h4></div>
+                <button class="tp-listen" type="button" data-say="I will call you tomorrow." aria-label="Listen to the future simple example">▶</button>
+              </div>
+              <p class="tp-formula">subject + <b>will</b> + verb</p>
+              <p class="tp-use">Promises, offers, predictions and decisions made while you speak.</p>
+              <p class="tp-example">“I will call you tomorrow.”</p>
+              <div class="tp-forms">
+                <div><span class="m-neg" aria-hidden="true">−</span><p>I <b>will not forget</b>, I promise.</p></div>
+                <div><span class="m-q" aria-hidden="true">?</span><p><b>Will</b> you <b>call</b> me tomorrow?</p></div>
+              </div>
+              <p class="tp-signals"><b>SIGNAL WORDS</b>tomorrow · next week · soon · I think · probably</p>
+              <div class="tp-card-foot">
+                <span class="tp-status">Not practised yet</span>
+                <button class="tp-practice" type="button" data-practice="future-simple">Practice set <span aria-hidden="true">→</span></button>
+              </div>
+            </article>
+
+            <article class="tp-card" data-tense="future-continuous" data-time="future" data-aspect="continuous" style="--c1: #6366f1; --c2: #a5b4fc;">
+              <div class="tp-card-top">
+                <span class="tp-card-emoji" aria-hidden="true">🛫</span>
+                <div><span class="tp-card-tag">FUTURE · CONTINUOUS</span><h4>Future continuous</h4></div>
+                <button class="tp-listen" type="button" data-say="This time tomorrow I will be flying to Rome." aria-label="Listen to the future continuous example">▶</button>
+              </div>
+              <p class="tp-formula">subject + <b>will be</b> + verb-<b>ing</b></p>
+              <p class="tp-use">Something that will be in progress at a certain future moment.</p>
+              <p class="tp-example">“This time tomorrow I will be flying to Rome.”</p>
+              <div class="tp-forms">
+                <div><span class="m-neg" aria-hidden="true">−</span><p>I <b>will not be working</b> on Sunday.</p></div>
+                <div><span class="m-q" aria-hidden="true">?</span><p><b>Will</b> you <b>be using</b> the car tonight?</p></div>
+              </div>
+              <p class="tp-signals"><b>SIGNAL WORDS</b>at 9pm tomorrow · this time next week · all morning</p>
+              <div class="tp-card-foot">
+                <span class="tp-status">Not practised yet</span>
+                <button class="tp-practice" type="button" data-practice="future-continuous">Practice set <span aria-hidden="true">→</span></button>
+              </div>
+            </article>
+
+            <article class="tp-card" data-tense="future-perfect" data-time="future" data-aspect="perfect" style="--c1: #8b5cf6; --c2: #d8b4fe;">
+              <div class="tp-card-top">
+                <span class="tp-card-emoji" aria-hidden="true">🏁</span>
+                <div><span class="tp-card-tag">FUTURE · PERFECT</span><h4>Future perfect</h4></div>
+                <button class="tp-listen" type="button" data-say="By Friday I will have finished the report." aria-label="Listen to the future perfect example">▶</button>
+              </div>
+              <p class="tp-formula">subject + <b>will have</b> + past participle</p>
+              <p class="tp-use">Something that will be complete before a deadline in the future.</p>
+              <p class="tp-example">“By Friday I will have finished the report.”</p>
+              <div class="tp-forms">
+                <div><span class="m-neg" aria-hidden="true">−</span><p>We <b>will not have arrived</b> by six.</p></div>
+                <div><span class="m-q" aria-hidden="true">?</span><p><b>Will</b> you <b>have finished</b> by Friday?</p></div>
+              </div>
+              <p class="tp-signals"><b>SIGNAL WORDS</b>by then · by Friday · before · in two years</p>
+              <div class="tp-card-foot">
+                <span class="tp-status">Not practised yet</span>
+                <button class="tp-practice" type="button" data-practice="future-perfect">Practice set <span aria-hidden="true">→</span></button>
+              </div>
+            </article>
+
+            <article class="tp-card" data-tense="future-perfect-continuous" data-time="future" data-aspect="perfect continuous" style="--c1: #ec4899; --c2: #f9a8d4;">
+              <div class="tp-card-top">
+                <span class="tp-card-emoji" aria-hidden="true">🌠</span>
+                <div><span class="tp-card-tag">FUTURE · PERFECT CONTINUOUS</span><h4>Future perfect continuous</h4></div>
+                <button class="tp-listen" type="button" data-say="In June I will have been teaching for ten years." aria-label="Listen to the future perfect continuous example">▶</button>
+              </div>
+              <p class="tp-formula">subject + <b>will have been</b> + verb-<b>ing</b></p>
+              <p class="tp-use">How long something will have been going on by a future point.</p>
+              <p class="tp-example">“In June I will have been teaching for ten years.”</p>
+              <div class="tp-forms">
+                <div><span class="m-neg" aria-hidden="true">−</span><p>He <b>will not have been living</b> here long by then.</p></div>
+                <div><span class="m-q" aria-hidden="true">?</span><p><b>How long will</b> you <b>have been waiting</b>?</p></div>
+              </div>
+              <p class="tp-signals"><b>SIGNAL WORDS</b>by then · for ten years · by the time</p>
+              <div class="tp-card-foot">
+                <span class="tp-status">Not practised yet</span>
+                <button class="tp-practice" type="button" data-practice="future-perfect-continuous">Practice set <span aria-hidden="true">→</span></button>
+              </div>
+            </article>
+          </div>
+
+          <p class="tp-empty" id="tp-empty" hidden>No tenses match that filter. Try another one.</p>
+        </div>
+      </section>
+
+      <!-- ================= CONFUSING PAIRS ================= -->
+      <section class="tp-pairs-section tp-shell" aria-labelledby="tp-pairs-heading">
+        <div class="tp-section-head">
+          <div>
+            <p class="tp-kicker" style="color: #f97316;">THE ONES THAT TRIP US UP</p>
+            <h2 id="tp-pairs-heading">Two tenses, <span class="tp-grad-text">one real difference.</span></h2>
+          </div>
+          <p>Most tense mistakes come from three pairs. Read these once and a lot of English gets easier.</p>
+        </div>
+
+        <div class="tp-pairs">
+          <article class="tp-pair" style="--p-bg: linear-gradient(140deg, #fff3f5, #ffe9ef); --p-border: #ffd7e1;">
+            <h3>Past simple <span aria-hidden="true">vs</span> present perfect</h3>
+            <div class="tp-pair-row"><span class="tp-chip tp-chip-a">FINISHED TIME</span><p>“I <b>saw</b> that film <i>last night</i>.” — the time is over, so use the past simple.</p></div>
+            <div class="tp-pair-row"><span class="tp-chip tp-chip-b">STILL CONNECTED</span><p>“I <b>have seen</b> that film.” — when it happened does not matter, the experience counts now.</p></div>
+            <p class="tp-pair-tip"><b>Quick test.</b> If you can say <i>yesterday, last week</i> or <i>in 2020</i>, use the past simple.</p>
+          </article>
+
+          <article class="tp-pair" style="--p-bg: linear-gradient(140deg, #eefaf5, #e3f6ee); --p-border: #c8ecdd;">
+            <h3>Present simple <span aria-hidden="true">vs</span> present continuous</h3>
+            <div class="tp-pair-row"><span class="tp-chip tp-chip-a">ALWAYS TRUE</span><p>“I <b>work</b> in a hospital.” — your usual routine or job.</p></div>
+            <div class="tp-pair-row"><span class="tp-chip tp-chip-b">RIGHT NOW</span><p>“I <b>am working</b> from home this week.” — temporary, happening around now.</p></div>
+            <p class="tp-pair-tip"><b>Quick test.</b> Ask yourself: is this my normal life, or just this moment?</p>
+          </article>
+
+          <article class="tp-pair" style="--p-bg: linear-gradient(140deg, #f1f3ff, #e8ebff); --p-border: #d7ddff;">
+            <h3><i>Will</i> <span aria-hidden="true">vs</span> <i>going to</i></h3>
+            <div class="tp-pair-row"><span class="tp-chip tp-chip-a">DECIDED NOW</span><p>“The phone is ringing — I <b>will</b> get it.” — a decision made as you speak.</p></div>
+            <div class="tp-pair-row"><span class="tp-chip tp-chip-b">ALREADY PLANNED</span><p>“I <b>am going to</b> start a course in May.” — a plan or clear evidence.</p></div>
+            <p class="tp-pair-tip"><b>Quick test.</b> Look at those clouds — it <i>is going to</i> rain. The evidence is right there.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================= CHALLENGE QUIZ ================= -->
+      <section class="tp-quiz-section" id="tp-quiz" aria-labelledby="tp-quiz-heading">
+        <div class="tp-shell tp-quiz-shell">
+          <div class="tp-quiz-intro">
+            <p class="tp-kicker">THE FINAL CHALLENGE</p>
+            <h2 id="tp-quiz-heading">12 sentences.<br />One tense each.</h2>
+            <p>One question from every tense on this page. Every answer comes with a short explanation, so a mistake is just a lesson.</p>
+            <div class="tp-score-card">
+              <span aria-hidden="true">🏆</span>
+              <div>
+                <strong><span id="tp-live-score">0</span> correct so far</strong>
+                <small id="tp-live-note">Start whenever you are ready.</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="tp-quiz-card" id="tp-challenge">
+            <div data-role="stage">
+              <div class="tp-quiz-head">
+                <span>MIXED TENSE CHALLENGE</span>
+                <b data-role="counter">01 / 12</b>
+              </div>
+              <div class="tp-quiz-bar"><i data-role="bar"></i></div>
+              <p class="tp-prompt" data-role="prompt">Loading question…</p>
+              <div data-role="body"></div>
+              <p class="tp-feedback" data-role="feedback" aria-live="polite">Pick the answer that sounds right to you.</p>
+              <div class="tp-quiz-foot">
+                <span id="tp-challenge-tense">Take your time — you’re learning.</span>
+                <button class="tp-next" type="button" data-role="next" disabled>Check answer <span aria-hidden="true">→</span></button>
+              </div>
+            </div>
+
+            <div class="tp-result" data-role="result" hidden>
+              <div class="tp-ring" data-role="ring"><strong>0/12</strong></div>
+              <h3 data-role="result-title">Nicely done!</h3>
+              <p data-role="result-note">Every answer teaches you something.</p>
+              <div class="tp-result-actions">
+                <button class="tp-btn tp-btn-main" type="button" data-role="again">Try again <span aria-hidden="true">↻</span></button>
+                <a class="tp-btn tp-btn-alt" href="#tp-cards">Back to the cards <span aria-hidden="true">↑</span></a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- QUIZ -->
-      <section class="tense-quiz-section" id="tense-quiz" aria-labelledby="quiz-heading">
-        <div class="section-shell tense-quiz-shell">
-          <div class="quiz-intro">
-            <p class="eyebrow eyebrow-light">CHECK YOURSELF</p>
-            <h2 id="quiz-heading">Eight sentences.<br />One quiet win.</h2>
-            <p>No score to be ashamed of. Every answer comes with a short explanation, so a mistake is just a lesson.</p>
-            <div class="quiz-score-card">
-              <span class="flame" aria-hidden="true">✦</span>
-              <div><strong><span id="tq-score">0</span> correct</strong><small id="tq-score-note">Start whenever you are ready.</small></div>
-            </div>
+      <!-- ================= CTA ================= -->
+      <section class="tp-cta tp-shell">
+        <div class="tp-cta-inner">
+          <div>
+            <h2>Now say one of them out loud.</h2>
+            <p>Grammar becomes real the moment you speak it. Your daily practice room is waiting.</p>
           </div>
-
-          <div class="tense-quiz-card">
-            <div class="quiz-top"><span>TENSE CHECK</span><span id="tq-counter">01 / 08</span></div>
-            <div class="quiz-progress"><i id="tq-progress" style="width: 12.5%"></i></div>
-            <p class="quiz-prompt" id="tq-prompt">Loading question…</p>
-            <div class="answer-list" id="tq-answers" role="group" aria-label="Choose an answer"></div>
-            <p class="quiz-feedback" id="tq-feedback" aria-live="polite">Pick the sentence that sounds right to you.</p>
-            <div class="quiz-bottom">
-              <span>Take your time — you’re learning.</span>
-              <button id="tq-next" type="button" disabled>Check answer <span aria-hidden="true">→</span></button>
-            </div>
+          <div class="tp-cta-actions">
+            <a class="tp-btn tp-btn-alt" href="practice.html">Start daily practice <span aria-hidden="true">→</span></a>
+            <a class="tp-btn tp-btn-ghost" href="library.html">Watch a lesson <span aria-hidden="true">▶</span></a>
           </div>
-        </div>
-      </section>
-
-      <section class="practice-cta">
-        <div class="section-shell">
-          <h2>Now say one of them out loud.</h2>
-          <a class="button button-sun" href="practice.html">Start your daily practice <span aria-hidden="true">→</span></a>
         </div>
       </section>
     </main>
+
+    <!-- ================= PRACTICE SET DIALOG ================= -->
+    <dialog id="tp-dialog" aria-labelledby="tp-dialog-title">
+      <div class="tp-dialog-card">
+        <div class="tp-dialog-head">
+          <small>PRACTICE SET · 5 QUESTIONS</small>
+          <h2 id="tp-dialog-title"><span data-role="dialog-emoji" aria-hidden="true">🔁</span> <span data-role="dialog-name">Present simple</span></h2>
+          <button class="tp-dialog-close" type="button" data-role="dialog-close" aria-label="Close practice set">×</button>
+          <div class="tp-dialog-pips" data-role="pips" aria-hidden="true"></div>
+        </div>
+        <div class="tp-dialog-body">
+          <div data-role="stage">
+            <div class="tp-quiz-head">
+              <span>QUESTION</span>
+              <b data-role="counter">01 / 05</b>
+            </div>
+            <div class="tp-quiz-bar"><i data-role="bar"></i></div>
+            <p class="tp-prompt" data-role="prompt">Loading…</p>
+            <div data-role="body"></div>
+            <p class="tp-feedback" data-role="feedback" aria-live="polite">Pick the answer that sounds right to you.</p>
+            <div class="tp-quiz-foot">
+              <span>No score is saved against you — only your best.</span>
+              <button class="tp-next" type="button" data-role="next" disabled>Check answer <span aria-hidden="true">→</span></button>
+            </div>
+          </div>
+
+          <div class="tp-result" data-role="result" hidden>
+            <div class="tp-ring" data-role="ring"><strong>0/5</strong></div>
+            <h3 data-role="result-title">Nicely done!</h3>
+            <p data-role="result-note">Every answer teaches you something.</p>
+            <div class="tp-result-actions">
+              <button class="tp-btn tp-btn-main" type="button" data-role="again">Try again <span aria-hidden="true">↻</span></button>
+              <button class="tp-btn tp-btn-alt" type="button" data-role="next-tense">Next tense <span aria-hidden="true">→</span></button>
+              <button class="tp-btn tp-btn-alt" type="button" data-role="dialog-close">Close <span aria-hidden="true">×</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </dialog>
 
     <footer class="site-footer section-shell">
       <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>English <b>Flow</b></span></a>
@@ -430,242 +553,7 @@
     </footer>
 
     <script src="script.js"></script>
-    <script>
-      (function () {
-        // --- Filter the 12 tense cards -------------------------------------
-        var filterButtons = document.querySelectorAll('.tense-filter button');
-        var cards = document.querySelectorAll('.tense-card');
-        var groups = document.querySelectorAll('.tense-group-title');
-        var countEl = document.getElementById('filter-count');
-        var emptyNote = document.getElementById('empty-note');
-
-        function applyFilter(filter) {
-          var visible = 0;
-          cards.forEach(function (card) {
-            var time = card.dataset.time || '';
-            var aspect = card.dataset.aspect || '';
-            var show = filter === 'all' || time === filter || aspect.split(' ').indexOf(filter) > -1;
-            card.hidden = !show;
-            if (show) visible++;
-          });
-
-          groups.forEach(function (title) {
-            var grid = title.nextElementSibling;
-            var anyVisible = grid && grid.querySelector('.tense-card:not([hidden])');
-            title.hidden = !anyVisible;
-            if (grid) grid.hidden = !anyVisible;
-          });
-
-          if (countEl) {
-            countEl.textContent =
-              filter === 'all'
-                ? 'Showing all 12 tenses.'
-                : 'Showing ' + visible + ' ' + (visible === 1 ? 'tense' : 'tenses') + ' · ' + filter + '.';
-          }
-          if (emptyNote) emptyNote.hidden = visible !== 0;
-        }
-
-        filterButtons.forEach(function (button) {
-          button.addEventListener('click', function () {
-            filterButtons.forEach(function (b) { b.classList.remove('is-current'); });
-            button.classList.add('is-current');
-            applyFilter(button.dataset.filter);
-          });
-        });
-
-        // --- Read an example out loud --------------------------------------
-        document.querySelectorAll('.tense-listen').forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            var text = btn.dataset.say || '';
-            if (!('speechSynthesis' in window) || !text) return;
-            window.speechSynthesis.cancel();
-            var utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = 'en-US';
-            utterance.rate = 0.9;
-            window.speechSynthesis.speak(utterance);
-            btn.textContent = '🔊';
-            setTimeout(function () { btn.textContent = '▶'; }, 1800);
-          });
-        });
-
-        // --- Print / save as PDF -------------------------------------------
-        var allDetails = document.querySelectorAll('.tense-more');
-        var reopened = [];
-        window.addEventListener('beforeprint', function () {
-          reopened = [];
-          allDetails.forEach(function (d) {
-            if (!d.open) { d.open = true; reopened.push(d); }
-          });
-        });
-        window.addEventListener('afterprint', function () {
-          reopened.forEach(function (d) { d.open = false; });
-          reopened = [];
-        });
-
-        var printBtn = document.getElementById('print-tenses');
-        if (printBtn) {
-          printBtn.addEventListener('click', function () {
-            filterButtons.forEach(function (b) { b.classList.toggle('is-current', b.dataset.filter === 'all'); });
-            applyFilter('all');
-            window.print();
-          });
-        }
-
-        // --- Tense quiz ------------------------------------------------------
-        var questions = [
-          {
-            prompt: 'She ________ in Berlin since 2015.',
-            answers: ['is living', 'has lived', 'lived'],
-            correct: 1,
-            explanation: '“Since 2015” connects the past to now, so we use the present perfect: has lived.'
-          },
-          {
-            prompt: 'By the time we arrived, the concert ________.',
-            answers: ['started', 'has started', 'had started'],
-            correct: 2,
-            explanation: 'One past action happened before another, so the earlier one takes the past perfect: had started.'
-          },
-          {
-            prompt: 'Look at those clouds! It ________.',
-            answers: ['will rain', 'is going to rain', 'rains'],
-            correct: 1,
-            explanation: 'There is evidence in front of you, so use “going to” rather than “will”.'
-          },
-          {
-            prompt: 'I ________ dinner when the lights went out.',
-            answers: ['cooked', 'was cooking', 'have cooked'],
-            correct: 1,
-            explanation: 'A longer action in progress interrupted by a short one: past continuous.'
-          },
-          {
-            prompt: 'Sorry, I can’t talk — I ________ to a meeting right now.',
-            answers: ['walk', 'am walking', 'have walked'],
-            correct: 1,
-            explanation: 'It is happening at this exact moment, so use the present continuous.'
-          },
-          {
-            prompt: 'By next summer, they ________ here for ten years.',
-            answers: ['will live', 'will have lived', 'are living'],
-            correct: 1,
-            explanation: 'Completed before a future point: future perfect, will have lived.'
-          },
-          {
-            prompt: 'My train ________ at 7:15 every morning.',
-            answers: ['leaves', 'is leaving', 'has left'],
-            correct: 0,
-            explanation: 'Timetables and repeated routines take the present simple.'
-          },
-          {
-            prompt: 'I ________ for you for twenty minutes! Where were you?',
-            answers: ['waited', 'have been waiting', 'will wait'],
-            correct: 1,
-            explanation: 'The duration matters and it just finished, so use the present perfect continuous.'
-          }
-        ];
-
-        var promptEl = document.getElementById('tq-prompt');
-        var answersEl = document.getElementById('tq-answers');
-        var feedbackEl = document.getElementById('tq-feedback');
-        var nextBtn = document.getElementById('tq-next');
-        var counterEl = document.getElementById('tq-counter');
-        var progressEl = document.getElementById('tq-progress');
-        var scoreEl = document.getElementById('tq-score');
-        var scoreNote = document.getElementById('tq-score-note');
-        if (!promptEl || !answersEl || !nextBtn) return;
-
-        var labels = ['A', 'B', 'C'];
-        var index = 0;
-        var score = 0;
-        var selected = null;
-        var checked = false;
-
-        function pad(n) { return (n < 10 ? '0' : '') + n; }
-
-        function render() {
-          var q = questions[index];
-          checked = false;
-          selected = null;
-          counterEl.textContent = pad(index + 1) + ' / ' + pad(questions.length);
-          progressEl.style.width = ((index + 1) / questions.length) * 100 + '%';
-          promptEl.textContent = q.prompt;
-          feedbackEl.className = 'quiz-feedback';
-          feedbackEl.textContent = 'Pick the sentence that sounds right to you.';
-          nextBtn.disabled = true;
-          nextBtn.innerHTML = 'Check answer <span aria-hidden="true">→</span>';
-
-          answersEl.innerHTML = '';
-          q.answers.forEach(function (text, i) {
-            var btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = 'answer';
-            btn.innerHTML = '<b>' + labels[i] + '</b> ' + text;
-            btn.addEventListener('click', function () {
-              if (checked) return;
-              answersEl.querySelectorAll('.answer').forEach(function (b) { b.classList.remove('is-selected'); });
-              btn.classList.add('is-selected');
-              selected = i;
-              nextBtn.disabled = false;
-            });
-            answersEl.appendChild(btn);
-          });
-        }
-
-        function finish() {
-          feedbackEl.className = 'quiz-feedback success';
-          feedbackEl.textContent =
-            score === questions.length
-              ? '🎉 ' + score + ' out of ' + questions.length + '. The timeline is yours.'
-              : 'You got ' + score + ' out of ' + questions.length + '. Review those cards and try once more.';
-          nextBtn.innerHTML = 'Try again <span aria-hidden="true">↺</span>';
-          nextBtn.disabled = false;
-          nextBtn.dataset.mode = 'restart';
-        }
-
-        nextBtn.addEventListener('click', function () {
-          if (nextBtn.dataset.mode === 'restart') {
-            nextBtn.dataset.mode = '';
-            index = 0;
-            score = 0;
-            scoreEl.textContent = '0';
-            scoreNote.textContent = 'A fresh start. Take your time.';
-            render();
-            return;
-          }
-
-          if (!checked) {
-            if (selected === null) return;
-            checked = true;
-            var q = questions[index];
-            var buttons = answersEl.querySelectorAll('.answer');
-            buttons[q.correct].classList.add('is-correct');
-
-            if (selected === q.correct) {
-              score++;
-              scoreEl.textContent = score;
-              scoreNote.textContent = 'Nice — that one clicked.';
-              feedbackEl.className = 'quiz-feedback success';
-              feedbackEl.textContent = '✦ Correct. ' + q.explanation;
-            } else {
-              buttons[selected].classList.add('is-wrong');
-              scoreNote.textContent = 'Mistakes are part of it. Keep going.';
-              feedbackEl.className = 'quiz-feedback error';
-              feedbackEl.textContent = 'Not quite. ' + q.explanation;
-            }
-
-            nextBtn.innerHTML =
-              index < questions.length - 1
-                ? 'Next sentence <span aria-hidden="true">→</span>'
-                : 'See your result <span aria-hidden="true">✦</span>';
-          } else if (index < questions.length - 1) {
-            index++;
-            render();
-          } else {
-            finish();
-          }
-        });
-
-        render();
-      })();
-    </script>
+    <script src="tense-data.js"></script>
+    <script src="tenses.js" defer></script>
   </body>
 </html>

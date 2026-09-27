@@ -220,7 +220,7 @@ function initPracticeQuiz() {
         
         // Play subtle sound or speak phrase
         if ('speechSynthesis' in window) {
-          const phraseText = selectedBtn.innerText.replace(/^[A-C]\s*/, '');
+          const phraseText = (selectedBtn.innerText || selectedBtn.textContent || '').replace(/^[A-C]\s*/, '');
           const utterance = new SpeechSynthesisUtterance(phraseText);
           utterance.lang = 'en-US';
           window.speechSynthesis.speak(utterance);
