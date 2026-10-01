@@ -5,7 +5,8 @@
   if (!C || !Array.isArray(DAYS) || !document.getElementById("practice")) return;
   const $ = s => document.querySelector(s);
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  let storageOK = true, state, session = null, activeUnit = 0, returnFocus = null, soundContext, toastTimer;
+  let storageOK = true, state, session = null, activeUnit = 0, returnFocus = null, soundContext, toastTimer, combo = 0;
+  const THEME_KEY = "english_flow_practice_theme";
   const dialog = $("#lesson-dialog"), exercise = $("#exercise"), next = $("#next-step");
   function storageFailure() { storageOK = false; $("#storage-warning").hidden = false; }
   function read(key) {
@@ -50,7 +51,7 @@
       if (!Audio) return;
       soundContext = soundContext || new Audio();
       const play = () => {
-        const notes = kind === "correct" ? [523.25, 659.25] : kind === "complete" ? [523.25, 659.25, 783.99] : [261.63];
+        const notes = kind === "correct" ? [523.25, 659.25] : kind === "complete" ? [523.25, 659.25, 783.99, 1046.5] : kind === "click" ? [392] : [261.63];
         notes.forEach((frequency, index) => {
           const oscillator = soundContext.createOscillator(), gain = soundContext.createGain(), start = soundContext.currentTime + index * .1;
           oscillator.type = "sine"; oscillator.frequency.value = frequency;
@@ -62,13 +63,48 @@
       if (soundContext.state === "suspended") soundContext.resume().then(play).catch(() => {}); else play();
     } catch { /* Visual feedback is always available when audio is blocked. */ }
   }
-  function stopSpeech() { if ("speechSynthesis" in window) window.speechSynthesis.cancel(); }
+  function setSpeaking(active) {
+    $("#mentor-companion")?.classList.toggle("speaking", active);
+    $("#session-coach")?.classList.toggle("speaking", active);
+    exercise.querySelectorAll(".hear-button").forEach(button => button.classList.toggle("is-speaking", active));
+  }
+  function stopSpeech() { if ("speechSynthesis" in window) window.speechSynthesis.cancel(); setSpeaking(false); }
   function speak(text) {
     if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) { toast("Pronunciation isn't supported here. Read the phrase aloud instead."); return; }
     stopSpeech();
     const utterance = new SpeechSynthesisUtterance(text); utterance.lang = "en-US"; utterance.rate = .88;
-    utterance.onerror = e => { if (!["canceled", "interrupted"].includes(e.error)) toast("Audio isn't available. You can still read the phrase aloud."); };
+    utterance.onstart = () => setSpeaking(true);
+    utterance.onend = () => setSpeaking(false);
+    utterance.onerror = e => { setSpeaking(false); if (!["canceled", "interrupted"].includes(e.error)) toast("Audio isn't available. You can still read the phrase aloud."); };
     window.speechSynthesis.speak(utterance);
+  }
+  function hearButton(label) {
+    return `<button class="quiet-button hear-button" type="button" id="hear-phrase"><span class="speaker-icon" aria-hidden="true">▶</span><span>${label}</span><span class="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i></span></button>`;
+  }
+  function updateCombo() {
+    const badge = $("#combo-badge");
+    badge.textContent = `⚡ ${combo} Combo`;
+    badge.classList.toggle("is-hot", combo > 1);
+    badge.classList.remove("combo-pop");
+    if (combo) requestAnimationFrame(() => badge.classList.add("combo-pop"));
+  }
+  function celebrate(xp) {
+    const coach = $("#session-coach"), mentor = $("#mentor-companion");
+    coach?.classList.add("cheer"); mentor?.classList.add("cheer");
+    if (coach) $("#coach-note").textContent = "You did it! That confidence is growing.";
+    const badge = document.createElement("div"); badge.className = "xp-pop"; badge.textContent = `+${xp} XP`; dialog.appendChild(badge); setTimeout(() => badge.remove(), 1500);
+    burstConfetti(); setTimeout(() => { coach?.classList.remove("cheer"); mentor?.classList.remove("cheer"); }, 1400);
+  }
+  function burstConfetti() {
+    if (/jsdom/i.test(navigator.userAgent) || window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
+    const canvas = document.createElement("canvas"); let ctx;
+    try { ctx = canvas.getContext("2d"); } catch { return; }
+    if (!ctx) return;
+    canvas.className = "confetti-canvas"; canvas.width = window.innerWidth; canvas.height = window.innerHeight; document.body.appendChild(canvas);
+    const colors = ["#7c3aed", "#ec4899", "#f59e0b", "#22c55e", "#38bdf8"];
+    const bits = Array.from({ length: 80 }, () => ({ x: canvas.width / 2, y: canvas.height * .42, vx: (Math.random() - .5) * 14, vy: -5 - Math.random() * 9, r: 3 + Math.random() * 5, c: colors[Math.floor(Math.random() * colors.length)], a: Math.random() * 6 }));
+    let frame = 0;
+    (function draw() { ctx.clearRect(0, 0, canvas.width, canvas.height); bits.forEach(p => { p.x += p.vx; p.y += p.vy; p.vy += .32; p.a += .15; ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.a); ctx.fillStyle = p.c; ctx.fillRect(-p.r, -p.r / 2, p.r * 2, p.r); ctx.restore(); }); if (++frame < 90) requestAnimationFrame(draw); else canvas.remove(); })();
   }
   function renderDashboard() {
     const today = C.dateKey(), completed = Object.keys(state.completed).length, day = DAYS[(draft ? draft.day : C.nextDay(state)) - 1];
@@ -96,9 +132,10 @@
     const badges = C.badges(state, today);
     $("#badge-count").textContent = `${badges.filter(b => b.earned).length} / 4`;
     $("#badge-list").innerHTML = badges.map(b => `<div class="badge ${b.earned ? "earned" : ""}" aria-label="${b.name}: ${b.earned ? "earned" : b.hint}"><span class="badge-medal" aria-hidden="true">${b.symbol}</span><strong>${b.name}</strong><small>${b.earned ? "Unlocked" : b.hint}</small></div>`).join("");
-    $("#sound-toggle").textContent = state.sound ? "Sound on" : "Sound off";
+    $("#sound-toggle").innerHTML = `<span aria-hidden="true">${state.sound ? "♪" : "♩"}</span> ${state.sound ? "Sound on" : "Muted"}`;
     $("#sound-toggle").setAttribute("aria-pressed", String(state.sound));
     $("#sound-toggle").setAttribute("aria-label", `Sound feedback ${state.sound ? "on" : "off"}. Toggle sound`);
+    $("#mentor-bubble").textContent = completed === 30 ? "Thirty lessons! Your voice has come so far." : completed ? `${completed} little win${completed === 1 ? "" : "s"} already. Ready for the next?` : "I’ll be right here. One brave phrase at a time!";
     renderPath();
   }
   function renderPath() {
@@ -116,6 +153,7 @@
     if (!C.canOpen(state, day)) { toast("Finish the earlier lessons to unlock this one."); return; }
     if (draft && draft.day !== day && !window.confirm("Starting this lesson will replace your unfinished session. Your completed lessons and XP are safe. Continue?")) return;
     session = draft && draft.day === day ? validateDraft(draft) || fresh(day) : fresh(day);
+    combo = 0;
     returnFocus = document.activeElement; dialog.showModal(); document.body.style.overflow = "hidden";
     saveDraft(); renderSession();
   }
@@ -134,12 +172,13 @@
     const day = DAYS[session.day - 1];
     $("#lesson-kicker").textContent = `LESSON ${String(day.day).padStart(2, "0")} · ${day.theme.toUpperCase()}`;
     $("#session-xp").textContent = `${session.answers.filter(v => v === true).length} / 6`;
+    updateCombo();
     $("#session-bar").value = session.stage === "intro" ? 0 : session.stage === "quiz" ? 1 + session.index : session.stage === "done" ? 8 : 7;
     next.disabled = false; next.textContent = "Continue";
     feedback("Take your time. You're here to learn, not to be perfect.");
     if (session.stage === "intro") {
       $("#step-label").textContent = "01 · MEET YOUR PHRASE"; $("#lesson-title").textContent = day.title;
-      exercise.innerHTML = `<p class="exercise-subtext">${esc(day.speak)} Think of what you would say, then reveal a natural phrase.</p><button type="button" class="reveal-card ${session.revealed ? "revealed" : ""}" id="reveal-phrase" aria-expanded="${session.revealed}" aria-controls="phrase-meaning"><small>${session.revealed ? "YOUR REAL-LIFE PHRASE" : "A SMALL PHRASE. A NEW POSSIBILITY."}</small><strong>${session.revealed ? esc(day.phrase) : "Tap to find your words"}</strong><small>${session.revealed ? "Say it once, just for yourself." : "Reveal phrase +"}</small></button><div id="phrase-meaning" ${session.revealed ? "" : "hidden"}><p class="meaning">${esc(day.meaning)}</p><button class="quiet-button" type="button" id="hear-phrase">Hear the phrase</button></div>`;
+      exercise.innerHTML = `<p class="exercise-subtext">${esc(day.speak)} Think of what you would say, then reveal a natural phrase.</p><button type="button" class="reveal-card ${session.revealed ? "revealed" : ""}" id="reveal-phrase" aria-expanded="${session.revealed}" aria-controls="phrase-meaning"><small>${session.revealed ? "YOUR REAL-LIFE PHRASE" : "A SMALL PHRASE. A NEW POSSIBILITY."}</small><strong>${session.revealed ? esc(day.phrase) : "Tap to find your words"}</strong><small>${session.revealed ? "Say it once, just for yourself." : "Reveal phrase +"}</small></button><div id="phrase-meaning" ${session.revealed ? "" : "hidden"}><p class="meaning">${esc(day.meaning)}</p>${hearButton("Hear the phrase")}</div>`;
       next.disabled = !session.revealed; next.textContent = "Let's practise";
       if (session.revealed) feedback(day.tip);
     } else if (session.stage === "quiz" || session.stage === "review") {
@@ -159,7 +198,7 @@
       if (session.checked) showChecked(q);
     } else if (session.stage === "speak") {
       $("#step-label").textContent = "ONE LAST THING · MAKE IT YOURS"; $("#lesson-title").textContent = "Your voice. Your turn.";
-      exercise.innerHTML = `<p class="exercise-subtext">Use the phrase in your own voice. No microphone, no recording, no score. Just a little real practice.</p><div class="speaking-prompt">${esc(day.speak)}</div><p class="summary-phrase">“${esc(day.phrase)}”</p><button type="button" class="quiet-button" id="hear-phrase">Hear it once more</button><label class="check-row"><input type="checkbox" id="spoken-check" ${session.spoken ? "checked" : ""} /><span>I tried the phrase out loud (or silently, if that's better for me).</span></label>`;
+      exercise.innerHTML = `<p class="exercise-subtext">Use the phrase in your own voice. No microphone, no recording, no score. Just a little real practice.</p><div class="speaking-prompt">${esc(day.speak)}</div><p class="summary-phrase">“${esc(day.phrase)}”</p>${hearButton("Hear it once more")}<label class="check-row"><input type="checkbox" id="spoken-check" ${session.spoken ? "checked" : ""} /><span>I tried the phrase out loud (or silently, if that's better for me).</span></label>`;
       next.disabled = !session.spoken; next.textContent = "Finish lesson";
       feedback("Your progress and rewards are saved when you finish.");
     } else if (session.stage === "done") {
@@ -219,6 +258,10 @@
       session.answers[session.index] = Boolean(good);
       if (!good && !session.review.includes(session.index)) session.review.push(session.index);
     }
+    combo = good ? combo + 1 : 0;
+    updateCombo();
+    if (good && $("#session-coach")) $("#coach-note").textContent = combo > 2 ? `${combo} in a row — you're on fire!` : "That sounded natural. Keep flowing!";
+    else if ($("#session-coach")) $("#coach-note").textContent = "Mistakes are how your brain learns. Try again!";
     showChecked(q); saveDraft(); sound(good ? "correct" : "incorrect");
     $("#session-xp").textContent = `${session.answers.filter(v => v === true).length} / 6`;
   }
@@ -237,7 +280,7 @@
       session.stage = "done"; session.result = result;
       session.newBadges = C.badges(state).filter(b => b.earned && !beforeBadges.includes(b.name)).map(b => b.name);
       activeUnit = C.UNITS.findIndex(u => C.nextDay(state) <= u.end);
-      renderDashboard(); renderSession(); sound("complete");
+      renderDashboard(); renderSession(); sound("complete"); celebrate(result.xp);
     };
     // Serialize same-origin completions across tabs when the browser supports Web Locks.
     if (navigator.locks && storageOK) navigator.locks.request("english-flow-rewards", apply).catch(() => { toast("Please try finishing again."); }).finally(() => { finishing = false; });
@@ -319,6 +362,22 @@
   }
   exercise.addEventListener("pointerup", e => endDrag(e, false));
   exercise.addEventListener("pointercancel", e => endDrag(e, true));
+  function applyTheme(theme) {
+    const dark = theme === "dark";
+    document.body.dataset.theme = dark ? "dark" : "light";
+    $("#theme-toggle").setAttribute("aria-pressed", String(dark));
+    $("#theme-toggle").setAttribute("aria-label", `Switch to ${dark ? "light" : "dark"} practice theme`);
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", dark ? "#0f172a" : "#f8fafc");
+  }
+  let practiceTheme = "light";
+  try { practiceTheme = localStorage.getItem(THEME_KEY) === "dark" ? "dark" : "light"; } catch { /* Theme simply stays bright. */ }
+  applyTheme(practiceTheme);
+  $("#theme-toggle").addEventListener("click", () => {
+    practiceTheme = document.body.dataset.theme === "dark" ? "light" : "dark";
+    applyTheme(practiceTheme);
+    try { localStorage.setItem(THEME_KEY, practiceTheme); } catch { /* Theme remains active for this visit. */ }
+  });
+  document.addEventListener("click", e => { if (e.target.closest(".practice-page button:not(:disabled)")) sound("click"); }, true);
   $("#start-today").addEventListener("click", () => openLesson(draft ? draft.day : C.nextDay(state)));
   $("#close-lesson").addEventListener("click", closeLesson);
   dialog.addEventListener("cancel", e => { e.preventDefault(); closeLesson(); });

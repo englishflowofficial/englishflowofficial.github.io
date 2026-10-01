@@ -19,7 +19,10 @@
   <header class="practice-header">
     <a class="brand" href="index.html" aria-label="English Flow home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>English <b>Flow</b><small> A LITTLE EVERY DAY.</small></span></a>
     <nav aria-label="Main navigation"><a href="index.html">Home</a><a href="library.html">Library</a><a href="tenses.html">Tenses</a><a href="practice.html" aria-current="page">Practice <span class="nav-dot"></span></a><a href="products.html">Resources</a></nav>
-    <button type="button" class="sound-toggle" id="sound-toggle" aria-pressed="true" aria-label="Sound feedback on. Toggle sound">Sound on</button>
+    <div class="practice-controls" aria-label="Practice preferences">
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark practice theme"><span class="toggle-icon sun-icon" aria-hidden="true">☀</span><span class="toggle-icon moon-icon" aria-hidden="true">☾</span><span class="toggle-knob" aria-hidden="true"></span></button>
+      <button type="button" class="sound-toggle" id="sound-toggle" aria-pressed="true" aria-label="Sound feedback on. Toggle sound"><span aria-hidden="true">♪</span> Sound on</button>
+    </div>
   </header>
   <div class="app-layout">
     <aside class="learn-sidebar" aria-label="Practice navigation">
@@ -38,7 +41,16 @@
       <div class="storage-warning" id="storage-warning" role="status" hidden>Progress cannot be saved in this browser. You can still practise, but keep this tab open.</div>
       <section class="today-card" aria-labelledby="today-title">
         <div class="today-copy"><p class="overline"><span class="live-dot"></span> <span id="today-kicker">YOUR DAILY MOMENT</span></p><h2 id="today-title">Ready for your first hello?</h2><p id="today-description">One small conversation. A whole new beginning.</p><div class="lesson-meta"><span id="today-theme">Greetings</span><span>6 challenges</span><span>Up to 110 XP</span></div><button class="primary" type="button" id="start-today">Let's begin <span aria-hidden="true">→</span></button><small id="resume-note">No pressure. No lost lives. Just learning.</small></div>
-        <div class="phrase-preview" aria-hidden="true"><span class="preview-tag">YOUR NEXT REAL-LIFE PHRASE</span><span class="preview-quote">“</span><strong id="preview-phrase">Hey, how's<br />it going?</strong><div class="preview-bottom"><span class="mini-bars"><i></i><i></i><i></i><i></i><i></i></span><span>Small words. Real connection.</span></div><span class="preview-star">✦</span></div>
+        <div class="mentor-zone">
+          <div class="mentor-bubble" id="mentor-bubble" role="status">I’ll be right here. One brave phrase at a time!</div>
+          <div class="mentor-companion" id="mentor-companion" aria-label="Your English Flow mentor is ready to practise with you">
+            <span class="mentor-spark spark-one" aria-hidden="true">✦</span><span class="mentor-spark spark-two" aria-hidden="true">★</span>
+            <div class="mentor-hair" aria-hidden="true"></div><div class="mentor-head" aria-hidden="true"><i class="mentor-eye left"></i><i class="mentor-eye right"></i><i class="mentor-smile"></i></div>
+            <div class="mentor-body" aria-hidden="true"><span class="mentor-badge">EF</span></div>
+            <div class="mentor-waves" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="phrase-preview" aria-hidden="true"><span class="preview-tag">YOUR NEXT REAL-LIFE PHRASE</span><span class="preview-quote">“</span><strong id="preview-phrase">Hey, how's<br />it going?</strong><div class="preview-bottom"><span class="mini-bars"><i></i><i></i><i></i><i></i><i></i></span><span>Small words. Real connection.</span></div><span class="preview-star">✦</span></div>
+        </div>
       </section>
       <section class="path-section-new" id="path" aria-labelledby="path-heading"><div class="section-title"><div><p class="overline">ONE STEP AT A TIME</p><h2 id="path-heading">Your learning path</h2></div><span class="small-pill" id="path-count">0 of 30 complete</span></div><p class="path-help">Finish a lesson to unlock the next. Revisit any completed lesson, anytime.</p><div id="unit-tabs" class="unit-tabs" role="group" aria-label="Choose a learning unit"></div><div id="unit-heading" class="unit-heading"></div><div id="day-path" class="learning-path"></div><div class="path-end"><span aria-hidden="true">◇</span><p>Every conversation starts somewhere.<br /><b>You're in the right place.</b></p></div></section>
       <noscript><p class="storage-warning">Please enable JavaScript for interactive lessons. You can still <a href="30-day-english-flow-workbook.pdf">download the practice workbook</a>.</p></noscript>
@@ -53,7 +65,7 @@
   </div>
   <footer class="practice-footer"><span>English Flow · Slow down. Speak up. Keep flowing.</span><span>© <span id="year"></span> <a href="about.html">About us</a></span></footer>
   <dialog id="lesson-dialog" aria-labelledby="lesson-title">
-    <div class="session-shell"><header class="session-header"><button type="button" class="icon-button" id="close-lesson" aria-label="Save and close lesson">×</button><div class="session-progress"><span id="lesson-kicker">LESSON 01</span><progress id="session-bar" max="8" value="0" aria-label="Lesson progress"></progress></div><span class="session-xp" id="session-xp">0 / 6</span></header><div class="session-main"><p class="overline" id="step-label">MEET YOUR PHRASE</p><h2 id="lesson-title" tabindex="-1">First hellos</h2><div id="exercise"></div></div><footer class="session-footer"><div id="feedback" role="status" aria-live="polite"></div><button class="primary" type="button" id="next-step" disabled>Continue <span aria-hidden="true">→</span></button></footer></div>
+    <div class="session-shell"><header class="session-header"><button type="button" class="icon-button" id="close-lesson" aria-label="Save and close lesson">×</button><div class="session-progress"><span id="lesson-kicker">LESSON 01</span><progress id="session-bar" max="8" value="0" aria-label="Lesson progress"></progress></div><span class="combo-badge" id="combo-badge" aria-live="polite">⚡ 0 Combo</span><span class="session-xp" id="session-xp">0 / 6</span></header><div class="session-main"><div class="session-coach" id="session-coach" aria-hidden="true"><span class="coach-face">☺</span><span id="coach-note">Take your time — you’ve got this.</span><span class="coach-wave"><i></i><i></i><i></i><i></i></span></div><p class="overline" id="step-label">MEET YOUR PHRASE</p><h2 id="lesson-title" tabindex="-1">First hellos</h2><div id="exercise"></div></div><footer class="session-footer"><div id="feedback" role="status" aria-live="polite"></div><button class="primary" type="button" id="next-step" disabled>Continue <span aria-hidden="true">→</span></button></footer></div>
   </dialog>
   <div class="toast" id="toast" role="status" hidden></div>
 </body>
