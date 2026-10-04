@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Host & Sitemap for Google Search Indexing
+Host: https://englishflowofficial.github.io
+Sitemap: https://englishflowofficial.github.io/sitemap.xml
