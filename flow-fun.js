@@ -43,11 +43,139 @@
       '</svg>';
   }
 
+  function mayaSVG() {
+    return '' +
+      '<svg viewBox="0 0 120 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">' +
+      '<ellipse class="ff-shadow" cx="60" cy="123" rx="30" ry="5" fill="rgba(0,0,0,.10)"/>' +
+      '<g class="ff-body">' +
+        '<path d="M38 90 C34 105 32 118 36 122 C44 123 76 123 84 122 C88 118 86 105 82 90 Z" fill="#58CC02"/>' +
+        '<path d="M48 90 L60 102 L72 90 Z" fill="#ffffff"/>' +
+        '<rect x="54" y="78" width="12" height="15" rx="4" fill="#FAD0B1"/>' +
+        '<ellipse cx="60" cy="56" rx="26" ry="27" fill="#FFDFBA"/>' +
+        '<path d="M32 50 C28 75 32 86 38 88 C40 76 40 60 40 50 Z" fill="#3D2314"/>' +
+        '<path d="M88 50 C92 75 88 86 82 88 C80 76 80 60 80 50 Z" fill="#3D2314"/>' +
+        '<ellipse cx="44" cy="63" rx="5" ry="3" fill="#FF8FB1" opacity=".75"/>' +
+        '<ellipse cx="76" cy="63" rx="5" ry="3" fill="#FF8FB1" opacity=".75"/>' +
+        '<g class="ff-eyes">' +
+          '<circle cx="48" cy="53" r="5" fill="#3C3C3C"/>' +
+          '<circle cx="72" cy="53" r="5" fill="#3C3C3C"/>' +
+          '<circle cx="49.5" cy="51.5" r="1.8" fill="#ffffff"/>' +
+          '<circle cx="73.5" cy="51.5" r="1.8" fill="#ffffff"/>' +
+        '</g>' +
+        '<g class="ff-brows">' +
+          '<path d="M42 45 Q48 42 54 45" stroke="#3D2314" stroke-width="2.5" fill="none" stroke-linecap="round"/>' +
+          '<path d="M66 45 Q72 42 78 45" stroke="#3D2314" stroke-width="2.5" fill="none" stroke-linecap="round"/>' +
+        '</g>' +
+        '<path d="M53 64 Q60 72 67 64" stroke="#D35A38" stroke-width="3" fill="#ffffff" stroke-linecap="round"/>' +
+        '<path d="M34 50 C36 30 50 20 60 20 C70 20 84 30 86 50 C80 38 68 36 60 38 C52 36 40 38 34 50 Z" fill="#4A2E1B"/>' +
+        '<circle cx="33" cy="30" r="10" fill="#4A2E1B"/>' +
+        '<circle cx="87" cy="30" r="10" fill="#4A2E1B"/>' +
+        '<path d="M31 52 C26 24 94 24 89 52" stroke="#1CB0F6" stroke-width="5" fill="none" stroke-linecap="round"/>' +
+        '<rect x="26" y="47" width="8" height="18" rx="4" fill="#0094D8"/>' +
+        '<rect x="86" y="47" width="8" height="18" rx="4" fill="#0094D8"/>' +
+        '<g class="ff-wing ff-wing-r">' +
+          '<path d="M82 94 C94 92 104 80 102 70 C96 68 90 76 86 86 Z" fill="#58CC02"/>' +
+          '<circle cx="102" cy="70" r="7" fill="#FFDFBA"/>' +
+        '</g>' +
+        '<g class="ff-wing ff-wing-l">' +
+          '<path d="M38 94 C28 98 22 106 28 114 C36 114 40 104 40 96 Z" fill="#58CC02"/>' +
+          '<rect x="18" y="100" width="16" height="20" rx="3" fill="#FFC800" transform="rotate(-12 18 100)"/>' +
+        '</g>' +
+      '</g>' +
+      '<g class="ff-stars"><path d="M14 26 l2 5 5 1-4 3 1 5-4-2-4 2 1-5-4-3 5-1z" fill="#FFC800"/><path d="M102 20 l2 5 5 1-4 3 1 5-4-2-4 2 1-5-4-3 5-1z" fill="#1CB0F6"/></g>' +
+      '</svg>';
+  }
+
+  function leoSVG() {
+    return '' +
+      '<svg viewBox="0 0 120 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">' +
+      '<ellipse class="ff-shadow" cx="60" cy="123" rx="30" ry="5" fill="rgba(0,0,0,.10)"/>' +
+      '<g class="ff-body">' +
+        '<path d="M36 90 C32 105 30 118 34 122 C42 123 78 123 86 122 C90 118 88 105 84 90 Z" fill="#FF9600"/>' +
+        '<path d="M52 94 L52 110" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>' +
+        '<path d="M68 94 L68 110" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>' +
+        '<path d="M44 112 Q60 116 76 112 L74 122 L46 122 Z" fill="#E07C00" opacity=".6"/>' +
+        '<rect x="54" y="78" width="12" height="15" rx="4" fill="#F0C29E"/>' +
+        '<ellipse cx="60" cy="56" rx="25" ry="26" fill="#FAD0B1"/>' +
+        '<ellipse cx="44" cy="63" rx="4.5" ry="2.5" fill="#FF8FB1" opacity=".6"/>' +
+        '<ellipse cx="76" cy="63" rx="4.5" ry="2.5" fill="#FF8FB1" opacity=".6"/>' +
+        '<g class="ff-eyes">' +
+          '<circle cx="48" cy="53" r="5" fill="#2B201A"/>' +
+          '<circle cx="72" cy="53" r="5" fill="#2B201A"/>' +
+          '<circle cx="49.5" cy="51.5" r="1.8" fill="#ffffff"/>' +
+          '<circle cx="73.5" cy="51.5" r="1.8" fill="#ffffff"/>' +
+        '</g>' +
+        '<g class="ff-brows">' +
+          '<path d="M42 44 Q48 40 54 44" stroke="#2B201A" stroke-width="3" fill="none" stroke-linecap="round"/>' +
+          '<path d="M66 43 Q72 39 78 43" stroke="#2B201A" stroke-width="3" fill="none" stroke-linecap="round"/>' +
+        '</g>' +
+        '<path d="M51 63 Q60 74 69 63 Z" fill="#D35A38"/>' +
+        '<path d="M54 64 Q60 67 66 64 Z" fill="#ffffff"/>' +
+        '<path d="M34 50 C32 30 42 16 60 16 C78 16 88 30 86 50 C80 34 76 30 60 30 C44 30 40 34 34 50 Z" fill="#2B201A"/>' +
+        '<circle cx="42" cy="24" r="8" fill="#2B201A"/>' +
+        '<circle cx="58" cy="20" r="9" fill="#2B201A"/>' +
+        '<circle cx="74" cy="24" r="8" fill="#2B201A"/>' +
+        '<path d="M39 92 L39 122" stroke="#4B3A00" stroke-width="5" stroke-linecap="round" opacity=".8"/>' +
+        '<g class="ff-wing ff-wing-r">' +
+          '<path d="M84 94 C96 92 106 82 102 70 C96 68 90 78 88 88 Z" fill="#FF9600"/>' +
+          '<circle cx="102" cy="70" r="7" fill="#FAD0B1"/>' +
+          '<path d="M102 65 L102 58 Q105 58 105 65 Z" fill="#FAD0B1" stroke="#E07C00" stroke-width="1.5"/>' +
+        '</g>' +
+        '<g class="ff-wing ff-wing-l">' +
+          '<path d="M36 94 C26 98 22 108 26 116 C34 116 38 106 38 96 Z" fill="#FF9600"/>' +
+          '<circle cx="25" cy="114" r="6" fill="#FAD0B1"/>' +
+        '</g>' +
+      '</g>' +
+      '<g class="ff-stars"><path d="M104 50 l2 4 4 1-3 3 1 4-4-2-4 2 1-4-3-3 4-1z" fill="#FF9600"/></g>' +
+      '</svg>';
+  }
+
+  function elenaSVG() {
+    return '' +
+      '<svg viewBox="0 0 120 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">' +
+      '<ellipse class="ff-shadow" cx="60" cy="123" rx="30" ry="5" fill="rgba(0,0,0,.10)"/>' +
+      '<g class="ff-body">' +
+        '<path d="M36 90 C32 105 30 118 34 122 C42 123 78 123 86 122 C90 118 88 105 84 90 Z" fill="#CE82FF"/>' +
+        '<path d="M52 90 L60 106 L68 90 Z" fill="#F4E5FF"/>' +
+        '<rect x="54" y="78" width="12" height="15" rx="4" fill="#FAD0B1"/>' +
+        '<ellipse cx="60" cy="56" rx="25" ry="26" fill="#FFDFBA"/>' +
+        '<path d="M30 46 C24 72 28 92 36 96 C40 84 38 64 38 46 Z" fill="#6B3A1C"/>' +
+        '<path d="M90 46 C96 72 92 92 84 96 C80 84 82 64 82 46 Z" fill="#6B3A1C"/>' +
+        '<ellipse cx="43" cy="64" rx="4.5" ry="2.5" fill="#FF8FB1" opacity=".7"/>' +
+        '<ellipse cx="77" cy="64" rx="4.5" ry="2.5" fill="#FF8FB1" opacity=".7"/>' +
+        '<g class="ff-eyes">' +
+          '<circle cx="48" cy="53" r="4.5" fill="#2B201A"/>' +
+          '<circle cx="72" cy="53" r="4.5" fill="#2B201A"/>' +
+          '<circle cx="49.5" cy="51.5" r="1.6" fill="#ffffff"/>' +
+          '<circle cx="73.5" cy="51.5" r="1.6" fill="#ffffff"/>' +
+        '</g>' +
+        '<circle cx="48" cy="53" r="10" stroke="#CE82FF" stroke-width="3" fill="none"/>' +
+        '<circle cx="72" cy="53" r="10" stroke="#CE82FF" stroke-width="3" fill="none"/>' +
+        '<path d="M58 53 L62 53" stroke="#CE82FF" stroke-width="3"/>' +
+        '<g class="ff-brows">' +
+          '<path d="M41 40 Q47 37 53 40" stroke="#6B3A1C" stroke-width="2.5" fill="none" stroke-linecap="round"/>' +
+          '<path d="M67 40 Q73 37 79 40" stroke="#6B3A1C" stroke-width="2.5" fill="none" stroke-linecap="round"/>' +
+        '</g>' +
+        '<path d="M53 65 Q60 72 67 65" stroke="#C2492D" stroke-width="3" fill="none" stroke-linecap="round"/>' +
+        '<path d="M32 46 C34 26 48 18 60 18 C72 18 86 26 88 46 C80 32 68 28 60 30 C50 28 40 32 32 46 Z" fill="#7D4422"/>' +
+        '<g class="ff-wing ff-wing-r">' +
+          '<path d="M84 94 C96 90 108 84 106 74 C98 72 92 80 88 88 Z" fill="#CE82FF"/>' +
+          '<ellipse cx="106" cy="74" rx="6" ry="5" fill="#FFDFBA" transform="rotate(-20 106 74)"/>' +
+        '</g>' +
+        '<g class="ff-wing ff-wing-l">' +
+          '<path d="M36 94 C26 98 22 108 26 116 C34 116 38 106 38 96 Z" fill="#CE82FF"/>' +
+          '<circle cx="25" cy="114" r="6" fill="#FFDFBA"/>' +
+        '</g>' +
+      '</g>' +
+      '<g class="ff-stars"><path d="M102 18 l2 4 4 1-3 3 1 4-4-2-4 2 1-4-3-3 4-1z" fill="#CE82FF"/></g>' +
+      '</svg>';
+  }
+
   var MOODS = ["idle", "happy", "cheer", "sad", "talk", "think", "wave"];
   function setMood(el, mood, ms) {
     if (!el) return;
     MOODS.forEach(function (m) { el.classList.remove("is-" + m); });
-    void el.offsetWidth; // restart the animation
+    void el.offsetWidth;
     el.classList.add("is-" + (mood || "idle"));
     clearTimeout(el._ffTimer);
     if (ms) el._ffTimer = setTimeout(function () { setMood(el, el.getAttribute("data-mascot-rest") || "idle"); }, ms);
@@ -55,19 +183,33 @@
   function mount(el) {
     if (!el || el._ffMounted) return el;
     el._ffMounted = true;
-    el.classList.add("ff-mascot");
-    el.insertAdjacentHTML("afterbegin", mascotSVG());
-    setMood(el, el.getAttribute("data-mascot") || "idle");
+    var charType = el.getAttribute("data-character") || "flo";
+    el.classList.add("ff-mascot", "ff-char-" + charType);
+    if (charType === "maya") {
+      el.insertAdjacentHTML("afterbegin", mayaSVG());
+    } else if (charType === "leo") {
+      el.insertAdjacentHTML("afterbegin", leoSVG());
+    } else if (charType === "elena") {
+      el.insertAdjacentHTML("afterbegin", elenaSVG());
+    } else {
+      el.insertAdjacentHTML("afterbegin", mascotSVG());
+    }
+    setMood(el, el.getAttribute("data-mascot") || el.getAttribute("data-mood") || "idle");
     return el;
   }
-  function create(mood, extraClass) {
+  function create(moodOrChar, extraClass) {
     var el = doc.createElement("span");
-    el.setAttribute("data-mascot", mood || "idle");
+    if (moodOrChar === "maya" || moodOrChar === "leo" || moodOrChar === "elena") {
+      el.setAttribute("data-character", moodOrChar);
+      el.setAttribute("data-mascot", "idle");
+    } else {
+      el.setAttribute("data-mascot", moodOrChar || "idle");
+    }
     if (extraClass) el.className = extraClass;
     return mount(el);
   }
   function mountAll(root) {
-    Array.prototype.forEach.call((root || doc).querySelectorAll("[data-mascot]"), mount);
+    Array.prototype.forEach.call((root || doc).querySelectorAll("[data-mascot], [data-character]"), mount);
   }
 
   /* ---------- confetti ---------- */

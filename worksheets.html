@@ -67,6 +67,14 @@
       .muted { color: var(--muted); line-height: 1.6; }
       .line { margin: 12px 0; padding-bottom: 8px; border-bottom: 2px dashed #e5e5e5; font-size: 15px; }
       .check { margin-top: 18px; padding: 12px 16px; border-radius: 14px; background: var(--ff-yellow-soft, #fff5d6); border: 2px solid #ffde7a; font-size: 13px; font-weight: 800; color: #574100; }
+      @media (max-width: 600px) {
+        header.bar { flex-direction: column; align-items: stretch; gap: 8px; padding: 10px 14px; }
+        header.bar span { display: flex; gap: 8px; width: 100%; }
+        header.bar a, header.bar button { flex: 1; text-align: center; padding: 8px 10px; font-size: 12px; }
+        .cover, .sheet { padding: 20px 16px; margin: 16px auto; width: calc(100% - 20px); }
+        h1 { font-size: 28px; }
+        .phrase { font-size: 17px; padding: 12px 14px; }
+      }
       @media print {
         header.bar { display: none; }
         body { background: #fff; }
@@ -84,12 +92,15 @@
     </header>
     <section class="cover">
       <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
-        <div>
+        <div style="flex: 1; min-width: 240px;">
           <p class="k">30-DAY SPEAKING WORKBOOK</p>
           <h1>Little steps, real progress.</h1>
           <p class="muted">One page a day. Fill the gaps, then say the speaking task out loud. Use Print → Save as PDF to keep the whole month on your phone.</p>
         </div>
-        <span data-mascot="cheer" style="width: 120px; display: inline-block; flex-shrink: 0;" aria-hidden="true"></span>
+        <div style="display: flex; gap: 10px; align-items: flex-end; flex-shrink: 0;">
+          <span data-character="maya" data-mascot="wave" style="width: 100px; display: inline-block;" aria-label="Maya holding her workbook"></span>
+          <span data-mascot="cheer" style="width: 75px; display: inline-block;" aria-hidden="true"></span>
+        </div>
       </div>
     </section>
     <div id="pages"></div>

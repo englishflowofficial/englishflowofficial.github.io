@@ -422,6 +422,26 @@
   box-shadow: 0 8px 0 var(--ff-line);
 }
 
+/* ---------------- Shared Hero with Companion Characters ---------------- */
+.hero-character-shell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.hero-character-copy {
+  flex: 1 1 380px;
+  min-width: 0;
+  max-width: 100%;
+}
+.hero-character-art {
+  display: flex;
+  gap: 14px;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
 /* ---------------- About Page (100% Bright Light Theme) ---------------- */
 .page-hero-about {
   background: linear-gradient(135deg, #f4edff 0%, #ffffff 100%) !important;
@@ -586,3 +606,140 @@
   box-shadow: 0 4px 0 var(--ff-red-dark) !important;
   color: #ffffff !important;
 }
+
+/* ---------------- Mobile & Android Viewport Fixes ---------------- */
+@media (max-width: 850px) {
+  .hero {
+    padding-top: 24px !important;
+    padding-bottom: 36px !important;
+  }
+  .hero-flo {
+    width: 96px !important;
+    top: -24px !important;
+    right: 0 !important;
+  }
+  .quick-ribbon .section-shell {
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+  .qr-link {
+    font-size: 12.5px !important;
+    padding: 7px 12px !important;
+  }
+  .home-stats-strip {
+    margin-top: 24px !important;
+    padding: 10px 14px !important;
+    gap: 10px 16px !important;
+  }
+  .start-here-grid, .library-grid, .video-grid, .path-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 570px) {
+  .hero-flo {
+    position: static !important;
+    display: block !important;
+    margin: 0 auto 12px !important;
+    width: 88px !important;
+  }
+  .hero-visual {
+    min-height: auto !important;
+    transform: none !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .lesson-window {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 16px 14px !important;
+    transform: none !important;
+  }
+  .floating-note {
+    display: none !important;
+  }
+  .home-stats-strip span {
+    font-size: 12px !important;
+  }
+  .hero-actions .button, .hero-actions .ff-btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  .connect-links a {
+    word-break: break-word !important;
+    max-width: 100% !important;
+  }
+
+  /* Hero with companion characters on mobile */
+  .hero-character-shell, .page-hero .section-shell {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 18px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .hero-character-copy, .page-hero .section-shell > div:first-child {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+  .hero-character-copy .eyebrow, .page-hero .eyebrow {
+    justify-content: center !important;
+  }
+  .page-hero h1 {
+    font-size: clamp(22px, 6.2vw, 34px) !important;
+    line-height: 1.15 !important;
+  }
+  .library-stat-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 310px !important;
+    margin: 18px auto 0 !important;
+    box-sizing: border-box !important;
+  }
+  .library-stat-row span {
+    font-size: 11px !important;
+    padding: 6px 12px !important;
+    border-radius: 999px !important;
+    white-space: nowrap !important;
+  }
+  .hero-character-art, .page-hero .section-shell > div:last-child {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-end !important;
+    margin: 8px auto 0 !important;
+    width: 100% !important;
+  }
+
+  /* Filter bar wrap on mobile */
+  .filter-bar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .filter-bar button {
+    font-size: 12px !important;
+    padding: 7px 12px !important;
+  }
+
+  /* About quote mobile fit */
+  .about-quote {
+    padding: 18px 16px !important;
+  }
+  .about-quote p {
+    font-size: clamp(16px, 4.5vw, 20px) !important;
+  }
+}
+

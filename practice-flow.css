@@ -1583,7 +1583,13 @@ main#practice {
   margin-bottom: 20px;
 }
 
-/* ---------------- Responsive ---------------- */
+/* ---------------- Responsive & Android Optimization ---------------- */
+html, body.practice-page {
+  overflow-x: clip !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+}
+
 @media (max-width: 1100px) {
   .app-layout {
     grid-template-columns: minmax(0, 1fr) 280px;
@@ -1595,31 +1601,127 @@ main#practice {
 }
 
 @media (max-width: 780px) {
+  .practice-header {
+    padding: 8px 14px !important;
+    gap: 8px !important;
+    min-height: 62px !important;
+    justify-content: space-between !important;
+  }
   .practice-header nav {
-    display: none;
+    display: none !important;
+  }
+  .practice-header .brand {
+    font-size: 17px !important;
+    gap: 6px !important;
+  }
+  .practice-header .brand small {
+    display: none !important;
+  }
+  .top-stats {
+    gap: 6px !important;
+  }
+  .top-stat {
+    padding: 4px 7px !important;
+    font-size: 12px !important;
+  }
+  .top-stat.xp {
+    display: none !important;
+  }
+  .sound-toggle {
+    padding: 5px 8px !important;
+    font-size: 11px !important;
   }
   .app-layout {
-    grid-template-columns: 1fr;
-    padding: 16px 16px 40px;
+    grid-template-columns: 1fr !important;
+    padding: 14px 12px 40px !important;
+    gap: 20px !important;
+  }
+  .page-heading {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+  .page-heading h1 {
+    font-size: 28px !important;
+  }
+  .chapter-tag {
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    text-align: left !important;
   }
   .today-card {
-    grid-template-columns: 1fr;
-    padding: 24px;
+    grid-template-columns: 1fr !important;
+    padding: 18px 16px !important;
+  }
+  .lesson-meta {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
   }
   .mentor-zone {
-    min-height: 180px;
+    min-height: auto !important;
+    padding: 16px 0 0 !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+  .phrase-preview {
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .section-title {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+  .unit-tabs {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+  .session-modal {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    border-radius: 0 !important;
   }
   .session-main {
-    padding: 20px;
+    padding: 16px !important;
   }
   .session-footer {
-    padding: 16px 20px;
+    padding: 14px 16px !important;
   }
   .session-footer-inner {
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
   }
   .session-footer-inner .primary {
-    width: 100%;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .practice-header {
+    padding: 6px 10px !important;
+  }
+  .practice-header .brand {
+    font-size: 16px !important;
+  }
+  .top-stats {
+    gap: 4px !important;
+  }
+  .top-stat {
+    padding: 4px 6px !important;
+    font-size: 11px !important;
+  }
+  .page-heading h1 {
+    font-size: 25px !important;
+  }
+  .today-copy h2 {
+    font-size: 22px !important;
+  }
+  .primary, button#start-today {
+    width: 100% !important;
   }
 }
