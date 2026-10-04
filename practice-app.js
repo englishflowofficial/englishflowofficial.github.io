@@ -67,6 +67,7 @@
     $("#mentor-companion")?.classList.toggle("speaking", active);
     $("#session-coach")?.classList.toggle("speaking", active);
     exercise.querySelectorAll(".hear-button").forEach(button => button.classList.toggle("is-speaking", active));
+    if (window.FlowFun && $("#coach-flo")) window.FlowFun.mood($("#coach-flo"), active ? "talk" : "idle");
   }
   function stopSpeech() { if ("speechSynthesis" in window) window.speechSynthesis.cancel(); setSpeaking(false); }
   function speak(text) {
@@ -92,8 +93,11 @@
     const coach = $("#session-coach"), mentor = $("#mentor-companion");
     coach?.classList.add("cheer"); mentor?.classList.add("cheer");
     if (coach) $("#coach-note").textContent = "You did it! That confidence is growing.";
+    if (window.FlowFun && $("#coach-flo")) window.FlowFun.mood($("#coach-flo"), "cheer", 3000);
     const badge = document.createElement("div"); badge.className = "xp-pop"; badge.textContent = `+${xp} XP`; dialog.appendChild(badge); setTimeout(() => badge.remove(), 1500);
-    burstConfetti(); setTimeout(() => { coach?.classList.remove("cheer"); mentor?.classList.remove("cheer"); }, 1400);
+    burstConfetti();
+    if (window.FlowFun) window.FlowFun.confetti(100);
+    setTimeout(() => { coach?.classList.remove("cheer"); mentor?.classList.remove("cheer"); }, 1400);
   }
   function burstConfetti() {
     if (/jsdom/i.test(navigator.userAgent) || window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
@@ -108,7 +112,11 @@
   }
   function renderDashboard() {
     const today = C.dateKey(), completed = Object.keys(state.completed).length, day = DAYS[(draft ? draft.day : C.nextDay(state)) - 1];
-    $("#stat-xp").textContent = state.xp.toLocaleString(); $("#stat-gems").textContent = state.gems.toLocaleString(); $("#stat-streak").textContent = C.streak(state, today);
+    const streakNum = C.streak(state, today);
+    $("#stat-xp").textContent = state.xp.toLocaleString(); $("#stat-gems").textContent = state.gems.toLocaleString(); $("#stat-streak").textContent = streakNum;
+    if ($("#top-streak")) $("#top-streak").textContent = streakNum;
+    if ($("#top-xp")) $("#top-xp").textContent = state.xp.toLocaleString();
+    if ($("#top-gems")) $("#top-gems").textContent = state.gems.toLocaleString();
     $("#path-count").textContent = `${completed} of 30 complete`;
     $("#today-kicker").textContent = draft ? "PICK UP WHERE YOU LEFT OFF" : state.activity[today] ? "A LITTLE MORE MOMENTUM" : "YOUR DAILY MOMENT";
     $("#today-title").textContent = completed === 30 && !draft ? "Keep your English flowing." : day.day === 1 ? "Ready for your first hello?" : day.title + ".";
@@ -260,8 +268,14 @@
     }
     combo = good ? combo + 1 : 0;
     updateCombo();
-    if (good && $("#session-coach")) $("#coach-note").textContent = combo > 2 ? `${combo} in a row — you're on fire!` : "That sounded natural. Keep flowing!";
-    else if ($("#session-coach")) $("#coach-note").textContent = "Mistakes are how your brain learns. Try again!";
+    if (good && $("#session-coach")) {
+      $("#coach-note").textContent = combo > 2 ? `${combo} in a row — you're on fire!` : "That sounded natural. Keep flowing!";
+      if (window.FlowFun && $("#coach-flo")) window.FlowFun.mood($("#coach-flo"), "happy", 1500);
+      if (window.FlowFun) window.FlowFun.pop("+10 XP", undefined, undefined, "green");
+    } else if ($("#session-coach")) {
+      $("#coach-note").textContent = "Mistakes are how your brain learns. Try again!";
+      if (window.FlowFun && $("#coach-flo")) window.FlowFun.mood($("#coach-flo"), "sad", 1800);
+    }
     showChecked(q); saveDraft(); sound(good ? "correct" : "incorrect");
     $("#session-xp").textContent = `${session.answers.filter(v => v === true).length} / 6`;
   }
@@ -362,21 +376,18 @@
   }
   exercise.addEventListener("pointerup", e => endDrag(e, false));
   exercise.addEventListener("pointercancel", e => endDrag(e, true));
-  function applyTheme(theme) {
-    const dark = theme === "dark";
-    document.body.dataset.theme = dark ? "dark" : "light";
-    $("#theme-toggle").setAttribute("aria-pressed", String(dark));
-    $("#theme-toggle").setAttribute("aria-label", `Switch to ${dark ? "light" : "dark"} practice theme`);
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", dark ? "#0f172a" : "#f8fafc");
+  function applyTheme() {
+    document.body.dataset.theme = "light";
+    if ($("#theme-toggle")) {
+      $("#theme-toggle").setAttribute("aria-pressed", "false");
+      $("#theme-toggle").setAttribute("aria-label", "Light theme active");
+    }
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", "#ffffff");
   }
-  let practiceTheme = "light";
-  try { practiceTheme = localStorage.getItem(THEME_KEY) === "dark" ? "dark" : "light"; } catch { /* Theme simply stays bright. */ }
-  applyTheme(practiceTheme);
-  $("#theme-toggle").addEventListener("click", () => {
-    practiceTheme = document.body.dataset.theme === "dark" ? "light" : "dark";
-    applyTheme(practiceTheme);
-    try { localStorage.setItem(THEME_KEY, practiceTheme); } catch { /* Theme remains active for this visit. */ }
-  });
+  applyTheme();
+  if ($("#theme-toggle")) {
+    $("#theme-toggle").addEventListener("click", () => applyTheme());
+  }
   document.addEventListener("click", e => { if (e.target.closest(".practice-page button:not(:disabled)")) sound("click"); }, true);
   $("#start-today").addEventListener("click", () => openLesson(draft ? draft.day : C.nextDay(state)));
   $("#close-lesson").addEventListener("click", closeLesson);

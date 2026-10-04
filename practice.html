@@ -4,68 +4,118 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light" />
   <meta name="description" content="Build your English confidence one little lesson at a time. Interactive daily practice, sentence puzzles, streaks, XP and rewards. No account needed." />
   <title>Your daily practice | English Flow</title>
   <link rel="icon" href="favicon.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="practice-30.css" />
-  <link rel="stylesheet" href="practice-colour.css" />
+  <link rel="stylesheet" href="flow-theme.css" />
+  <link rel="stylesheet" href="practice-flow.css" />
+  <script src="flow-fun.js" defer></script>
   <script src="days-data.js" defer></script>
   <script src="practice-core.js" defer></script>
   <script src="practice-app.js" defer></script>
 </head>
 <body class="practice-page">
   <a class="skip-link" href="#practice">Skip to practice</a>
+
   <header class="practice-header">
     <a class="brand" href="index.html" aria-label="English Flow home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>English <b>Flow</b><small> A LITTLE EVERY DAY.</small></span></a>
     <nav aria-label="Main navigation"><a href="index.html">Home</a><a href="library.html">Library</a><a href="tenses.html">Tenses</a><a href="practice.html" aria-current="page">Practice <span class="nav-dot"></span></a><a href="products.html">Resources</a></nav>
+    <div class="top-stats" aria-label="Your stats">
+      <span class="top-stat streak" title="Day streak"><span class="top-icon" aria-hidden="true">🔥</span><b id="top-streak">0</b></span>
+      <span class="top-stat gems" title="Gems"><span class="top-icon" aria-hidden="true">💎</span><b id="top-gems">0</b></span>
+      <span class="top-stat xp" title="Total XP"><span class="top-icon" aria-hidden="true">⚡</span><b id="top-xp">0</b></span>
+    </div>
     <div class="practice-controls" aria-label="Practice preferences">
-      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark practice theme"><span class="toggle-icon sun-icon" aria-hidden="true">☀</span><span class="toggle-icon moon-icon" aria-hidden="true">☾</span><span class="toggle-knob" aria-hidden="true"></span></button>
       <button type="button" class="sound-toggle" id="sound-toggle" aria-pressed="true" aria-label="Sound feedback on. Toggle sound"><span aria-hidden="true">♪</span> Sound on</button>
     </div>
   </header>
+
   <div class="app-layout">
     <aside class="learn-sidebar" aria-label="Practice navigation">
       <p class="overline">YOUR LEARNING SPACE</p>
-      <a href="#path" class="side-link active"><span aria-hidden="true">◎</span> Learning path <b>30</b></a>
-      <a href="#rewards" class="side-link"><span aria-hidden="true">◇</span> Your rewards</a>
-      <a href="library.html" class="side-link"><span aria-hidden="true">▷</span> Video lessons</a>
-      <a href="tenses.html" class="side-link"><span aria-hidden="true">◷</span> Tense guide</a><a href="worksheets.html" class="side-link"><span aria-hidden="true">▤</span> Worksheets</a>
+      <a href="#path" class="side-link active"><span class="side-icon green" aria-hidden="true">🏠</span> Learning path <b>30</b></a>
+      <a href="#rewards" class="side-link"><span class="side-icon yellow" aria-hidden="true">🏆</span> Your rewards</a>
+      <a href="library.html" class="side-link"><span class="side-icon red" aria-hidden="true">▶</span> Video lessons</a>
+      <a href="tenses.html" class="side-link"><span class="side-icon blue" aria-hidden="true">⏱</span> Tense guide</a>
+      <a href="worksheets.html" class="side-link"><span class="side-icon purple" aria-hidden="true">📝</span> Worksheets</a>
       <div class="sidebar-note"><span class="note-mark" aria-hidden="true">“</span><p>A little progress is<br />still progress.</p><small>Show up. Try a phrase.<br />Make it yours.</small></div>
-      <a class="workbook-link" href="30-day-english-flow-workbook.pdf" download>Take practice offline <span aria-hidden="true">↗</span><small>Download your workbook</small></a>
+      <a class="workbook-link" href="30-day-english-flow-workbook.pdf" download><span class="wb-icon" aria-hidden="true">📘</span><span>Take practice offline <span aria-hidden="true">↗</span><small>Download your workbook</small></span></a>
       <p class="local-note">Just you and your progress.<br />Saved on this device. No sign-in.</p>
     </aside>
+
     <main id="practice" tabindex="-1">
       <div class="page-heading"><div><p class="overline">THE PRACTICE ROOM</p><h1>Little practice.<br /><em>Big confidence.</em></h1></div><div class="chapter-tag"><span aria-hidden="true">✦</span> YOUR NEXT CHAPTER<br /><b>Starts with one phrase.</b></div></div>
       <p class="intro-text">Real-life English. Bite-sized lessons. A little more you, every day.</p>
       <div class="storage-warning" id="storage-warning" role="status" hidden>Progress cannot be saved in this browser. You can still practise, but keep this tab open.</div>
+
       <section class="today-card" aria-labelledby="today-title">
-        <div class="today-copy"><p class="overline"><span class="live-dot"></span> <span id="today-kicker">YOUR DAILY MOMENT</span></p><h2 id="today-title">Ready for your first hello?</h2><p id="today-description">One small conversation. A whole new beginning.</p><div class="lesson-meta"><span id="today-theme">Greetings</span><span>6 challenges</span><span>Up to 110 XP</span></div><button class="primary" type="button" id="start-today">Let's begin <span aria-hidden="true">→</span></button><small id="resume-note">No pressure. No lost lives. Just learning.</small></div>
+        <div class="today-copy">
+          <p class="overline"><span class="live-dot"></span> <span id="today-kicker">YOUR DAILY MOMENT</span></p>
+          <h2 id="today-title">Ready for your first hello?</h2>
+          <p id="today-description">One small conversation. A whole new beginning.</p>
+          <div class="lesson-meta"><span id="today-theme">Greetings</span><span>6 challenges</span><span>Up to 110 XP</span></div>
+          <button class="primary" type="button" id="start-today">Let's begin <span aria-hidden="true">→</span></button>
+          <small id="resume-note">No pressure. No lost lives. Just learning.</small>
+        </div>
         <div class="mentor-zone">
           <div class="mentor-bubble" id="mentor-bubble" role="status">I’ll be right here. One brave phrase at a time!</div>
-          <div class="mentor-companion" id="mentor-companion" aria-label="Your English Flow mentor is ready to practise with you">
-            <span class="mentor-spark spark-one" aria-hidden="true">✦</span><span class="mentor-spark spark-two" aria-hidden="true">★</span>
-            <div class="mentor-hair" aria-hidden="true"></div><div class="mentor-head" aria-hidden="true"><i class="mentor-eye left"></i><i class="mentor-eye right"></i><i class="mentor-smile"></i></div>
-            <div class="mentor-body" aria-hidden="true"><span class="mentor-badge">EF</span></div>
-            <div class="mentor-waves" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-          </div>
+          <div class="mentor-companion" id="mentor-companion" data-mascot="wave" data-mascot-rest="idle" aria-label="Flo, your English Flow mentor, is ready to practise with you"></div>
           <div class="phrase-preview" aria-hidden="true"><span class="preview-tag">YOUR NEXT REAL-LIFE PHRASE</span><span class="preview-quote">“</span><strong id="preview-phrase">Hey, how's<br />it going?</strong><div class="preview-bottom"><span class="mini-bars"><i></i><i></i><i></i><i></i><i></i></span><span>Small words. Real connection.</span></div><span class="preview-star">✦</span></div>
         </div>
       </section>
-      <section class="path-section-new" id="path" aria-labelledby="path-heading"><div class="section-title"><div><p class="overline">ONE STEP AT A TIME</p><h2 id="path-heading">Your learning path</h2></div><span class="small-pill" id="path-count">0 of 30 complete</span></div><p class="path-help">Finish a lesson to unlock the next. Revisit any completed lesson, anytime.</p><div id="unit-tabs" class="unit-tabs" role="group" aria-label="Choose a learning unit"></div><div id="unit-heading" class="unit-heading"></div><div id="day-path" class="learning-path"></div><div class="path-end"><span aria-hidden="true">◇</span><p>Every conversation starts somewhere.<br /><b>You're in the right place.</b></p></div></section>
+
+      <section class="path-section-new" id="path" aria-labelledby="path-heading">
+        <div class="section-title"><div><p class="overline">ONE STEP AT A TIME</p><h2 id="path-heading">Your learning path</h2></div><span class="small-pill" id="path-count">0 of 30 complete</span></div>
+        <p class="path-help">Finish a lesson to unlock the next. Revisit any completed lesson, anytime.</p>
+        <div id="unit-tabs" class="unit-tabs" role="group" aria-label="Choose a learning unit"></div>
+        <div id="unit-heading" class="unit-heading"></div>
+        <div id="day-path" class="learning-path"></div>
+        <div class="path-end"><span aria-hidden="true">🏆</span><p>Every conversation starts somewhere.<br /><b>You're in the right place.</b></p></div>
+      </section>
       <noscript><p class="storage-warning">Please enable JavaScript for interactive lessons. You can still <a href="30-day-english-flow-workbook.pdf">download the practice workbook</a>.</p></noscript>
     </main>
+
     <aside class="progress-sidebar" aria-label="Your learning progress">
-      <div class="stats-row"><div><span class="stat-icon amber" aria-hidden="true">✦</span><strong id="stat-streak">0</strong><small>day streak</small></div><div><span class="stat-icon green" aria-hidden="true">ϟ</span><strong id="stat-xp">0</strong><small>total XP</small></div><div><span class="stat-icon purple" aria-hidden="true">◇</span><strong id="stat-gems">0</strong><small>gems</small></div></div>
-      <section class="side-card goal-card" aria-labelledby="goal-title"><div class="card-title"><h2 id="goal-title">A little, every day</h2><span class="sun-mark" aria-hidden="true">☼</span></div><p id="goal-copy">One lesson is all it takes.</p><div class="goal-progress"><span id="goal-label">Daily goal</span><b id="goal-count">0 / 1 lesson</b></div><progress id="goal-bar" max="1" value="0" aria-label="Daily lesson goal"></progress><div id="week-dots" class="week-dots" aria-label="Practice this week"></div><p class="streak-note" id="streak-note">Your next streak starts today.</p></section>
+      <div class="stats-row"><div><span class="stat-icon amber" aria-hidden="true">🔥</span><strong id="stat-streak">0</strong><small>day streak</small></div><div><span class="stat-icon green" aria-hidden="true">⚡</span><strong id="stat-xp">0</strong><small>total XP</small></div><div><span class="stat-icon purple" aria-hidden="true">💎</span><strong id="stat-gems">0</strong><small>gems</small></div></div>
+      <section class="side-card goal-card" aria-labelledby="goal-title"><div class="card-title"><h2 id="goal-title">A little, every day</h2><span class="sun-mark" aria-hidden="true">🎯</span></div><p id="goal-copy">One lesson is all it takes.</p><div class="goal-progress"><span id="goal-label">Daily goal</span><b id="goal-count">0 / 1 lesson</b></div><progress id="goal-bar" max="1" value="0" aria-label="Daily lesson goal"></progress><div id="week-dots" class="week-dots" aria-label="Practice this week"></div><p class="streak-note" id="streak-note">Your next streak starts today.</p></section>
       <section class="side-card journey-card" aria-labelledby="journey-title"><p class="overline">YOUR MOMENTUM</p><h2 id="journey-title">Finding your voice</h2><p id="level-copy">Level 1 · Curious beginner</p><progress id="level-bar" max="300" value="0" aria-label="Progress to next level"></progress><small id="level-note">300 XP to your next level</small></section>
       <section class="side-card reward-card" id="rewards" aria-labelledby="rewards-title"><div class="card-title"><h2 id="rewards-title">Little wins, collected</h2><span class="small-pill" id="badge-count">0 / 4</span></div><div id="badge-list" class="badge-list"></div><p class="reward-note">Earn gems when you finish a new lesson. They're a keepsake of your effort.</p></section>
       <div class="gentle-note"><span aria-hidden="true">✧</span><p>Not perfect.<br /><b>Just a little better.</b></p></div>
     </aside>
   </div>
+
   <footer class="practice-footer"><span>English Flow · Slow down. Speak up. Keep flowing.</span><span>© <span id="year"></span> <a href="about.html">About us</a></span></footer>
+
   <dialog id="lesson-dialog" aria-labelledby="lesson-title">
-    <div class="session-shell"><header class="session-header"><button type="button" class="icon-button" id="close-lesson" aria-label="Save and close lesson">×</button><div class="session-progress"><span id="lesson-kicker">LESSON 01</span><progress id="session-bar" max="8" value="0" aria-label="Lesson progress"></progress></div><span class="combo-badge" id="combo-badge" aria-live="polite">⚡ 0 Combo</span><span class="session-xp" id="session-xp">0 / 6</span></header><div class="session-main"><div class="session-coach" id="session-coach" aria-hidden="true"><span class="coach-face">☺</span><span id="coach-note">Take your time — you’ve got this.</span><span class="coach-wave"><i></i><i></i><i></i><i></i></span></div><p class="overline" id="step-label">MEET YOUR PHRASE</p><h2 id="lesson-title" tabindex="-1">First hellos</h2><div id="exercise"></div></div><footer class="session-footer"><div id="feedback" role="status" aria-live="polite"></div><button class="primary" type="button" id="next-step" disabled>Continue <span aria-hidden="true">→</span></button></footer></div>
+    <div class="session-shell">
+      <header class="session-header">
+        <button type="button" class="icon-button" id="close-lesson" aria-label="Save and close lesson">×</button>
+        <div class="session-progress"><span id="lesson-kicker">LESSON 01</span><progress id="session-bar" max="8" value="0" aria-label="Lesson progress"></progress></div>
+        <span class="combo-badge" id="combo-badge" aria-live="polite">⚡ 0 Combo</span>
+        <span class="session-xp" id="session-xp">0 / 6</span>
+      </header>
+      <div class="session-main">
+        <div class="session-coach" id="session-coach" aria-hidden="true">
+          <span class="coach-face" id="coach-flo" data-mascot="idle"></span>
+          <span class="coach-bubble"><span id="coach-note">Take your time — you’ve got this.</span><span class="coach-wave"><i></i><i></i><i></i><i></i></span></span>
+        </div>
+        <p class="overline" id="step-label">MEET YOUR PHRASE</p>
+        <h2 id="lesson-title" tabindex="-1">First hellos</h2>
+        <div id="exercise"></div>
+      </div>
+      <footer class="session-footer">
+        <div class="session-footer-inner">
+          <span class="feedback-icon" aria-hidden="true"></span>
+          <div id="feedback" role="status" aria-live="polite"></div>
+          <button class="primary" type="button" id="next-step" disabled>Continue <span aria-hidden="true">→</span></button>
+        </div>
+      </footer>
+    </div>
   </dialog>
   <div class="toast" id="toast" role="status" hidden></div>
 </body>

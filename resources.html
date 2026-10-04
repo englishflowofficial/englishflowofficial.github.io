@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="flow-theme.css" />
+  <link rel="stylesheet" href="flow-pages.css" />
   <!-- pdf library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
@@ -23,8 +25,13 @@
 
   <div class="container">
     <div id="pdf-content" style="background:#fff; padding:30px; border-radius:16px;">
-      <h1 class="hero-title" style="margin-bottom:10px;">12 English Tenses <span>Simplified</span></h1>
-      <p class="hero-sub">The ultimate cheat sheet for mastering time in English.</p>
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap;">
+        <div>
+          <h1 class="hero-title" style="margin-bottom:10px;">12 English Tenses <span>Simplified</span></h1>
+          <p class="hero-sub">The ultimate cheat sheet for mastering time in English.</p>
+        </div>
+        <span data-mascot="talk" style="width:110px; display:inline-block; flex-shrink:0;" aria-hidden="true"></span>
+      </div>
       
       <div class="card" style="margin-bottom:20px; border-color:var(--secondary);">
         <h3 class="card-heading">📺 Companion Video Lesson</h3>
@@ -52,6 +59,7 @@
   </div>
 
   <script type="module" src="main.js"></script>
+  <script src="flow-fun.js" defer></script>
   <script>
     window.exportToPDF = function() {
       const element = document.getElementById('pdf-content');

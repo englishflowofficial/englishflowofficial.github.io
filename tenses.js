@@ -339,6 +339,7 @@
       if (isCorrect) {
         state.score++;
         setFeedback('\uD83C\uDF89 Correct! ' + question.why, 'good');
+        if (window.FlowFun) window.FlowFun.pop('+10 XP', undefined, undefined, 'green');
         if (hooks.onCorrect) hooks.onCorrect(state.score);
       } else {
         setFeedback('\uD83D\uDCA1 Not quite. ' + question.why, 'bad');

@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="flow-theme.css" />
+  <link rel="stylesheet" href="flow-pages.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
   <style>
@@ -253,7 +255,10 @@
 
     <!-- Interactive Quiz (Not in PDF) -->
     <div class="pv-quiz-section" data-html2canvas-ignore="true">
-      <div class="pv-quiz-title">📝 Phrasal Verbs Challenge</div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+        <div class="pv-quiz-title" style="margin-bottom:0;">📝 Phrasal Verbs Challenge</div>
+        <span data-mascot="cheer" style="width:75px; display:inline-block;" aria-hidden="true"></span>
+      </div>
       
       <div class="pv-q-block" id="pv-q1">
         <div class="pv-q-text">1. I can't ________ how to fix this broken lamp.</div>
@@ -301,12 +306,21 @@
         btn.classList.add('selected-correct');
         btn.style.opacity = '1';
         btn.innerHTML += ' ✅';
+        if (window.FlowFun) {
+          const rect = btn.getBoundingClientRect();
+          window.FlowFun.pop('+10 XP', rect.left + rect.width / 2, rect.top, 'green');
+          window.FlowFun.confetti(25);
+        }
         if(window.addXP) window.addXP(10);
         if(window.playTone) window.playTone('correct');
       } else {
         btn.classList.add('selected-wrong');
         btn.style.opacity = '1';
         btn.innerHTML += ' ❌';
+        if (window.FlowFun) {
+          const rect = btn.getBoundingClientRect();
+          window.FlowFun.pop('Keep going!', rect.left + rect.width / 2, rect.top, 'red');
+        }
         if(window.playTone) window.playTone('wrong');
         
         // Find and highlight correct answer
@@ -336,5 +350,6 @@
     }
   </script>
   <script type="module" src="main.js"></script>
+  <script src="flow-fun.js" defer></script>
 </body>
 </html>
