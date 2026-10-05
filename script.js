@@ -281,7 +281,7 @@ const affiliateProducts = [
     category: "FREE DIGITAL RESOURCE",
     badge: "100% FREE",
     desc: "Official spreadsheet template to master active vocabulary using movie scenes & everyday conversational context. Formatted for Excel, Google Sheets, and Apple Numbers.",
-    btnText: "Download Free Excel (.xlsx)"
+    btnText: "Download Free Template"
   },
   {
     id: "B05lrwxvR",
@@ -317,7 +317,7 @@ function generateProductCard(product) {
   const category = product.category || (isDl ? 'FREE DIGITAL RESOURCE' : 'FEATURED ON AMAZON');
   const description = product.desc || product.description || 'Tap to view details.';
   const badge = product.badge || (isDl ? '100% FREE' : 'AMAZON');
-  const btnText = product.btnText || (isDl ? '📥 Download Free Excel (.xlsx)' : 'View on Amazon');
+  const btnText = product.btnText || (isDl ? 'Download Free Template' : 'View on Amazon');
   const downloadAttr = isDl ? `download="${product.downloadFilename || 'Daily English Vocabulary Tracker (Template).xlsx'}"` : 'target="_blank" rel="nofollow sponsored noopener noreferrer"';
   const icon = isDl ? '📥' : '↗';
 

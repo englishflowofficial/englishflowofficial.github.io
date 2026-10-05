@@ -336,33 +336,21 @@
 
     var now = new Date();
     var hour = now.getHours();
-    var day = now.getDay();
-    var dateNum = now.getDate();
 
-    // 1. Hourly baseline curve (authentic diurnal human activity pattern)
-    var hourWeights = [
-      94, 86, 78, 83, 98, 124,       // 00:00 - 05:00
-      162, 204, 252, 278, 265, 242,   // 06:00 - 11:00
-      220, 198, 188, 208, 234, 258,   // 12:00 - 17:00
-      288, 324, 312, 285, 238, 164    // 18:00 - 23:00
+    // 1. Natural hourly base curve
+    var hourBases = [
+      115, 98, 88, 94, 118, 148,       // 00:00 - 05:00
+      188, 235, 278, 315, 292, 268,   // 06:00 - 11:00
+      245, 228, 215, 238, 265, 298,   // 12:00 - 17:00
+      335, 372, 355, 318, 262, 185    // 18:00 - 23:00
     ];
-    var baseForHour = hourWeights[hour] || 215;
+    var base = hourBases[hour] || 250;
 
-    // Daily deterministic jitter
-    var dayJitter = ((dateNum * 19 + day * 37 + hour * 11) % 41) - 20;
-    var targetCount = Math.max(72, baseForHour + dayJitter);
+    // 2. Organic random offset per session/reload so it never gets stuck at 283
+    var sessionRandomOffset = Math.floor(Math.random() * 84) - 42;
+    var currentCount = Math.max(92, base + sessionRandomOffset);
 
-    // 2. Check session storage for continuous multi-page consistency
-    var currentCount = targetCount;
-    try {
-      var saved = sessionStorage.getItem("ef_live_visitors");
-      var savedTime = parseInt(sessionStorage.getItem("ef_live_visitors_time") || "0", 10);
-      if (saved && savedTime && (now.getTime() - savedTime < 1800000)) {
-        currentCount = parseInt(saved, 10) || targetCount;
-      }
-    } catch (e) { /* ignore */ }
-
-    // Render initial count
+    // Render count with a lively visual pulse
     function render(val, pulse) {
       countElements.forEach(function (el) {
         el.textContent = val.toLocaleString();
@@ -371,41 +359,29 @@
           setTimeout(function () { el.classList.remove("count-pulse"); }, 400);
         }
       });
-      try {
-        sessionStorage.setItem("ef_live_visitors", String(val));
-        sessionStorage.setItem("ef_live_visitors_time", String(Date.now()));
-      } catch (e) {}
     }
 
     render(currentCount, false);
 
-    // 3. Dynamic micro-fluctuations (every 5.5-11s randomly)
+    // 3. Fast, realistic bursts every 2.8s - 5.4s
+    // Real users join (+2, +3, +4) and leave (-1, -2, -3) in organic rhythm
+    var stepOptions = [2, -1, 3, -2, 1, 4, -3, 2, -1, -2, 3, 5, -4];
     function tick() {
-      var diff = targetCount - currentCount;
-      var bias = diff > 0 ? 1 : (diff < 0 ? -1 : 0);
-      var roll = Math.random();
-      var delta = 0;
+      var delta = stepOptions[Math.floor(Math.random() * stepOptions.length)];
 
-      if (roll < 0.38) {
-        delta = bias !== 0 ? bias * (Math.random() > 0.4 ? 1 : 2) : 1;
-      } else if (roll < 0.72) {
-        delta = -(bias !== 0 ? bias : 1);
-      } else if (roll < 0.88) {
-        delta = (Math.random() > 0.5 ? 1 : -1) * 2;
-      } else {
-        delta = 0;
-      }
+      // Keep within believable envelope
+      if (currentCount > 410 && delta > 0) delta = -Math.abs(delta);
+      if (currentCount < 110 && delta < 0) delta = Math.abs(delta);
 
-      currentCount = Math.max(56, currentCount + delta);
-      if (delta !== 0) {
-        render(currentCount, true);
-      }
+      currentCount += delta;
+      render(currentCount, true);
 
-      var nextDelay = 5500 + Math.floor(Math.random() * 5200);
+      var nextDelay = 2800 + Math.floor(Math.random() * 2600);
       setTimeout(tick, nextDelay);
     }
 
-    setTimeout(tick, 5500);
+    // Start ticking quickly after page load so it immediately feels alive
+    setTimeout(tick, 2200);
   }
 
   window.FlowFun = { mount: mount, mountAll: mountAll, create: create, mood: setMood, confetti: confetti, pop: pop, snapshot: snapshot };
