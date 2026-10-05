@@ -54,6 +54,7 @@
   <link rel="stylesheet" href="flow-theme.css" />
   <link rel="stylesheet" href="practice-flow.css" />
   <script src="flow-fun.js" defer></script>
+  <script src="flow-comments.js" defer></script>
   <script src="days-data.js" defer></script>
   <script src="practice-core.js" defer></script>
   <script src="practice-app.js" defer></script>
@@ -65,6 +66,7 @@
     <a class="brand" href="index.html" aria-label="English Flow home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>English <b>Flow</b><small> A LITTLE EVERY DAY.</small></span></a>
     <nav aria-label="Main navigation"><a href="index.html">Home</a><a href="library.html">Library</a><a href="tenses.html">Tenses</a><a href="practice.html" aria-current="page">Practice <span class="nav-dot"></span></a><a href="products.html">Resources</a></nav>
     <div class="top-stats" aria-label="Your stats">
+      <span class="top-stat live-learners" title="Active learners online"><span class="pulse-dot-green" aria-hidden="true"></span><b id="live-visitor-count">214</b> online</span>
       <span class="top-stat streak" title="Day streak"><span class="top-icon" aria-hidden="true">🔥</span><b id="top-streak">0</b></span>
       <span class="top-stat gems" title="Gems"><span class="top-icon" aria-hidden="true">💎</span><b id="top-gems">0</b></span>
       <span class="top-stat xp" title="Total XP"><span class="top-icon" aria-hidden="true">⚡</span><b id="top-xp">0</b></span>
@@ -130,6 +132,11 @@
       <div class="gentle-note"><span aria-hidden="true">✧</span><p>Not perfect.<br /><b>Just a little better.</b></p></div>
     </aside>
   </div>
+
+  <!-- Learner Community Discussion & Feedback (100% Free & No Sign-In Required) -->
+  <section class="community-comments-section" id="community" style="background: #ffffff; border-top: 2px solid #e2e8f0; margin-top: 40px;">
+    <div class="section-shell community-comments-mount"></div>
+  </section>
 
   <footer class="practice-footer"><span>English Flow · Slow down. Speak up. Keep flowing.</span><span>© <span id="year"></span> <a href="about.html">About us</a></span></footer>
 

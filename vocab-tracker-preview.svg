@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0fdf4" />
+      <stop offset="50%" stop-color="#dcfce7" />
+      <stop offset="100%" stop-color="#bbf7d0" />
+    </linearGradient>
+    <linearGradient id="excelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#107c41" />
+      <stop offset="100%" stop-color="#0b552c" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#58cc02" />
+      <stop offset="100%" stop-color="#22c55e" />
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0f3b1e" flood-opacity="0.14" />
+    </filter>
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.08" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" rx="24" fill="url(#bgGrad)" />
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.12" stroke="#16a34a" stroke-width="1">
+    <line x1="0" y1="50" x2="800" y2="50" stroke-dasharray="4 4" />
+    <line x1="0" y1="100" x2="800" y2="100" stroke-dasharray="4 4" />
+    <line x1="0" y1="150" x2="800" y2="150" stroke-dasharray="4 4" />
+    <line x1="0" y1="200" x2="800" y2="200" stroke-dasharray="4 4" />
+    <line x1="0" y1="250" x2="800" y2="250" stroke-dasharray="4 4" />
+    <line x1="0" y1="300" x2="800" y2="300" stroke-dasharray="4 4" />
+    <line x1="0" y1="350" x2="800" y2="350" stroke-dasharray="4 4" />
+    <line x1="0" y1="400" x2="800" y2="400" stroke-dasharray="4 4" />
+    <line x1="0" y1="450" x2="800" y2="450" stroke-dasharray="4 4" />
+    <line x1="100" y1="0" x2="100" y2="500" stroke-dasharray="4 4" />
+    <line x1="200" y1="0" x2="200" y2="500" stroke-dasharray="4 4" />
+    <line x1="300" y1="0" x2="300" y2="500" stroke-dasharray="4 4" />
+    <line x1="400" y1="0" x2="400" y2="500" stroke-dasharray="4 4" />
+    <line x1="500" y1="0" x2="500" y2="500" stroke-dasharray="4 4" />
+    <line x1="600" y1="0" x2="600" y2="500" stroke-dasharray="4 4" />
+    <line x1="700" y1="0" x2="700" y2="500" stroke-dasharray="4 4" />
+  </g>
+
+  <!-- Main Spreadsheet Card -->
+  <g filter="url(#softShadow)">
+    <rect x="60" y="45" width="680" height="390" rx="18" fill="#ffffff" />
+    
+    <!-- Spreadsheet Header Window -->
+    <path d="M 60 63 Q 60 45 78 45 L 722 45 Q 740 45 740 63 L 740 100 L 60 100 Z" fill="url(#excelGrad)" />
+    
+    <!-- Window controls -->
+    <circle cx="85" cy="72" r="5" fill="#f87171" />
+    <circle cx="102" cy="72" r="5" fill="#fbbf24" />
+    <circle cx="119" cy="72" r="5" fill="#4ade80" />
+    
+    <!-- App Title in Window -->
+    <text x="145" y="77" font-family="'Nunito', 'Segoe UI', sans-serif" font-weight="800" font-size="16" fill="#ffffff">📊 Daily English Vocabulary Tracker (Template).xlsx</text>
+    
+    <!-- Free Badge top right -->
+    <rect x="625" y="58" width="95" height="28" rx="14" fill="#58cc02" />
+    <text x="672" y="77" font-family="'Nunito', 'Segoe UI', sans-serif" font-weight="900" font-size="12" fill="#ffffff" text-anchor="middle">100% FREE</text>
+
+    <!-- Spreadsheet Column Headers -->
+    <rect x="60" y="100" width="680" height="38" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1" />
+    <rect x="60" y="100" width="50" height="38" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1" />
+    <text x="85" y="124" font-family="'Nunito', sans-serif" font-weight="700" font-size="13" fill="#64748b" text-anchor="middle">#</text>
+    
+    <text x="135" y="124" font-family="'Nunito', sans-serif" font-weight="800" font-size="13.5" fill="#0f172a">English Word</text>
+    <line x1="240" y1="100" x2="240" y2="400" stroke="#e2e8f0" stroke-width="1.5" />
+    
+    <text x="255" y="124" font-family="'Nunito', sans-serif" font-weight="800" font-size="13.5" fill="#0f172a">Meaning (Simple English)</text>
+    <line x1="475" y1="100" x2="475" y2="400" stroke="#e2e8f0" stroke-width="1.5" />
+    
+    <text x="490" y="124" font-family="'Nunito', sans-serif" font-weight="800" font-size="13.5" fill="#0f172a">Example Sentence (Movie Scene / Daily)</text>
+
+    <!-- Row 1: Tedious -->
+    <rect x="60" y="138" width="50" height="48" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+    <text x="85" y="167" font-family="'Nunito', sans-serif" font-weight="700" font-size="13" fill="#94a3b8" text-anchor="middle">1</text>
+    <text x="135" y="167" font-family="'Nunito', sans-serif" font-weight="800" font-size="15" fill="#16a34a">Tedious</text>
+    <text x="255" y="167" font-family="'Nunito', sans-serif" font-weight="600" font-size="13.5" fill="#334155">Boring and lasting for a long time</text>
+    <text x="490" y="167" font-family="'Nunito', sans-serif" font-weight="500" font-size="12.5" fill="#475569">"The hero did tedious paperwork before escaping."</text>
+    <line x1="60" y1="186" x2="740" y2="186" stroke="#f1f5f9" stroke-width="1.5" />
+
+    <!-- Row 2: Hesitate -->
+    <rect x="60" y="186" width="50" height="48" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+    <text x="85" y="215" font-family="'Nunito', sans-serif" font-weight="700" font-size="13" fill="#94a3b8" text-anchor="middle">2</text>
+    <text x="135" y="215" font-family="'Nunito', sans-serif" font-weight="800" font-size="15" fill="#16a34a">Hesitate</text>
+    <text x="255" y="215" font-family="'Nunito', sans-serif" font-weight="600" font-size="13.5" fill="#334155">To pause before doing something</text>
+    <text x="490" y="215" font-family="'Nunito', sans-serif" font-weight="500" font-size="12.5" fill="#475569">"He hesitated for a second before rooftop jump."</text>
+    <line x1="60" y1="234" x2="740" y2="234" stroke="#f1f5f9" stroke-width="1.5" />
+
+    <!-- Row 3: Caveat -->
+    <rect x="60" y="234" width="50" height="48" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+    <text x="85" y="263" font-family="'Nunito', sans-serif" font-weight="700" font-size="13" fill="#94a3b8" text-anchor="middle">3</text>
+    <text x="135" y="263" font-family="'Nunito', sans-serif" font-weight="800" font-size="15" fill="#16a34a">Caveat</text>
+    <text x="255" y="263" font-family="'Nunito', sans-serif" font-weight="600" font-size="13.5" fill="#334155">A warning or condition before accepting</text>
+    <text x="490" y="263" font-family="'Nunito', sans-serif" font-weight="500" font-size="12.5" fill="#475569">"The deal sounds great, but caveat is 24 hours."</text>
+    <line x1="60" y1="282" x2="740" y2="282" stroke="#f1f5f9" stroke-width="1.5" />
+
+    <!-- Row 4: Untangle -->
+    <rect x="60" y="282" width="50" height="48" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+    <text x="85" y="311" font-family="'Nunito', sans-serif" font-weight="700" font-size="13" fill="#94a3b8" text-anchor="middle">4</text>
+    <text x="135" y="311" font-family="'Nunito', sans-serif" font-weight="800" font-size="15" fill="#16a34a">Untangle</text>
+    <text x="255" y="311" font-family="'Nunito', sans-serif" font-weight="600" font-size="13.5" fill="#334155">To solve a complicated problem</text>
+    <text x="490" y="311" font-family="'Nunito', sans-serif" font-weight="500" font-size="12.5" fill="#475569">"The detective untangled the clues by midnight."</text>
+    <line x1="60" y1="330" x2="740" y2="330" stroke="#f1f5f9" stroke-width="1.5" />
+
+    <!-- Bottom Feature Bar -->
+    <rect x="60" y="375" width="680" height="60" rx="0" fill="#f8fafc" />
+    <path d="M 60 415 L 60 417 Q 60 435 78 435 L 722 435 Q 740 435 740 417 L 740 415 Z" fill="#f8fafc" />
+    
+    <text x="85" y="412" font-family="'Nunito', sans-serif" font-weight="700" font-size="13" fill="#64748b">⚡ Formatted for Excel, Google Sheets &amp; Apple Numbers</text>
+    
+    <!-- Download CTA pill inside preview -->
+    <rect x="525" y="388" width="195" height="34" rx="17" fill="url(#accentGrad)" />
+    <text x="622" y="410" font-family="'Nunito', sans-serif" font-weight="800" font-size="13" fill="#ffffff" text-anchor="middle">📥 Instant Download</text>
+  </g>
+
+  <!-- Flo Mascot Peeking Corner -->
+  <g transform="translate(680, 20) scale(0.72)">
+    <!-- Owl Body -->
+    <ellipse cx="60" cy="70" rx="46" ry="52" fill="#58cc02" />
+    <ellipse cx="60" cy="78" rx="34" ry="40" fill="#79e21e" />
+    <path d="M 28 32 Q 40 18 52 32" stroke="#58cc02" stroke-width="8" stroke-linecap="round" fill="none" />
+    <path d="M 68 32 Q 80 18 92 32" stroke="#58cc02" stroke-width="8" stroke-linecap="round" fill="none" />
+    <!-- Eyes -->
+    <ellipse cx="44" cy="58" rx="14" ry="16" fill="#ffffff" />
+    <ellipse cx="76" cy="58" rx="14" ry="16" fill="#ffffff" />
+    <circle cx="46" cy="58" r="7" fill="#1e293b" />
+    <circle cx="74" cy="58" r="7" fill="#1e293b" />
+    <circle cx="48" cy="55" r="2.5" fill="#ffffff" />
+    <circle cx="76" cy="55" r="2.5" fill="#ffffff" />
+    <!-- Beak -->
+    <polygon points="60,65 52,75 68,75" fill="#ff9600" />
+    <!-- Glasses -->
+    <circle cx="44" cy="58" r="16" fill="none" stroke="#ffc800" stroke-width="3" />
+    <circle cx="76" cy="58" r="16" fill="none" stroke="#ffc800" stroke-width="3" />
+    <line x1="60" y1="58" x2="60" y2="58" stroke="#ffc800" stroke-width="3" />
+    <!-- Cheeks -->
+    <ellipse cx="32" cy="74" rx="6" ry="4" fill="#ff4b4b" opacity="0.3" />
+    <ellipse cx="88" cy="74" rx="6" ry="4" fill="#ff4b4b" opacity="0.3" />
+  </g>
+</svg>

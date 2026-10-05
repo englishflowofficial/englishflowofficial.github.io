@@ -269,21 +269,39 @@ function initPracticeQuiz() {
   renderQuestion(0);
 }
 
-// 7. Affiliate Products System
+// 7. Recommended & Affiliate Products System
 const affiliateProducts = [
+  {
+    id: "vocab-tracker",
+    isDownload: true,
+    image: "vocab-tracker-preview.svg",
+    link: "daily-english-vocabulary-tracker-template.xlsx",
+    downloadFilename: "Daily English Vocabulary Tracker (Template).xlsx",
+    title: "Daily English Vocabulary Tracker (Template)",
+    category: "FREE DIGITAL RESOURCE",
+    badge: "100% FREE",
+    desc: "Official spreadsheet template to master active vocabulary using movie scenes & everyday conversational context. Formatted for Excel, Google Sheets, and Apple Numbers.",
+    btnText: "Download Free Excel (.xlsx)"
+  },
   {
     id: "B05lrwxvR",
     image: "https://m.media-amazon.com/images/I/71Ui4yvwEGL._AC_UL960_FMwebp_QL65_.jpg",
     link: "https://link.amazon/B05lrwxvR",
     title: "Amazon Product 1",
-    desc: "Tap to view details on Amazon."
+    category: "FEATURED ON AMAZON",
+    badge: "AMAZON",
+    desc: "Tap to view details on Amazon.",
+    btnText: "View on Amazon"
   },
   {
     id: "B0fIlbHVR",
     image: "https://m.media-amazon.com/images/I/812RjRxsHRL._SY522_.jpg",
     link: "https://link.amazon/B0fIlbHVR",
     title: "Amazon Product 2",
-    desc: "Tap to view details on Amazon."
+    category: "FEATURED ON AMAZON",
+    badge: "AMAZON",
+    desc: "Tap to view details on Amazon.",
+    btnText: "View on Amazon"
   }
 ];
 
@@ -293,24 +311,28 @@ if (typeof window !== 'undefined') {
 }
 
 function generateProductCard(product) {
+  const isDl = !!product.isDownload;
   const productLink = product.link || '#';
-  const image = product.image || 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80';
-  const category = product.category || 'FEATURED ON AMAZON';
-  const description = product.desc || product.description || 'Tap to view details on Amazon.';
-  const badge = product.badge || 'AMAZON';
+  const image = product.image || 'vocab-tracker-preview.svg';
+  const category = product.category || (isDl ? 'FREE DIGITAL RESOURCE' : 'FEATURED ON AMAZON');
+  const description = product.desc || product.description || 'Tap to view details.';
+  const badge = product.badge || (isDl ? '100% FREE' : 'AMAZON');
+  const btnText = product.btnText || (isDl ? '📥 Download Free Excel (.xlsx)' : 'View on Amazon');
+  const downloadAttr = isDl ? `download="${product.downloadFilename || 'Daily English Vocabulary Tracker (Template).xlsx'}"` : 'target="_blank" rel="nofollow sponsored noopener noreferrer"';
+  const icon = isDl ? '📥' : '↗';
 
   return `
-    <article class="library-card product-card" id="${product.id}" data-id="${product.id}">
-      <a class="library-image" href="${productLink}" target="_blank" rel="nofollow sponsored noopener noreferrer" aria-label="View ${product.title} on Amazon">
+    <article class="library-card product-card ${isDl ? 'product-card-excel' : ''}" id="${product.id}" data-id="${product.id}">
+      <a class="library-image" href="${productLink}" ${downloadAttr} aria-label="${product.title}">
         <img src="${image}" alt="${product.title}" loading="lazy" />
-        <span>${badge}</span>
+        <span class="${isDl ? 'badge-free-pill' : ''}">${badge}</span>
       </a>
       <p class="card-label">${category}</p>
       <h3>${product.title}</h3>
       <p>${description}</p>
-      <a class="product-btn" href="${productLink}" target="_blank" rel="nofollow sponsored noopener noreferrer">
-        <span>View on Amazon</span>
-        <b aria-hidden="true">↗</b>
+      <a class="product-btn ${isDl ? 'product-btn-excel' : ''}" href="${productLink}" ${downloadAttr}>
+        <span>${btnText}</span>
+        <b aria-hidden="true">${icon}</b>
       </a>
     </article>
   `;

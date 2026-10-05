@@ -137,11 +137,53 @@
     <div class="quick-ribbon">
       <div class="section-shell">
         <span class="qr-label">START HERE</span>
-        <a class="qr-link qr-tenses" href="tenses.html"><span aria-hidden="true">📘</span> All 12 Tenses <b>+ 12 practice sets</b></a>
-        <a class="qr-link qr-practice" href="practice.html"><span aria-hidden="true">✍️</span> Daily Practice Room <b>30 lessons</b></a>
-        <span class="qr-spacer">Free · no sign-in needed</span>
+        <a class="qr-link qr-tenses" href="tenses.html"><span aria-hidden="true">📘</span> All 12 Tenses <b>+ 12 sets</b></a>
+        <a class="qr-link qr-practice" href="practice.html"><span aria-hidden="true">✍️</span> Daily Practice <b>30 lessons</b></a>
+        <a class="qr-link qr-products" href="products.html"><span aria-hidden="true">🛍️</span> Recommended Products <b>+ Free Excel</b></a>
+        <div class="qr-live-counter" id="live-visitor-pill" title="Active learners online right now">
+          <span class="pulse-dot-green" aria-hidden="true"></span>
+          <span><b id="live-visitor-count">214</b> learners online</span>
+        </div>
       </div>
     </div>
+
+    <!-- Live New Product Shower / Spotlight Banner -->
+    <section class="new-product-shower" aria-label="New Featured Resource">
+      <div class="section-shell">
+        <div class="nps-card">
+          <div class="nps-glow" aria-hidden="true"></div>
+          <div class="nps-left">
+            <div class="nps-tags">
+              <span class="nps-tag-new"><span class="nps-sparkle">🔥</span> JUST ADDED</span>
+              <span class="nps-tag-free">100% FREE TEMPLATE</span>
+              <span class="nps-tag-type">📊 EXCEL &amp; GOOGLE SHEETS</span>
+            </div>
+            <h2 class="nps-title">Daily English Vocabulary Tracker <em>(Excel Template)</em></h2>
+            <p class="nps-desc">
+              Organize your daily words with real movie scenes &amp; conversational examples. Build active vocabulary instead of forgetting it.
+            </p>
+            <div class="nps-meta-pills">
+              <span>✓ Pre-made Formula Columns</span>
+              <span>✓ Movie Scene &amp; Context Prompts</span>
+              <span>✓ Instant Offline Access</span>
+            </div>
+          </div>
+          <div class="nps-right">
+            <div class="nps-card-preview">
+              <img src="vocab-tracker-preview.svg" alt="Daily English Vocabulary Tracker Excel Preview" class="nps-preview-img" width="320" height="200" />
+            </div>
+            <div class="nps-action-btns">
+              <a class="button button-primary nps-download-btn" href="daily-english-vocabulary-tracker-template.xlsx" download="Daily English Vocabulary Tracker (Template).xlsx">
+                <span>📥 Download Free Excel (.xlsx)</span>
+              </a>
+              <a class="button button-quiet nps-viewall-btn" href="products.html">
+                <span>View All Products →</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <main id="main">
       <section id="top" class="hero section-shell">
@@ -436,6 +478,11 @@
           <a href="mailto:asksewc@gmail.com"><span class="social-icon mail">✉</span><span><small>SAY HELLO</small><strong>asksewc@gmail.com</strong></span><b>↗</b></a>
         </div>
       </section>
+
+      <!-- Community Comments & Learner Discussion (100% Free & No Sign-In Needed) -->
+      <section class="community-comments-section" id="community">
+        <div class="section-shell community-comments-mount"></div>
+      </section>
     </main>
 
     <footer class="site-footer section-shell">
@@ -445,6 +492,7 @@
     </footer>
 
     <script src="flow-fun.js" defer></script>
+    <script src="flow-comments.js" defer></script>
     <script src="script.js"></script>
   </body>
 </html>

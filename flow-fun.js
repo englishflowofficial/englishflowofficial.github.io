@@ -329,8 +329,87 @@
     setTimeout(function () { Array.prototype.forEach.call(targets, function (t) { t.classList.add("ff-in"); }); }, 4000);
   }
 
+  /* ---------- realistic dynamic live visitor tracker ---------- */
+  function initLiveVisitorCounter() {
+    var countElements = doc.querySelectorAll("#live-visitor-count, .live-visitor-count");
+    if (!countElements.length) return;
+
+    var now = new Date();
+    var hour = now.getHours();
+    var day = now.getDay();
+    var dateNum = now.getDate();
+
+    // 1. Hourly baseline curve (authentic diurnal human activity pattern)
+    var hourWeights = [
+      94, 86, 78, 83, 98, 124,       // 00:00 - 05:00
+      162, 204, 252, 278, 265, 242,   // 06:00 - 11:00
+      220, 198, 188, 208, 234, 258,   // 12:00 - 17:00
+      288, 324, 312, 285, 238, 164    // 18:00 - 23:00
+    ];
+    var baseForHour = hourWeights[hour] || 215;
+
+    // Daily deterministic jitter
+    var dayJitter = ((dateNum * 19 + day * 37 + hour * 11) % 41) - 20;
+    var targetCount = Math.max(72, baseForHour + dayJitter);
+
+    // 2. Check session storage for continuous multi-page consistency
+    var currentCount = targetCount;
+    try {
+      var saved = sessionStorage.getItem("ef_live_visitors");
+      var savedTime = parseInt(sessionStorage.getItem("ef_live_visitors_time") || "0", 10);
+      if (saved && savedTime && (now.getTime() - savedTime < 1800000)) {
+        currentCount = parseInt(saved, 10) || targetCount;
+      }
+    } catch (e) { /* ignore */ }
+
+    // Render initial count
+    function render(val, pulse) {
+      countElements.forEach(function (el) {
+        el.textContent = val.toLocaleString();
+        if (pulse) {
+          el.classList.add("count-pulse");
+          setTimeout(function () { el.classList.remove("count-pulse"); }, 400);
+        }
+      });
+      try {
+        sessionStorage.setItem("ef_live_visitors", String(val));
+        sessionStorage.setItem("ef_live_visitors_time", String(Date.now()));
+      } catch (e) {}
+    }
+
+    render(currentCount, false);
+
+    // 3. Dynamic micro-fluctuations (every 5.5-11s randomly)
+    function tick() {
+      var diff = targetCount - currentCount;
+      var bias = diff > 0 ? 1 : (diff < 0 ? -1 : 0);
+      var roll = Math.random();
+      var delta = 0;
+
+      if (roll < 0.38) {
+        delta = bias !== 0 ? bias * (Math.random() > 0.4 ? 1 : 2) : 1;
+      } else if (roll < 0.72) {
+        delta = -(bias !== 0 ? bias : 1);
+      } else if (roll < 0.88) {
+        delta = (Math.random() > 0.5 ? 1 : -1) * 2;
+      } else {
+        delta = 0;
+      }
+
+      currentCount = Math.max(56, currentCount + delta);
+      if (delta !== 0) {
+        render(currentCount, true);
+      }
+
+      var nextDelay = 5500 + Math.floor(Math.random() * 5200);
+      setTimeout(tick, nextDelay);
+    }
+
+    setTimeout(tick, 5500);
+  }
+
   window.FlowFun = { mount: mount, mountAll: mountAll, create: create, mood: setMood, confetti: confetti, pop: pop, snapshot: snapshot };
 
-  function init() { mountAll(); headerChip(); helper(); reveals(); }
+  function init() { mountAll(); headerChip(); helper(); reveals(); initLiveVisitorCounter(); }
   if (doc.readyState === "loading") doc.addEventListener("DOMContentLoaded", init); else init();
 })();
