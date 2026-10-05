@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn English with Animations — English Flow Animated Lab</title>
+    <meta
+      name="description"
+      content="Learn spoken English through interactive animations! Watch real-life conversation roleplays, moving word block grammar, 12 tenses timeline simulator, and phrasal verb animations. 100% free!"
+    />
+    <meta name="keywords" content="learn english with animations, animated english lessons, english conversation animations, visual english grammar, 12 tenses animation, english flow" />
+    <link rel="canonical" href="https://englishflowofficial.github.io/animations.html" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="icon" type="image/jpeg" href="favicon.jpg" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://englishflowofficial.github.io/animations.html" />
+    <meta property="og:title" content="Learn English with Animations — English Flow Animated Lab" />
+    <meta property="og:description" content="Master spoken English with interactive animations, real-life conversation theaters, moving grammar blocks, and audio pronunciation." />
+    <meta property="og:image" content="https://englishflowofficial.github.io/free-product-thumbnail.png" />
+    <meta property="og:site_name" content="English Flow" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito:wght@600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="pages.css" />
+    <link rel="stylesheet" href="flow-theme.css" />
+    <link rel="stylesheet" href="flow-pages.css" />
+    <link rel="stylesheet" href="flow-animations.css" />
+  </head>
+  <body class="animations-page">
+    <a class="skip-link" href="#main">Skip to animated lessons</a>
+
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="English Flow home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>English <b>Flow</b></span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Open menu</span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="library.html">Video library</a>
+        <a href="tenses.html">Tenses</a>
+        <a href="practice.html">Practice</a>
+        <a class="is-active" href="animations.html">Animations 🎬</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+      </nav>
+      <a class="header-cta" href="practice.html">Start practising <span aria-hidden="true">→</span></a>
+    </header>
+
+    <div class="quick-ribbon">
+      <div class="section-shell">
+        <span class="qr-label">START HERE</span>
+        <a class="qr-link qr-tenses" href="tenses.html"><span aria-hidden="true">📘</span> All 12 Tenses <b>+ 12 sets</b></a>
+        <a class="qr-link qr-practice" href="practice.html"><span aria-hidden="true">✍️</span> Daily Practice <b>30 lessons</b></a>
+        <a class="qr-link qr-products" href="products.html"><span aria-hidden="true">🛍️</span> Products <b>+ Free Excel</b></a>
+        <div class="qr-live-counter" id="live-visitor-pill" title="Active learners online right now">
+          <span class="pulse-dot-green" aria-hidden="true"></span>
+          <span><b id="live-visitor-count">214</b> learners online</span>
+        </div>
+      </div>
+    </div>
+
+    <main id="main">
+      <!-- Animated Hero -->
+      <section class="anim-hero" aria-label="Animated Lab Overview">
+        <div class="anim-hero-tag">
+          <span>🎬 INTERACTIVE ANIMATION LAB</span>
+          <span>•</span>
+          <span>100% FREE</span>
+        </div>
+        <h1>Learn English with <em>Animations</em></h1>
+        <p>
+          Visual memory is 7x faster than textbook reading. Watch real conversations unfold, see grammar words slide and transform, and master spoken English naturally with Flo the mascot!
+        </p>
+
+        <div class="anim-nav-tabs">
+          <a class="anim-tab-btn is-active" href="#dialogues"><span>🎭 Conversation Theater</span></a>
+          <a class="anim-tab-btn" href="#blocks"><span>🧱 Moving Word Blocks</span></a>
+          <a class="anim-tab-btn" href="#timeline"><span>⏱️ 12 Tenses Time Machine</span></a>
+          <a class="anim-tab-btn" href="#phrasal"><span>🎪 Phrasal Verbs in Motion</span></a>
+          <a class="anim-tab-btn" href="#pronounce"><span>🗣️ Mouth & Sound Guide</span></a>
+        </div>
+      </section>
+
+      <!-- Section 1: Animated Dialogue Theater -->
+      <section class="anim-section" id="dialogues" aria-label="Animated Dialogue Theater">
+        <div class="anim-section-header">
+          <span class="anim-section-eyebrow">MODULE 1 • REAL-LIFE CONVERSATIONS</span>
+          <h2 class="anim-section-title">Animated Dialogue Theater</h2>
+          <p class="anim-section-desc">
+            Choose a real-life situation. Tap <b>Play Scene</b> to watch the characters speak with animated audio, or listen to each phrase with pronunciation shadowing.
+          </p>
+        </div>
+
+        <div class="anim-theater-card">
+          <!-- Sidebar Scenarios -->
+          <div class="anim-theater-sidebar" id="anim-scenes-nav">
+            <!-- Populated via flow-animations.js -->
+          </div>
+
+          <!-- Stage Area -->
+          <div class="anim-stage">
+            <div class="anim-stage-backdrop" id="anim-stage-backdrop">
+              <span class="anim-stage-sky" id="anim-stage-sky">☕ Urban Roastery &amp; Cafe</span>
+              
+              <!-- Left Character -->
+              <div class="anim-char is-speaking" id="anim-char-left">
+                <div class="anim-char-avatar">🧑‍🍳</div>
+                <span class="anim-char-label">Barista (Alex)</span>
+              </div>
+
+              <!-- Right Character -->
+              <div class="anim-char" id="anim-char-right">
+                <div class="anim-char-avatar">🙋</div>
+                <span class="anim-char-label">You (Learner)</span>
+              </div>
+            </div>
+
+            <!-- Speech Bubble Box -->
+            <div class="anim-dialog-box">
+              <div class="anim-speech-bubble">
+                <div class="anim-speech-speaker" id="anim-speaker-name">Barista (Alex)</div>
+                <p class="anim-speech-text" id="anim-speech-text">
+                  Hi there! Welcome to Flo Roast. What can I get started for you today?
+                </p>
+                <p class="anim-speech-sub" id="anim-speech-sub">
+                  <b>Friendly greeting at the counter</b> — <em>Listen for the open question formula.</em>
+                </p>
+              </div>
+
+              <!-- Controls -->
+              <div class="anim-controls-row">
+                <div class="anim-playback-btns">
+                  <button type="button" class="anim-btn anim-btn-play" id="anim-play-btn">
+                    <span>Play Scene</span>
+                    <span aria-hidden="true">▶️</span>
+                  </button>
+                  <button type="button" class="anim-btn anim-btn-audio" id="anim-audio-btn">
+                    <span>Listen 🔊</span>
+                  </button>
+                </div>
+
+                <div class="anim-step-dots" id="anim-step-dots" aria-label="Dialogue progress">
+                  <!-- Dots populated via JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Word Blocks in Motion -->
+      <section class="anim-section" id="blocks" aria-label="Sentence Transformer">
+        <div class="anim-section-header">
+          <span class="anim-section-eyebrow">MODULE 2 • VISUAL WORD PHYSICS</span>
+          <h2 class="anim-section-title">Word Blocks in Motion</h2>
+          <p class="anim-section-desc">
+            Never memorize dry grammar formulas again. Watch words glide, swap, and lock together with color-coded syntax blocks!
+          </p>
+        </div>
+
+        <div class="anim-blocks-wrap">
+          <div class="anim-blocks-mode-row" id="anim-transform-modes">
+            <!-- Mode buttons -->
+          </div>
+
+          <div class="anim-blocks-stage">
+            <div class="anim-sentence-slot" id="anim-sentence-slot">
+              <!-- Animated Word Tiles -->
+            </div>
+            <p class="anim-blocks-explain" id="anim-transform-explain">
+              Tap the button below to watch the words slide and swap positions live!
+            </p>
+            <button type="button" class="anim-transform-trigger-btn" id="anim-transform-trigger">
+              Watch Animated Transformation ⚡
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: 12 Tenses Timeline Simulator -->
+      <section class="anim-section" id="timeline" aria-label="12 Tenses Time Machine">
+        <div class="anim-section-header">
+          <span class="anim-section-eyebrow">MODULE 3 • INTERACTIVE TIMELINE</span>
+          <h2 class="anim-section-title">12 Tenses Time Machine</h2>
+          <p class="anim-section-desc">
+            Slide Flo across time to see how the English verb morphs from Past to Present to Future in real time.
+          </p>
+        </div>
+
+        <div class="anim-tense-slider-card">
+          <div class="anim-timeline-track">
+            <div class="anim-timeline-fill" id="anim-timeline-fill"></div>
+            <div class="anim-flo-slider-marker" id="anim-flo-marker" title="Flo traveling through time">🦉🎧</div>
+          </div>
+
+          <div class="anim-timeline-nodes">
+            <div class="anim-time-node" data-idx="0">
+              <h4>⏪ Past Simple</h4>
+              <span>Completed in the past</span>
+            </div>
+            <div class="anim-time-node is-active" data-idx="1">
+              <h4>🟢 Present Continuous</h4>
+              <span>Happening right now</span>
+            </div>
+            <div class="anim-time-node" data-idx="2">
+              <h4>⏩ Future Continuous</h4>
+              <span>In progress tomorrow</span>
+            </div>
+          </div>
+
+          <div class="anim-tense-result-box">
+            <div class="anim-tense-sentence" id="anim-timeline-sentence">
+              Flo <em>is practicing</em> speaking right now on the web.
+            </div>
+            <div class="anim-tense-formula" id="anim-timeline-formula">
+              Subject + am/is/are + Verb(-ing)
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Phrasal Verbs in Motion -->
+      <section class="anim-section" id="phrasal" aria-label="Phrasal Verbs Visual Theater">
+        <div class="anim-section-header">
+          <span class="anim-section-eyebrow">MODULE 4 • LITERAL VS REAL-LIFE IDIOMS</span>
+          <h2 class="anim-section-title">Phrasal Verbs in Motion</h2>
+          <p class="anim-section-desc">
+            Why do native speakers say <em>“Look up”</em> or <em>“Turn down”</em>? Toggle between literal actions and real idiomatic meanings with animated visual cards!
+          </p>
+        </div>
+
+        <div class="anim-phrasal-grid" id="anim-phrasal-grid">
+          <!-- Populated via flow-animations.js -->
+        </div>
+      </section>
+
+      <!-- Section 5: Pronunciation & Mouth Shape Visualizer -->
+      <section class="anim-section" id="pronounce" aria-label="Pronunciation Mouth Guide">
+        <div class="anim-section-header">
+          <span class="anim-section-eyebrow">MODULE 5 • PRONUNCIATION MECHANICS</span>
+          <h2 class="anim-section-title">Mouth &amp; Tongue Placement Guide</h2>
+          <p class="anim-section-desc">
+            Master tricky English sounds by visualizing where your teeth, lips, and tongue belong.
+          </p>
+        </div>
+
+        <div class="anim-pronounce-card">
+          <div class="anim-mouth-view">
+            <svg class="anim-mouth-svg" id="anim-mouth-svg" viewBox="0 0 140 140">
+              <!-- SVG diagram dynamically injected -->
+            </svg>
+            <div class="sound-wave" style="margin-top: 14px;">
+              <span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+
+          <div class="anim-pronounce-info">
+            <div class="anim-pronounce-selector">
+              <button type="button" class="anim-sound-pill is-active">/θ/ (TH Sound)</button>
+              <button type="button" class="anim-sound-pill">/v/ vs /b/</button>
+              <button type="button" class="anim-sound-pill">/r/ vs /l/</button>
+            </div>
+
+            <h3 class="anim-sound-rule" id="anim-sound-rule">
+              /θ/ &amp; /ð/ (TH Sound) — Examples: Think, Through, This, That
+            </h3>
+            <p class="anim-sound-tip" id="anim-sound-tip">
+              Tongue between teeth gently. Air flows continuously. Do NOT place tongue behind teeth!
+            </p>
+
+            <button type="button" class="anim-btn anim-btn-play" id="anim-sound-audio-btn">
+              <span>Listen to Pronunciation</span>
+              <span aria-hidden="true">🔊</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Community Learner Comments Mount -->
+      <section class="community-feedback-section" aria-label="Community discussion">
+        <div class="section-shell">
+          <div class="community-comments-mount"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>English <b>Flow</b></span></a>
+      <p>Slow down. Speak up. Keep flowing.</p>
+      <p>© <span id="year"></span> English Flow</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="flow-fun.js" defer></script>
+    <script src="flow-comments.js?v=3.0" defer></script>
+    <script src="flow-animations.js" defer></script>
+    <script src="script.js"></script>
+  </body>
+</html>

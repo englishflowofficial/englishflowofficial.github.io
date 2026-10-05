@@ -7,7 +7,7 @@
 (function () {
   "use strict";
 
-  var CLOUD_BIN_URL = "https://extendsclass.com/api/json-storage/bin/edffbca";
+  var CLOUD_API_URL = "https://api.restful-api.dev/objects/ff808181a09d98f701a10af6b5a27b29";
 
   var PRELOADED_COMMENTS = [
     {
@@ -150,12 +150,15 @@
   }
 
   function fetchCloudComments(onDone) {
-    fetch(CLOUD_BIN_URL, { cache: "no-store" })
-      .then(function (res) { return res.text(); })
-      .then(function (text) {
-        var data = parseJsonSafe(text);
-        if (data && Array.isArray(data.comments)) {
-          cloudComments = data.comments;
+    fetch(CLOUD_API_URL, { cache: "no-store" })
+      .then(function (res) {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.json();
+      })
+      .then(function (resData) {
+        var list = (resData && resData.data && Array.isArray(resData.data.comments)) ? resData.data.comments : [];
+        if (list.length > 0) {
+          cloudComments = list;
           if (onDone) onDone(cloudComments);
         }
       })
@@ -165,29 +168,35 @@
   }
 
   function syncCommentToCloud(newComment, onDone) {
-    // 1. Fetch current cloud comments first to prevent overwriting
-    fetch(CLOUD_BIN_URL, { cache: "no-store" })
-      .then(function (res) { return res.text(); })
-      .then(function (text) {
-        var data = parseJsonSafe(text);
-        var existing = (data && Array.isArray(data.comments)) ? data.comments : [];
+    fetch(CLOUD_API_URL, { cache: "no-store" })
+      .then(function (res) {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.json();
+      })
+      .then(function (resData) {
+        var existing = (resData && resData.data && Array.isArray(resData.data.comments)) ? resData.data.comments : [];
         
+        // Remove duplicate if already present
+        existing = existing.filter(function (item) { return item.id !== newComment.id; });
         // Prepend new comment
         existing.unshift(newComment);
-        if (existing.length > 80) existing = existing.slice(0, 80);
+        if (existing.length > 100) existing = existing.slice(0, 100);
 
-        return fetch(CLOUD_BIN_URL, {
+        return fetch(CLOUD_API_URL, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ comments: existing })
+          body: JSON.stringify({
+            name: "EnglishFlowComments",
+            data: { comments: existing }
+          })
         });
       })
       .then(function (res) {
-        if (onDone) onDone();
+        if (onDone) onDone(true);
       })
       .catch(function (err) {
         console.warn("Cloud sync error:", err);
-        if (onDone) onDone();
+        if (onDone) onDone(false);
       });
   }
 
@@ -385,9 +394,12 @@
       submitBtn.disabled = true;
       submitBtn.querySelector("span").textContent = "Posting...";
 
-      syncCommentToCloud(newComment, function () {
+      syncCommentToCloud(newComment, function (success) {
         submitBtn.disabled = false;
         submitBtn.querySelector("span").textContent = "Post Comment";
+        if (success && window.FlowFun && window.FlowFun.pop) {
+          window.FlowFun.pop(submitBtn, "Live for everyone! 🌐✨");
+        }
       });
 
       // Celebrate
@@ -414,12 +426,12 @@
       renderAll();
     });
 
-    // Auto-poll cloud every 15 seconds so other visitors' comments show up live!
+    // Auto-poll cloud every 8 seconds so other visitors' comments show up live!
     setInterval(function () {
       fetchCloudComments(function () {
         renderAll();
       });
-    }, 15000);
+    }, 8000);
   }
 
   function init() {
