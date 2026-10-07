@@ -1,0 +1,694 @@
+/* ==========================================================================
+   English Flow — "What Is This?" Video Learning Lab Styles
+   Designed for interactive video quizzes with real animated video clips
+   ========================================================================== */
+
+:root {
+  --wit-bg: #f8fafc;
+  --wit-card: #ffffff;
+  --wit-ink: #0f172a;
+  --wit-muted: #64748b;
+  --wit-border: #e2e8f0;
+  --wit-primary: #6366f1;
+  --wit-primary-dark: #4f46e5;
+  --wit-primary-light: #e0e7ff;
+  --wit-correct: #10b981;
+  --wit-correct-dark: #059669;
+  --wit-correct-light: #d1fae5;
+  --wit-wrong: #ef4444;
+  --wit-wrong-dark: #dc2626;
+  --wit-wrong-light: #fee2e2;
+  --wit-gold: #f59e0b;
+  --wit-gold-light: #fef3c7;
+  --wit-radius: 20px;
+}
+
+body.what-is-this-page {
+  background: #fdfbf7;
+  color: var(--wit-ink);
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hero Section */
+.wit-hero {
+  padding: 44px 0 28px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+}
+
+.wit-badge-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.wit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #e0e7ff;
+  color: #4338ca;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.wit-badge-free {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.wit-hero h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(32px, 4.4vw, 52px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--wit-ink);
+  margin: 0 auto 12px;
+  max-width: 760px;
+}
+
+.wit-hero h1 em {
+  font-style: italic;
+  color: var(--wit-primary);
+  background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.wit-hero p {
+  font-size: clamp(15px, 1.8vw, 17px);
+  color: var(--wit-muted);
+  max-width: 640px;
+  margin: 0 auto 24px;
+  line-height: 1.6;
+}
+
+/* Gamified Stats Header Strip */
+.wit-stats-strip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 auto 30px;
+  max-width: 680px;
+}
+
+.wit-stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04);
+}
+
+.wit-stat-pill b {
+  color: var(--wit-ink);
+}
+
+.wit-stat-streak {
+  border-color: #fde68a;
+  background: #fffbeb;
+  color: #b45309;
+}
+
+.wit-stat-xp {
+  border-color: #e9d5ff;
+  background: #faf5ff;
+  color: #7e22ce;
+}
+
+/* Category Filter Bar */
+.wit-filter-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.wit-filter-btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 2px solid #e2e8f0;
+  background: #ffffff;
+  color: #475569;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.wit-filter-btn:hover {
+  border-color: var(--wit-primary);
+  color: var(--wit-primary);
+  transform: translateY(-1px);
+}
+
+.wit-filter-btn.is-active {
+  background: var(--wit-primary);
+  border-color: var(--wit-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.28);
+}
+
+/* The Main Video Quiz Arena Card */
+.wit-arena-card {
+  max-width: 820px;
+  margin: 0 auto 48px;
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 28px;
+  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.02);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+/* Top Card Bar: Progress & Mode */
+.wit-card-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: #f8fafc;
+  border-bottom: 1.5px solid #e2e8f0;
+}
+
+.wit-category-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #4338ca;
+  background: #e0e7ff;
+  padding: 4px 12px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.wit-q-count {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--wit-muted);
+}
+
+.wit-progress-bar-wrap {
+  width: 100%;
+  height: 6px;
+  background: #e2e8f0;
+  overflow: hidden;
+}
+
+.wit-progress-bar-fill {
+  height: 100%;
+  width: 8%;
+  background: linear-gradient(90deg, #6366f1 0%, #06b6d4 100%);
+  transition: width 0.3s ease;
+}
+
+/* Video Stage Area */
+.wit-video-stage {
+  position: relative;
+  background: #090d16;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 440px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.wit-video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #090d16;
+  display: block;
+}
+
+.wit-iframe-player {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Video Controls Overlay */
+.wit-video-overlay {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+.wit-video-controls {
+  display: flex;
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.wit-ctrl-btn {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.15s ease;
+}
+
+.wit-ctrl-btn:hover {
+  background: rgba(99, 102, 241, 0.9);
+  border-color: #818cf8;
+}
+
+.wit-video-tag {
+  background: rgba(16, 185, 129, 0.85);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  pointer-events: auto;
+}
+
+/* Question & Interactive 4 Options Section */
+.wit-question-section {
+  padding: 28px 28px 32px;
+}
+
+.wit-question-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.wit-prompt-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wit-question-title {
+  margin: 0;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(24px, 3.2vw, 32px);
+  color: var(--wit-ink);
+  line-height: 1.15;
+}
+
+.wit-audio-btn {
+  background: #f1f5f9;
+  border: 2px solid #e2e8f0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+
+.wit-audio-btn:hover {
+  background: #e0e7ff;
+  border-color: #c7d2fe;
+  transform: scale(1.08);
+}
+
+.wit-question-sub {
+  margin: 0 0 22px;
+  color: var(--wit-muted);
+  font-size: 15px;
+}
+
+/* 4 Options Grid */
+.wit-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+  .wit-options-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wit-option-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 2.5px solid #e2e8f0;
+  box-shadow: 0 4px 0 #cbd5e1;
+  color: var(--wit-ink);
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.wit-option-card:hover:not(:disabled) {
+  border-color: #6366f1;
+  background: #f8faff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #cbd5e1;
+}
+
+.wit-option-card:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #cbd5e1;
+}
+
+.wit-opt-letter {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  border-radius: 10px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 900;
+  transition: all 0.15s ease;
+}
+
+.wit-opt-text {
+  flex: 1;
+  line-height: 1.35;
+}
+
+/* Correct Choice State */
+.wit-option-card.is-correct {
+  border-color: var(--wit-correct);
+  background: var(--wit-correct-light);
+  box-shadow: 0 4px 0 var(--wit-correct-dark);
+  color: #064e3b;
+  animation: wit-pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.wit-option-card.is-correct .wit-opt-letter {
+  background: var(--wit-correct);
+  color: #ffffff;
+}
+
+/* Wrong Choice State */
+.wit-option-card.is-wrong {
+  border-color: var(--wit-wrong);
+  background: var(--wit-wrong-light);
+  box-shadow: 0 4px 0 var(--wit-wrong-dark);
+  color: #991b1b;
+  animation: wit-shake 0.35s ease;
+}
+
+.wit-option-card.is-wrong .wit-opt-letter {
+  background: var(--wit-wrong);
+  color: #ffffff;
+}
+
+/* Highlighted Answer when wrong was clicked */
+.wit-option-card.is-revealed-correct {
+  border-color: var(--wit-correct);
+  background: #f0fdf4;
+  border-style: dashed;
+}
+
+@keyframes wit-pop {
+  0% { transform: scale(0.97); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+@keyframes wit-shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+/* Feedback Drawer Box */
+.wit-feedback-box {
+  display: none;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 22px 24px;
+  margin-top: 20px;
+  animation: wit-fade-in 0.25s ease;
+}
+
+.wit-feedback-box.is-visible {
+  display: block;
+}
+
+.wit-fb-correct {
+  border-color: #a7f3d0;
+  background: #ecfdf5;
+}
+
+.wit-fb-wrong {
+  border-color: #fecaca;
+  background: #fef2f2;
+}
+
+.wit-fb-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.wit-fb-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.wit-fb-word-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.wit-fb-word {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--wit-ink);
+}
+
+.wit-fb-ipa {
+  font-size: 14px;
+  font-weight: 600;
+  color: #4338ca;
+  background: #e0e7ff;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.wit-fb-desc {
+  margin: 0 0 10px;
+  color: #334155;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+.wit-fb-example {
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--wit-primary);
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 0 10px 10px 0;
+  font-size: 14px;
+  font-style: italic;
+  color: #1e293b;
+}
+
+.wit-fb-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.wit-next-btn {
+  background: var(--wit-primary);
+  border: 2px solid var(--wit-primary-dark);
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 0 var(--wit-primary-dark);
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wit-next-btn:hover {
+  background: #4f46e5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--wit-primary-dark);
+}
+
+.wit-next-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--wit-primary-dark);
+}
+
+@keyframes wit-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mascot Flo Cheerful Commentary Card */
+.wit-flo-cheer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 auto 36px;
+  max-width: 820px;
+  padding: 16px 22px;
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 20px;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.04);
+}
+
+.wit-flo-avatar {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.wit-flo-bubble {
+  flex: 1;
+  font-size: 14.5px;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.wit-flo-bubble b {
+  color: var(--wit-ink);
+}
+
+/* Google Flow Creator Studio Box */
+.wit-creator-box {
+  max-width: 820px;
+  margin: 0 auto 60px;
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+  border: 2px dashed #818cf8;
+  border-radius: 24px;
+  padding: 28px;
+}
+
+.wit-creator-title {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #1e1b4b;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wit-creator-desc {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0 0 18px;
+}
+
+.wit-creator-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 650px) {
+  .wit-creator-inputs {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wit-input-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  color: #475569;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.wit-input-group input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 14px;
+  border: 2px solid #cbd5e1;
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  background: #ffffff;
+}
+
+.wit-input-group input:focus {
+  border-color: var(--wit-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.wit-creator-btn {
+  background: #1e1b4b;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.wit-creator-btn:hover {
+  background: var(--wit-primary);
+}
