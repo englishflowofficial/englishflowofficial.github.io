@@ -272,7 +272,7 @@
         input.autocapitalize = 'none';
         input.spellcheck = false;
         input.setAttribute('aria-label', 'Your answer');
-        input.placeholder = 'Type your answer\u2026';
+        input.placeholder = 'Type your answer...';
         input.addEventListener('input', function () {
           if (state.checked) return;
           state.typed = input.value;
@@ -325,7 +325,7 @@
         if (!isCorrect && wrap) {
           var reveal = document.createElement('p');
           reveal.className = 'tp-answer-reveal';
-          reveal.textContent = '\u2713 Answer: ' + question.accept[0];
+          reveal.textContent = '✓ Answer: ' + question.accept[0];
           wrap.appendChild(reveal);
         }
       } else {
@@ -338,11 +338,11 @@
       state.checked = true;
       if (isCorrect) {
         state.score++;
-        setFeedback('\uD83C\uDF89 Correct! ' + question.why, 'good');
+        setFeedback('🎉 Correct! ' + question.why, 'good');
         if (window.FlowFun) window.FlowFun.pop('+10 XP', undefined, undefined, 'green');
         if (hooks.onCorrect) hooks.onCorrect(state.score);
       } else {
-        setFeedback('\uD83D\uDCA1 Not quite. ' + question.why, 'bad');
+        setFeedback('💡 Not quite. ' + question.why, 'bad');
       }
       if (hooks.onAnswer) hooks.onAnswer(state.index, isCorrect);
 
@@ -371,7 +371,7 @@
         }
         var title = $('[data-role="result-title"]', resultEl);
         var note = $('[data-role="result-note"]', resultEl);
-        if (title) title.textContent = percent === 100 ? 'Perfect! \uD83C\uDFC6' : percent >= 60 ? 'Nicely done! \uD83C\uDF1F' : 'Good try! \uD83C\uDF31';
+        if (title) title.textContent = percent === 100 ? 'Perfect! 🏆' : percent >= 60 ? 'Nicely done! 🌟' : 'Good try! 🌱';
         if (note) {
           note.textContent = percent === 100
             ? 'Every single one right. This tense is yours now.'
@@ -469,7 +469,7 @@
         progress[tenseId] = { best: Math.max(previous.best || 0, score), tries: (previous.tries || 0) + 1, total: total };
         saveProgress(progress);
         refreshProgress();
-        if (score >= 4) toast('Practice set complete \u2014 ' + score + '/' + total + ' \uD83C\uDF89');
+        if (score >= 4) toast('Practice set complete — ' + score + '/' + total + ' 🎉');
       }
     });
     openDialog();
@@ -518,7 +518,7 @@
     var challengeHooks = {
       onAnswer: function (index, correct) {
         if (tenseLabel) tenseLabel.textContent = 'That one was: ' + CHALLENGE[index].tense;
-        if (liveNote) liveNote.textContent = correct ? 'Yes! That one clicked. \u2728' : 'Every miss teaches you something.';
+        if (liveNote) liveNote.textContent = correct ? 'Yes! That one clicked. ✨' : 'Every miss teaches you something.';
       },
       onCorrect: function (score) { if (liveScore) liveScore.textContent = score; },
       onFinish: function (score, total) {
@@ -536,7 +536,7 @@
       challengeAgain.addEventListener('click', function () {
         if (liveScore) liveScore.textContent = '0';
         if (liveNote) liveNote.textContent = 'A fresh start. Take your time.';
-        if (tenseLabel) tenseLabel.textContent = 'Take your time \u2014 you\u2019re learning.';
+        if (tenseLabel) tenseLabel.textContent = 'Take your time — you’re learning.';
         challengeQuiz.restart();
       });
     }

@@ -13,9 +13,9 @@
     {
       id: "peel-banana",
       category: "Kitchen & Food",
-      title: "2D Animation — Fruit Prep",
-      actionKey: "peel_banana",
-      videoType: "anim_stream",
+      title: "Video — Action Challenge",
+      videoSrc: "n78DLDZJ060",
+      videoType: "youtube",
       question: "What is this?",
       options: [
         "Peel the banana",
@@ -33,9 +33,9 @@
     {
       id: "crack-egg",
       category: "Kitchen & Food",
-      title: "2D Animation — Cooking Action",
-      actionKey: "crack_egg",
-      videoType: "anim_stream",
+      title: "Video — Action Challenge",
+      videoSrc: "J_jK1P4Hw7o",
+      videoType: "youtube",
       question: "What is this?",
       options: [
         "Crack an egg",
@@ -53,9 +53,9 @@
     {
       id: "pour-water",
       category: "Kitchen & Food",
-      title: "2D Animation — Drink Serving",
-      actionKey: "pour_water",
-      videoType: "anim_stream",
+      title: "Video — Action Challenge",
+      videoSrc: "kYJmG2EaWlI",
+      videoType: "youtube",
       question: "What is this?",
       options: [
         "Pour the water",
@@ -73,9 +73,9 @@
     {
       id: "chop-carrot",
       category: "Kitchen & Food",
-      title: "2D Animation — Meal Preparation",
-      actionKey: "chop_carrot",
-      videoType: "anim_stream",
+      title: "Video — Action Challenge",
+      videoSrc: "9xlTrNnWCgQ",
+      videoType: "youtube",
       question: "What is this?",
       options: [
         "Chop the carrot",
@@ -93,9 +93,9 @@
     {
       id: "squeeze-lemon",
       category: "Kitchen & Food",
-      title: "2D Animation — Extracting Juice",
-      actionKey: "squeeze_lemon",
-      videoType: "anim_stream",
+      title: "Video — Action Challenge",
+      videoSrc: "q6tJ_X4zV40",
+      videoType: "youtube",
       question: "What is this?",
       options: [
         "Squeeze the lemon",
@@ -113,9 +113,9 @@
     {
       id: "bite-apple",
       category: "Kitchen & Food",
-      title: "2D Animation — Eating Fruit",
-      actionKey: "bite_apple",
-      videoType: "anim_stream",
+      title: "Video — Action Challenge",
+      videoSrc: "A1-U2a9X6Jk",
+      videoType: "youtube",
       question: "What is this?",
       options: [
         "Bite an apple",
@@ -133,9 +133,9 @@
     {
       id: "brush-teeth",
       category: "Everyday Habits",
-      title: "2D Animation — Morning Hygiene",
-      actionKey: "brush_teeth",
-      videoType: "anim_stream",
+      title: "Video — Action Challenge",
+      videoSrc: "8p9gV2Z0zU8",
+      videoType: "youtube",
       question: "What is this?",
       options: [
         "Brush the teeth",
@@ -153,9 +153,9 @@
     {
       id: "blow-candle",
       category: "Everyday Habits",
-      title: "2D Animation — Celebration & Calm",
-      actionKey: "blow_candle",
-      videoType: "anim_stream",
+      title: "Video — Action Challenge",
+      videoSrc: "g6ejVQ21sJQ",
+      videoType: "youtube",
       question: "What is this?",
       options: [
         "Blow out the candle",
@@ -213,9 +213,9 @@
     {
       id: "wash-hands",
       category: "Everyday Habits",
-      title: "2D Animation — Hygiene Care",
-      actionKey: "wash_hands",
-      videoType: "anim_stream",
+      title: "Video — Action Challenge",
+      videoSrc: "qG8oI_l-pY8",
+      videoType: "youtube",
       question: "What is this?",
       options: [
         "Wash the hands",
@@ -233,9 +233,9 @@
     {
       id: "tie-shoelace",
       category: "Everyday Habits",
-      title: "2D Animation — Getting Ready",
-      actionKey: "tie_shoelace",
-      videoType: "anim_stream",
+      title: "Video — Action Challenge",
+      videoSrc: "R9P4S229G-M",
+      videoType: "youtube",
       question: "What is this?",
       options: [
         "Tie the shoelace",
@@ -2145,40 +2145,40 @@
 
     feedbackBoxEl.classList.remove("is-visible");
 
-    var scoreMsg = "I scored " + state.xp + " XP on English Flow's 'What Is This?' Video Quiz! Can you beat my score? \uD83D\uDD25";
+    var scoreMsg = "I scored " + state.xp + " XP on English Flow's 'What Is This?' Video Quiz! Can you beat my score? 🔥";
     var shareUrl = "https://englishflowofficial.github.io/what-is-this.html";
     var encodedMsg = encodeURIComponent(scoreMsg + "\n" + shareUrl);
 
     stageEl.innerHTML =
       '<div class="wit-completion-card">' +
-        '<div class="wit-comp-badge">\uD83C\uDF89 QUIZ COMPLETED!</div>' +
+        '<div class="wit-comp-badge">🎉 QUIZ COMPLETED!</div>' +
         '<h2 class="wit-comp-title">Fantastic Job!</h2>' +
         '<p class="wit-comp-sub">You tested your recognition of everyday English actions.</p>' +
         '<div class="wit-comp-stats">' +
           '<div class="wit-comp-stat"><b>+' + state.xp + '</b><small>TOTAL XP</small></div>' +
-          '<div class="wit-comp-stat"><b>\uD83D\uDD25 ' + state.streak + '</b><small>BEST STREAK</small></div>' +
+          '<div class="wit-comp-stat"><b>🔥 ' + state.streak + '</b><small>BEST STREAK</small></div>' +
           '<div class="wit-comp-stat"><b>' + state.filteredList.length + '/' + state.filteredList.length + '</b><small>COMPLETED</small></div>' +
         '</div>' +
         '<div class="wit-share-section">' +
-          '<p class="wit-share-heading">\uD83D\uDE80 Challenge a Friend & Share:</p>' +
+          '<p class="wit-share-heading">🚀 Challenge a Friend & Share:</p>' +
           '<div class="wit-share-buttons">' +
             '<a href="https://api.whatsapp.com/send?text=' + encodedMsg + '" target="_blank" rel="noopener noreferrer" class="wit-share-btn wit-btn-whatsapp">' +
-              '<span>\uD83D\uDCAC Share on WhatsApp</span>' +
+              '<span>💬 Share on WhatsApp</span>' +
             '</a>' +
             '<a href="https://t.me/share/url?url=' + encodeURIComponent(shareUrl) + '&text=' + encodeURIComponent(scoreMsg) + '" target="_blank" rel="noopener noreferrer" class="wit-share-btn wit-btn-telegram">' +
-              '<span>\u2708\uFE0F Telegram</span>' +
+              '<span>✈️ Telegram</span>' +
             '</a>' +
             '<a href="https://twitter.com/intent/tweet?text=' + encodedMsg + '" target="_blank" rel="noopener noreferrer" class="wit-share-btn wit-btn-twitter">' +
-              '<span>\uD835\uDD4F Share on X</span>' +
+              '<span>𝕏 Share on X</span>' +
             '</a>' +
             '<button type="button" class="wit-share-btn wit-btn-copy" id="wit-copy-share-btn">' +
-              '<span>\uD83D\uDD17 Copy Link</span>' +
+              '<span>🔗 Copy Link</span>' +
             '</button>' +
           '</div>' +
         '</div>' +
         '<div class="wit-comp-actions">' +
-          '<button type="button" class="wit-comp-restart-btn" id="wit-restart-btn">\uD83D\uDD04 Play Again</button>' +
-          '<a href="practice.html" class="wit-comp-next-btn">Try Daily Practice Room \u2192</a>' +
+          '<button type="button" class="wit-comp-restart-btn" id="wit-restart-btn">🔄 Play Again</button>' +
+          '<a href="practice.html" class="wit-comp-next-btn">Try Daily Practice Room →</a>' +
         '</div>' +
       '</div>';
 
@@ -2193,8 +2193,8 @@
       copyBtn.addEventListener("click", function () {
         if (navigator.clipboard) {
           navigator.clipboard.writeText(scoreMsg + "\n" + shareUrl).then(function () {
-            copyBtn.innerHTML = "<span>\u2713 Copied to Clipboard!</span>";
-            setTimeout(function () { copyBtn.innerHTML = "<span>\uD83D\uDD17 Copy Link</span>"; }, 2500);
+            copyBtn.innerHTML = "<span>✓ Copied to Clipboard!</span>";
+            setTimeout(function () { copyBtn.innerHTML = "<span>🔗 Copy Link</span>"; }, 2500);
           });
         }
       });
@@ -2244,6 +2244,11 @@
       if (vid) {
         vid.currentTime = 0;
         vid.play();
+      }
+      var iframe = stageEl ? stageEl.querySelector(".wit-iframe-player") : null;
+      if (iframe) {
+        var src = iframe.src;
+        iframe.src = src;
       }
     });
   }
