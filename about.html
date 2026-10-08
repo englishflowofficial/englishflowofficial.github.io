@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
     <title>About English Flow: Speak English Naturally with Confidence</title>
     <meta name="description" content="Discover the philosophy behind English Flow — thoughtful, natural spoken English practice without pressure, judgment, or memorization." />
     <meta name="keywords" content="about english flow, english speaking community, speak english with confidence, english flow podcast" />
@@ -16,6 +17,8 @@
     <meta property="og:title" content="About English Flow: Speak English Naturally" />
     <meta property="og:description" content="Thoughtful, natural spoken English practice without pressure, judgment, or memorization." />
     <meta property="og:image" content="https://englishflowofficial.github.io/free-product-thumbnail.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="English Flow" />
 
     <!-- Twitter -->
@@ -27,7 +30,9 @@
     <!-- Schema.org AboutPage -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
+  "@context": "https://schema.org",
+  "@graph": [
+    {
       "@type": "AboutPage",
       "name": "About English Flow",
       "description": "Information about the English Flow mission and methodology.",
@@ -40,7 +45,16 @@
           "https://www.instagram.com/speak.english.with.confidence/"
         ]
       }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://englishflowofficial.github.io/"},
+        {"@type": "ListItem", "position": 2, "name": "About", "item": "https://englishflowofficial.github.io/about.html"}
+      ]
     }
+  ]
+}
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />

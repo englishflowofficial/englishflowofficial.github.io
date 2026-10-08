@@ -1,0 +1,20 @@
+{
+  "name": "English Flow — Free Spoken English Practice",
+  "short_name": "English Flow",
+  "description": "Master spoken English with bite-sized daily lessons, gamified practice, 12 tenses, and interactive video quizzes. 100% free.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "orientation": "any",
+  "categories": ["education", "language"],
+  "lang": "en",
+  "icons": [
+    {
+      "src": "favicon.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}

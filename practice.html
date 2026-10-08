@@ -18,6 +18,8 @@
   <meta property="og:title" content="30-Day Spoken English Practice: Free Gamified Daily Lessons | English Flow" />
   <meta property="og:description" content="Free 30-day spoken English speaking practice with Duolingo-style bite-sized challenges, streaks, XP rewards, and sentence unscrambling puzzles." />
   <meta property="og:image" content="https://englishflowofficial.github.io/free-product-thumbnail.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="English Flow" />
 
   <!-- Twitter -->
@@ -29,7 +31,9 @@
   <!-- Schema.org Course & LearningResource -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
+  "@context": "https://schema.org",
+  "@graph": [
+    {
     "@type": "Course",
     "name": "30-Day Spoken English Daily Practice",
     "description": "Daily interactive English speaking practice with sentence building puzzles, natural expressions, and instant feedback.",
@@ -44,7 +48,16 @@
       "courseMode": "online",
       "courseWorkload": "PT5M"
     }
-  }
+  },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://englishflowofficial.github.io/"},
+        {"@type": "ListItem", "position": 2, "name": "Daily Practice", "item": "https://englishflowofficial.github.io/practice.html"}
+      ]
+    }
+  ]
+}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />

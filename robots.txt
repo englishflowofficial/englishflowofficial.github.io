@@ -1,5 +1,12 @@
 User-agent: *
 Allow: /
+Disallow: /test-fb.html
+Disallow: /firebase-applet-config.json
+Disallow: /metadata.json
+Disallow: /.env.example
+
+# Crawl-delay (polite for bots)
+Crawl-delay: 1
 
 # Host & Sitemap for Google Search Indexing
 Host: https://englishflowofficial.github.io
