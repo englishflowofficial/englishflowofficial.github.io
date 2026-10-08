@@ -1,139 +1,186 @@
 /**
- * English Flow — Community Comments & Learner Discussion
- * 100% Free & No Account Needed.
- * Global Cloud Synchronization: Comments submitted by ANY visitor
- * appear live for EVERYONE across all devices!
+ * English Flow — Global Community Comments & Learner Discussion
+ * 100% Free & Open to All Learners (No Account / Sign-In Needed).
+ *
+ * Real-Time Cloud Synchronization:
+ * Comments submitted by ANY visitor appear live for EVERYONE across all devices!
+ * Dual-cloud fallback + automatic offline queue retry + instant local cache.
  */
 (function () {
   "use strict";
 
-  var CLOUD_API_URL = "https://api.restful-api.dev/objects/ff808181a09d98f701a10af6b5a27b29";
+  var PRIMARY_API_URL = "https://api.restful-api.dev/objects/ff808181a09d98f701a10af6b5a27b29";
+  var BACKUP_API_URL  = "https://api.restful-api.dev/objects/ff808181a09d98f701a11cab481f2436";
 
   var PRELOADED_COMMENTS = [
     {
-      id: "c1",
+      id: "c_p1",
       name: "Ananya Sharma",
       location: "Mumbai, India",
       avatarType: "image",
       avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
-      time: "24 mins ago",
-      text: "Day 16 completed! Honestly, practicing for just 5 minutes everyday is the only habit that actually stuck with me. I used to translate every word in my head before speaking, but now it feels natural. Love Flo the owl! 🦉🔥",
-      likes: 19,
+      time: "25 mins ago",
+      text: "Day 16 completed! The 'Say This, Not That' quiz helped me break the 'Cut the banana' habit today — native speakers really say 'Peel the banana'! Practicing 5 minutes a day with Flo the owl is the only routine that ever stuck with me. 🦉🔥",
+      likes: 24,
       badge: "🔥 16-Day Streak"
     },
     {
-      id: "c2",
+      id: "c_p2",
       name: "Carlos Mendez",
       location: "Mexico City",
       avatarType: "initial",
       avatarBg: "#10b981",
-      time: "2 hours ago",
-      text: "The new Daily Vocabulary Tracker Excel sheet is brilliant! Having the column for real movie scene examples makes memorizing 10x easier than memorizing definitions from a dictionary. Downloaded it immediately.",
-      likes: 14,
+      time: "1 hour ago",
+      text: "The new Daily Vocabulary Tracker Excel sheet is brilliant! Having the column for real movie scene examples makes memorizing collocations 10x easier than memorizing textbook definitions. Downloaded it immediately. 📊",
+      likes: 19,
       badge: "📊 Excel Tracker"
     },
     {
-      id: "c3",
+      id: "c_p3",
       name: "Elena Rostova",
       location: "Prague, Czechia",
       avatarType: "image",
       avatarUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80",
-      time: "4 hours ago",
-      text: "Present Perfect vs Past Simple finally clicked today. The timeline visual in the 12 Tenses room made it so clear. No boring grammatical jargon, just how people actually talk.",
-      likes: 27,
+      time: "3 hours ago",
+      text: "Present Perfect vs Past Simple finally clicked today. The timeline visual in the 12 Tenses room made it so clear. No boring grammatical jargon, just how people actually talk in real life.",
+      likes: 31,
       badge: "📘 12 Tenses"
     },
     {
-      id: "c4",
+      id: "c_p4",
       name: "David Chen",
       location: "Taipei, Taiwan",
       avatarType: "initial",
       avatarBg: "#6366f1",
-      time: "7 hours ago",
-      text: "No login or password needed was the best part. I just open the site on my Android phone while riding the metro every morning. The audio pronunciation button is super clean.",
-      likes: 11,
+      time: "5 hours ago",
+      text: "No login or password needed was the best part. I just open the site on my phone while riding the metro every morning. The audio pronunciation button for 'crack an egg' and 'blow out the candle' is super crisp.",
+      likes: 15,
       badge: "🚇 Mobile Learner"
     },
     {
-      id: "c5",
+      id: "c_p5",
       name: "Sarah Jenkins",
       location: "London, UK",
       avatarType: "image",
       avatarUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80",
       time: "Yesterday",
-      text: "I shared the 30-Day speaking workbook PDF with my conversational English study group. We are practicing the real-life dialogues together every weekend. Keep up the great work!",
-      likes: 22,
+      text: "I shared the 30-Day speaking workbook PDF with my conversational English study group. We are practicing the real-life dialogues together every weekend. Keep up the great work! ✨",
+      likes: 27,
       badge: "✍️ 30-Day Workbook"
     },
     {
-      id: "c6",
+      id: "c_p6",
       name: "Aarav Patel",
       location: "Ahmedabad, India",
       avatarType: "initial",
       avatarBg: "#f59e0b",
       time: "Yesterday",
-      text: "Just mastered the phrasal verbs section. 'Touch base' and 'bring up' make me sound so much more natural during remote standup meetings at work.",
-      likes: 16,
+      text: "Just mastered the phrasal verbs section. 'Touch base' and 'bring up' make me sound so much more natural during remote standup meetings at work. Highly recommend to everyone working in tech.",
+      likes: 21,
       badge: "⚡ Phrasal Verbs"
     },
     {
-      id: "c7",
+      id: "c_p7",
       name: "Mariana Silva",
       location: "São Paulo, Brazil",
       avatarType: "image",
       avatarUrl: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80",
       time: "2 days ago",
-      text: "Already added 15 words to the new Excel tracker template from the TV series I'm watching. Thank you for keeping all these resources completely free! 💖",
-      likes: 18,
+      text: "Already added 18 words to the Excel tracker template from the Netflix series I'm watching. Thank you for keeping all these resources completely free! 💖",
+      likes: 22,
       badge: "🎬 Movie Flow"
     },
     {
-      id: "c8",
+      id: "c_p8",
       name: "Tariq Al-Mansoor",
       location: "Dubai, UAE",
       avatarType: "initial",
       avatarBg: "#0ea5e9",
       time: "3 days ago",
-      text: "Best spoken English web app I have used this year. Zero clutter, zero annoying ads, and runs lightning-fast on phone browsers.",
-      likes: 25,
+      text: "Best spoken English web app I have used this year. Zero clutter, zero annoying ads, and runs lightning-fast on phone browsers. 🌟",
+      likes: 35,
       badge: "🌟 Top Review"
     }
   ];
 
-  var AVATAR_COLORS = ["#10b981", "#6366f1", "#f59e0b", "#0ea5e9", "#ec4899", "#8b5cf6", "#14b8a6"];
+  var AVATAR_COLORS = ["#10b981", "#6366f1", "#f59e0b", "#0ea5e9", "#ec4899", "#8b5cf6", "#14b8a6", "#3b82f6"];
 
-  var cloudComments = [];
-
-  function parseJsonSafe(text) {
-    if (!text || typeof text !== "string") return null;
-    try {
-      return JSON.parse(text);
-    } catch (e) {
-      try {
-        return (new Function("return (" + text + ")"))();
-      } catch (e2) {
-        return null;
-      }
+  // Broadcast Channel for Instant Multi-Tab Updates
+  var broadcastChannel = null;
+  try {
+    if (typeof BroadcastChannel !== "undefined") {
+      broadcastChannel = new BroadcastChannel("english_flow_comments_v2");
     }
-  }
+  } catch (e) {}
 
-  function getLocalComments() {
+  // -------------------------------------------------------------------------
+  // Local Storage Helpers
+  // -------------------------------------------------------------------------
+  function getCachedCloudComments() {
     try {
-      var raw = localStorage.getItem("ef_user_comments");
-      if (raw) return JSON.parse(raw);
+      var raw = localStorage.getItem("ef_cached_cloud_comments");
+      if (raw) {
+        var parsed = JSON.parse(raw);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      }
     } catch (e) {}
     return [];
   }
 
-  function saveLocalComment(comment) {
+  function setCachedCloudComments(list) {
     try {
-      var list = getLocalComments();
+      localStorage.setItem("ef_cached_cloud_comments", JSON.stringify(list));
+    } catch (e) {}
+  }
+
+  function getLocalUserComments() {
+    try {
+      var raw = localStorage.getItem("ef_user_comments");
+      if (raw) {
+        var parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) return parsed;
+      }
+    } catch (e) {}
+    return [];
+  }
+
+  function saveLocalUserComment(comment) {
+    try {
+      var list = getLocalUserComments();
       list.unshift(comment);
       localStorage.setItem("ef_user_comments", JSON.stringify(list));
     } catch (e) {}
   }
 
-  function getLikedCommentIds() {
+  function getUnsyncedComments() {
+    try {
+      var raw = localStorage.getItem("ef_unsynced_comments");
+      if (raw) {
+        var parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) return parsed;
+      }
+    } catch (e) {}
+    return [];
+  }
+
+  function queueUnsyncedComment(comment) {
+    try {
+      var list = getUnsyncedComments();
+      if (!list.some(function (c) { return c.id === comment.id; })) {
+        list.push(comment);
+        localStorage.setItem("ef_unsynced_comments", JSON.stringify(list));
+      }
+    } catch (e) {}
+  }
+
+  function removeUnsyncedComment(id) {
+    try {
+      var list = getUnsyncedComments().filter(function (c) { return c.id !== id; });
+      localStorage.setItem("ef_unsynced_comments", JSON.stringify(list));
+    } catch (e) {}
+  }
+
+  function getLikedComments() {
     try {
       var raw = localStorage.getItem("ef_liked_comments");
       if (raw) return JSON.parse(raw);
@@ -141,99 +188,256 @@
     return {};
   }
 
-  function setLikedCommentId(id) {
+  function markCommentLiked(id) {
     try {
-      var liked = getLikedCommentIds();
+      var liked = getLikedComments();
       liked[id] = true;
       localStorage.setItem("ef_liked_comments", JSON.stringify(liked));
     } catch (e) {}
   }
 
-  function fetchCloudComments(onDone) {
-    fetch(CLOUD_API_URL, { cache: "no-store" })
+  // Active in-memory cloud comments list
+  var cloudComments = getCachedCloudComments();
+  var isSyncing = false;
+
+  // -------------------------------------------------------------------------
+  // Cloud Networking (Primary with Fallback to Backup)
+  // -------------------------------------------------------------------------
+  function fetchFromEndpoint(url, callback) {
+    fetch(url, { cache: "no-store" })
       .then(function (res) {
         if (!res.ok) throw new Error("HTTP " + res.status);
         return res.json();
       })
       .then(function (resData) {
         var list = (resData && resData.data && Array.isArray(resData.data.comments)) ? resData.data.comments : [];
-        if (list.length > 0) {
-          cloudComments = list;
-          if (onDone) onDone(cloudComments);
-        }
+        callback(null, list);
       })
       .catch(function (err) {
-        console.warn("Could not load cloud comments:", err);
+        callback(err, null);
       });
   }
 
-  function syncCommentToCloud(newComment, onDone) {
-    fetch(CLOUD_API_URL, { cache: "no-store" })
+  function putToEndpoint(url, name, comments, callback) {
+    fetch(url, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: name,
+        data: { comments: comments }
+      })
+    })
       .then(function (res) {
         if (!res.ok) throw new Error("HTTP " + res.status);
         return res.json();
       })
-      .then(function (resData) {
-        var existing = (resData && resData.data && Array.isArray(resData.data.comments)) ? resData.data.comments : [];
-        
-        // Remove duplicate if already present
-        existing = existing.filter(function (item) { return item.id !== newComment.id; });
-        // Prepend new comment
-        existing.unshift(newComment);
-        if (existing.length > 100) existing = existing.slice(0, 100);
-
-        return fetch(CLOUD_API_URL, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: "EnglishFlowComments",
-            data: { comments: existing }
-          })
-        });
-      })
-      .then(function (res) {
-        if (onDone) onDone(true);
+      .then(function (data) {
+        callback(null, data);
       })
       .catch(function (err) {
-        console.warn("Cloud sync error:", err);
-        if (onDone) onDone(false);
+        callback(err, null);
       });
   }
 
-  function renderCommentHTML(c, isUser) {
+  function fetchCloudComments(onDone) {
+    fetchFromEndpoint(PRIMARY_API_URL, function (errPrimary, list) {
+      if (!errPrimary && list && list.length > 0) {
+        updateCloudMemory(list);
+        if (onDone) onDone(cloudComments);
+        checkAndFlushUnsynced();
+        return;
+      }
+
+      // Fallback to backup if primary failed or empty
+      fetchFromEndpoint(BACKUP_API_URL, function (errBackup, backupList) {
+        if (!errBackup && backupList && backupList.length > 0) {
+          updateCloudMemory(backupList);
+          if (onDone) onDone(cloudComments);
+        } else if (onDone) {
+          onDone(cloudComments);
+        }
+        checkAndFlushUnsynced();
+      });
+    });
+  }
+
+  function updateCloudMemory(newList) {
+    if (!Array.isArray(newList)) return;
+    // Deduplicate and retain
+    var map = {};
+    newList.forEach(function (c) {
+      if (c && c.id) map[c.id] = c;
+    });
+
+    // Also ensure local user comments are present
+    var localUser = getLocalUserComments();
+    localUser.forEach(function (c) {
+      if (c && c.id && !map[c.id]) {
+        map[c.id] = c;
+        queueUnsyncedComment(c);
+      }
+    });
+
+    var merged = Object.keys(map).map(function (k) { return map[k]; });
+    // Sort latest first
+    merged.sort(function (a, b) {
+      var timeA = parseInt(a.ts, 10) || 0;
+      var timeB = parseInt(b.ts, 10) || 0;
+      return timeB - timeA;
+    });
+
+    cloudComments = merged.slice(0, 100);
+    setCachedCloudComments(cloudComments);
+  }
+
+  function syncCommentsToCloud(newComment, onDone) {
+    if (newComment) {
+      queueUnsyncedComment(newComment);
+    }
+
+    if (isSyncing) {
+      if (onDone) onDone(false);
+      return;
+    }
+    isSyncing = true;
+
+    // 1. Fetch latest from primary
+    fetchFromEndpoint(PRIMARY_API_URL, function (err, latestList) {
+      var current = (Array.isArray(latestList) && latestList.length > 0) ? latestList : cloudComments.slice();
+
+      var map = {};
+      current.forEach(function (c) { if (c && c.id) map[c.id] = c; });
+
+      // Merge all unsynced items
+      var unsynced = getUnsyncedComments();
+      unsynced.forEach(function (c) { if (c && c.id) map[c.id] = c; });
+      if (newComment && newComment.id) map[newComment.id] = newComment;
+
+      var merged = Object.keys(map).map(function (k) { return map[k]; });
+      merged.sort(function (a, b) {
+        var timeA = parseInt(a.ts, 10) || 0;
+        var timeB = parseInt(b.ts, 10) || 0;
+        return timeB - timeA;
+      });
+      if (merged.length > 100) merged = merged.slice(0, 100);
+
+      // 2. PUT to Primary
+      putToEndpoint(PRIMARY_API_URL, "EnglishFlowComments", merged, function (errPut, putResult) {
+        isSyncing = false;
+        if (!errPut) {
+          // Success!
+          unsynced.forEach(function (c) { removeUnsyncedComment(c.id); });
+          if (newComment) removeUnsyncedComment(newComment.id);
+
+          var updated = (putResult && putResult.data && Array.isArray(putResult.data.comments)) ? putResult.data.comments : merged;
+          cloudComments = updated;
+          setCachedCloudComments(cloudComments);
+
+          // Mirror to Backup in background
+          putToEndpoint(BACKUP_API_URL, "EnglishFlowCommentsBackup", merged, function () {});
+
+          // Notify other tabs
+          if (broadcastChannel) {
+            try { broadcastChannel.postMessage({ type: "refresh" }); } catch (e) {}
+          }
+
+          if (onDone) onDone(true);
+        } else {
+          // Fallback PUT to Backup
+          putToEndpoint(BACKUP_API_URL, "EnglishFlowCommentsBackup", merged, function (errBackupPut) {
+            if (!errBackupPut) {
+              unsynced.forEach(function (c) { removeUnsyncedComment(c.id); });
+              if (newComment) removeUnsyncedComment(newComment.id);
+              cloudComments = merged;
+              setCachedCloudComments(cloudComments);
+              if (onDone) onDone(true);
+            } else {
+              console.warn("Cloud sync will retry automatically:", errPut);
+              if (onDone) onDone(false);
+            }
+          });
+        }
+      });
+    });
+  }
+
+  function checkAndFlushUnsynced() {
+    var unsynced = getUnsyncedComments();
+    if (unsynced.length > 0 && !isSyncing) {
+      syncCommentsToCloud(null, function () {});
+    }
+  }
+
+  function syncLikeToCloud(commentId) {
+    fetchFromEndpoint(PRIMARY_API_URL, function (err, latestList) {
+      var current = (Array.isArray(latestList) && latestList.length > 0) ? latestList : cloudComments.slice();
+      var found = false;
+      current.forEach(function (c) {
+        if (c.id === commentId) {
+          c.likes = (c.likes || 0) + 1;
+          found = true;
+        }
+      });
+      if (found) {
+        putToEndpoint(PRIMARY_API_URL, "EnglishFlowComments", current, function () {});
+        putToEndpoint(BACKUP_API_URL, "EnglishFlowCommentsBackup", current, function () {});
+      }
+    });
+  }
+
+  // -------------------------------------------------------------------------
+  // UI Rendering
+  // -------------------------------------------------------------------------
+  function escapeHTML(str) {
+    if (!str) return "";
+    return str
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function renderCommentCard(c, isLocalUser) {
+    var safeName = escapeHTML(c.name || "English Learner");
+    var safeLoc = escapeHTML(c.location || "");
+    var safeText = escapeHTML(c.text || "");
+    var safeBadge = escapeHTML(c.badge || "");
+    var safeTime = escapeHTML(c.time || "Just now");
+
     var avatarMarkup = "";
     if (c.avatarType === "image" && c.avatarUrl) {
-      avatarMarkup = '<img src="' + c.avatarUrl + '" alt="' + (c.name || "Learner") + '" class="comm-avatar-img" loading="lazy" />';
+      avatarMarkup = '<img src="' + c.avatarUrl + '" alt="' + safeName + '" class="comm-avatar-img" loading="lazy" />';
     } else {
-      var initial = (c.name || "L").trim().charAt(0).toUpperCase();
-      var bg = c.avatarBg || AVATAR_COLORS[Math.abs((c.name || "L").charCodeAt(0) || 0) % AVATAR_COLORS.length];
+      var initial = safeName.trim().charAt(0).toUpperCase() || "L";
+      var bg = c.avatarBg || AVATAR_COLORS[Math.abs(safeName.charCodeAt(0) || 0) % AVATAR_COLORS.length];
       avatarMarkup = '<div class="comm-avatar-letter" style="background-color: ' + bg + ';">' + initial + '</div>';
     }
 
-    var badgeMarkup = c.badge ? '<span class="comm-badge">' + c.badge + '</span>' : '';
-    var userTag = isUser ? '<span class="comm-you-tag">YOU</span>' : '';
-    var locationMarkup = c.location ? '<span class="comm-loc">📍 ' + c.location + '</span>' : '';
+    var badgeMarkup = safeBadge ? '<span class="comm-badge">' + safeBadge + '</span>' : '';
+    var userTag = isLocalUser ? '<span class="comm-you-tag">YOU</span>' : '';
+    var locationMarkup = safeLoc ? '<span class="comm-loc">📍 ' + safeLoc + '</span>' : '';
 
-    var likedObj = getLikedCommentIds();
+    var likedObj = getLikedComments();
     var isLiked = !!likedObj[c.id];
 
     return '' +
-      '<div class="comm-card ' + (isUser ? 'comm-card-user' : '') + '" id="' + c.id + '">' +
+      '<div class="comm-card ' + (isLocalUser ? 'comm-card-user' : '') + '" id="' + c.id + '">' +
         '<div class="comm-header">' +
           '<div class="comm-avatar-shell">' + avatarMarkup + '</div>' +
           '<div class="comm-user-meta">' +
             '<div class="comm-user-top">' +
-              '<h4 class="comm-name">' + (c.name || "Guest Learner") + '</h4>' +
+              '<h4 class="comm-name">' + safeName + '</h4>' +
               userTag +
               badgeMarkup +
             '</div>' +
             '<div class="comm-sub-meta">' +
               locationMarkup +
-              '<span class="comm-time">' + (c.time || "Just now") + '</span>' +
+              '<span class="comm-time">' + safeTime + '</span>' +
             '</div>' +
           '</div>' +
         '</div>' +
-        '<p class="comm-body">' + c.text + '</p>' +
+        '<p class="comm-body">' + safeText + '</p>' +
         '<div class="comm-footer">' +
           '<button type="button" class="comm-like-btn ' + (isLiked ? 'is-liked' : '') + '" data-id="' + c.id + '" aria-label="Like this comment">' +
             '<span class="comm-heart">' + (isLiked ? '❤️' : '🤍') + '</span>' +
@@ -245,7 +449,8 @@
   }
 
   function mountComments(container) {
-    if (!container) return;
+    if (!container || container.dataset.mounted === "true") return;
+    container.dataset.mounted = "true";
 
     var shell = document.createElement("div");
     shell.className = "comm-shell";
@@ -253,14 +458,14 @@
     shell.innerHTML = '' +
       '<div class="comm-intro">' +
         '<div class="comm-title-row">' +
-          '<span class="comm-eyebrow">💬 REAL LEARNER VOICES</span>' +
+          '<span class="comm-eyebrow">💬 GLOBAL LEARNER DISCUSSION</span>' +
           '<div class="comm-live-pill">' +
             '<span class="pulse-dot-green"></span>' +
-            '<span>Live Global Community</span>' +
+            '<span>Live Community (Everyone Sees All Comments)</span>' +
           '</div>' +
         '</div>' +
         '<h2>Join the conversation. <em>Speak up anytime.</em></h2>' +
-        '<p class="comm-desc">No login or account needed. Share your daily wins, study streak, thoughts on the new Excel tracker, or ask any question!</p>' +
+        '<p class="comm-desc">100% Free &amp; Open to all learners. No login or password required. Share your daily wins, study streak, thoughts on the Say This, Not That quiz, or ask any question!</p>' +
       '</div>' +
 
       '<div class="comm-post-box">' +
@@ -271,11 +476,11 @@
               '<input type="text" id="comm-name-input" class="comm-input" placeholder="Your Name or Nickname (e.g. Maya)" maxlength="40" />' +
               '<input type="text" id="comm-loc-input" class="comm-input" placeholder="City or Country (e.g. Tokyo, Berlin)" maxlength="40" />' +
             '</div>' +
-            '<textarea id="comm-text-input" class="comm-textarea" placeholder="Share your practice progress, thoughts, or ask a question..." rows="3"></textarea>' +
+            '<textarea id="comm-text-input" class="comm-textarea" placeholder="Share your practice progress, a phrase you learned today, or a question..." rows="3"></textarea>' +
             '<div class="comm-action-row">' +
               '<div class="comm-helper-hints">' +
-                '<span class="comm-hint-item">✨ Shows Live for Everyone</span>' +
-                '<span class="comm-hint-item">⚡ No Account Needed</span>' +
+                '<span class="comm-hint-item">🌐 Visible to All Visitors Globally</span>' +
+                '<span class="comm-hint-item">⚡ No Login Needed</span>' +
               '</div>' +
               '<button type="button" id="comm-submit-btn" class="ff-btn ff-btn-green comm-btn-post">' +
                 '<span>Post Comment</span> <span aria-hidden="true">💬</span>' +
@@ -302,10 +507,8 @@
     var textInput = shell.querySelector("#comm-text-input");
     var submitBtn = shell.querySelector("#comm-submit-btn");
 
-    function renderAll() {
-      var localList = getLocalComments();
-      
-      // Combine: local user comments + remote cloud comments + preloaded
+    function renderFeed() {
+      var localList = getLocalUserComments();
       var combined = [];
       var seenIds = {};
 
@@ -315,7 +518,7 @@
         combined.push(item);
       }
 
-      // 1. Newly submitted comments (local and cloud) at the top
+      // 1. Local and Cloud comments
       localList.forEach(add);
       cloudComments.forEach(add);
 
@@ -326,22 +529,22 @@
 
       var html = "";
       combined.forEach(function (c) {
-        var isUser = localList.some(function (u) { return u.id === c.id; });
-        html += renderCommentHTML(c, isUser);
+        var isLocal = localList.some(function (u) { return u.id === c.id; });
+        html += renderCommentCard(c, isLocal);
       });
       listContainer.innerHTML = html;
-      bindLikeButtons();
+      bindLikes();
     }
 
-    function bindLikeButtons() {
+    function bindLikes() {
       var btns = listContainer.querySelectorAll(".comm-like-btn");
       btns.forEach(function (btn) {
         btn.onclick = function () {
           var cid = btn.getAttribute("data-id");
-          var likedObj = getLikedCommentIds();
+          var likedObj = getLikedComments();
           if (likedObj[cid]) return;
 
-          setLikedCommentId(cid);
+          markCommentLiked(cid);
           btn.classList.add("is-liked");
           var countSpan = btn.querySelector(".comm-like-count");
           var heartSpan = btn.querySelector(".comm-heart");
@@ -350,14 +553,18 @@
             countSpan.textContent = current + 1;
           }
           if (heartSpan) heartSpan.textContent = "❤️";
+
           if (window.FlowFun && window.FlowFun.pop) {
             window.FlowFun.pop(btn, "+1 ❤️");
           }
+
+          // Push like to cloud
+          syncLikeToCloud(cid);
         };
       });
     }
 
-    // Handle Comment Submission
+    // Submit New Comment
     submitBtn.onclick = function () {
       var text = (textInput.value || "").trim();
       if (!text) {
@@ -367,50 +574,53 @@
         return;
       }
 
-      var name = (nameInput.value || "").trim() || "Guest Learner";
+      var name = (nameInput.value || "").trim() || "English Learner";
       var loc = (locInput.value || "").trim();
       var colorIdx = Math.floor(Math.random() * AVATAR_COLORS.length);
 
       var newComment = {
-        id: "user_" + Date.now() + "_" + Math.floor(Math.random() * 1000),
+        id: "ef_" + Date.now() + "_" + Math.floor(Math.random() * 1000),
         name: name,
         location: loc,
         avatarType: "initial",
         avatarBg: AVATAR_COLORS[colorIdx],
         time: "Just now",
+        ts: String(Date.now()),
         text: text,
         likes: 1,
         badge: "✨ Learner"
       };
 
-      // 1. Save locally for instant persistence
-      saveLocalComment(newComment);
+      // 1. Save locally for guaranteed retention
+      saveLocalUserComment(newComment);
 
-      // 2. Add to active state and render immediately (optimistic)
+      // 2. Add to active in-memory list and render immediately (optimistic UI)
       cloudComments.unshift(newComment);
-      renderAll();
+      renderFeed();
 
-      // 3. Sync to Global Cloud Bin so EVERY visitor sees it on ANY device
+      // 3. UI feedback
       submitBtn.disabled = true;
-      submitBtn.querySelector("span").textContent = "Posting...";
+      var btnSpan = submitBtn.querySelector("span");
+      if (btnSpan) btnSpan.textContent = "Posting to cloud...";
 
-      syncCommentToCloud(newComment, function (success) {
+      // 4. Sync to Global Cloud so EVERY visitor sees it!
+      syncCommentsToCloud(newComment, function (success) {
         submitBtn.disabled = false;
-        submitBtn.querySelector("span").textContent = "Post Comment";
+        if (btnSpan) btnSpan.textContent = "Post Comment";
+
         if (success && window.FlowFun && window.FlowFun.pop) {
           window.FlowFun.pop(submitBtn, "Live for everyone! 🌐✨");
         }
       });
 
-      // Celebrate
+      // Celebration
       if (window.FlowFun && window.FlowFun.confetti) {
-        window.FlowFun.confetti(45);
+        window.FlowFun.confetti(40);
       }
 
-      // Reset form
       textInput.value = "";
 
-      // Smooth scroll to new comment
+      // Scroll to new comment
       var newElem = document.getElementById(newComment.id);
       if (newElem) {
         newElem.classList.add("comm-just-added");
@@ -418,25 +628,40 @@
       }
     };
 
-    // Initial render with local/preloaded
-    renderAll();
+    // Initial render with cached/local comments (instant)
+    renderFeed();
 
-    // Fetch live comments from cloud and update
+    // Fetch live updates from cloud
     fetchCloudComments(function () {
-      renderAll();
+      renderFeed();
     });
 
-    // Auto-poll cloud every 8 seconds so other visitors' comments show up live!
-    setInterval(function () {
-      fetchCloudComments(function () {
-        renderAll();
+    // Listen for BroadcastChannel message from other tabs
+    if (broadcastChannel) {
+      broadcastChannel.addEventListener("message", function (ev) {
+        if (ev.data && ev.data.type === "refresh") {
+          fetchCloudComments(function () {
+            renderFeed();
+          });
+        }
       });
-    }, 8000);
+    }
+
+    // Auto-poll cloud every 10 seconds so comments by other visitors appear automatically
+    setInterval(function () {
+      if (!document.hidden) {
+        fetchCloudComments(function () {
+          renderFeed();
+        });
+      }
+    }, 10000);
   }
 
   function init() {
     var targets = document.querySelectorAll(".community-comments-mount");
-    targets.forEach(function (t) { mountComments(t); });
+    targets.forEach(function (t) {
+      mountComments(t);
+    });
   }
 
   if (document.readyState === "loading") {
