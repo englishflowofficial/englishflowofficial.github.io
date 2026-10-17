@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#58cc02" />
+  <title>Practice Session — Duolingo-Style English Game | English Flow</title>
+  <meta name="description" content="Free Duolingo-style practice session for English learners: hearts, XP, gems, streaks, daily quests, leagues, matching games, listening and speaking challenges. No sign-in." />
+  <link rel="canonical" href="https://englishflowofficial.github.io/game-practice.html" />
+  <link rel="icon" href="favicon.jpg" />
+  <link rel="manifest" href="manifest.json" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://englishflowofficial.github.io/game-practice.html" />
+  <meta property="og:title" content="Practice Session: Duolingo-Style English Game | English Flow" />
+  <meta property="og:description" content="Hearts, XP, gems, streaks, quests and leagues — a full game-style practice session for English learners. Free, no sign-in." />
+  <meta property="og:image" content="https://englishflowofficial.github.io/og-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900;1000&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="game-practice.css" />
+</head>
+<body>
+  <!-- ================= HUB ================= -->
+  <div id="hub">
+    <header class="gp-header">
+      <a class="gp-brand" href="index.html" aria-label="English Flow home">🦉 English <b>Flow</b></a>
+      <nav class="gp-nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="practice.html">30-Day Path</a>
+        <a href="tenses.html">Tenses</a>
+        <a href="what-is-this.html">Vocab Quiz</a>
+      </nav>
+      <div class="gp-stats" aria-label="Your stats">
+        <span class="gp-stat streak" title="Day streak">🔥 <b id="st-streak">0</b></span>
+        <span class="gp-stat gems" title="Gems">💎 <b id="st-gems">0</b></span>
+        <span class="gp-stat hearts" title="Hearts">❤️ <b id="st-hearts">5</b></span>
+        <span class="gp-stat xp" title="Total XP">⚡ <b id="st-xp">0</b></span>
+      </div>
+    </header>
+
+    <div class="gp-layout">
+      <main class="gp-main">
+        <section class="gp-hero">
+          <div>
+            <p class="gp-overline">🎮 PRACTICE SESSION</p>
+            <h1>Play. Speak. <em>Level up.</em></h1>
+            <p class="gp-sub">A full Duolingo-style game session built for English learners — listening, speaking, matching and sentence-building. 10 challenges, about 3 minutes.</p>
+            <button class="btn-3d btn-green gp-big-start" id="quick-start" type="button">▶ Start a session</button>
+            <p class="gp-note" id="hero-note">5 hearts ❤️ · Earn XP ⚡ and gems 💎 · Keep your streak 🔥</p>
+          </div>
+          <div class="goal-ring-wrap" aria-label="Daily goal progress">
+            <svg class="goal-ring" viewBox="0 0 120 120" role="img" aria-label="Daily XP goal ring">
+              <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+              <circle class="ring-fg" id="ring-fg" cx="60" cy="60" r="52"></circle>
+            </svg>
+            <div class="ring-centre"><strong id="ring-xp">0</strong><small>/ 50 XP today</small></div>
+            <p class="ring-label">Daily goal 🎯</p>
+          </div>
+        </section>
+
+        <section aria-labelledby="units-heading">
+          <h2 class="gp-h2" id="units-heading">Choose your unit</h2>
+          <p class="gp-help">Every unit is a full game session. Finish sessions to earn 👑 crowns in that unit.</p>
+          <div id="unit-path" class="unit-path"></div>
+        </section>
+      </main>
+
+      <aside class="gp-side">
+        <section class="gp-card quests" aria-labelledby="quests-heading">
+          <h2 id="quests-heading">📋 Daily quests</h2>
+          <div id="quest-list"></div>
+        </section>
+
+        <section class="gp-card league" aria-labelledby="league-heading">
+          <h2 id="league-heading">🏆 Bronze League</h2>
+          <p class="league-sub">Earn XP this week to climb. Top 3 move up!</p>
+          <div id="league-list"></div>
+        </section>
+
+        <section class="gp-card badges" aria-labelledby="badges-heading">
+          <h2 id="badges-heading">🎖️ Achievements <span class="pill" id="badge-count">0 / 6</span></h2>
+          <div id="badge-list" class="badge-grid"></div>
+        </section>
+
+        <section class="gp-card hearts-card" aria-labelledby="hearts-heading">
+          <h2 id="hearts-heading">❤️ Hearts</h2>
+          <p id="hearts-copy">You have 5 hearts. A wrong answer costs 1 heart. Hearts refill free every day — and finishing a session earns +1 back.</p>
+        </section>
+      </aside>
+    </div>
+
+    <footer class="gp-footer">
+      <span>English Flow · Play a little, every day.</span>
+      <span><a href="practice.html">30-Day Path</a> · <a href="tenses.html">12 Tenses</a> · <a href="index.html">Home</a></span>
+    </footer>
+  </div>
+
+  <!-- ================= SESSION ================= -->
+  <div id="session" hidden>
+    <header class="sess-header">
+      <button type="button" class="sess-close" id="sess-close" aria-label="Exit session">✕</button>
+      <div class="sess-progress"><div class="sess-progress-fill" id="sess-fill"></div></div>
+      <span class="sess-combo" id="sess-combo" hidden>🔥 <b>0</b> combo</span>
+      <span class="sess-hearts" id="sess-hearts" aria-label="Hearts left">❤️ 5</span>
+    </header>
+
+    <main class="sess-main">
+      <p class="sess-type" id="sess-type">CHOOSE THE CORRECT ANSWER</p>
+      <h2 class="sess-prompt" id="sess-prompt"></h2>
+      <div id="sess-body"></div>
+    </main>
+
+    <footer class="sess-footer" id="sess-footer">
+      <div class="sess-footer-inner">
+        <div class="sess-feedback" id="sess-feedback" role="status" aria-live="polite"></div>
+        <button type="button" class="btn-3d btn-green sess-btn" id="sess-check" disabled>Check</button>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ================= RESULT ================= -->
+  <div id="result" hidden>
+    <main class="result-main">
+      <div class="result-emoji" id="result-emoji">🎉</div>
+      <h2 class="result-title" id="result-title">Session complete!</h2>
+      <p class="result-sub" id="result-sub">You are in your flow.</p>
+      <div class="result-cards">
+        <div class="result-card xp-card"><small>TOTAL XP</small><strong id="res-xp">+0</strong></div>
+        <div class="result-card acc-card"><small>ACCURACY</small><strong id="res-acc">0%</strong></div>
+        <div class="result-card combo-card"><small>BEST COMBO</small><strong id="res-combo">🔥 0</strong></div>
+      </div>
+      <button type="button" class="chest" id="chest" aria-label="Open your reward chest">
+        <span class="chest-emoji" aria-hidden="true">🎁</span>
+        <span class="chest-label">Tap to open your reward chest!</span>
+        <span class="chest-gems" id="chest-gems" hidden></span>
+      </button>
+      <p class="result-league" id="res-league"></p>
+      <div class="result-actions">
+        <button type="button" class="btn-3d btn-blue" id="res-again">Play again</button>
+        <button type="button" class="btn-3d btn-green" id="res-hub">Continue</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- ================= OUT OF HEARTS ================= -->
+  <div id="nohearts" hidden>
+    <main class="result-main">
+      <div class="result-emoji">💔</div>
+      <h2 class="result-title">Out of hearts!</h2>
+      <p class="result-sub">No stress — mistakes are how you learn. Your XP from this session is saved.</p>
+      <div class="result-actions">
+        <button type="button" class="btn-3d btn-green" id="nh-restart">↻ Restart with full hearts</button>
+        <button type="button" class="btn-3d btn-blue" id="nh-hub">Back to units</button>
+      </div>
+      <p class="gp-note">Hearts also refill free every day ❤️</p>
+    </main>
+  </div>
+
+  <div class="gp-toast" id="gp-toast" role="status" hidden></div>
+  <script src="game-practice.js" defer></script>
+</body>
+</html>
