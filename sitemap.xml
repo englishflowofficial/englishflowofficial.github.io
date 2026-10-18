@@ -23,9 +23,15 @@
   </url>
   <url>
     <loc>https://englishflowofficial.github.io/game-practice.html</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://englishflowofficial.github.io/premium-quiz.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://englishflowofficial.github.io/tenses.html</loc>
