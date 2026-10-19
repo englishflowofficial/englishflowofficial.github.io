@@ -272,6 +272,36 @@ function initPracticeQuiz() {
 // 7. Recommended & Affiliate Products System
 const affiliateProducts = [
   {
+    id: "workbook-30day",
+    image: "product-workbook.svg",
+    link: "https://topmate.io/speak_english_with_confidence/2324225",
+    title: "Stop Freezing in English — 30-Day Speaking Workbook",
+    category: "DIGITAL WORKBOOK · PDF",
+    badge: "BESTSELLER",
+    desc: "86 pages · 30 daily speaking lessons · 500+ phrases · pronunciation clinic · interview toolkit · 5 free bonuses. Speak out loud 45 minutes a day and stop freezing in conversations.",
+    btnText: "Get the Workbook"
+  },
+  {
+    id: "phrasebook-180",
+    image: "product-phrasebook.svg",
+    link: "https://topmate.io/speak_english_with_confidence/2363158",
+    title: "Don't Say This, Say This Instead — 180 Phrases",
+    category: "DIGITAL BOOK · PDF",
+    badge: "NEW · ₹149",
+    desc: "180 wrong-vs-right phrase pairs for daily life, work, interviews, travel, calls and polite English — each with a real example, speaking missions and a 7-day plan.",
+    btnText: "Get the Phrasebook"
+  },
+  {
+    id: "pro-vocab-quiz",
+    image: "product-quiz.svg",
+    link: "premium-quiz.html",
+    title: "Pro Vocab Quiz — 72 Premium Questions",
+    category: "INTERACTIVE QUIZ",
+    badge: "₹99 · SET 1 FREE",
+    desc: "6 themed sets built from our most-loved reels, with instant answers and explanations. Play Set 1 free on the site, unlock all 72 questions for ₹99.",
+    btnText: "Try the Quiz"
+  },
+  {
     id: "vocab-tracker",
     isDownload: true,
     image: "vocab-tracker-preview.svg",
