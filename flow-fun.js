@@ -312,7 +312,8 @@
       wrap.classList.remove("is-open"); wrap.classList.add("is-mini");
       try { sessionStorage.setItem("ff_helper_closed", "1"); } catch (e) { /* ignore */ }
     });
-    setTimeout(function () { if (!wrap.classList.contains("is-mini")) wrap.classList.add("is-open"); }, 2600);
+    var isHome = /(^|\/)index\.html$/.test(location.pathname) || location.pathname.endsWith("/");
+    if (!isHome) setTimeout(function () { if (!wrap.classList.contains("is-mini")) wrap.classList.add("is-open"); }, 2600);
   }
 
   /* ---------- gentle scroll reveals ---------- */

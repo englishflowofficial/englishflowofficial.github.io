@@ -550,4 +550,32 @@
     padding: 30px 24px;
   }
 }
-
+/* ---------- Practice Hub (v2 — replaces rainbow quick-ribbon + Start Here cards) ---------- */
+.practice-hub { padding: 6px 0 84px; }
+.ph-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; flex-wrap: wrap; margin-bottom: 20px; }
+.ph-head h2 { margin: 4px 0 6px; font-size: clamp(28px, 3.6vw, 40px); line-height: 1.05; }
+.ph-sub { margin: 0; color: var(--muted); font-size: 14px; }
+.ph-live { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; font-weight: 700; color: #15803d; background: #f0fdf4; border: 1px solid #dcfce7; padding: 7px 13px; border-radius: 999px; white-space: nowrap; }
+.ph-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.ph-card { display: flex; align-items: center; gap: 14px; padding: 18px; background: #fff; border: 1.5px solid #e6eaf2; border-radius: 20px; color: #182238; text-decoration: none; transition: transform .18s, border-color .18s, box-shadow .18s; }
+.ph-card:hover { transform: translateY(-3px); border-color: #58cc02; box-shadow: 0 14px 28px rgba(24,46,68,.09); }
+.ph-ic { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 14px; font-size: 22px; flex-shrink: 0; }
+.ph-ic-green { background: #f0fdf4; }
+.ph-ic-blue { background: #eef2ff; }
+.ph-ic-gold { background: #fffbeb; }
+.ph-txt { flex: 1; min-width: 0; }
+.ph-txt h3 { margin: 0 0 3px; font-size: 16px; line-height: 1.2; }
+.ph-txt p { margin: 0; font-size: 12.5px; color: #7c8698; line-height: 1.45; }
+.ph-free { color: #16a34a; }
+.ph-arrow { color: #b6bfce; font-size: 17px; }
+.ph-card:hover .ph-arrow { color: #58cc02; }
+@media (max-width: 850px) { .ph-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 570px) {
+  .ph-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .ph-card { padding: 14px 12px; gap: 10px; border-radius: 16px; }
+  .ph-ic { width: 38px; height: 38px; font-size: 19px; border-radius: 11px; }
+  .ph-txt h3 { font-size: 14px; }
+  .ph-txt p { font-size: 11.5px; }
+  .ph-arrow { display: none; }
+  .practice-hub { padding-bottom: 60px; }
+}
