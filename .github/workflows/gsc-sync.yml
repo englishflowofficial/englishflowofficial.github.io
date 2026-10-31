@@ -1,0 +1,39 @@
+name: GSC Sync
+
+on:
+  schedule:
+    - cron: '0 3 * * *'  # 08:30 IST daily
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/gsc-sync.yml'
+      - 'scripts/sync_gsc.py'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Google API deps
+        run: pip install google-api-python-client google-auth
+
+      - name: Run Search Console sync
+        env:
+          GSC_CREDENTIALS_JSON: ${{ secrets.GSC_CREDENTIALS_JSON }}
+        run: python3 scripts/sync_gsc.py
+
+      - name: Commit and push report
+        run: |
+          git config user.name "englishflow-bot"
+          git config user.email "bot@englishflow.local"
+          git add gsc_report.json
+          git diff --cached --quiet || git commit -m "GSC sync: $(date -u +%F)"
+          git push
