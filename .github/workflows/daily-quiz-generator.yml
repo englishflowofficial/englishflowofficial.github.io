@@ -1,0 +1,33 @@
+name: Daily Quiz Generator
+
+on:
+  schedule:
+    - cron: '30 4 * * *'  # ~10:00 IST daily
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate 2 quiz pages with Gemini
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python scripts/generate_daily_quiz.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "englishflow-bot"
+          git config user.email "bot@englishflow.local"
+          git add quizzes/ sitemap.xml index.html
+          git diff --cached --quiet || git commit -m "Daily quizzes: $(date -u +%F)"
+          git push
