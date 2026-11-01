@@ -12,6 +12,12 @@ on:
 permissions:
   contents: write
 
+# Serialize runs: a queued run waits for the in-progress one instead of
+# racing it on the gsc_report.json commit/push (caused the 2026-11-01 failure).
+concurrency:
+  group: gsc-sync
+  cancel-in-progress: false
+
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -36,4 +42,5 @@ jobs:
           git config user.email "bot@englishflow.local"
           git add gsc_report.json
           git diff --cached --quiet || git commit -m "GSC sync: $(date -u +%F)"
+          git pull --rebase
           git push
