@@ -1,8 +1,11 @@
 name: Daily Quiz Generator
 
 on:
-  schedule:
-    - cron: '30 4 * * *'  # ~10:00 IST daily
+  # NOTE (2026-11-01): daily quiz generation moved to the Muse-side 09:42 IST
+  # englishflow-daily-audit job (Gemini key lives in Muse's Secure Vault, not
+  # in GitHub Secrets). Scheduled trigger disabled to avoid duplicate quiz
+  # generation and daily failure emails; this workflow stays as a manual
+  # backup via workflow_dispatch.
   workflow_dispatch:
 
 permissions:
