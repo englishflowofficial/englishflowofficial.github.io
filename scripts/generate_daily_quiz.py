@@ -22,7 +22,7 @@ QUIZ_DIR = ROOT / "quizzes"
 QUIZ_DIR.mkdir(exist_ok=True)
 
 TOPICS = [
-    "Indian English mistakes",
+    "common English mistakes",
     "daily office speaking",
     "tense games",
     "WhatsApp grammar fixes",
