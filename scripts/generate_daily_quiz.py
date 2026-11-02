@@ -22,12 +22,15 @@ QUIZ_DIR = ROOT / "quizzes"
 QUIZ_DIR.mkdir(exist_ok=True)
 
 TOPICS = [
-    "common English mistakes",
-    "daily office speaking",
-    "tense games",
-    "WhatsApp grammar fixes",
-    "phrasal verbs for daily life",
-    "interview English questions",
+    # Validated 2026-11-02 from demand research: highest-searched quiz topics globally.
+    "English conditionals quiz (if clauses)",
+    "articles quiz (a, an, the)",
+    "active and passive voice quiz",
+    "subject verb agreement quiz",
+    "direct and indirect speech quiz",
+    "prepositions quiz",
+    "error detection quiz",
+    "sentence correction quiz",
 ]
 
 def gemini(prompt: str) -> str:
@@ -110,3 +113,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
