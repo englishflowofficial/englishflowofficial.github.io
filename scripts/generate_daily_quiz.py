@@ -22,13 +22,15 @@ QUIZ_DIR = ROOT / "quizzes"
 QUIZ_DIR.mkdir(exist_ok=True)
 
 TOPICS = [
-    # Validated 2026-11-02 from demand research: highest-searched quiz topics globally.
+    # Validated 2026-11-03 from demand research: prepositions + subject-verb agreement
+    # are top searched global quiz topics (top-ranking quiz pages, PAA-style phrasing).
+    "English prepositions quiz (in, on, at, to, for)",
+    "subject verb agreement quiz (do/does, has/have, each, neither-nor)",
+    "modal auxiliary verbs quiz (can, could, may, might, should, must)",
     "English conditionals quiz (if clauses)",
     "articles quiz (a, an, the)",
     "active and passive voice quiz",
-    "subject verb agreement quiz",
     "direct and indirect speech quiz",
-    "prepositions quiz",
     "error detection quiz",
     "sentence correction quiz",
 ]
