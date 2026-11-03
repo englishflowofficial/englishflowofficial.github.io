@@ -12,6 +12,9 @@ Pro-tier generation pipeline (2026-11-03):
 - Structured JSON output (response_schema) so the HTML extracts cleanly
   every time; falls back to plain-text + fence stripping if the
   full-featured call fails.
+- Auth: key sent ONLY via the x-goog-api-key header (never ?key=), because
+  AI Studio auth keys (AQ...., issued since May 2026) get 401 on the query
+  param. Key is stripped of pasted whitespace.
 
 Safe design:
 - Never touches index.html styling, Flo mascot, or core CSS.
@@ -21,7 +24,7 @@ Safe design:
 """
 import os, re, json, datetime, urllib.request, urllib.parse, pathlib
 
-GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "")
+GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 API_BASE = "https://generativelanguage.googleapis.com/v1beta"
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -63,8 +66,10 @@ RESPONSE_SCHEMA = {
 
 
 def api_get(path: str):
-    url = f"{API_BASE}/{path}?key=" + urllib.parse.quote(GEMINI_KEY)
-    req = urllib.request.Request(url)
+    # Auth keys (AQ...., issued by AI Studio since May 2026) are rejected
+    # with 401 when passed as ?key= — they require the x-goog-api-key header.
+    url = f"{API_BASE}/{path}"
+    req = urllib.request.Request(url, headers={"x-goog-api-key": GEMINI_KEY})
     with urllib.request.urlopen(req, timeout=30) as r:
         return json.loads(r.read().decode())
 
@@ -95,10 +100,11 @@ def pick_model() -> str:
 
 
 def call_api(model: str, body: dict, timeout: int) -> str:
-    url = (f"{API_BASE}/models/{model}:generateContent?key=" +
-           urllib.parse.quote(GEMINI_KEY))
-    req = urllib.request.Request(url, data=json.dumps(body).encode(),
-                                 headers={"Content-Type": "application/json"})
+    url = f"{API_BASE}/models/{model}:generateContent"
+    req = urllib.request.Request(
+        url, data=json.dumps(body).encode(),
+        headers={"Content-Type": "application/json",
+                 "x-goog-api-key": GEMINI_KEY})
     with urllib.request.urlopen(req, timeout=timeout) as r:
         data = json.loads(r.read().decode())
     return data["candidates"][0]["content"]["parts"][0]["text"]
@@ -160,7 +166,7 @@ def gemini(prompt: str, first_model: str) -> str:
                     "GEMINI_API_KEY was rejected by the Gemini API "
                     "(400/401/403). The secret value is not a valid API key "
                     "— replace it in the repo's GitHub Secrets with a real "
-                    "AI Studio key (starts with AIza...).") from e
+                    "AI Studio key.") from e
     raise RuntimeError(f"All models failed; last error: {last_err}")
 
 PROMPT_TMPL = """You are writing a standalone HTML quiz page for English Flow (englishflowofficial.github.io).
