@@ -1,4 +1,4 @@
-/* English Flow — Duolingo-style Practice Session for English learners.
+/* English Flow — Gamified Practice Session for English learners.
    Pure browser: progress in localStorage, speech via Web Speech APIs. */
 (function () {
   "use strict";
