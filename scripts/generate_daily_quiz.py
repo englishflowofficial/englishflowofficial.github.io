@@ -2,7 +2,7 @@
 """
 Daily quiz generator for English Flow.
 Uses GEMINI_API_KEY from environment (GitHub Actions secret).
-Generates 2 Duolingo-style quiz HTML pages in /quizzes/,
+Generates 2 gamified quiz HTML pages in /quizzes/,
 updates sitemap.xml, and appends links to index.html quiz section.
 
 Safe design:
@@ -46,7 +46,7 @@ def gemini(prompt: str) -> str:
 
 PROMPT_TMPL = """You are writing a standalone HTML quiz page for English Flow (englishflowofficial.github.io).
 Rules:
-- Duolingo-style: chunky 3D buttons (.btn-3d), header with 🔥 streak and ⚡ XP counters read from localStorage keys english_flow_streak (streak) and userXP (XP), plus english_flow_last_practice for the daily streak date, Flo owl mascot 🦉.
+- Gamified English Flow style: chunky 3D buttons (.btn-3d), header with 🔥 streak and ⚡ XP counters read from localStorage keys english_flow_streak (streak) and userXP (XP), plus english_flow_last_practice for the daily streak date, Flo owl mascot 🦉.
 - 10 multiple-choice questions about: {topic}. Each with 2 options, correct index, and a 1-line tip.
 - Results screen shows score, 'Share My Score on WhatsApp' button (https://api.whatsapp.com/send?text=...), and a 'Recommended English Resources' card linking to ../30-day-english-flow-workbook.pdf, ../resources.html, ../game-practice.html.
 - SEO: title, meta description, canonical https://englishflowofficial.github.io/quizzes/{slug}.html, Open Graph tags, Twitter Card meta (summary_large_image, @EnglishFlowPodcastt), enriched JSON-LD Quiz schema with educationalAlignment, timeRequired PT5M, and hasPart Question items.
