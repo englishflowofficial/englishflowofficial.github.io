@@ -8,7 +8,7 @@ import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChang
 import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
 const SYNC_KEYS = [
-  "english_flow_duo_v1",        // Duolingo-style game progress
+  "english_flow_duo_v1",        // gamified game progress
   "english_flow_practice_v2",   // 30-day practice progress
   "userXP",
   "userStreak",
