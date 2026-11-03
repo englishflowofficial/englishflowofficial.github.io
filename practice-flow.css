@@ -1,5 +1,5 @@
 /* =====================================================================
-   English Flow — Duolingo-Style Gamified Practice Room (practice-flow.css)
+   English Flow — Gamified Practice Room (practice-flow.css)
    Pure light theme. High-dopamine, playful, clean, tactile.
    ===================================================================== */
 
@@ -652,7 +652,7 @@ main#practice {
 .path-stop:nth-child(6n+5) { transform: translateX(0); }
 .path-stop:nth-child(6n+6) { transform: translateX(-54px); }
 
-/* Day Node (Duolingo Round 3D Stepping Stone) */
+/* Day Node (3D Stepping Stone) */
 .day-node {
   width: 72px;
   height: 70px;
@@ -1012,7 +1012,7 @@ main#practice {
   text-decoration: none;
 }
 
-/* ---------------- FULL-SCREEN LESSON DIALOG (Duolingo Style!) ---------------- */
+/* ---------------- FULL-SCREEN LESSON DIALOG (English Flow Style!) ---------------- */
 #lesson-dialog:not([open]) {
   display: none !important;
 }
@@ -1256,7 +1256,7 @@ main#practice {
   box-shadow: 0 0 0 var(--ef-blue);
 }
 
-/* MCQ Options (Duolingo Big Cards) */
+/* MCQ Options (Big Cards) */
 .options {
   display: grid;
   gap: 12px;
@@ -1500,7 +1500,7 @@ main#practice {
   color: var(--ef-ink-muted);
 }
 
-/* ---------------- Duolingo Bottom Feedback Drawer ---------------- */
+/* ---------------- Bottom Feedback Drawer ---------------- */
 .session-footer {
   padding: 20px 32px;
   background: #ffffff;
