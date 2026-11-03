@@ -54,10 +54,10 @@ MODEL_PREFS = ["gemini-2.5-pro", "gemini-flash-latest", "gemini-2.5-flash",
 RESPONSE_SCHEMA = {
     "type": "object",
     "properties": {
-        "title": {"type": "string",
-                  "description": "The page <title>, a curiosity hook under 60 chars"},
-        "meta_description": {"type": "string",
-                             "description": "Meta description under 160 chars"},
+        "title": {"type": "string", "maxLength": 60,
+                  "description": "The page <title>: curiosity hook, MAX 60 chars"},
+        "meta_description": {"type": "string", "maxLength": 160,
+                             "description": "Meta description, MAX 160 chars"},
         "html": {"type": "string",
                  "description": "The COMPLETE standalone HTML quiz page"},
     },
@@ -174,7 +174,7 @@ STRICT BRAND RULE: 100% original "English Flow" branding. NEVER mention any comp
 Rules:
 - Gamified English Flow style: chunky 3D buttons (.btn-3d), header with 🔥 streak and ⚡ XP counters read from localStorage keys english_flow_streak (streak) and userXP (XP), plus english_flow_last_practice for the daily streak date, Flo owl mascot 🦉.
 - 10 multiple-choice questions about: {topic}. Each with 2 options, correct index, and a 1-line tip. Use natural, current workplace phrasing (you may use web search for trending real-world phrases).
-- <title> MUST be a high-curiosity click hook under 60 chars (ask a question or promise a fix, e.g. "Do vs Does: The 2-Minute Grammar Fix"). Meta description under 160 chars with the same hook. <h1> matches the hook.
+- <title> MUST be a high-curiosity click hook of 60 characters MAXIMUM — count every character including spaces and "| English Flow" (ask a question or promise a fix, e.g. "Do vs Does: The 2-Minute Grammar Fix"). Meta description 160 characters MAXIMUM with the same hook. <h1> matches the hook.
 - Results screen shows score, 'Share My Score on WhatsApp' button (https://api.whatsapp.com/send?text=...), and a 'Recommended English Resources' card linking to ../30-day-english-flow-workbook.pdf, ../resources.html, ../game-practice.html, AND https://topmate.io/speak_english_with_confidence/2324225 with button text "Get the 30-Day Speaking Workbook ($) \\u2192".
 - Below the quiz add a crawlable <section class="study-cheatsheet"> with a "Quick Study Cheat-Sheet" <h2>: 4-6 bullet rules with <i>examples</i> teaching the topic in plain HTML (no JS) so Google indexes rich text.
 - SEO: title, meta description, canonical https://englishflowofficial.github.io/quizzes/{slug}.html, Open Graph tags, Twitter Card meta (summary_large_image, @EnglishFlowPodcastt), robots index,follow, viewport, enriched JSON-LD Quiz schema with educationalAlignment, timeRequired PT5M, hasPart Question items for ALL 10 questions, PLUS a JSON-LD FAQPage block with 3 topic Q&As.
