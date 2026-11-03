@@ -1,11 +1,11 @@
 name: Daily Quiz Generator
 
 on:
-  # NOTE (2026-11-01): daily quiz generation moved to the Muse-side 09:42 IST
-  # englishflow-daily-audit job (Gemini key lives in Muse's Secure Vault, not
-  # in GitHub Secrets). Scheduled trigger disabled to avoid duplicate quiz
-  # generation and daily failure emails; this workflow stays as a manual
-  # backup via workflow_dispatch.
+  # NOTE (2026-11-01, updated 2026-11-03): daily quiz generation is owned by
+  # the Muse-side 09:42 IST englishflow-daily-audit job. GEMINI_API_KEY now
+  # lives in GitHub Repository Secrets. Scheduled trigger stays disabled to
+  # avoid duplicate quiz generation; this workflow is the manual backup and
+  # on-demand test route via workflow_dispatch.
   workflow_dispatch:
 
 permissions:
