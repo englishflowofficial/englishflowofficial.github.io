@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#58cc02" />
+  <title>Your Real English Level? 60-Second Test | English Flow</title>
+  <meta name="description" content="Stop guessing your English level. Answer 8 real-life scenarios in 60 seconds and get your true fluency level plus a personal study plan. Free, no sign-in." />
+  <meta name="keywords" content="english fluency test, english level test online, check my english level, spoken english level checker" />
+  <link rel="canonical" href="https://englishflowofficial.github.io/quizzes/fluency-level-calculator-2026-11-03.html" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="icon" href="../favicon.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://englishflowofficial.github.io/quizzes/fluency-level-calculator-2026-11-03.html" />
+  <meta property="og:title" content="Your Real English Level? 60-Second Test | English Flow" />
+  <meta property="og:description" content="Stop guessing your English level. Answer 8 real-life scenarios in 60 seconds and get your true fluency level plus a personal study plan. Free, no sign-in." />
+  <meta property="og:image" content="https://englishflowofficial.github.io/og-image.jpg" />
+  <meta property="og:site_name" content="English Flow" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@EnglishFlowPodcastt" />
+  <meta name="twitter:title" content="Your Real English Level? 60-Second Test | English Flow" />
+  <meta name="twitter:description" content="Stop guessing your English level. Answer 8 real-life scenarios in 60 seconds and get your true fluency level plus a personal study plan. Free, no sign-in." />
+  <meta name="twitter:image" content="https://englishflowofficial.github.io/og-image.jpg" />
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "60-Second English Fluency Level Calculator",
+  "url": "https://englishflowofficial.github.io/quizzes/fluency-level-calculator-2026-11-03.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0"
+  },
+  "description": "Stop guessing your English level. Answer 8 real-life scenarios in 60 seconds and get your true fluency level plus a personal study plan. Free, no sign-in."
+}
+  </script>
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this fluency test accurate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It's a quick diagnostic based on 8 real-life scenarios covering vocabulary, grammar, and situational responses — a strong signal of your level, not a formal CEFR exam."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I improve my fluency level fast?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Practice speaking daily (not just reading), learn phrases in chunks instead of single words, and fix your top 10 recurring mistakes with targeted quizzes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I do after getting my level?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Follow the personalized study plan on your result card, keep a daily XP streak on English Flow, and re-take this test monthly to watch yourself climb."
+      }
+    }
+  ]
+}
+  </script>
+  <link rel="stylesheet" href="../game-practice.css" />
+  <style>
+    body{font-family:'Nunito',system-ui,sans-serif;background:#f7f7f7;color:#222;margin:0}
+    .quiz-wrap{max-width:640px;margin:0 auto;padding:18px 16px 60px}
+    .opt{display:block;width:100%;text-align:left;margin:8px 0;padding:13px 16px;border:2px solid #e5e5e5;border-radius:14px;background:#fff;font-weight:800;font-size:15px;box-shadow:0 3px 0 #e5e5e5;cursor:pointer}
+    .opt:active{transform:translateY(3px);box-shadow:none}
+    .opt.picked{border-color:#1cb0f6;background:#f0f9ff;box-shadow:0 3px 0 #1cb0f6}
+    .result-card{border:2px solid #e5e5e5;border-radius:20px;padding:28px;text-align:center;background:linear-gradient(135deg,#f0fff4,#eff8ff)}
+    .resource-card{border:2px solid #ffc800;border-radius:18px;padding:18px;background:#fffbe6;margin-top:18px;text-align:left}
+    .timer{font-weight:1000;font-size:20px;color:#ff4b4b}
+  </style>
+</head>
+<body>
+  <header class="gp-header">
+    <a class="gp-brand" href="../index.html">🦉 English <b>Flow</b></a>
+    <nav class="gp-nav"><a href="../index.html">Home</a><a href="../game-practice.html">Practice</a><a href="../tenses.html">Tenses</a></nav>
+    <div class="gp-stats">
+      <span class="gp-stat streak">🔥 <b id="st-streak">0</b></span>
+      <span class="gp-stat xp">⚡ <b id="st-xp">0</b></span>
+    </div>
+  </header>
+
+  <main class="quiz-wrap">
+    <p style="font-weight:1000;letter-spacing:1.5px;color:#1cb0f6;font-size:13px">⚡ FLUENCY CALCULATOR</p>
+    <h1 style="font-size:30px;font-weight:1000;margin:0 0 8px">What's Your Real English Level? <span aria-label="Flo">🦉</span></h1>
+    <p style="color:#777;font-weight:700">8 real-life scenarios. <span class="timer" id="timer">60</span> seconds. Zero sign-in.</p>
+    <div style="display:flex;gap:10px;align-items:center;margin:12px 0">
+      <div style="flex:1;height:12px;background:#eee;border-radius:999px;overflow:hidden"><div id="progress" style="height:100%;width:0;background:#58cc02;border-radius:999px;transition:width .3s"></div></div>
+      <b id="counter">1 / 8</b>
+    </div>
+
+    <div id="quiz"></div>
+
+    <div id="results" hidden>
+      <div class="result-card">
+        <div style="font-size:52px" id="level-emoji">🦉</div>
+        <h2 id="level-badge" style="margin:8px 0">Your level</h2>
+        <p id="level-desc" style="color:#555;font-weight:700"></p>
+        <p id="level-next" style="font-weight:800"></p>
+        <p style="font-weight:900">🔥 Streak: <span id="final-streak">0</span> days · ⚡ XP: <span id="final-xp">0</span></p>
+        <a id="wa-share" href="#" target="_blank" rel="noopener" class="btn-3d btn-green" style="display:inline-block;text-decoration:none;margin:8px 4px">Share My Level on WhatsApp</a>
+        <button class="btn-3d btn-blue" onclick="location.reload()" style="margin:8px 4px">Retake Test</button>
+        <div class="resource-card">
+          <h3 style="margin:0 0 8px">📚 Recommended English Resources</h3>
+          <p style="margin:0 0 10px;color:#555;font-weight:700;font-size:14px">Keep the momentum. Flo recommends:</p>
+          <ul style="margin:0;padding-left:18px;font-weight:700;font-size:14px">
+            <li><a href="https://topmate.io/speak_english_with_confidence/2324225">🚀 Premium 30-Day Fluency Program</a> – guided coaching + workbook</li>
+            <li><a href="../30-day-english-flow-workbook.pdf">30-Day English Flow Workbook (PDF)</a> – daily speaking drills</li>
+            <li><a href="../resources.html">Free Resources Library</a> – trackers, podcasts, worksheets</li>
+            <li><a href="../game-practice.html">Daily Practice Session</a> – keep your streak alive</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <section class="study-cheatsheet" aria-label="Quick study guide" style="margin:26px 0;padding:20px;border:2px dashed #1cb0f6;border-radius:18px;background:#f7fdff;text-align:left">
+      <h2>📖 How Fluency Is Really Measured</h2>
+<ul>
+<li><b>Fluency ≠ perfection.</b> It's speed + naturalness: responding without translating in your head.</li>
+<li><b>Collocations win:</b> natives say <i>"rain-check"</i>, <i>"tied up"</i>, <i>"run it by you"</i> — not textbook translations.</li>
+<li><b>Grammar that matters most:</b> tenses, prepositions (in/on/at), and subject-verb agreement cover 80% of daily speech.</li>
+<li><b>The 60-second rule:</b> if you can answer small talk, emails, and opinions without pausing to translate, you're intermediate+.</li>
+<li><b>Fastest upgrade:</b> shadow native phrases daily — hear it, say it immediately, repeat until automatic.</li>
+</ul>
+      <p style="font-size:13px;color:#777;font-weight:700;margin:10px 0 0">🦉 Flo's tip: bookmark this page and re-take the test monthly — watching your level climb is the best motivation.</p>
+    </section>
+  </main>
+
+<script>
+const QUESTIONS = [{"q": "It's Monday morning. A colleague asks “How was your weekend?” You naturally reply…", "opts": ["Weekend good.", "It was good, thanks! How was yours?", "Pretty relaxing — finally caught up on some reading. How about you?"], "v": [1, 2, 3]}, {"q": "Which sentence would a native speaker most likely say?", "opts": ["I am having a doubt about this report.", "I have a question about this report.", "Something's not quite adding up in this report — mind if I run it by you?"], "v": [1, 2, 3]}, {"q": "Your manager emails: “Please share an update by EOD.” You reply…", "opts": ["OK I will send.", "Sure, I'll share the update by end of day.", "Of course — I'll send it across by EOD. Let me know if you need anything else."], "v": [1, 2, 3]}, {"q": "Pick the most natural sentence:", "opts": ["The meeting cancelled, so we finished the report.", "Because the meeting was cancelled, we finished the report early.", "With the meeting called off, we wrapped up the report ahead of schedule."], "v": [1, 2, 3]}, {"q": "A friend invites you to dinner but you're busy. You say…", "opts": ["No, I am busy.", "Sorry, I can't make it this time.", "I'd love to, but I'm tied up tonight — can we rain-check for the weekend?"], "v": [1, 2, 3]}, {"q": "Choose the best word: The manager gave a ___ presentation.", "opts": ["good", "nice", "compelling"], "v": [1, 3, 2]}, {"q": "I've lived here ___ 2019.", "opts": ["at", "from", "since"], "v": [1, 2, 3]}, {"q": "Interview: “Where do you see yourself in 5 years?” Strongest answer…", "opts": ["I want a good job.", "I hope to grow into a senior role in this field.", "I see myself leading projects here — this role's growth path is exactly what I'm looking for."], "v": [1, 2, 3]}];
+const LEVELS = [{"min": 8, "max": 11, "badge": "🌱 Building Beginner", "desc": "You're laying the foundation — every expert was once a beginner. Start with the Common Mistakes quiz below and practice 5 minutes daily.", "next": "quizzes/common-english-mistakes-quiz.html"}, {"min": 12, "max": 15, "badge": "🌿 Confident Elementary", "desc": "You handle everyday phrases well. Level up with daily speaking drills and the Phrasal Verbs quiz to sound more natural.", "next": "quizzes/phrasal-verbs-2026-11-01.html"}, {"min": 16, "max": 18, "badge": "🌳 Solid Intermediate", "desc": "Strong everyday English! Polish prepositions and office phrases to cross into advanced territory.", "next": "quizzes/prepositions-2026-11-03.html"}, {"min": 19, "max": 21, "badge": "🚀 Upper-Intermediate Speaker", "desc": "Impressive — you sound natural in most situations. Fine-tune conditionals and interview English to go fully fluent.", "next": "quizzes/conditionals-2026-11-02.html"}, {"min": 22, "max": 24, "badge": "🏆 Advanced / Near-Fluent", "desc": "Outstanding! You communicate like a highly proficient speaker. Keep your streak alive and challenge friends to beat your score.", "next": "quizzes/daily-office-speaking-quiz.html"}];
+let idx=0, total=0, timeLeft=60, timerId=null, done=false;
+let streak=parseInt(localStorage.getItem('english_flow_streak')||'0');
+let xp=parseInt(localStorage.getItem('userXP')||'0');
+function renderStats(){
+  document.getElementById('st-streak').textContent=streak;
+  document.getElementById('st-xp').textContent=xp;
+}
+function startTimer(){
+  timerId=setInterval(()=>{
+    timeLeft--; document.getElementById('timer').textContent=timeLeft;
+    if(timeLeft<=0 && !done){ finish(); }
+  },1000);
+}
+function renderQ(){
+  const box=document.getElementById('quiz'); box.innerHTML='';
+  document.getElementById('counter').textContent=(idx+1)+' / '+QUESTIONS.length;
+  document.getElementById('progress').style.width=(idx/QUESTIONS.length*100)+'%';
+  const item=QUESTIONS[idx];
+  const card=document.createElement('div');
+  const h=document.createElement('h2'); h.style.fontSize='20px'; h.textContent=item.q; card.appendChild(h);
+  item.opts.forEach((o,i)=>{
+    const b=document.createElement('button'); b.className='opt'; b.textContent=o;
+    b.onclick=()=>{
+      if(done) return;
+      total+=item.v[i]; xp+=5; localStorage.setItem('userXP',xp); renderStats();
+      idx++;
+      if(idx>=QUESTIONS.length) finish(); else renderQ();
+    };
+    card.appendChild(b);
+  });
+  box.appendChild(card);
+}
+function finish(){
+  if(done) return; done=true; clearInterval(timerId);
+  document.getElementById('quiz').hidden=true;
+  document.getElementById('results').hidden=false;
+  document.getElementById('progress').style.width='100%';
+  const today=new Date().toDateString(); const last=localStorage.getItem('english_flow_last_practice');
+  if(last!==today){streak+=1;localStorage.setItem('english_flow_streak',streak);localStorage.setItem('english_flow_last_practice',today);}
+  renderStats();
+  const lvl=LEVELS.find(l=>total>=l.min&&total<=l.max)||LEVELS[0];
+  document.getElementById('level-badge').textContent=lvl.badge;
+  document.getElementById('level-desc').textContent=lvl.desc;
+  const nx=document.getElementById('level-next');
+  nx.innerHTML='Your next step: <a href="../'+lvl.next+'">continue here →</a>';
+  document.getElementById('final-streak').textContent=streak;
+  document.getElementById('final-xp').textContent=xp;
+  const text=encodeURIComponent('I got "'+lvl.badge+'" on the 60-Second English Fluency Test on English Flow! 🦉 What\u2019s your level? https://englishflowofficial.github.io/quizzes/fluency-level-calculator-2026-11-03.html');
+  document.getElementById('wa-share').href='https://api.whatsapp.com/send?text='+text;
+}
+renderStats(); renderQ(); startTimer();
+</script>
+<script src="../ef-analytics.js" defer></script>
+</body>
+</html>
