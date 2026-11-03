@@ -1,4 +1,4 @@
-/* English Flow — Duolingo-style Practice Session */
+/* English Flow — Gamified Practice Session */
 :root{
   --green:#58cc02; --green-dark:#46a302; --blue:#1cb0f6; --blue-dark:#1899d6;
   --red:#ff4b4b; --red-dark:#d33131; --yellow:#ffc800; --purple:#ce82ff;
@@ -12,7 +12,7 @@ button{font-family:inherit;cursor:pointer}
 a{color:var(--blue);text-decoration:none}
 [hidden]{display:none!important}
 
-/* ---------- chunky 3D buttons (the Duolingo feel) ---------- */
+/* ---------- chunky 3D buttons (the playful English Flow feel) ---------- */
 .btn-3d{border:none;border-radius:14px;padding:13px 26px;font-weight:900;font-size:15px;letter-spacing:.8px;text-transform:uppercase;color:#fff;background:#e5e5e5;box-shadow:0 4px 0 #cfcfcf;transition:transform .06s,box-shadow .06s,filter .15s}
 .btn-3d:active{transform:translateY(4px);box-shadow:0 0 0 #cfcfcf}
 .btn-3d:disabled{opacity:.55;cursor:not-allowed}
@@ -55,7 +55,7 @@ a{color:var(--blue);text-decoration:none}
 .ring-centre small{color:var(--muted);font-weight:800}
 .ring-label{margin-top:26px;font-weight:900;color:var(--muted)}
 
-/* ---------- unit path (winding, like Duolingo) ---------- */
+/* ---------- unit path (winding learning path) ---------- */
 .unit-path{display:flex;flex-direction:column;gap:6px;margin-top:8px}
 .unit-banner{border-radius:18px;color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:18px}
 .unit-banner h3{margin:0;font-size:19px;font-weight:1000}
