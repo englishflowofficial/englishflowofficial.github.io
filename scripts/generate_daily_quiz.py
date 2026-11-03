@@ -22,19 +22,19 @@ QUIZ_DIR = ROOT / "quizzes"
 QUIZ_DIR.mkdir(exist_ok=True)
 
 TOPICS = [
-    # 2026-11-03 EMERGENCY RETARGET (Wolla): BAN broad textbook topics
-    # ('articles', 'conditionals', 'tenses' compete against big dictionary sites).
-    # Target SPECIFIC, high-intent practical problems instead.
-    "polite email phrases quiz (could you please, following up, circling back)",
-    "job interview self-introduction quiz (tell me about yourself answers)",
-    "small talk starters quiz (weekend, hobbies, conversation openers)",
-    "meeting phrases quiz (sharing opinions, disagreeing politely, summarizing)",
-    "presentation English quiz (signposting: moving on, turning to, to sum up)",
-    "customer service English quiz (handling complaints, apologizing professionally)",
-    "telephone English quiz (taking messages, asking to hold, confirming details)",
-    "apologizing professionally quiz (sorry for the delay, owning mistakes)",
-    "giving feedback politely quiz (constructive phrases, sandwich method)",
-    "social invitations quiz (inviting, accepting, declining gracefully)",
+    # LOCKED 2026-11-03 (Wolla + Gemini Supreme Manager): 10 high-intent topics.
+    # Ban-check: "Would someone type this into Google the night before they need it?"
+    # If yes, publish. If it's a chapter from a grammar book, kill it.
+    "7 polite email phrases quiz (boss-impressing workplace emails)",
+    "tell me about yourself quiz (30-second interview answer)",
+    "meeting small talk quiz (first 2 minutes phrases)",
+    "phone call English quiz (starting and ending calls)",
+    "salary negotiation phrases quiz (soft professional wording)",
+    "presentation openers quiz (strong speech openings)",
+    "professional apology phrases quiz (workplace apologies)",
+    "networking small talk quiz (what do you do answers)",
+    "client follow-up email quiz (post-meeting templates)",
+    "video call confidence phrases quiz (sound confident online)",
 ]
 
 def gemini(prompt: str) -> str:
@@ -59,6 +59,11 @@ Rules:
 - SEO: title, meta description, canonical https://englishflowofficial.github.io/quizzes/{slug}.html, Open Graph tags, Twitter Card meta (summary_large_image, @EnglishFlowPodcastt), robots index,follow, viewport, enriched JSON-LD Quiz schema with educationalAlignment, timeRequired PT5M, hasPart Question items for ALL 10 questions, PLUS a JSON-LD FAQPage block with 3 topic Q&As.
 - Reference ../game-practice.css for styling. Keep it a single self-contained HTML file with inline quiz JS.
 - Output ONLY the full HTML, no markdown fences.
+- TITLE/META TEMPLATES (pick the one that fits the topic):
+  T1 "Fix Mistakes": <title>Fix These [N] [Topic] Mistakes in 2 Minutes | English Flow Quiz</title> / meta: "Fix [N] common [Topic] mistakes in 2 minutes. Tap tactile 3D cards, earn XP with Flo the owl, and learn the natural fix with instant feedback."
+  T2 "Scenario Phrases": <title>[N] Natural Phrases for [Scenario] (Not Textbook English) | English Flow</title> / meta: "Stop sounding blunt or awkward. Practice [N] real-world [Scenario] phrases with interactive 3D cards and earn XP with Flo."
+  T3 "Speed Challenge": <title>[N]-Second English Speaking Challenge: Can You Beat Flo? | English Flow</title> / meta: "Test your speaking reflexes in this [N]-question 3D challenge. Earn streak XP with Flo and see if you can top the leaderboard."
+- The 'Recommended English Resources' card MUST link https://topmate.io/speak_english_with_confidence/2324225 with button text "Get the 30-Day Speaking Workbook ($) \u2192".
 Topic: {topic}
 """
 
