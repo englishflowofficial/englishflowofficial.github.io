@@ -113,9 +113,14 @@ def extract_html(text: str) -> str:
         return re.sub(r"\s*```$", "", html).strip()
 
 
-def gemini(prompt: str, model: str) -> str:
-    if not GEMINI_KEY:
-        raise RuntimeError("GEMINI_API_KEY is not set")
+def _is_auth_error(e: Exception) -> bool:
+    # With a fixed valid request body, 400/401/403 all mean the key is bad.
+    s = str(e)
+    return ("400" in s or "401" in s or "403" in s
+            or "API key" in s or "API_KEY" in s)
+
+
+def _gemini_once(prompt: str, model: str) -> str:
     schema_note = ("\nReturn ONLY JSON with keys title, meta_description, html. "
                    "The html value must be the complete standalone HTML page, "
                    "no markdown fences.")
@@ -130,10 +135,33 @@ def gemini(prompt: str, model: str) -> str:
     try:
         return extract_html(call_api(model, full_body, timeout=180))
     except Exception as e:
-        print(f"grounded+structured call failed ({type(e).__name__}: {e}); "
-              "retrying plain")
+        if _is_auth_error(e):
+            raise
+        print(f"grounded+structured call failed on {model} "
+              f"({type(e).__name__}: {e}); retrying plain")
         plain = {"contents": [{"parts": [{"text": prompt}]}]}
         return extract_html(call_api(model, plain, timeout=120))
+
+
+def gemini(prompt: str, first_model: str) -> str:
+    if not GEMINI_KEY:
+        raise RuntimeError("GEMINI_API_KEY is not set")
+    models_to_try = [first_model] + [m for m in MODEL_PREFS
+                                     if m != first_model]
+    last_err = None
+    for model in models_to_try:
+        try:
+            return _gemini_once(prompt, model)
+        except Exception as e:
+            last_err = e
+            print(f"model {model} failed: {e}")
+            if _is_auth_error(e):
+                raise RuntimeError(
+                    "GEMINI_API_KEY was rejected by the Gemini API "
+                    "(400/401/403). The secret value is not a valid API key "
+                    "— replace it in the repo's GitHub Secrets with a real "
+                    "AI Studio key (starts with AIza...).") from e
+    raise RuntimeError(f"All models failed; last error: {last_err}")
 
 PROMPT_TMPL = """You are writing a standalone HTML quiz page for English Flow (englishflowofficial.github.io).
 STRICT BRAND RULE: 100% original "English Flow" branding. NEVER mention any competitor language-learning brand (no Duolingo or similar) in visible text, code, comments, meta tags, or schemas. Global audience: no India-only framing anywhere.
