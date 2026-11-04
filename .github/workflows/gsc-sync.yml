@@ -8,6 +8,9 @@ on:
     paths:
       - '.github/workflows/gsc-sync.yml'
       - 'scripts/sync_gsc.py'
+      - 'sitemap.xml'
+      - 'index.html'
+      - 'quizzes/**'
 
 permissions:
   contents: write
