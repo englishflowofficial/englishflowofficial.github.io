@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T10:19:00.990328Z",
+  "generated_at": "2026-11-04T04:14:12.839245Z",
   "site": "https://englishflowofficial.github.io/",
   "sitemap_submit": {
     "url": "https://englishflowofficial.github.io/sitemap.xml",
@@ -8,7 +8,7 @@
   "sitemaps": [
     {
       "path": "https://englishflowofficial.github.io/sitemap.xml",
-      "lastSubmitted": "2026-11-03T10:19:01.152Z",
+      "lastSubmitted": "2026-11-04T04:14:13.072Z",
       "isPending": true,
       "isSitemapsIndex": false,
       "warnings": "0",
@@ -16,8 +16,8 @@
     }
   ],
   "search_analytics_28d": {
-    "startDate": "2026-10-06",
-    "endDate": "2026-11-03",
+    "startDate": "2026-10-07",
+    "endDate": "2026-11-04",
     "rows": [
       {
         "keys": [
@@ -35,9 +35,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 8,
         "ctr": 0,
-        "position": 7
+        "position": 6
       },
       {
         "keys": [
@@ -45,9 +45,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
-        "impressions": 49,
+        "impressions": 74,
         "ctr": 0,
-        "position": 5.571428571428571
+        "position": 5.702702702702703
       },
       {
         "keys": [
@@ -55,9 +55,19 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
-        "impressions": 5,
+        "impressions": 8,
         "ctr": 0,
-        "position": 7.4
+        "position": 7.5
+      },
+      {
+        "keys": [
+          "english flow бесплатно",
+          "https://englishflowofficial.github.io/"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
       },
       {
         "keys": [
@@ -68,6 +78,16 @@
         "impressions": 1,
         "ctr": 0,
         "position": 8
+      },
+      {
+        "keys": [
+          "englishflow",
+          "https://englishflowofficial.github.io/"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
       },
       {
         "keys": [
