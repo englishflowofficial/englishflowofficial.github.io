@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T04:14:12.839245Z",
+  "generated_at": "2026-11-04T10:11:41.773167Z",
   "site": "https://englishflowofficial.github.io/",
   "sitemap_submit": {
     "url": "https://englishflowofficial.github.io/sitemap.xml",
@@ -8,7 +8,7 @@
   "sitemaps": [
     {
       "path": "https://englishflowofficial.github.io/sitemap.xml",
-      "lastSubmitted": "2026-11-04T04:14:13.072Z",
+      "lastSubmitted": "2026-11-04T10:11:41.990Z",
       "isPending": true,
       "isSitemapsIndex": false,
       "warnings": "0",
@@ -25,9 +25,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 1,
-        "impressions": 2,
-        "ctr": 0.5,
-        "position": 7
+        "impressions": 3,
+        "ctr": 0.3333333333333333,
+        "position": 7.666666666666667
       },
       {
         "keys": [
@@ -35,9 +35,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
-        "impressions": 8,
+        "impressions": 9,
         "ctr": 0,
-        "position": 6
+        "position": 6.111111111111111
       },
       {
         "keys": [
@@ -45,9 +45,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
-        "impressions": 74,
+        "impressions": 113,
         "ctr": 0,
-        "position": 5.702702702702703
+        "position": 6.115044247787611
       },
       {
         "keys": [
@@ -55,9 +55,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
-        "impressions": 8,
+        "impressions": 11,
         "ctr": 0,
-        "position": 7.5
+        "position": 7.090909090909091
       },
       {
         "keys": [
@@ -85,9 +85,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 5
+        "position": 6.5
       },
       {
         "keys": [
@@ -95,9 +95,19 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 7.5
+      },
+      {
+        "keys": [
+          "github best podcasts to learn english",
+          "https://englishflowofficial.github.io/"
+        ],
+        "clicks": 0,
         "impressions": 1,
         "ctr": 0,
-        "position": 8
+        "position": 11
       }
     ]
   }
