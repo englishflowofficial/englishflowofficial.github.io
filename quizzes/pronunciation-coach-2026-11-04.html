@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#58cc02" />
+  <title>Tap-to-Speak Pronunciation Coach | English Flow</title>
+  <meta name="description" content="Hear it, say it, score it. Practice 12 workplace English phrases with your mic — instant pronunciation feedback, XP and streaks. Free, no sign-up." />
+  <meta name="keywords" content="pronunciation coach, english speaking practice, voice pronunciation tool, spoken english test, mic speech practice, english flow" />
+  <link rel="canonical" href="https://englishflowofficial.github.io/quizzes/pronunciation-coach-2026-11-04.html" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://englishflowofficial.github.io/quizzes/pronunciation-coach-2026-11-04.html" />
+  <meta property="og:title" content="Tap-to-Speak Pronunciation Coach | English Flow" />
+  <meta property="og:description" content="Hear it, say it, score it. Practice 12 workplace English phrases with your mic — instant pronunciation feedback, XP and streaks. Free, no sign-up." />
+  <meta property="og:image" content="https://englishflowofficial.github.io/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@EnglishFlowPodcastt" />
+  <meta name="twitter:title" content="Tap-to-Speak Pronunciation Coach | English Flow" />
+  <meta name="twitter:description" content="Hear it, say it, score it. Practice 12 workplace English phrases with your mic — instant pronunciation feedback, XP and streaks. Free, no sign-up." />
+  <meta name="twitter:image" content="https://englishflowofficial.github.io/og-image.jpg" />
+  <link rel="icon" href="../favicon.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900;1000&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../game-practice.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Tap-to-Speak Pronunciation Coach",
+    "url": "https://englishflowofficial.github.io/quizzes/pronunciation-coach-2026-11-04.html",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires Web Speech API support (Google Chrome recommended)",
+    "description": "Interactive pronunciation practice tool: listen to native English audio and practice speaking into your microphone for instant word-match feedback, XP, and streaks.",
+    "provider": {
+      "@type": "Organization",
+      "name": "English Flow",
+      "url": "https://englishflowofficial.github.io/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does the Tap-to-Speak Pronunciation Coach calculate my score?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The tool uses your browser's speech recognition to transcribe what you say and calculates an objective word-match score by comparing your recognized spoken words against the target English phrase."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which web browsers support microphone speech recognition?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Microphone recording uses the standard Web Speech API, which works best in Google Chrome on desktop and Android. On browsers without speech recognition, you can still use the audio feature to train your ear with native pronunciation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my voice recording stored or sent to an external server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. All scoring and phrase checks run directly in your local browser session. English Flow does not store or process your audio recordings on private external servers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do streaks and XP work in the Pronunciation Coach?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You earn +10 XP for each speaking attempt, plus a +25 XP mastery bonus whenever your word-match score reaches 80% or higher. Completing the full 12-phrase set increments your daily English Flow streak."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    .quiz-wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 40px; }
+    .q-card { border: 2px solid #e5e5e5; border-radius: 20px; padding: 26px 22px; background: #fff; box-shadow: 0 4px 0 #e5e5e5; margin: 16px 0; }
+    .phrase-display { font-size: 24px; font-weight: 900; color: #1e1b4b; line-height: 1.35; margin: 16px 0 20px; padding: 18px 20px; background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 16px; text-align: center; }
+    .action-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 18px 0; }
+    .action-row button { min-height: 48px; min-width: 150px; font-size: 16px; font-weight: 900; border-radius: 14px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+    .feedback-panel { margin-top: 18px; padding: 16px; border-radius: 14px; background: #f1f5f9; text-align: left; border: 2px solid #e2e8f0; font-size: 15px; }
+    .score-badge { display: inline-block; padding: 6px 14px; border-radius: 999px; font-weight: 900; font-size: 14px; margin-bottom: 8px; }
+    .score-high { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+    .score-med { background: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
+    .score-low { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+    .transcript-box { font-weight: 700; color: #334155; margin: 6px 0; }
+    .mic-status-listening { animation: pulseGlow 1.2s infinite; border-color: #ef4444 !important; background: #fef2f2 !important; color: #b91c1c !important; }
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+    .result-card { border: 2px solid #e5e5e5; border-radius: 20px; padding: 28px; text-align: center; background: linear-gradient(135deg, #f0fff4, #eff8ff); }
+    .resource-card { border: 2px solid #ffc800; border-radius: 18px; padding: 18px; background: #fffbe6; margin-top: 18px; text-align: left; }
+    .notice-box { background: #fffbeb; border: 2px solid #fde68a; border-radius: 14px; padding: 14px 18px; color: #92400e; font-size: 14px; font-weight: 700; margin: 12px 0; text-align: left; }
+  </style>
+</head>
+<body>
+  <header class="gp-header">
+    <a class="gp-brand" href="../index.html">🦉 English <b>Flow</b></a>
+    <nav class="gp-nav">
+      <a href="../index.html">Home</a>
+      <a href="../game-practice.html">Practice</a>
+      <a href="../tenses.html">Tenses</a>
+    </nav>
+    <div class="gp-stats">
+      <span class="gp-stat streak">🔥 <b id="st-streak">0</b></span>
+      <span class="gp-stat xp">⚡ <b id="st-xp">0</b></span>
+    </div>
+  </header>
+
+  <main class="quiz-wrap">
+    <p style="font-weight: 1000; letter-spacing: 1.5px; color: #1cb0f6; font-size: 13px; text-transform: uppercase;">🎙️ INTERACTIVE MICRO-TOOL</p>
+    <h1 style="font-size: 30px; font-weight: 1000; margin: 0 0 8px;">Tap-to-Speak Pronunciation Coach 🦉</h1>
+    <p style="color: #64748b; font-weight: 700; margin-bottom: 14px;">Hear native pronunciation, tap the mic to speak out loud, and get an instant word-match score.</p>
+
+    <div id="mic-compat-warning" class="notice-box" hidden>
+      ⚠️ <strong>Microphone Notice:</strong> Speech recording requires Google Chrome (desktop or Android). You can still tap <strong>Hear it</strong> to train your ear with clear native audio!
+    </div>
+
+    <div style="display: flex; gap: 10px; align-items: center; margin: 16px 0;">
+      <div style="flex: 1; height: 12px; background: #eee; border-radius: 999px; overflow: hidden;">
+        <div id="progress" style="height: 100%; width: 0%; background: #58cc02; border-radius: 999px; transition: width .3s;"></div>
+      </div>
+      <b id="counter" style="color: #475569; font-weight: 900;">Phrase 1 of 12</b>
+    </div>
+
+    <div id="coach-card" class="q-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <span id="phrase-category" style="font-size: 12px; font-weight: 900; color: #1cb0f6; letter-spacing: 1px; text-transform: uppercase;">WORKPLACE ENGLISH</span>
+        <span style="font-size: 13px; font-weight: 800; color: #ff9600;">+10 XP / attempt · +25 XP bonus</span>
+      </div>
+
+      <div id="phrase-target" class="phrase-display">“Could you please share the report by Friday?”</div>
+
+      <div class="action-row">
+        <button id="btn-hear" type="button" class="btn-3d btn-blue" onclick="playAudio()">
+          <span>🔊</span> Hear it
+        </button>
+        <button id="btn-speak" type="button" class="btn-3d btn-green" onclick="toggleRecording()">
+          <span id="mic-icon">🎙️</span> <span id="speak-label">Say it</span>
+        </button>
+      </div>
+
+      <div id="live-status" style="font-size: 14px; font-weight: 800; color: #64748b; text-align: center; min-height: 22px;">
+        Tap <strong>Hear it</strong> to listen, then tap <strong>Say it</strong> to practice out loud.
+      </div>
+
+      <div id="feedback-panel" class="feedback-panel" hidden>
+        <div id="score-badge-wrap"></div>
+        <p class="transcript-box"><strong>You said:</strong> <span id="user-transcript" style="font-weight: 800; color: #0f172a;">—</span></p>
+        <p id="score-guidance" style="margin: 6px 0 0; font-weight: 700; color: #475569;"></p>
+        <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 14px;">
+          <button type="button" class="btn-3d btn-blue" onclick="retryPhrase()" style="padding: 10px 18px; font-size: 14px; font-weight: 800; border-radius: 10px;">
+            Try Again 🔄
+          </button>
+          <button id="btn-next" type="button" class="btn-3d btn-green" onclick="nextPhrase()" style="padding: 10px 20px; font-size: 14px; font-weight: 800; border-radius: 10px;">
+            Next Phrase →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="results" hidden>
+      <div class="result-card">
+        <div style="font-size: 52px;">🦉</div>
+        <h2 id="score-title" style="margin: 8px 0; font-size: 26px; font-weight: 1000; color: #1e1b4b;">Speaking Session Complete!</h2>
+        <p id="score-msg" style="color: #475569; font-weight: 800; font-size: 16px; margin: 6px 0 16px;"></p>
+        <p style="font-weight: 900; font-size: 17px; color: #1e1b4b;">
+          🔥 Streak: <span id="final-streak">0</span> days · ⚡ Total XP: <span id="final-xp">0</span>
+        </p>
+        <a id="wa-share" href="#" target="_blank" rel="noopener" class="btn-3d btn-green" style="display: inline-block; text-decoration: none; margin: 12px 6px; padding: 14px 24px; font-size: 15px; font-weight: 900;">
+          Share My Score on WhatsApp
+        </a>
+        <button type="button" class="btn-3d btn-blue" onclick="location.reload()" style="margin: 12px 6px; padding: 14px 24px; font-size: 15px; font-weight: 900;">
+          Practice Again
+        </button>
+
+        <div class="resource-card">
+          <h3 style="margin: 0 0 8px; font-size: 17px; color: #1e1b4b;">📚 Recommended English Resources</h3>
+          <p style="margin: 0 0 10px; color: #555; font-weight: 700; font-size: 14px;">Take your speaking confidence further. Flo recommends:</p>
+          <ul style="margin: 0; padding-left: 18px; font-weight: 700; font-size: 14px; line-height: 1.8;">
+            <li>🦉 Speaking blueprint: <a href="https://topmate.io/speak_english_with_confidence/2324225" target="_blank" rel="noopener noreferrer">Get the 30-Day Speaking Workbook ($) →</a> – daily guided conversation drills</li>
+            <li><a href="../30-day-english-flow-workbook.pdf">30-Day English Flow Workbook (PDF)</a> – free printable drills &amp; exercises</li>
+            <li><a href="../resources.html">Free Resources Library</a> – trackers, podcasts, and cheat sheets</li>
+            <li><a href="../game-practice.html">Daily Practice Session</a> – keep your streak active</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <section class="study-cheatsheet" aria-label="Pronunciation tips" style="margin: 26px 0; padding: 20px; border: 2px dashed #1cb0f6; border-radius: 18px; background: #f7fdff; text-align: left;">
+      <h2 style="font-size: 20px; font-weight: 900; margin-top: 0; color: #0284c7;">📖 4 Rules for Clear Workplace Pronunciation</h2>
+      <ul style="font-weight: 700; color: #334155; line-height: 1.7; padding-left: 20px;">
+        <li><strong>Rule 1: Slow down on key vowels</strong> — rushing makes English syllables blend awkwardly. Give content words full weight.</li>
+        <li><strong>Rule 2: Link consonant to vowel</strong> — say <em>"share it"</em> like <em>"sha-rit"</em> for natural connected speech.</li>
+        <li><strong>Rule 3: Stress the verb and noun</strong> — in <em>"schedule a quick call"</em>, emphasize <strong>sched-</strong> and <strong>call</strong>.</li>
+        <li><strong>Rule 4: Keep an upright posture</strong> — breathing from your diaphragm projects immediate voice authority.</li>
+      </ul>
+      <p style="font-size: 13px; color: #64748b; font-weight: 700; margin: 12px 0 0;">
+        🦉 Flo tip: Re-listen to each phrase twice before pressing Say it. Shadowing rhythm is the fastest route to fluency!
+      </p>
+    </section>
+  </main>
+
+  <script>
+    const PHRASES = [
+      { text: "Could you please share the report by Friday?", category: "Deadlines & Requests" },
+      { text: "I'd like to schedule a quick sync.", category: "Calendar & Meetings" },
+      { text: "That sounds great to me.", category: "Natural Agreement" },
+      { text: "Let's touch base on this tomorrow morning.", category: "Collaboration" },
+      { text: "Could you clarify what you mean by that?", category: "Polite Inquiries" },
+      { text: "I'm looking forward to collaborating with your team.", category: "Professional Rapport" },
+      { text: "Let's review the budget before making a final decision.", category: "Decision Making" },
+      { text: "I appreciate your prompt feedback on this draft.", category: "Gratitude & Email" },
+      { text: "Would you mind if I took the lead on this presentation?", category: "Initiative & Leadership" },
+      { text: "To put it briefly, our key priority is customer retention.", category: "Executive Summaries" },
+      { text: "Let's explore bridging the gap between both proposals.", category: "Diplomatic Negotiation" },
+      { text: "Thank you all for your time and productive input today.", category: "Meeting Closures" }
+    ];
+
+    let currentIdx = 0;
+    let scores = [];
+    let isRecording = false;
+    let recognition = null;
+    let xp = parseInt(localStorage.getItem('userXP')) || 0;
+    let streak = parseInt(localStorage.getItem('english_flow_streak')) || 0;
+
+    function renderStats() {
+      document.getElementById('st-streak').textContent = streak;
+      document.getElementById('st-xp').textContent = xp;
+    }
+
+    // Initialize Web Speech Recognition
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRecognition) {
+      recognition = new SpeechRecognition();
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      recognition.onstart = function() {
+        isRecording = true;
+        const btn = document.getElementById('btn-speak');
+        btn.classList.add('mic-status-listening');
+        document.getElementById('speak-label').textContent = 'Listening...';
+        document.getElementById('live-status').innerHTML = '<span style="color:#ef4444;">🔴 Listening... Speak clearly now!</span>';
+      };
+
+      recognition.onresult = function(event) {
+        isRecording = false;
+        resetSpeakButton();
+        const transcript = event.results[0][0].transcript;
+        handleSpeechResult(transcript);
+      };
+
+      recognition.onerror = function(event) {
+        isRecording = false;
+        resetSpeakButton();
+        document.getElementById('live-status').innerHTML = '⚠️ Recognition note: ' + (event.error || 'Could not catch audio') + '. Tap <strong>Say it</strong> to try again.';
+      };
+
+      recognition.onend = function() {
+        if (isRecording) {
+          isRecording = false;
+          resetSpeakButton();
+        }
+      };
+    } else {
+      document.getElementById('mic-compat-warning').hidden = false;
+      const speakBtn = document.getElementById('btn-speak');
+      speakBtn.style.opacity = '0.6';
+      speakBtn.onclick = function() {
+        alert('Microphone speech recognition requires Google Chrome (desktop or Android). You can still tap "Hear it" to train your ear!');
+      };
+    }
+
+    function resetSpeakButton() {
+      const btn = document.getElementById('btn-speak');
+      btn.classList.remove('mic-status-listening');
+      document.getElementById('speak-label').textContent = 'Say it';
+    }
+
+    function renderCurrentPhrase() {
+      if (currentIdx >= PHRASES.length) {
+        showCompletionScreen();
+        return;
+      }
+      const item = PHRASES[currentIdx];
+      document.getElementById('counter').textContent = 'Phrase ' + (currentIdx + 1) + ' of ' + PHRASES.length;
+      document.getElementById('progress').style.width = ((currentIdx / PHRASES.length) * 100) + '%';
+      document.getElementById('phrase-category').textContent = item.category;
+      document.getElementById('phrase-target').textContent = '“' + item.text + '”';
+      document.getElementById('feedback-panel').hidden = true;
+      document.getElementById('live-status').innerHTML = 'Tap <strong>Hear it</strong> to listen, then tap <strong>Say it</strong> to practice out loud.';
+      resetSpeakButton();
+    }
+
+    function playAudio() {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const item = PHRASES[currentIdx];
+        const utterance = new SpeechSynthesisUtterance(item.text);
+        utterance.lang = 'en-US';
+        utterance.rate = 0.9;
+        window.speechSynthesis.speak(utterance);
+        document.getElementById('live-status').innerHTML = '🔊 Playing native pronunciation...';
+      } else {
+        alert('Speech audio playback is not supported in this browser.');
+      }
+    }
+
+    function toggleRecording() {
+      if (!recognition) return;
+      if (isRecording) {
+        recognition.stop();
+      } else {
+        try {
+          recognition.start();
+        } catch (e) {
+          recognition.stop();
+        }
+      }
+    }
+
+    function cleanWords(str) {
+      return str.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim().split(/\s+/).filter(Boolean);
+    }
+
+    function handleSpeechResult(transcript) {
+      const targetText = PHRASES[currentIdx].text;
+      const targetWords = cleanWords(targetText);
+      const userWords = cleanWords(transcript);
+
+      let matchCount = 0;
+      const pool = [...userWords];
+      targetWords.forEach(function(word) {
+        const idx = pool.indexOf(word);
+        if (idx !== -1) {
+          matchCount++;
+          pool.splice(idx, 1);
+        }
+      });
+
+      const score = Math.round((matchCount / targetWords.length) * 100);
+      scores[currentIdx] = score;
+
+      // Award XP: +10 XP per attempt, +25 bonus for score >= 80
+      let earnedXP = 10;
+      if (score >= 80) earnedXP += 25;
+      xp += earnedXP;
+      localStorage.setItem('userXP', xp);
+      renderStats();
+
+      // Display feedback
+      const panel = document.getElementById('feedback-panel');
+      panel.hidden = false;
+      document.getElementById('user-transcript').textContent = '“' + transcript + '”';
+
+      let bandClass = 'score-low';
+      let guidance = 'Listen carefully to the audio rhythm, then try again!';
+      if (score >= 90) {
+        bandClass = 'score-high';
+        guidance = 'Excellent — native-like clarity! 🌟 (+35 XP)';
+      } else if (score >= 70) {
+        bandClass = 'score-med';
+        guidance = 'Great — almost there! Keep this steady rhythm. (+35 XP)';
+      } else if (score >= 40) {
+        bandClass = 'score-low';
+        guidance = 'Good try — listen to the phrase once more and retry. (+10 XP)';
+      } else {
+        bandClass = 'score-low';
+        guidance = 'Listen carefully to the audio pacing, then try again. (+10 XP)';
+      }
+
+      document.getElementById('score-badge-wrap').innerHTML =
+        '<span class="score-badge ' + bandClass + '">Word-match score: ' + score + '%</span>';
+      document.getElementById('score-guidance').textContent = guidance;
+      document.getElementById('live-status').textContent = 'Attempt recorded! Tap Next Phrase to continue or Try Again.';
+    }
+
+    function retryPhrase() {
+      document.getElementById('feedback-panel').hidden = true;
+      document.getElementById('live-status').innerHTML = 'Tap <strong>Hear it</strong> or <strong>Say it</strong> to record another attempt.';
+      resetSpeakButton();
+    }
+
+    function nextPhrase() {
+      currentIdx++;
+      renderCurrentPhrase();
+    }
+
+    function showCompletionScreen() {
+      document.getElementById('coach-card').hidden = true;
+      document.getElementById('results').hidden = false;
+      document.getElementById('progress').style.width = '100%';
+      document.getElementById('counter').textContent = 'Completed (12 / 12)';
+
+      // Calculate average word-match score
+      let total = 0;
+      for (let i = 0; i < scores.length; i++) {
+        total += (scores[i] || 0);
+      }
+      const avgScore = scores.length > 0 ? Math.round(total / scores.length) : 0;
+
+      // Update Streak once per day
+      const today = new Date().toDateString();
+      const last = localStorage.getItem('english_flow_last_practice');
+      if (last !== today) {
+        streak += 1;
+        localStorage.setItem('english_flow_streak', streak);
+        localStorage.setItem('english_flow_last_practice', today);
+      }
+      renderStats();
+
+      document.getElementById('final-streak').textContent = streak;
+      document.getElementById('final-xp').textContent = xp;
+
+      let summaryMsg = 'Average Word-Match Score: ' + avgScore + '%. ';
+      if (avgScore >= 85) {
+        summaryMsg += 'Outstanding! Your spoken workplace English sounds confident and natural. 🏆';
+      } else if (avgScore >= 65) {
+        summaryMsg += 'Strong session! Practice with Flo tomorrow to build automated speaking habits.';
+      } else {
+        summaryMsg += 'Solid start! Shadow the audio prompts daily to train your vocal clarity.';
+      }
+      document.getElementById('score-msg').textContent = summaryMsg;
+
+      const shareText = encodeURIComponent(
+        'I achieved a ' + avgScore + '% word-match score on the Tap-to-Speak Pronunciation Coach on English Flow! 🦉 Can you beat my score? https://englishflowofficial.github.io/quizzes/pronunciation-coach-2026-11-04.html'
+      );
+      document.getElementById('wa-share').href = 'https://api.whatsapp.com/send?text=' + shareText;
+    }
+
+    renderStats();
+    renderCurrentPhrase();
+  </script>
+  <script src="../ef-analytics.js" defer></script>
+</body>
+</html>
