@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30-Second Speaking Challenge | English Flow</title>
+<meta name="description" content="Speak for 30 seconds on a surprise workplace topic. Live transcript, filler-word count, pace and fluency score. Free, no sign-up, works in Chrome.">
+<meta name="theme-color" content="#58cc02">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://englishflowofficial.github.io/tools/30-second-speaking-challenge.html">
+<link rel="icon" href="../favicon.jpg">
+
+<!-- OpenGraph -->
+<meta property="og:title" content="30-Second Speaking Challenge | English Flow">
+<meta property="og:description" content="Speak for 30 seconds on a surprise workplace topic. Live transcript, filler-word count, pace and fluency score. Free, no sign-up, works in Chrome.">
+<meta property="og:image" content="https://englishflowofficial.github.io/og-image.jpg">
+<meta property="og:url" content="https://englishflowofficial.github.io/tools/30-second-speaking-challenge.html">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@EnglishFlowPodcastt">
+<meta name="twitter:title" content="30-Second Speaking Challenge | English Flow">
+<meta name="twitter:description" content="Speak for 30 seconds on a surprise workplace topic. Live transcript, filler-word count, pace and fluency score. Free, no sign-up, works in Chrome.">
+<meta name="twitter:image" content="https://englishflowofficial.github.io/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900;1000&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../game-practice.css">
+<style>
+  body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f7f7f7;
+    color: #333;
+  }
+  .quiz-wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 40px; }
+  .q-card { border: 2px solid #e5e5e5; border-radius: 20px; padding: 26px 22px; background: #fff; box-shadow: 0 4px 0 #e5e5e5; margin: 16px 0; text-align: center; }
+  .result-card { border: 2px solid #e5e5e5; border-radius: 20px; padding: 28px; text-align: center; background: linear-gradient(135deg, #f0fff4, #eff8ff); }
+  .resource-card { border: 2px solid #ffc800; border-radius: 18px; padding: 18px; background: #fffbe6; margin-top: 18px; text-align: left; }
+  .notice-box { background: #fffbeb; border: 2px solid #fde68a; border-radius: 14px; padding: 14px 18px; color: #92400e; font-size: 14px; font-weight: 700; margin: 12px 0; text-align: left; }
+  .score-badge { display: inline-block; padding: 6px 14px; border-radius: 999px; font-weight: 900; font-size: 14px; }
+  .score-high { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+  .score-med { background: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
+  .score-low { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+  
+  .topic-tag { display: inline-block; background: #e0f2fe; color: #0284c7; padding: 4px 12px; border-radius: 12px; font-weight: 800; font-size: 12px; text-transform: uppercase; margin-bottom: 12px; }
+  .topic-prompt { font-size: 24px; font-weight: 800; margin: 0 0 16px; color: #1f2937; }
+  .hint-words { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+  .hint-word { background: #f3f4f6; color: #4b5563; padding: 6px 14px; border-radius: 8px; font-weight: 700; font-size: 14px; border: 2px solid #e5e5e5; }
+  
+  .big-countdown { width: 140px; height: 140px; border-radius: 50%; border: 10px solid #58cc02; display: flex; align-items: center; justify-content: center; font-size: 56px; font-weight: 900; margin: 20px auto; color: #58cc02; box-shadow: 0 4px 12px rgba(88, 204, 2, 0.2); }
+  .live-transcript-box { min-height: 120px; border: 2px dashed #cbd5e1; border-radius: 16px; padding: 16px; font-size: 18px; color: #475569; text-align: left; background: #f8fafc; margin-bottom: 24px; line-height: 1.5; max-height: 250px; overflow-y: auto; }
+  .live-transcript-box:focus-within { border-color: #38bdf8; background: #fff; outline: none; }
+  #fallback-input { width: 100%; height: 100%; min-height: 110px; border: none; background: transparent; font-family: inherit; font-size: 18px; color: #333; resize: none; outline: none; }
+  
+  .action-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
+  .action-row button { min-height: 48px; font-weight: 900; border-radius: 14px; padding: 0 24px; cursor: pointer; border: none; font-family: 'Nunito', sans-serif; font-size: 16px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.1s, filter 0.1s; }
+  .action-row button:active { transform: translateY(4px); box-shadow: none !important; }
+  .btn-3d { box-shadow: 0 4px 0 rgba(0,0,0,0.15); }
+  .btn-green { background: #58cc02; color: white; border-bottom: 4px solid #46a302; }
+  .btn-blue { background: #1cb0f6; color: white; border-bottom: 4px solid #1899d6; }
+  .btn-outline { background: #fff; color: #afafaf; border: 2px solid #e5e5e5; border-bottom: 4px solid #e5e5e5; }
+  .btn-outline:hover { background: #f9f9f9; color: #777; }
+  
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 24px 0; }
+  .stat-box { background: #fff; border: 2px solid #e5e5e5; border-radius: 16px; padding: 16px; text-align: center; }
+  .stat-val { font-size: 28px; font-weight: 900; color: #1f2937; margin-bottom: 4px; }
+  .stat-label { font-size: 12px; font-weight: 800; color: #6b7280; text-transform: uppercase; }
+  .stat-fillers { color: #dc2626; font-weight: 700; font-size: 13px; margin-top: 6px; }
+
+  .resource-links { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+  .resource-links a { display: block; background: #fff; border: 2px solid #fde047; padding: 12px 16px; border-radius: 12px; color: #854d0e; font-weight: 800; text-decoration: none; transition: background 0.2s; }
+  .resource-links a:hover { background: #fef9c3; }
+
+  .cheat-sheet { margin-top: 32px; background: #fff; border: 2px solid #e5e5e5; border-radius: 20px; padding: 24px; }
+  .cheat-sheet h3 { margin: 0 0 16px; font-size: 20px; color: #1f2937; }
+  .cheat-sheet ul { list-style: none; padding: 0; margin: 0; }
+  .cheat-sheet li { padding: 10px 0; border-bottom: 2px solid #f3f4f6; font-size: 15px; color: #4b5563; display: flex; gap: 12px; align-items: flex-start; }
+  .cheat-sheet li:last-child { border-bottom: none; }
+  .cheat-sheet li b { color: #1f2937; }
+  .flo-tip { margin-top: 16px; padding: 12px; background: #e0f2fe; border-radius: 12px; font-weight: 700; color: #0369a1; display: flex; align-items: center; gap: 8px; }
+</style>
+
+<!-- JSON-LD WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "30-Second Speaking Challenge | English Flow",
+  "url": "https://englishflowofficial.github.io/tools/30-second-speaking-challenge.html",
+  "description": "Speak for 30 seconds on a surprise workplace topic. Live transcript, filler-word count, pace and fluency score.",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<!-- JSON-LD FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "How does the scoring work?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The tool calculates total words spoken, subtracts identified filler words (like 'um', 'uh', 'you know'), measures your words per minute (pace), and assigns a fluency band out of 100 based on these factors."
+    }
+  }, {
+    "@type": "Question",
+    "name": "Which browsers support the microphone?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The live transcription uses the Web Speech API, which is fully supported natively in Google Chrome, Microsoft Edge, and Safari."
+    }
+  }, {
+    "@type": "Question",
+    "name": "Is my audio stored or recorded?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Your speech is processed locally in real-time by your browser for transcription purposes and is never saved or uploaded to our servers."
+    }
+  }, {
+    "@type": "Question",
+    "name": "How do XP and streaks work?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You earn 20 XP for every completed round, plus a 15 XP bonus if your score is 80 or above. Completing a challenge increases your streak once per day, helping you build a daily practice habit."
+    }
+  }]
+}
+</script>
+</head>
+<body>
+
+<header class="gp-header">
+<a class="gp-brand" href="../index.html">🦉 English <b>Flow</b></a>
+<nav class="gp-nav"><a href="../index.html">Home</a><a href="../game-practice.html">Practice</a><a href="../tenses.html">Tenses</a></nav>
+<div class="gp-stats"><span class="gp-stat streak">🔥 <b id="st-streak">0</b></span><span class="gp-stat xp">⚡ <b id="st-xp">0</b></span></div>
+</header>
+
+<main class="quiz-wrap">
+
+  <!-- STAGE: START -->
+  <div id="stage-start">
+    <div class="q-card">
+      <h1 style="font-size: 24px; margin-top: 0;">30-Second Speaking Challenge</h1>
+      <p style="color: #6b7280; font-weight: 600; margin-bottom: 24px;">Get a surprise workplace topic. 10 seconds to prepare. 30 seconds to speak.</p>
+      
+      <div style="background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 16px; padding: 24px; margin-bottom: 24px;">
+        <span class="topic-tag" id="ui-topic-cat">Loading...</span>
+        <h2 class="topic-prompt" id="ui-topic-prompt">Topic will appear here</h2>
+        <div class="hint-words" id="ui-topic-hints"></div>
+      </div>
+
+      <div class="action-row">
+        <button class="btn-outline btn-3d" id="btn-shuffle" style="padding: 0 16px;">🔄 New Topic</button>
+        <button class="btn-green btn-3d" id="btn-start-prep" style="flex: 1;">Start 30-Second Challenge →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE: PREP -->
+  <div id="stage-prep" hidden>
+    <div class="q-card">
+      <h2 style="color: #f59e0b; margin-top: 0;">Prepare your answer...</h2>
+      <div class="big-countdown" style="border-color: #f59e0b; color: #f59e0b;" id="prep-timer">10</div>
+      
+      <div style="margin-top: 24px;">
+        <span class="topic-tag" id="prep-topic-cat">Category</span>
+        <h3 class="topic-prompt" id="prep-topic-prompt">Prompt</h3>
+        <p style="font-weight: 700; color: #9ca3af; font-size: 14px; margin-bottom: 8px;">Use these ideas if you get stuck:</p>
+        <div class="hint-words" id="prep-topic-hints"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE: SPEAKING -->
+  <div id="stage-speak" hidden>
+    <div class="q-card">
+      <h2 style="color: #ef4444; margin-top: 0; animation: pulse 2s infinite;">🔴 Speak Now!</h2>
+      <style>@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }</style>
+      
+      <div class="big-countdown" style="border-color: #ef4444; color: #ef4444;" id="speak-timer">30</div>
+      <p style="font-weight: 800; font-size: 16px; margin-bottom: 8px;" id="speak-topic-prompt">Topic</p>
+      
+      <div id="mic-notice-box" class="notice-box" hidden></div>
+      
+      <div class="live-transcript-box" id="transcript-box">
+        <span style="color: #94a3b8; font-style: italic;">Waiting for you to speak...</span>
+      </div>
+
+      <div class="action-row">
+        <button class="btn-blue btn-3d" id="btn-stop-speak" style="width: 100%;">Stop & See My Score</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE: RESULTS -->
+  <div id="stage-result" hidden>
+    <div class="result-card">
+      <div id="score-badge" class="score-badge score-high" style="font-size: 18px; padding: 8px 20px; margin-bottom: 16px;">95 - Outstanding</div>
+      <h2 style="margin: 0 0 8px; color: #1f2937;">Challenge Complete!</h2>
+      <p style="color: #059669; font-weight: 800; font-size: 16px; margin: 0 0 20px;" id="xp-earned-msg">+20 XP earned!</p>
+      
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-val" id="res-words">0</div>
+          <div class="stat-label">Total Words</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val" id="res-pace">0</div>
+          <div class="stat-label">Words / Minute</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val" id="res-fillers">0</div>
+          <div class="stat-label">Filler Words</div>
+          <div class="stat-fillers" id="res-filler-list"></div>
+        </div>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #e5e5e5; border-radius: 16px; padding: 16px; text-align: left; margin-bottom: 24px;">
+        <div class="stat-label" style="margin-bottom: 8px;">Your Transcript</div>
+        <div id="res-transcript" style="font-size: 16px; color: #4b5563; line-height: 1.5; font-style: italic;"></div>
+      </div>
+
+      <div class="action-row">
+        <button class="btn-green btn-3d" id="btn-share" style="flex: 1;">📱 Share My Score on WhatsApp</button>
+        <button class="btn-outline btn-3d" id="btn-retry" style="flex: 1;">Try Another Topic</button>
+      </div>
+    </div>
+
+    <!-- RECOMMENDED RESOURCES -->
+    <div class="resource-card">
+      <h3 style="margin: 0 0 12px; color: #92400e;">📚 Recommended Resources</h3>
+      <p style="margin: 0 0 16px; color: #854d0e; font-size: 15px; font-weight: 600;">Take your speaking skills to the next level with our structured materials.</p>
+      <div class="resource-links">
+        <a href="https://topmate.io/speak_english_with_confidence/2324225" target="_blank" rel="noopener">Get the 30-Day Speaking Workbook ($) →</a>
+        <a href="../30-day-english-flow-workbook.pdf" target="_blank">Free Preview: 30-Day Workbook PDF →</a>
+        <a href="../game-practice.html">Play More Speaking Games →</a>
+        <a href="../resources.html">Browse All Free Resources →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHEAT SHEET -->
+  <div class="cheat-sheet">
+    <h3>📖 5 Rules for Confident Impromptu Speaking</h3>
+    <ul>
+      <li><span>💡</span><div><b>Pause, Don't Fill.</b> Silence is powerful. Instead of saying "um" or "like", take a deep breath.</div></li>
+      <li><span>🎯</span><div><b>One Core Idea.</b> Don't try to say everything. Pick one main point and deliver it clearly.</div></li>
+      <li><span>🏗️</span><div><b>Use the PREP Framework.</b> Point, Reason, Example, Point. It instantly structures your thoughts.</div></li>
+      <li><span>🐢</span><div><b>Slow Down.</b> When nervous, we rush. Aim for a calm pace (around 120-140 words per minute).</div></li>
+      <li><span>😊</span><div><b>Smile While Speaking.</b> It naturally warms your tone and tricks your brain into feeling more relaxed.</div></li>
+    </ul>
+    <div class="flo-tip">
+      🦉 Flo says: "Perfection is the enemy of fluency. Focus on connection, not correction!"
+    </div>
+  </div>
+
+</main>
+
+<script>
+  // -- Topics Data --
+  const topics = [
+    { cat: "Self-introduction", prompt: "Introduce yourself in a team meeting", hints: ["Role", "Background", "Excited"] },
+    { cat: "Bad news, politely", prompt: "Explain a project delay to your manager", hints: ["Blocker", "Timeline", "Solution"] },
+    { cat: "Ideas & pitches", prompt: "Pitch a new idea in 30 seconds", hints: ["Problem", "Benefit", "Action"] },
+    { cat: "Small talk", prompt: "Describe your ideal workday", hints: ["Routine", "Focus", "Balance"] },
+    { cat: "Meetings", prompt: "Give a quick status update in a stand-up", hints: ["Yesterday", "Today", "Blockers"] },
+    { cat: "Requests", prompt: "Ask a colleague for help with a deadline", hints: ["Urgent", "Specific", "Appreciate"] },
+    { cat: "Growth", prompt: "Talk about a skill you want to learn", hints: ["Goal", "Impact", "Timeline"] },
+    { cat: "Summaries", prompt: "Summarise a meeting for someone who missed it", hints: ["Decisions", "Action items", "Next steps"] }
+  ];
+
+  let currentTopic = null;
+  let prepInterval, speakInterval;
+  let recognition;
+  let finalTranscript = '';
+  let usingFallback = false;
+  let speakTimeLeft = 30;
+
+  // -- DOM Elements --
+  const stageStart = document.getElementById('stage-start');
+  const stagePrep = document.getElementById('stage-prep');
+  const stageSpeak = document.getElementById('stage-speak');
+  const stageResult = document.getElementById('stage-result');
+  
+  const uiTopicCat = document.getElementById('ui-topic-cat');
+  const uiTopicPrompt = document.getElementById('ui-topic-prompt');
+  const uiTopicHints = document.getElementById('ui-topic-hints');
+  
+  const prepTimer = document.getElementById('prep-timer');
+  const prepTopicCat = document.getElementById('prep-topic-cat');
+  const prepTopicPrompt = document.getElementById('prep-topic-prompt');
+  const prepTopicHints = document.getElementById('prep-topic-hints');
+  
+  const speakTimer = document.getElementById('speak-timer');
+  const speakTopicPrompt = document.getElementById('speak-topic-prompt');
+  const transcriptBox = document.getElementById('transcript-box');
+  const micNoticeBox = document.getElementById('mic-notice-box');
+  
+  // -- Init / Stats --
+  function updateHeaderStats() {
+    let xp = parseInt(localStorage.getItem('userXP')) || 0;
+    let streak = parseInt(localStorage.getItem('english_flow_streak')) || 0;
+    document.getElementById('st-xp').innerText = xp;
+    document.getElementById('st-streak').innerText = streak;
+  }
+
+  function addReward(score) {
+    let xp = parseInt(localStorage.getItem('userXP')) || 0;
+    let streak = parseInt(localStorage.getItem('english_flow_streak')) || 0;
+    let lastPractice = localStorage.getItem('english_flow_last_practice');
+    
+    let today = new Date().toDateString();
+    if (lastPractice !== today) {
+      streak += 1;
+      localStorage.setItem('english_flow_streak', streak);
+      localStorage.setItem('english_flow_last_practice', today);
+    }
+    
+    let earnedXP = 20;
+    if (score >= 80) earnedXP += 15;
+    
+    xp += earnedXP;
+    localStorage.setItem('userXP', xp);
+    
+    document.getElementById('xp-earned-msg').innerText = `+${earnedXP} XP earned!` + (score >= 80 ? ' (Includes +15 High Score Bonus!)' : '');
+    updateHeaderStats();
+  }
+
+  // -- Logic --
+  function renderTopic(topic) {
+    const hintHTML = topic.hints.map(h => `<span class="hint-word">${h}</span>`).join('');
+    uiTopicCat.innerText = topic.cat;
+    uiTopicPrompt.innerText = topic.prompt;
+    uiTopicHints.innerHTML = hintHTML;
+    
+    prepTopicCat.innerText = topic.cat;
+    prepTopicPrompt.innerText = topic.prompt;
+    prepTopicHints.innerHTML = hintHTML;
+    
+    speakTopicPrompt.innerText = topic.prompt;
+  }
+
+  function shuffleTopic() {
+    let newTopic = currentTopic;
+    while(newTopic === currentTopic) {
+      newTopic = topics[Math.floor(Math.random() * topics.length)];
+    }
+    currentTopic = newTopic;
+    renderTopic(currentTopic);
+  }
+
+  function setupSpeech() {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRecognition) {
+      recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = 'en-US';
+      
+      recognition.onstart = () => {
+        transcriptBox.innerHTML = '';
+      };
+      
+      recognition.onresult = (event) => {
+        let interim = '';
+        let finalSegment = '';
+        for (let i = event.resultIndex; i < event.results.length; ++i) {
+          if (event.results[i].isFinal) {
+            finalSegment += event.results[i][0].transcript + ' ';
+          } else {
+            interim += event.results[i][0].transcript;
+          }
+        }
+        finalTranscript += finalSegment;
+        transcriptBox.innerHTML = finalTranscript + '<i style="color:#94a3b8">' + interim + '</i>';
+      };
+      
+      recognition.onerror = (e) => {
+        console.error("Speech Error", e);
+        if(e.error === 'not-allowed' || e.error === 'no-speech') {
+          enableFallback("Microphone access denied or no speech heard. You can type your response below instead.");
+        }
+      };
+    } else {
+      enableFallback("Your browser doesn't support live speech recognition. Please type your response below while the timer runs.");
+    }
+  }
+
+  function enableFallback(msg) {
+    usingFallback = true;
+    micNoticeBox.innerText = msg;
+    micNoticeBox.removeAttribute('hidden');
+    transcriptBox.style.padding = "0";
+    transcriptBox.style.border = "none";
+    transcriptBox.innerHTML = `<textarea id="fallback-input" placeholder="Type your response here..."></textarea>`;
+    document.getElementById('fallback-input').focus();
+  }
+
+  function startPrep() {
+    stageStart.setAttribute('hidden', '');
+    stagePrep.removeAttribute('hidden');
+    let prepTimeLeft = 10;
+    prepTimer.innerText = prepTimeLeft;
+    
+    setupSpeech(); // Initialize mic permissions early if possible
+    finalTranscript = '';
+    usingFallback = false;
+    micNoticeBox.setAttribute('hidden', '');
+    transcriptBox.style.padding = "16px";
+    transcriptBox.style.border = "2px dashed #cbd5e1";
+    transcriptBox.innerHTML = `<span style="color: #94a3b8; font-style: italic;">Listening...</span>`;
+
+    prepInterval = setInterval(() => {
+      prepTimeLeft--;
+      prepTimer.innerText = prepTimeLeft;
+      if (prepTimeLeft <= 0) {
+        clearInterval(prepInterval);
+        startSpeak();
+      }
+    }, 1000);
+  }
+
+  function startSpeak() {
+    stagePrep.setAttribute('hidden', '');
+    stageSpeak.removeAttribute('hidden');
+    speakTimeLeft = 30;
+    speakTimer.innerText = speakTimeLeft;
+    
+    if (recognition && !usingFallback) {
+      try { recognition.start(); } 
+      catch (e) { enableFallback("Microphone error. Please type instead."); }
+    } else if (!recognition) {
+      enableFallback("Browser mic not supported. Type your answer.");
+    }
+    
+    speakInterval = setInterval(() => {
+      speakTimeLeft--;
+      speakTimer.innerText = speakTimeLeft;
+      if (speakTimeLeft <= 0) {
+        finishSpeaking();
+      }
+    }, 1000);
+  }
+
+  function finishSpeaking() {
+    clearInterval(speakInterval);
+    if (recognition && !usingFallback) {
+      recognition.stop();
+    }
+    
+    if (usingFallback) {
+      const fbInput = document.getElementById('fallback-input');
+      if (fbInput) finalTranscript = fbInput.value;
+    }
+    
+    calculateAndShowResults();
+  }
+
+  function calculateAndShowResults() {
+    stageSpeak.setAttribute('hidden', '');
+    stageResult.removeAttribute('hidden');
+    
+    const text = finalTranscript.trim();
+    const words = text.split(/\s+/).filter(w => w.length > 0);
+    const totalWords = words.length;
+    
+    // Find fillers
+    const fillerRegex = /\b(um|uh|like|you know|basically|actually)\b/gi;
+    const foundFillers = text.match(fillerRegex) || [];
+    const fillerCount = foundFillers.length;
+    
+    // Unique fillers for display
+    const uniqueFillers = [...new Set(foundFillers.map(f => f.toLowerCase()))];
+    
+    // Pace: wpm based on actual time spoken (if stopped early)
+    const timeSpent = 30 - speakTimeLeft;
+    const actualTime = timeSpent > 2 ? timeSpent : 30; // avoid div by zero
+    const validWords = totalWords > fillerCount ? totalWords - fillerCount : 0;
+    const wpm = Math.round((validWords / actualTime) * 60);
+    
+    // Score Calc (0-100)
+    let score = 100;
+    if (totalWords < 10) score -= 50; // Too short
+    score -= (fillerCount * 5);
+    
+    if (wpm < 90) score -= 15;
+    else if (wpm > 160) score -= 10;
+    
+    if (score > 100) score = 100;
+    if (score < 0 || totalWords === 0) score = 0;
+    
+    // UI Update
+    document.getElementById('res-words').innerText = totalWords;
+    document.getElementById('res-pace').innerText = wpm;
+    document.getElementById('res-fillers').innerText = fillerCount;
+    document.getElementById('res-filler-list').innerText = uniqueFillers.length > 0 ? `(${uniqueFillers.join(', ')})` : 'None detected! 👏';
+    document.getElementById('res-transcript').innerText = text || "(No speech detected)";
+    
+    const badge = document.getElementById('score-badge');
+    badge.className = 'score-badge'; // reset
+    if (score >= 90) {
+      badge.classList.add('score-high');
+      badge.innerText = `${score} - Outstanding`;
+    } else if (score >= 70) {
+      badge.classList.add('score-high');
+      badge.innerText = `${score} - Strong`;
+    } else if (score >= 40) {
+      badge.classList.add('score-med');
+      badge.innerText = `${score} - Good start`;
+    } else {
+      badge.classList.add('score-low');
+      badge.innerText = `${score} - Keep practicing`;
+    }
+    
+    addReward(score);
+    
+    // Share Setup
+    const shareText = `I just scored ${score}/100 on the English Flow 30-Second Speaking Challenge! Topic: "${currentTopic.prompt}". Try it here:`;
+    const shareUrl = "https://englishflowofficial.github.io/tools/30-second-speaking-challenge.html";
+    document.getElementById('btn-share').onclick = () => {
+      window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`, '_blank');
+    };
+  }
+
+  // -- Event Listeners --
+  document.getElementById('btn-shuffle').addEventListener('click', shuffleTopic);
+  document.getElementById('btn-start-prep').addEventListener('click', startPrep);
+  document.getElementById('btn-stop-speak').addEventListener('click', finishSpeaking);
+  document.getElementById('btn-retry').addEventListener('click', () => {
+    stageResult.setAttribute('hidden', '');
+    stageStart.removeAttribute('hidden');
+    shuffleTopic();
+  });
+
+  // On Load
+  updateHeaderStats();
+  shuffleTopic();
+
+</script>
+<script src="../ef-analytics.js" defer></script>
+</body>
+</html>
