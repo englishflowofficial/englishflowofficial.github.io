@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#58cc02">
+    <meta name="robots" content="index,follow">
+    <title>Speaking Speed Test (WPM) | English Flow</title>
+    <meta name="description" content="Test how fast you speak English live from your mic. Real-time WPM gauge, 120–150 WPM interview benchmark, instant playback. Free, no sign-up, works in Chrome.">
+    <link rel="canonical" href="https://englishflowofficial.github.io/tools/speaking-speed-test-wpm.html">
+    <link rel="icon" type="image/jpeg" href="../favicon.jpg">
+
+    <!-- OpenGraph -->
+    <meta property="og:title" content="Speaking Speed Test (WPM) | English Flow">
+    <meta property="og:description" content="Test how fast you speak English live from your mic. Real-time WPM gauge, 120–150 WPM interview benchmark, instant playback. Free, no sign-up, works in Chrome.">
+    <meta property="og:image" content="https://englishflowofficial.github.io/og-image.jpg">
+    <meta property="og:url" content="https://englishflowofficial.github.io/tools/speaking-speed-test-wpm.html">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@EnglishFlowPodcastt">
+    <meta name="twitter:title" content="Speaking Speed Test (WPM) | English Flow">
+    <meta name="twitter:description" content="Test how fast you speak English live from your mic. Real-time WPM gauge, 120–150 WPM interview benchmark, instant playback. Free, no sign-up, works in Chrome.">
+    <meta name="twitter:image" content="https://englishflowofficial.github.io/og-image.jpg">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900;1000&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../game-practice.css">
+    
+    <style>
+        :root {
+            --primary: #58cc02;
+            --primary-shadow: #46a302;
+            --bg: #ffffff;
+            --text-main: #3c3c3c;
+            --text-muted: #777777;
+            --card-border: #e5e5e5;
+            --yellow: #ffc800;
+            --yellow-bg: #fffbe6;
+            --danger: #ff4b4b;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: var(--text-main);
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px 16px;
+            display: flex;
+            justify-content: center;
+            line-height: 1.5;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 760px;
+            background: var(--bg);
+            border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 32px 24px;
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .home-link {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 900;
+            margin: 0 0 8px 0;
+            color: var(--text-main);
+        }
+
+        .subhead {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .streak-header {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .streak-val { color: #ff9600; }
+        .xp-val { color: #1cb0f6; }
+
+        .card {
+            border: 2px solid var(--card-border);
+            border-radius: 16px;
+            box-shadow: 0 4px 0 var(--card-border);
+            padding: 24px;
+            margin-bottom: 24px;
+            text-align: center;
+            background: var(--bg);
+        }
+
+        .card-yellow {
+            border-color: var(--yellow);
+            box-shadow: 0 4px 0 var(--yellow);
+            background-color: var(--yellow-bg);
+        }
+
+        /* Gauge styles */
+        .gauge-container {
+            width: 240px;
+            margin: 0 auto 24px auto;
+            position: relative;
+        }
+        
+        .gauge-svg {
+            width: 100%;
+            overflow: visible;
+        }
+
+        .gauge-legend {
+            font-size: 15px;
+            font-weight: 700;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            text-align: left;
+            max-width: 300px;
+            margin: 0 auto 24px auto;
+            background: #f7f7f7;
+            padding: 16px;
+            border-radius: 12px;
+        }
+
+        .btn-3d {
+            display: inline-block;
+            width: 100%;
+            max-width: 320px;
+            background: var(--primary);
+            color: white;
+            font-family: inherit;
+            font-weight: 800;
+            font-size: 18px;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 4px 0 var(--primary-shadow);
+            cursor: pointer;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: transform 0.1s, box-shadow 0.1s;
+            margin-bottom: 16px;
+        }
+        
+        .btn-3d:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 var(--primary-shadow);
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: var(--primary);
+            border: 2px solid var(--card-border);
+            box-shadow: 0 4px 0 var(--card-border);
+        }
+        
+        .btn-secondary:active {
+            box-shadow: 0 0 0 var(--card-border);
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            box-shadow: 0 4px 0 #d93d3d;
+        }
+        .btn-danger:active {
+            box-shadow: 0 0 0 #d93d3d;
+        }
+
+        .text-link {
+            color: var(--text-muted);
+            text-decoration: underline;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 15px;
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        /* Speaking Screen */
+        .countdown-ring {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--primary);
+            margin: 16px 0;
+        }
+        
+        .topic-line {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: #1cb0f6;
+        }
+
+        .live-stats {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 16px;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .transcript-box {
+            border: 2px solid var(--card-border);
+            border-radius: 12px;
+            min-height: 120px;
+            padding: 16px;
+            text-align: left;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 24px;
+            background: #f9f9f9;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .transcript-interim { color: var(--text-muted); }
+
+        .mic-visualizer {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 4px;
+            height: 40px;
+            margin-bottom: 24px;
+        }
+        .mic-bar {
+            width: 8px;
+            background: var(--primary);
+            border-radius: 4px;
+            height: 4px;
+            transition: height 0.1s ease;
+        }
+
+        /* Results Screen */
+        .result-wpm {
+            font-size: 64px;
+            font-weight: 1000;
+            color: var(--primary);
+            line-height: 1;
+            margin: 16px 0 8px 0;
+        }
+        .verdict-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 18px;
+            margin-bottom: 24px;
+        }
+        .verdict-sweetspot { background: #d7ffb8; color: var(--primary-shadow); }
+        .verdict-slow { background: #ffe0b2; color: #e65100; }
+        .verdict-fast { background: #ffcdd2; color: #c62828; }
+
+        .scale-bar-container {
+            width: 100%;
+            height: 24px;
+            background: #e5e5e5;
+            border-radius: 12px;
+            position: relative;
+            margin: 24px 0;
+            overflow: hidden;
+        }
+        .scale-sweet-spot {
+            position: absolute;
+            left: 54.5%; /* (120/220)*100 */
+            width: 13.6%; /* ((150-120)/220)*100 */
+            height: 100%;
+            background: var(--primary);
+        }
+        .scale-marker {
+            position: absolute;
+            top: -4px;
+            width: 4px;
+            height: 32px;
+            background: #3c3c3c;
+            border-radius: 2px;
+            z-index: 2;
+            transition: left 0.5s ease;
+        }
+        .scale-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-top: -16px;
+            margin-bottom: 24px;
+        }
+
+        audio {
+            width: 100%;
+            margin-bottom: 24px;
+            outline: none;
+        }
+
+        /* Typed Mode */
+        textarea {
+            width: 100%;
+            border: 2px solid var(--card-border);
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 16px;
+            font-family: inherit;
+            font-weight: 600;
+            resize: vertical;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            outline: none;
+        }
+        textarea:focus { border-color: var(--primary); }
+
+        .resources-list {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0 0 0;
+            text-align: left;
+            font-weight: 700;
+        }
+        .resources-list li { margin-bottom: 8px; }
+        .resources-list a { color: var(--primary); text-decoration: none; }
+        .resources-list a:hover { text-decoration: underline; }
+
+        /* FAQ */
+        .faq-section {
+            margin-top: 48px;
+            text-align: left;
+        }
+        .faq-item {
+            margin-bottom: 24px;
+        }
+        .faq-item h3 {
+            font-size: 18px;
+            margin: 0 0 8px 0;
+            color: var(--text-main);
+        }
+        .faq-item p {
+            margin: 0;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        footer {
+            margin-top: 48px;
+            text-align: center;
+            font-weight: 700;
+        }
+        footer a { color: var(--text-muted); text-decoration: none; }
+        footer a:hover { color: var(--primary); }
+    </style>
+
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Speaking Speed Test (WPM)",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web browser",
+        "offers": {
+          "@type": "Offer",
+          "price": 0,
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a good speaking speed in English?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "120–150 WPM is ideal for interviews and presentations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is my WPM measured?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Live from your microphone using speech recognition, words divided by actual speaking time."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need to sign up?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No, free, no sign-up, runs in your browser."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it work on mobile?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes in Chrome on Android; iPhone users can use the type-instead mode."
+            }
+          }
+        ]
+      }
+    ]
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <a href="../index.html" class="home-link">🌐 English Flow</a>
+        <h1>Speaking Speed Test</h1>
+        <p class="subhead">How fast do you talk? Find your words-per-minute in 30 seconds.</p>
+    </header>
+
+    <div class="streak-header">
+        <div class="streak-val">🔥 <span id="ui-streak">0</span> Day Streak</div>
+        <div class="xp-val">💎 <span id="ui-xp">0</span> XP</div>
+    </div>
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="card">
+        <div class="gauge-container">
+            <svg viewBox="0 0 200 120" class="gauge-svg">
+                <!-- Background Arc -->
+                <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#e5e5e5" stroke-width="24" stroke-linecap="round" />
+                <!-- Sweet Spot Arc (120 to 150 out of 220) -->
+                <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#58cc02" stroke-width="24" stroke-linecap="round" stroke-dasharray="251.2" stroke-dashoffset="251.2" id="start-gauge-active" />
+                <text x="100" y="90" text-anchor="middle" font-size="28" font-weight="900" fill="#3c3c3c">— WPM</text>
+            </svg>
+        </div>
+
+        <div class="gauge-legend">
+            <div>🐢 Under 110: Too slow — listeners drift</div>
+            <div>✅ 120–150: Interview sweet spot</div>
+            <div>🐇 Over 160: Too fast — slow down</div>
+        </div>
+
+        <p style="font-weight: 700; margin-bottom: 24px;">Flo says: "Speak naturally for 30 seconds about any topic — your pace is measured live."</p>
+
+        <button id="btn-start-mic" class="btn-3d">🎤 Start 30-Second Test</button>
+        <br>
+        <span id="btn-show-type" class="text-link">⌨️ No mic? Type instead</span>
+    </div>
+
+    <!-- SPEAKING SCREEN -->
+    <div id="speaking-screen" class="card" hidden>
+        <div class="countdown-ring" id="ui-timer">30</div>
+        
+        <div class="topic-line">Talk about: <span id="ui-topic" style="color:var(--text-main);"></span></div>
+        
+        <div class="mic-visualizer" id="mic-bars">
+            <div class="mic-bar"></div><div class="mic-bar"></div><div class="mic-bar"></div>
+            <div class="mic-bar"></div><div class="mic-bar"></div><div class="mic-bar"></div>
+            <div class="mic-bar"></div><div class="mic-bar"></div><div class="mic-bar"></div>
+        </div>
+
+        <div class="live-stats">
+            <div>Words: <span id="live-words">0</span></div>
+            <div>WPM: <span id="live-wpm">0</span></div>
+        </div>
+
+        <div class="transcript-box" id="ui-transcript">
+            <span class="transcript-interim">Listening...</span>
+        </div>
+
+        <button id="btn-stop-mic" class="btn-3d btn-danger">Stop & See My Speed</button>
+    </div>
+
+    <!-- TYPED MODE SCREEN -->
+    <div id="typed-screen" class="card" hidden>
+        <div class="countdown-ring" id="ui-typed-timer">30</div>
+        <div class="topic-line">Type about: <span id="ui-typed-topic" style="color:var(--text-main);"></span></div>
+        
+        <textarea id="typed-input" rows="6" placeholder="Start typing as fast as you naturally would speak..."></textarea>
+        
+        <button id="btn-start-typed" class="btn-3d">Start 30-Second Typing Test</button>
+        <button id="btn-stop-typed" class="btn-3d btn-danger" hidden>Finish Early</button>
+    </div>
+
+    <!-- RESULTS SCREEN -->
+    <div id="results-screen" class="card" hidden>
+        <h2>Your Speed</h2>
+        <div class="result-wpm"><span id="res-wpm">—</span></div>
+        <div id="res-badge" class="verdict-badge verdict-sweetspot">Interview Ready 🎯</div>
+        
+        <div class="live-stats" style="margin-bottom: 8px;">
+            <div>Words: <span id="res-words">0</span></div>
+            <div>Time: <span id="res-time">0</span>s</div>
+        </div>
+
+        <div class="scale-bar-container">
+            <div class="scale-sweet-spot"></div>
+            <div class="scale-marker" id="res-marker" style="left: 0%;"></div>
+        </div>
+        <div class="scale-labels">
+            <span>0</span>
+            <span>120</span>
+            <span>150</span>
+            <span>220+</span>
+        </div>
+
+        <div class="transcript-box" id="res-transcript" style="font-size: 16px; margin-bottom:16px;"></div>
+
+        <div id="audio-container" hidden>
+            <p style="font-weight: 700; margin-bottom: 8px; text-align:left;">🔊 Play My Recording</p>
+            <audio id="res-audio" controls></audio>
+        </div>
+
+        <button id="btn-share-wa" class="btn-3d" style="background:#25D366; box-shadow: 0 4px 0 #1da851;">Share My Score on WhatsApp</button>
+        <button id="btn-retry" class="btn-3d btn-secondary">🔁 Test Again</button>
+    </div>
+
+    <!-- RESOURCES CARD -->
+    <div class="card card-yellow">
+        <h2 style="margin-top:0;">📚 Recommended English Resources</h2>
+        <p style="font-weight: 700;">Take your fluency further with the 30-Day Speaking Blueprint.</p>
+        <a href="https://topmate.io/speak_english_with_confidence/2324225" target="_blank" class="btn-3d" style="font-size: 16px; padding: 12px; max-width: 100%;">Get the 30-Day Speaking Workbook ($) →</a>
+        <ul class="resources-list">
+            <li>🔗 <a href="../30-day-english-flow-workbook.pdf" target="_blank">Free Preview: 30-Day Workbook (PDF)</a></li>
+            <li>🔗 <a href="../resources.html">More Free Tools & Resources</a></li>
+        </ul>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <div class="faq-section">
+        <div class="faq-item">
+            <h3>What is a good speaking speed in English?</h3>
+            <p>120–150 WPM is ideal for interviews and presentations.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How is my WPM measured?</h3>
+            <p>Live from your microphone using speech recognition, words divided by actual speaking time.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Do I need to sign up?</h3>
+            <p>No, free, no sign-up, runs in your browser.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Does it work on mobile?</h3>
+            <p>Yes in Chrome on Android; iPhone users can use the type-instead mode.</p>
+        </div>
+    </div>
+
+    <footer>
+        <a href="../index.html">← Back to English Flow Home</a>
+    </footer>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // GAMIFICATION STATE
+    let streak = parseInt(localStorage.getItem('english_flow_streak') || '0', 10);
+    let xp = parseInt(localStorage.getItem('userXP') || '0', 10);
+    let lastDate = localStorage.getItem('english_flow_last_practice');
+    let today = new Date().toDateString();
+
+    const uiStreak = document.getElementById('ui-streak');
+    const uiXp = document.getElementById('ui-xp');
+    uiStreak.textContent = streak;
+    uiXp.textContent = xp;
+
+    function rewardUser() {
+        if (lastDate !== today) {
+            streak++;
+            localStorage.setItem('english_flow_streak', streak);
+            localStorage.setItem('english_flow_last_practice', today);
+            lastDate = today;
+        }
+        xp += 10;
+        localStorage.setItem('userXP', xp);
+        uiStreak.textContent = streak;
+        uiXp.textContent = xp;
+    }
+
+    // TOPICS
+    const topics = [
+        "your morning routine",
+        "a memorable vacation",
+        "your favorite movie",
+        "the best food you've eaten",
+        "a hobby you enjoy",
+        "your dream job",
+        "a person you admire",
+        "goals for this year"
+    ];
+
+    // ELEMENTS
+    const startScreen = document.getElementById('start-screen');
+    const speakingScreen = document.getElementById('speaking-screen');
+    const typedScreen = document.getElementById('typed-screen');
+    const resultsScreen = document.getElementById('results-screen');
+    
+    const uiTimer = document.getElementById('ui-timer');
+    const uiTopic = document.getElementById('ui-topic');
+    const uiTranscript = document.getElementById('ui-transcript');
+    const liveWords = document.getElementById('live-words');
+    const liveWpm = document.getElementById('live-wpm');
+    const micBars = document.querySelectorAll('.mic-bar');
+
+    const resWpm = document.getElementById('res-wpm');
+    const resBadge = document.getElementById('res-badge');
+    const resWords = document.getElementById('res-words');
+    const resTime = document.getElementById('res-time');
+    const resMarker = document.getElementById('res-marker');
+    const resTranscript = document.getElementById('res-transcript');
+    const resAudio = document.getElementById('res-audio');
+    const audioContainer = document.getElementById('audio-container');
+    const btnShareWa = document.getElementById('btn-share-wa');
+
+    // SPEECH RECOGNITION & AUDIO VARIABLES
+    let recognition;
+    let audioContext;
+    let analyser;
+    let microphone;
+    let mediaRecorder;
+    let audioChunks = [];
+    let audioStream;
+    let visualizerFrame;
+
+    let isRecording = false;
+    let startTime = 0;
+    let timerInterval;
+    let countdown = 30;
+    
+    let finalTranscriptStr = '';
+    let interimTranscriptStr = '';
+    let wordCount = 0;
+    let currentWpm = 0;
+
+    // INITIAL SETUP GAUGE ANIMATION
+    setTimeout(() => {
+        const arc = document.getElementById('start-gauge-active');
+        if(arc) {
+            arc.style.transition = "stroke-dashoffset 1s ease-out";
+            // animate to show 120-150 range visually roughly
+            arc.style.strokeDashoffset = "251.2"; // hidden initially in css, let's keep it static actually per requirements "showing -- WPM". 
+            // The green path is drawn in HTML but stroke-dashoffset hides it. We will leave it static green for aesthetic.
+            arc.style.strokeDashoffset = "100";
+        }
+    }, 500);
+
+    // BROWSER SUPPORT CHECK
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRecognition) {
+        recognition = new SpeechRecognition();
+        recognition.lang = 'en-US';
+        recognition.continuous = true;
+        recognition.interimResults = true;
+
+        recognition.onresult = (event) => {
+            interimTranscriptStr = '';
+            for (let i = event.resultIndex; i < event.results.length; ++i) {
+                if (event.results[i].isFinal) {
+                    finalTranscriptStr += event.results[i][0].transcript + ' ';
+                } else {
+                    interimTranscriptStr += event.results[i][0].transcript;
+                }
+            }
+            updateLiveStats();
+        };
+
+        recognition.onerror = (event) => {
+            if (event.error === 'not-allowed') {
+                alert("Microphone access denied. Switching to typed mode.");
+                switchToTypedMode();
+            }
+        };
+        
+        recognition.onend = () => {
+            if (isRecording) {
+                // If it stopped unexpectedly but we are still in "recording" state, restart
+                try { recognition.start(); } catch(e) {}
+            }
+        };
+    }
+
+    function calculateWords(text) {
+        return text.trim().split(/\s+/).filter(w => w.length > 0).length;
+    }
+
+    function updateLiveStats() {
+        const fullText = finalTranscriptStr + interimTranscriptStr;
+        wordCount = calculateWords(fullText);
+        
+        const elapsedMs = Date.now() - startTime;
+        const elapsedSecs = Math.max(1, elapsedMs / 1000);
+        
+        currentWpm = Math.round((wordCount / elapsedSecs) * 60);
+        
+        liveWords.textContent = wordCount;
+        liveWpm.textContent = currentWpm;
+        
+        uiTranscript.innerHTML = `<span class="transcript-final">${finalTranscriptStr}</span><span class="transcript-interim">${interimTranscriptStr}</span>`;
+        // Scroll to bottom
+        uiTranscript.scrollTop = uiTranscript.scrollHeight;
+    }
+
+    // AUDIO VISUALIZER
+    function updateVisualizer() {
+        if (!isRecording || !analyser) return;
+        const dataArray = new Uint8Array(analyser.frequencyBinCount);
+        analyser.getByteFrequencyData(dataArray);
+        
+        // Simple smoothing and mapping for 9 bars
+        const step = Math.floor(dataArray.length / 9);
+        micBars.forEach((bar, index) => {
+            let sum = 0;
+            for(let i=0; i<step; i++) {
+                sum += dataArray[(index * step) + i];
+            }
+            const avg = sum / step;
+            const height = Math.max(4, (avg / 255) * 40); // 4px to 40px
+            bar.style.height = `${height}px`;
+        });
+        
+        visualizerFrame = requestAnimationFrame(updateVisualizer);
+    }
+
+    // START TEST FLOW
+    document.getElementById('btn-start-mic').addEventListener('click', async () => {
+        if (!SpeechRecognition) {
+            alert("Speech recognition not supported in this browser. Please use Chrome, or switch to typed mode.");
+            switchToTypedMode();
+            return;
+        }
+
+        try {
+            audioStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        } catch (err) {
+            alert("Microphone access denied or unavailable. Switching to typed mode.");
+            switchToTypedMode();
+            return;
+        }
+
+        // Setup AudioContext for visualizer
+        try {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            analyser = audioContext.createAnalyser();
+            analyser.fftSize = 256;
+            microphone = audioContext.createMediaStreamSource(audioStream);
+            microphone.connect(analyser);
+        } catch(e) { console.warn("Visualizer init failed", e); }
+
+        // Setup MediaRecorder for playback
+        audioChunks = [];
+        try {
+            mediaRecorder = new MediaRecorder(audioStream);
+            mediaRecorder.ondataavailable = e => {
+                if (e.data.size > 0) audioChunks.push(e.data);
+            };
+            mediaRecorder.start();
+        } catch(e) { console.warn("MediaRecorder init failed", e); }
+
+        // Setup State
+        isRecording = true;
+        countdown = 30;
+        finalTranscriptStr = '';
+        interimTranscriptStr = '';
+        wordCount = 0;
+        currentWpm = 0;
+        uiTimer.textContent = countdown;
+        uiTopic.textContent = topics[Math.floor(Math.random() * topics.length)];
+        liveWords.textContent = '0';
+        liveWpm.textContent = '0';
+        uiTranscript.innerHTML = '<span class="transcript-interim">Listening...</span>';
+        
+        startScreen.setAttribute('hidden', '');
+        speakingScreen.removeAttribute('hidden');
+
+        try { recognition.start(); } catch(e) {}
+        
+        startTime = Date.now();
+        if (audioContext) updateVisualizer();
+        
+        timerInterval = setInterval(() => {
+            const elapsed = Math.floor((Date.now() - startTime) / 1000);
+            countdown = 30 - elapsed;
+            if (countdown <= 0) {
+                countdown = 0;
+                stopTest();
+            }
+            uiTimer.textContent = countdown;
+            updateLiveStats();
+        }, 1000);
+    });
+
+    document.getElementById('btn-stop-mic').addEventListener('click', () => {
+        stopTest();
+    });
+
+    function stopTest() {
+        if (!isRecording) return;
+        isRecording = false;
+        clearInterval(timerInterval);
+        cancelAnimationFrame(visualizerFrame);
+        
+        try { recognition.stop(); } catch(e) {}
+        try {
+            if (mediaRecorder && mediaRecorder.state !== "inactive") {
+                mediaRecorder.stop();
+                mediaRecorder.onstop = () => {
+                    const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+                    resAudio.src = URL.createObjectURL(audioBlob);
+                    audioContainer.removeAttribute('hidden');
+                };
+            }
+        } catch(e) {}
+
+        // Stop mic tracks completely
+        if (audioStream) {
+            audioStream.getTracks().forEach(track => track.stop());
+        }
+        
+        const finalElapsedMs = Date.now() - startTime;
+        const finalElapsedSecs = Math.max(1, finalElapsedMs / 1000);
+        
+        // Final calculation
+        const fullText = finalTranscriptStr + interimTranscriptStr;
+        const finalWords = calculateWords(fullText);
+        const finalWpmCalc = Math.round((finalWords / finalElapsedSecs) * 60);
+
+        showResults(finalWpmCalc, finalWords, Math.round(finalElapsedSecs), fullText);
+    }
+
+    // RESULTS FLOW
+    function showResults(wpm, words, time, transcript) {
+        rewardUser();
+        
+        speakingScreen.setAttribute('hidden', '');
+        typedScreen.setAttribute('hidden', '');
+        resultsScreen.removeAttribute('hidden');
+
+        resWpm.textContent = wpm;
+        resWords.textContent = words;
+        resTime.textContent = time;
+        resTranscript.textContent = transcript || "(No words detected)";
+
+        // Verdict Badge
+        resBadge.className = 'verdict-badge';
+        if (wpm < 110) {
+            resBadge.textContent = 'Steady — build pace';
+            resBadge.classList.add('verdict-slow');
+        } else if (wpm < 120) {
+            resBadge.textContent = 'Conversational';
+            resBadge.classList.add('verdict-slow');
+        } else if (wpm <= 150) {
+            resBadge.textContent = 'Interview Ready 🎯';
+            resBadge.classList.add('verdict-sweetspot');
+        } else if (wpm <= 170) {
+            resBadge.textContent = 'Energetic';
+            resBadge.classList.add('verdict-fast');
+        } else {
+            resBadge.textContent = 'Slow down for clarity';
+            resBadge.classList.add('verdict-fast');
+        }
+
+        // Scale marker position (0 to 220 scale)
+        let percent = (wpm / 220) * 100;
+        if (percent > 100) percent = 100;
+        setTimeout(() => {
+            resMarker.style.left = `${percent}%`;
+        }, 100);
+
+        // Share button
+        const shareText = `I speak at ${wpm} WPM on the English Flow Speaking Speed Test! Interview sweet spot is 120–150. Try it here: https://englishflowofficial.github.io/tools/speaking-speed-test-wpm.html`;
+        btnShareWa.onclick = () => {
+            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`, '_blank');
+        };
+    }
+
+    // TYPED MODE FALLBACK
+    document.getElementById('btn-show-type').addEventListener('click', switchToTypedMode);
+
+    let typedInterval;
+    let typedStartTime;
+    const typedInput = document.getElementById('typed-input');
+    const btnStartTyped = document.getElementById('btn-start-typed');
+    const btnStopTyped = document.getElementById('btn-stop-typed');
+    const uiTypedTimer = document.getElementById('ui-typed-timer');
+
+    function switchToTypedMode() {
+        startScreen.setAttribute('hidden', '');
+        speakingScreen.setAttribute('hidden', '');
+        typedScreen.removeAttribute('hidden');
+        document.getElementById('ui-typed-topic').textContent = topics[Math.floor(Math.random() * topics.length)];
+    }
+
+    btnStartTyped.addEventListener('click', () => {
+        typedInput.value = '';
+        typedInput.focus();
+        btnStartTyped.setAttribute('hidden', '');
+        btnStopTyped.removeAttribute('hidden');
+        
+        typedStartTime = Date.now();
+        let tCountdown = 30;
+        uiTypedTimer.textContent = tCountdown;
+
+        typedInterval = setInterval(() => {
+            const elapsed = Math.floor((Date.now() - typedStartTime) / 1000);
+            tCountdown = 30 - elapsed;
+            if (tCountdown <= 0) {
+                tCountdown = 0;
+                finishTypedMode();
+            }
+            uiTypedTimer.textContent = tCountdown;
+        }, 1000);
+    });
+
+    btnStopTyped.addEventListener('click', finishTypedMode);
+
+    function finishTypedMode() {
+        clearInterval(typedInterval);
+        const finalElapsedMs = Date.now() - typedStartTime;
+        let finalElapsedSecs = finalElapsedMs / 1000;
+        if (finalElapsedSecs < 1) finalElapsedSecs = 1;
+
+        const text = typedInput.value;
+        const words = calculateWords(text);
+        
+        // Exact 30s logic if full time used, else extrapolated.
+        const typedWpm = Math.round((words / finalElapsedSecs) * 60);
+
+        audioContainer.setAttribute('hidden', ''); // no audio in typed mode
+        showResults(typedWpm, words, Math.round(finalElapsedSecs), text);
+    }
+
+    // RETRY
+    document.getElementById('btn-retry').addEventListener('click', () => {
+        resultsScreen.setAttribute('hidden', '');
+        startScreen.removeAttribute('hidden');
+        resMarker.style.left = '0%';
+        btnStartTyped.removeAttribute('hidden');
+        btnStopTyped.setAttribute('hidden', '');
+        typedInput.value = '';
+    });
+
+});
+</script>
+
+<script src="../ef-analytics.js" defer></script>
+</body>
+</html>
