@@ -4,22 +4,17 @@ on:
   schedule:
     - cron: '0 3 * * *'  # 08:30 IST daily
   workflow_dispatch:
-  push:
-    paths:
-      - '.github/workflows/gsc-sync.yml'
-      - 'scripts/sync_gsc.py'
-      - 'sitemap.xml'
-      - 'index.html'
-      - 'quizzes/**'
 
 permissions:
   contents: write
 
-# Serialize runs: a queued run waits for the in-progress one instead of
-# racing it on the gsc_report.json commit/push (caused the 2026-11-01 failure).
+# Schedule-only (2026-11-06): the push trigger was removed — pushing several
+# files in a row used to start competing sync runs that raced on the
+# gsc_report.json commit/push and mailed failure notices. One run a day now;
+# a manual dispatch cancels any run still in progress.
 concurrency:
   group: gsc-sync
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   sync:
@@ -45,5 +40,5 @@ jobs:
           git config user.email "bot@englishflow.local"
           git add gsc_report.json
           git diff --cached --quiet || git commit -m "GSC sync: $(date -u +%F)"
-          git pull --rebase
+          git pull --rebase origin main
           git push
