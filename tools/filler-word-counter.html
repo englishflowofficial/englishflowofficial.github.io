@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#58cc02" />
+  <meta name="robots" content="index, follow" />
+  <title>Filler Word Counter — Um, Uh Detector | English Flow</title>
+  <meta name="description" content="Count um, uh, like and basically as you speak. Live transcript with fillers highlighted, per-word counts and a filler-free score. Free, no sign-up." />
+  <meta name="keywords" content="filler word counter, um uh detector, count filler words speech, speech pause detector, stop saying um, public speaking pace, english flow" />
+  <link rel="canonical" href="https://englishflowofficial.github.io/tools/filler-word-counter.html" />
+  <link rel="icon" href="../favicon.jpg" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://englishflowofficial.github.io/tools/filler-word-counter.html" />
+  <meta property="og:title" content="Filler Word Counter — Um, Uh Detector | English Flow" />
+  <meta property="og:description" content="Count um, uh, like and basically as you speak. Live transcript with fillers highlighted, per-word counts and a filler-free score. Free, no sign-up." />
+  <meta property="og:image" content="https://englishflowofficial.github.io/og-image.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@EnglishFlowPodcastt" />
+  <meta name="twitter:title" content="Filler Word Counter — Um, Uh Detector | English Flow" />
+  <meta name="twitter:description" content="Count um, uh, like and basically as you speak. Live transcript with fillers highlighted, per-word counts and a filler-free score. Free, no sign-up." />
+  <meta name="twitter:image" content="https://englishflowofficial.github.io/og-image.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900;1000&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../game-practice.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Filler Word Counter — Um, Uh Detector",
+    "url": "https://englishflowofficial.github.io/tools/filler-word-counter.html",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Web browser",
+    "offers": {
+      "@type": "Offer",
+      "price": 0,
+      "priceCurrency": "USD"
+    },
+    "description": "Real-time speech filler word counter and pause detector: speak into your microphone to count um, uh, like, basically, actually, you know, and erm with live transcript highlighting and fluency scoring.",
+    "provider": {
+      "@type": "Organization",
+      "name": "English Flow",
+      "url": "https://englishflowofficial.github.io/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does the Filler Word Counter detect and count filler words?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The tool uses your browser's Web Speech API to transcribe your speech live, pattern-matching against common conversational fillers: 'um', 'uh', 'like', 'basically', 'actually', 'you know', and 'erm'. Each instance is highlighted on screen and tallied in real time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which web browsers support microphone speech recognition?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Live microphone speech recognition works seamlessly in Google Chrome on desktop and Android. If your browser or device lacks microphone recognition support, you can use the built-in 60-second typed mode."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my voice recording stored or processed on external servers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Speech transcription and filler counting occur entirely within your local browser session. English Flow does not record, store, or transmit your audio to remote databases."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do streaks and XP work in the Filler Word Counter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You earn +15 XP for completing a 60-second speech session, plus an extra +10 XP mastery bonus if you keep your fillers to 0 or 1. Completing your first challenge of the day advances your daily English Flow streak."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    .quiz-wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 40px; font-family: 'Nunito', sans-serif; }
+    .q-card { border: 2px solid #e5e5e5; border-radius: 20px; padding: 26px 22px; background: #fff; box-shadow: 0 4px 0 #e5e5e5; margin: 16px 0; }
+    .result-card { border: 2px solid #e5e5e5; border-radius: 20px; padding: 28px; text-align: center; background: linear-gradient(135deg, #f0fff4, #eff8ff); }
+    .resource-card { border: 2px solid #ffc800; border-radius: 18px; padding: 18px; background: #fffbe6; margin-top: 18px; text-align: left; }
+    .notice-box { background: #fffbeb; border: 2px solid #fde68a; border-radius: 14px; padding: 14px 18px; color: #92400e; font-size: 14px; font-weight: 700; margin: 12px 0; text-align: left; }
+    .score-badge { display: inline-block; padding: 6px 14px; border-radius: 999px; font-weight: 900; font-size: 14px; }
+    .score-high { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+    .score-med { background: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
+    .score-low { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+
+    .action-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 18px; }
+    .btn-3d { min-height: 48px; min-width: 160px; font-size: 16px; font-weight: 900; border-radius: 14px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; padding: 12px 24px; border: none; font-family: inherit; }
+    .btn-green { background: #58cc02; color: #fff; box-shadow: 0 4px 0 #46a302; }
+    .btn-green:active { transform: translateY(3px); box-shadow: 0 1px 0 #46a302; }
+    .btn-blue { background: #1cb0f6; color: #fff; box-shadow: 0 4px 0 #0284c7; }
+    .btn-blue:active { transform: translateY(3px); box-shadow: 0 1px 0 #0284c7; }
+
+    .timer-ring { width: 100px; height: 100px; border-radius: 50%; background: #fef2f2; border: 4px solid #ef4444; display: flex; align-items: center; justify-content: center; margin: 12px auto; font-size: 38px; font-weight: 1000; color: #b91c1c; box-shadow: 0 4px 0 #fca5a5; animation: liveMicPulse 1.4s infinite; }
+    @keyframes liveMicPulse {
+      0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+
+    .filler-chips-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin: 14px 0; }
+    .filler-chip { background: #f8fafc; border: 2px solid #cbd5e1; border-radius: 10px; padding: 6px 12px; font-size: 13px; font-weight: 900; color: #475569; display: inline-flex; align-items: center; gap: 6px; }
+    .filler-chip.active { background: #fee2e2; border-color: #ef4444; color: #b91c1c; }
+
+    .live-transcript-box { background: #ffffff; border: 2px solid #cbd5e1; border-radius: 14px; padding: 16px; min-height: 120px; max-height: 220px; overflow-y: auto; text-align: left; font-size: 16px; font-weight: 700; color: #1e293b; line-height: 1.6; margin: 14px 0; }
+    .live-transcript-box:empty::before { content: "Start speaking... filler words will be highlighted in yellow and red as you talk."; color: #94a3b8; font-style: italic; }
+
+    .filler-highlight { background: #fef08a; color: #854d0e; padding: 2px 6px; border-radius: 6px; font-weight: 900; border: 1px solid #facc15; }
+
+    .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 18px 0; }
+    .metric-card { background: #ffffff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 14px 10px; text-align: center; box-shadow: 0 3px 0 #e2e8f0; }
+    .metric-num { font-size: 28px; font-weight: 1000; color: #1e1b4b; line-height: 1.1; margin: 4px 0; }
+    .metric-label { font-size: 11.5px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    .pause-pill { display: inline-flex; align-items: center; gap: 6px; background: #e0f2fe; color: #0369a1; padding: 4px 12px; border-radius: 999px; font-size: 12.5px; font-weight: 800; }
+    .pause-active { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+  </style>
+</head>
+<body>
+<header class="gp-header">
+<a class="gp-brand" href="../index.html">🦉 English <b>Flow</b></a>
+<nav class="gp-nav"><a href="../index.html">Home</a><a href="../game-practice.html">Practice</a><a href="../tenses.html">Tenses</a></nav>
+<div class="gp-stats"><span class="gp-stat streak">🔥 <b id="st-streak">0</b></span><span class="gp-stat xp">⚡ <b id="st-xp">0</b></span></div>
+</header>
+
+<main class="quiz-wrap">
+  <div style="text-align: left; margin-bottom: 8px;">
+    <a href="../index.html" style="font-weight: 800; font-size: 13px; color: #1cb0f6; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">🌐 English Flow</a>
+  </div>
+  <h1 style="font-size: 30px; font-weight: 1000; margin: 0 0 6px; color: #1e1b4b;">Free Filler Word Counter — Um, Uh &amp; Pause Detector</h1>
+  <p style="color: #64748b; font-weight: 700; margin: 0 0 16px; font-size: 15px;">Track your vocal clarity live. Count fillers, measure pauses, and achieve an executive speech flow.</p>
+
+  <div id="mic-compat-warning" class="notice-box" hidden>
+    ⚠️ <strong>Microphone Notice:</strong> Speech recording works best in Google Chrome on desktop or Android. If your mic is unavailable, you can use the 60-second typed practice mode below!
+  </div>
+
+  <!-- STAGE 1: START SCREEN -->
+  <div id="start-screen" class="q-card">
+    <div style="background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 16px; padding: 22px; text-align: center; margin-bottom: 18px;">
+      <p style="font-size: 16px; font-weight: 800; color: #1e1b4b; line-height: 1.5; margin: 0 0 10px;">
+        Speak naturally for 60 seconds about any topic, work update, or presentation.
+      </p>
+      <p style="font-size: 14px; font-weight: 700; color: #64748b; margin: 0;">
+        Flo listens in real time, highlights filler words (<em>um, uh, like, basically, actually, you know, erm</em>), and detects silent pauses.
+      </p>
+    </div>
+
+    <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px;">
+      <span class="filler-chip">um</span>
+      <span class="filler-chip">uh</span>
+      <span class="filler-chip">like</span>
+      <span class="filler-chip">basically</span>
+      <span class="filler-chip">actually</span>
+      <span class="filler-chip">you know</span>
+      <span class="filler-chip">erm</span>
+    </div>
+
+    <div class="action-row">
+      <button type="button" class="btn-3d btn-green" onclick="startSession()">
+        🎙️ Start Counting — Speak for 60 Seconds
+      </button>
+    </div>
+
+    <div style="margin-top: 14px; text-align: center;">
+      <a href="javascript:void(0)" onclick="openTypedMode()" style="font-size: 13.5px; font-weight: 800; color: #1cb0f6; text-decoration: none;">
+        ⌨️ No microphone? Type instead
+      </a>
+    </div>
+  </div>
+
+  <!-- STAGE 2: SPEAKING & LIVE COUNTING -->
+  <div id="speaking-screen" class="q-card" hidden>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+      <span style="font-size: 12px; font-weight: 900; color: #ef4444; letter-spacing: 1px; text-transform: uppercase;">🔴 LISTENING LIVE</span>
+      <span id="pause-status-pill" class="pause-pill">⏱️ Pauses (2s+): <b id="live-pause-count">0</b></span>
+    </div>
+
+    <div class="timer-ring" id="session-timer">60</div>
+    <p id="speaking-guidance-line" style="text-align: center; font-weight: 800; color: #1e1b4b; font-size: 15px; margin: 2px 0 12px;">
+      Talk about a project, your day, or any work challenge!
+    </p>
+
+    <!-- Live Filler Chips -->
+    <div class="filler-chips-row" id="live-chips-container">
+      <span class="filler-chip" id="chip-um">um ×0</span>
+      <span class="filler-chip" id="chip-uh">uh ×0</span>
+      <span class="filler-chip" id="chip-like">like ×0</span>
+      <span class="filler-chip" id="chip-basically">basically ×0</span>
+      <span class="filler-chip" id="chip-actually">actually ×0</span>
+      <span class="filler-chip" id="chip-you-know">you know ×0</span>
+      <span class="filler-chip" id="chip-erm">erm ×0</span>
+    </div>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-label">Words Spoken</div>
+        <div class="metric-num" id="live-total-words">0</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Total Fillers</div>
+        <div class="metric-num" id="live-total-fillers" style="color:#b91c1c;">0</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Filler Rate</div>
+        <div class="metric-num" id="live-filler-rate">0%</div>
+      </div>
+    </div>
+
+    <div class="live-transcript-box" id="live-transcript"></div>
+
+    <div class="action-row">
+      <button type="button" class="btn-3d btn-green" onclick="stopAndScore()">
+        ⏹️ Stop &amp; See My Score
+      </button>
+    </div>
+  </div>
+
+  <!-- STAGE 2-ALT: TYPED FALLBACK MODE -->
+  <div id="typed-screen" class="q-card" hidden>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+      <span style="font-size: 12px; font-weight: 900; color: #d97706; letter-spacing: 1px; text-transform: uppercase;">⌨️ TYPED PRACTICE MODE</span>
+      <span id="typed-timer-val" style="font-size: 16px; font-weight: 1000; color: #b91c1c;">60s</span>
+    </div>
+
+    <p style="font-weight: 800; color: #1e1b4b; font-size: 15px; margin: 4px 0 10px;">
+      Type your thoughts naturally for 60 seconds without backspacing. Flo will evaluate filler words on completion!
+    </p>
+
+    <textarea id="typed-input-box" placeholder="Start typing what you would say in a meeting..." disabled style="width: 100%; box-sizing: border-box; min-height: 140px; border: 2px solid #cbd5e1; border-radius: 14px; padding: 14px; font-family: inherit; font-size: 15px; font-weight: 700; color: #1e293b; resize: vertical;"></textarea>
+
+    <div class="action-row">
+      <button type="button" id="btn-start-typed" class="btn-3d btn-green" onclick="startTypedTimer()">
+        ⌨️ Start 60-Second Typing Sprint
+      </button>
+      <button type="button" id="btn-stop-typed" class="btn-3d btn-blue" onclick="finishTypedSession()" hidden>
+        ⏹️ Submit &amp; Highlight Fillers
+      </button>
+    </div>
+  </div>
+
+  <!-- STAGE 3: RESULTS SCREEN -->
+  <div id="results-screen" class="result-card" hidden>
+    <div style="font-size: 52px;">🦉</div>
+    <h2 style="font-size: 26px; font-weight: 1000; margin: 4px 0 6px; color: #1e1b4b;">Filler Word Analysis</h2>
+
+    <div style="margin: 6px 0;" id="result-score-badge-wrap">
+      <span class="score-badge score-high" id="result-score-badge">Filler-Free Score: 95 / 100 · Outstanding</span>
+    </div>
+    <p id="result-feedback-line" style="color: #475569; font-weight: 800; font-size: 15px; margin: 4px 0 18px;">
+      Outstanding composure! Your speaking was crisp and free of filler noise.
+    </p>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-label">Total Words</div>
+        <div class="metric-num" id="res-total-words">0</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Total Fillers</div>
+        <div class="metric-num" id="res-total-fillers" style="color: #b91c1c;">0</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Filler Rate</div>
+        <div class="metric-num" id="res-filler-rate">0.0%</div>
+        <div style="font-size: 11px; font-weight: 700; color: #64748b;">Per 100 words</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Pauses (2s+)</div>
+        <div class="metric-num" id="res-pause-count">0</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Speaking Pace</div>
+        <div class="metric-num" id="res-speaking-pace">0</div>
+        <div style="font-size: 11px; font-weight: 700; color: #64748b;">Words / min</div>
+      </div>
+    </div>
+
+    <!-- Filler breakdown chips -->
+    <div style="background: #ffffff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 14px; margin: 16px 0; text-align: left;">
+      <h4 style="margin: 0 0 8px; font-size: 14px; font-weight: 900; color: #1e1b4b;">Per-Word Breakdown:</h4>
+      <div id="res-breakdown-chips" style="display: flex; gap: 8px; flex-wrap: wrap;"></div>
+    </div>
+
+    <!-- Highlighted Transcript -->
+    <div style="background: #ffffff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 16px; margin: 16px 0; text-align: left;">
+      <h4 style="margin: 0 0 6px; font-size: 14px; font-weight: 900; color: #1e1b4b;">Full Highlighted Transcript:</h4>
+      <p id="res-transcript-display" style="margin: 0; font-size: 15px; font-weight: 700; color: #334155; line-height: 1.6;"></p>
+    </div>
+
+    <p style="font-weight: 900; font-size: 16px; color: #1e1b4b; margin: 16px 0 8px;">
+      🔥 Streak: <span id="final-streak">0</span> days · ⚡ Total XP: <span id="final-xp">0</span>
+      <span id="res-xp-bonus-tag" style="display: block; font-size: 13px; color: #58cc02; font-weight: 800; margin-top: 4px;">+15 XP round bonus awarded!</span>
+    </p>
+
+    <div class="action-row">
+      <a id="wa-share-btn" href="#" target="_blank" rel="noopener" class="btn-3d btn-green">
+        💬 Share My Score on WhatsApp
+      </a>
+      <button type="button" class="btn-3d btn-blue" onclick="restartSession()">
+        🔄 Try Again
+      </button>
+    </div>
+
+    <!-- Recommended Resources Card -->
+    <div class="resource-card">
+      <h3 style="margin: 0 0 6px; font-size: 17px; color: #1e1b4b;">📚 Recommended English Resources</h3>
+      <p style="margin: 0 0 10px; color: #555; font-weight: 700; font-size: 14px;">Master professional speaking in any meeting:</p>
+      <div style="margin-bottom: 12px;">
+        <a href="https://topmate.io/speak_english_with_confidence/2324225" target="_blank" rel="noopener noreferrer" class="btn-3d" style="background:#f59e0b; color:#1e1b4b; font-size:14px; padding:10px 18px; box-shadow:0 3px 0 #b45309;">
+          Get the 30-Day Speaking Workbook ($) →
+        </a>
+      </div>
+      <ul style="margin: 0; padding-left: 18px; font-weight: 700; font-size: 14px; line-height: 1.8;">
+        <li><a href="../30-day-english-flow-workbook.pdf">30-Day English Flow Workbook (PDF)</a> – daily speaking drills</li>
+        <li><a href="../resources.html">Free Resources Library</a> – trackers, podcasts &amp; templates</li>
+        <li><a href="../game-practice.html">Daily Practice Session</a> – maintain your learning momentum</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CHEAT SHEET SECTION -->
+  <section class="study-cheatsheet" aria-label="5 Ways to Cut Filler Words" style="margin: 30px 0 20px; padding: 20px; border: 2px dashed #1cb0f6; border-radius: 18px; background: #f7fdff; text-align: left;">
+    <h2 style="font-size: 20px; font-weight: 900; margin-top: 0; color: #0284c7;">📖 5 Ways to Cut Filler Words</h2>
+    <ul style="font-weight: 700; color: #334155; line-height: 1.7; padding-left: 20px;">
+      <li><strong>1. Pause instead of "um"</strong> — embrace silence. A 1-second pause sounds confident, while filler words signal hesitation.</li>
+      <li><strong>2. Slow down your speaking tempo</strong> — give your brain a 2-second buffer to construct sentences before speaking.</li>
+      <li><strong>3. Plan your first sentence</strong> — know exactly how you will open so you start with zero filler momentum.</li>
+      <li><strong>4. Practise with a timer</strong> — regular 60-second sprints build subconscious muscle memory against fillers.</li>
+      <li><strong>5. Record and replay yourself</strong> — listening back to your voice makes you instantly aware of hidden filler habits.</li>
+    </ul>
+    <p style="font-size: 13px; color: #64748b; font-weight: 700; margin: 12px 0 0;">
+      🦉 Flo tip: When you feel an <em>"actually"</em> or <em>"like"</em> coming, close your mouth and inhale through your nose. Silence is power!
+    </p>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section style="margin-top: 30px;" aria-label="Frequently asked questions">
+    <h2 style="font-size: 22px; font-weight: 1000; color: #1e1b4b; text-align: left; margin-bottom: 16px;">Frequently Asked Questions</h2>
+    <div style="background: #fff; border: 2px solid #e5e5e5; border-radius: 16px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 3px 0 #e5e5e5; text-align: left;">
+      <h3 style="font-size: 16px; font-weight: 900; color: #1e1b4b; margin: 0 0 6px;">How does the Filler Word Counter detect and count filler words?</h3>
+      <p style="font-size: 14px; font-weight: 700; color: #475569; line-height: 1.6; margin: 0;">The tool uses your browser's Web Speech API to transcribe your speech live, pattern-matching against common conversational fillers: 'um', 'uh', 'like', 'basically', 'actually', 'you know', and 'erm'. Each instance is highlighted on screen and tallied in real time.</p>
+    </div>
+    <div style="background: #fff; border: 2px solid #e5e5e5; border-radius: 16px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 3px 0 #e5e5e5; text-align: left;">
+      <h3 style="font-size: 16px; font-weight: 900; color: #1e1b4b; margin: 0 0 6px;">Which web browsers support microphone speech recognition?</h3>
+      <p style="font-size: 14px; font-weight: 700; color: #475569; line-height: 1.6; margin: 0;">Live microphone speech recognition works seamlessly in Google Chrome on desktop and Android. If your browser or device lacks microphone recognition support, you can use the built-in 60-second typed mode.</p>
+    </div>
+    <div style="background: #fff; border: 2px solid #e5e5e5; border-radius: 16px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 3px 0 #e5e5e5; text-align: left;">
+      <h3 style="font-size: 16px; font-weight: 900; color: #1e1b4b; margin: 0 0 6px;">Is my voice recording stored or processed on external servers?</h3>
+      <p style="font-size: 14px; font-weight: 700; color: #475569; line-height: 1.6; margin: 0;">No. Speech transcription and filler counting occur entirely within your local browser session. English Flow does not record, store, or transmit your audio to remote databases.</p>
+    </div>
+    <div style="background: #fff; border: 2px solid #e5e5e5; border-radius: 16px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 3px 0 #e5e5e5; text-align: left;">
+      <h3 style="font-size: 16px; font-weight: 900; color: #1e1b4b; margin: 0 0 6px;">How do streaks and XP work in the Filler Word Counter?</h3>
+      <p style="font-size: 14px; font-weight: 700; color: #475569; line-height: 1.6; margin: 0;">You earn +15 XP for completing a 60-second speech session, plus an extra +10 XP mastery bonus if you keep your fillers to 0 or 1. Completing your first challenge of the day advances your daily English Flow streak.</p>
+    </div>
+  </section>
+
+  <footer style="margin-top: 28px; text-align: center; font-size: 14px; font-weight: 800; color: #94a3b8;">
+    <a href="../index.html" style="color: #64748b; text-decoration: none;">← Back to English Flow Home</a>
+  </footer>
+</main>
+
+<script>
+  // EXACT FILLER LIST (case-insensitive, word-boundary matched; 'so' is not counted)
+  const FILLER_REGEX = /\b(you know|um|uh|like|basically|actually|erm)\b/gi;
+  const FILLER_KEYS = ["um", "uh", "like", "basically", "actually", "you know", "erm"];
+
+  let secondsLeft = 60;
+  let elapsedSeconds = 0;
+  let sessionTimer = null;
+
+  let recognition = null;
+  let isSpeechSupported = false;
+  let isRecording = false;
+  let accumulatedTranscript = "";
+
+  // Pause detection state
+  let lastSpeechTimestamp = 0;
+  let hasStartedSpeaking = false;
+  let pauseCount = 0;
+
+  // LocalStorage stats
+  let xp = parseInt(localStorage.getItem('userXP')) || 0;
+  let streak = parseInt(localStorage.getItem('english_flow_streak')) || 0;
+
+  function renderStats() {
+    document.getElementById('st-streak').textContent = streak;
+    document.getElementById('st-xp').textContent = xp;
+  }
+
+  // Speech Recognition initialization
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (SpeechRecognition) {
+    isSpeechSupported = true;
+    recognition = new SpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = 'en-US';
+
+    recognition.onresult = function(event) {
+      let interim = '';
+      let final = '';
+      for (let i = 0; i < event.results.length; i++) {
+        if (event.results[i].isFinal) {
+          final += event.results[i][0].transcript + ' ';
+        } else {
+          interim += event.results[i][0].transcript;
+        }
+      }
+      accumulatedTranscript = (final + interim).trim();
+
+      // Pause detection check
+      const now = Date.now();
+      if (hasStartedSpeaking && lastSpeechTimestamp > 0) {
+        const gap = (now - lastSpeechTimestamp) / 1000;
+        if (gap >= 2.0) {
+          pauseCount++;
+          document.getElementById('live-pause-count').textContent = pauseCount;
+          flashPauseIndicator();
+        }
+      }
+      lastSpeechTimestamp = now;
+      hasStartedSpeaking = true;
+
+      renderLiveAnalysis(accumulatedTranscript);
+    };
+
+    recognition.onerror = function(event) {
+      if (event.error === 'not-allowed') {
+        stopSession();
+        document.getElementById('mic-compat-warning').removeAttribute('hidden');
+        openTypedMode();
+      }
+    };
+  } else {
+    document.getElementById('mic-compat-warning').removeAttribute('hidden');
+  }
+
+  function flashPauseIndicator() {
+    const pill = document.getElementById('pause-status-pill');
+    pill.classList.add('pause-active');
+    setTimeout(() => pill.classList.remove('pause-active'), 800);
+  }
+
+  function startSession() {
+    accumulatedTranscript = "";
+    pauseCount = 0;
+    elapsedSeconds = 0;
+    secondsLeft = 60;
+    hasStartedSpeaking = false;
+    lastSpeechTimestamp = Date.now();
+
+    document.getElementById('start-screen').setAttribute('hidden', '');
+    document.getElementById('results-screen').setAttribute('hidden', '');
+    document.getElementById('typed-screen').setAttribute('hidden', '');
+    document.getElementById('speaking-screen').removeAttribute('hidden');
+
+    document.getElementById('live-pause-count').textContent = "0";
+    document.getElementById('session-timer').textContent = secondsLeft;
+    document.getElementById('live-transcript').innerHTML = "";
+
+    resetChips();
+    renderLiveAnalysis("");
+
+    if (!isSpeechSupported) {
+      openTypedMode();
+      return;
+    }
+
+    isRecording = true;
+    try {
+      recognition.start();
+    } catch (e) {}
+
+    if (sessionTimer) clearInterval(sessionTimer);
+    sessionTimer = setInterval(function() {
+      elapsedSeconds++;
+      secondsLeft--;
+      document.getElementById('session-timer').textContent = secondsLeft;
+
+      // Also monitor ongoing silent gaps
+      if (hasStartedSpeaking && lastSpeechTimestamp > 0) {
+        const gap = (Date.now() - lastSpeechTimestamp) / 1000;
+        if (gap >= 2.0) {
+          pauseCount++;
+          document.getElementById('live-pause-count').textContent = pauseCount;
+          flashPauseIndicator();
+          lastSpeechTimestamp = Date.now();
+        }
+      }
+
+      if (secondsLeft <= 0) {
+        stopAndScore();
+      }
+    }, 1000);
+  }
+
+  function resetChips() {
+    FILLER_KEYS.forEach(k => {
+      const id = 'chip-' + k.replace(/\s+/g, '-');
+      const el = document.getElementById(id);
+      if (el) {
+        el.textContent = k + ' ×0';
+        el.classList.remove('active');
+      }
+    });
+  }
+
+  function renderLiveAnalysis(text) {
+    const counts = {};
+    FILLER_KEYS.forEach(k => counts[k] = 0);
+    let totalFillers = 0;
+
+    let match;
+    const regex = new RegExp(FILLER_REGEX.source, 'gi');
+    while ((match = regex.exec(text)) !== null) {
+      const word = match[0].toLowerCase();
+      if (counts[word] !== undefined) {
+        counts[word]++;
+      }
+      totalFillers++;
+    }
+
+    // Update chips
+    FILLER_KEYS.forEach(k => {
+      const id = 'chip-' + k.replace(/\s+/g, '-');
+      const el = document.getElementById(id);
+      if (el) {
+        const c = counts[k];
+        el.textContent = k + ' ×' + c;
+        if (c > 0) el.classList.add('active');
+        else el.classList.remove('active');
+      }
+    });
+
+    // Word volume count
+    const words = text.trim() ? text.trim().split(/\s+/).filter(Boolean) : [];
+    const totalWords = words.length;
+
+    document.getElementById('live-total-words').textContent = totalWords;
+    document.getElementById('live-total-fillers').textContent = totalFillers;
+
+    const rate = totalWords > 0 ? ((totalFillers / totalWords) * 100).toFixed(1) : 0;
+    document.getElementById('live-filler-rate').textContent = rate + '%';
+
+    // Highlight fillers in transcript box
+    if (text) {
+      const highlighted = text.replace(FILLER_REGEX, function(m) {
+        return '<span class="filler-highlight">' + m + '</span>';
+      });
+      document.getElementById('live-transcript').innerHTML = highlighted;
+    } else {
+      document.getElementById('live-transcript').innerHTML = "";
+    }
+  }
+
+  function stopSession() {
+    isRecording = false;
+    if (sessionTimer) clearInterval(sessionTimer);
+    if (recognition) {
+      try { recognition.stop(); } catch(e) {}
+    }
+  }
+
+  function stopAndScore() {
+    stopSession();
+    document.getElementById('speaking-screen').setAttribute('hidden', '');
+    showResults(accumulatedTranscript, Math.max(elapsedSeconds, 5), pauseCount);
+  }
+
+  // Typed Fallback logic
+  let typedSeconds = 60;
+  let typedElapsed = 0;
+  let typedTimer = null;
+
+  function openTypedMode() {
+    stopSession();
+    document.getElementById('start-screen').setAttribute('hidden', '');
+    document.getElementById('speaking-screen').setAttribute('hidden', '');
+    document.getElementById('results-screen').setAttribute('hidden', '');
+    document.getElementById('typed-screen').removeAttribute('hidden');
+
+    const input = document.getElementById('typed-input-box');
+    input.setAttribute('disabled', '');
+    input.value = "";
+    document.getElementById('btn-start-typed').removeAttribute('hidden');
+    document.getElementById('btn-stop-typed').setAttribute('hidden', '');
+    document.getElementById('typed-timer-val').textContent = "60s";
+  }
+
+  function startTypedTimer() {
+    const input = document.getElementById('typed-input-box');
+    input.removeAttribute('disabled');
+    input.value = "";
+    input.focus();
+
+    document.getElementById('btn-start-typed').setAttribute('hidden', '');
+    document.getElementById('btn-stop-typed').removeAttribute('hidden');
+
+    typedSeconds = 60;
+    typedElapsed = 0;
+    document.getElementById('typed-timer-val').textContent = typedSeconds + 's';
+
+    if (typedTimer) clearInterval(typedTimer);
+    typedTimer = setInterval(function() {
+      typedElapsed++;
+      typedSeconds--;
+      document.getElementById('typed-timer-val').textContent = typedSeconds + 's';
+      if (typedSeconds <= 0) {
+        finishTypedSession();
+      }
+    }, 1000);
+  }
+
+  function finishTypedSession() {
+    if (typedTimer) clearInterval(typedTimer);
+    const text = document.getElementById('typed-input-box').value.trim();
+    document.getElementById('typed-screen').setAttribute('hidden', '');
+    showResults(text, Math.max(typedElapsed, 5), 0);
+  }
+
+  // Scoring and display
+  function showResults(transcript, durationSec, pauses) {
+    const words = transcript.trim() ? transcript.trim().split(/\s+/).filter(Boolean) : [];
+    const totalWords = words.length;
+
+    // Detect fillers
+    const counts = {};
+    FILLER_KEYS.forEach(k => counts[k] = 0);
+    let totalFillers = 0;
+
+    let match;
+    const regex = new RegExp(FILLER_REGEX.source, 'gi');
+    while ((match = regex.exec(transcript)) !== null) {
+      const word = match[0].toLowerCase();
+      if (counts[word] !== undefined) counts[word]++;
+      totalFillers++;
+    }
+
+    const durationMinutes = durationSec / 60;
+    const wpm = totalWords > 0 ? Math.round(totalWords / durationMinutes) : 0;
+    const fillerRate = totalWords > 0 ? ((totalFillers / totalWords) * 100) : 0;
+
+    // Filler-Free Score (0 - 100)
+    let score = 0;
+    if (totalWords >= 5) {
+      score = Math.max(10, Math.min(100, Math.round(100 - (fillerRate * 5.5))));
+    } else {
+      score = 0;
+    }
+
+    let bandClass = "score-low";
+    let bandTitle = "Keep practicing";
+    let feedback = "No significant speech recorded. Try speaking louder near your microphone!";
+
+    if (score >= 90) {
+      bandClass = "score-high";
+      bandTitle = "Outstanding — almost filler-free";
+      feedback = "Outstanding composure! Your speaking was crisp and free of filler hesitation.";
+    } else if (score >= 70) {
+      bandClass = "score-med";
+      bandTitle = "Strong";
+      feedback = "Strong flow! You kept filler words under tight control throughout the session.";
+    } else if (score >= 40) {
+      bandClass = "score-low";
+      bandTitle = "Good start";
+      feedback = "Steady start! Work on replacing 'um' and 'like' with silent pauses.";
+    } else if (totalWords > 0) {
+      bandClass = "score-low";
+      bandTitle = "Keep practicing";
+      feedback = "Keep practicing! Daily 60-second sprints train your vocal self-awareness.";
+    }
+
+    // Update results screen UI
+    document.getElementById('result-score-badge-wrap').innerHTML =
+      '<span class="score-badge ' + bandClass + '">' + score + ' / 100 · ' + bandTitle + '</span>';
+    document.getElementById('result-feedback-line').textContent = feedback;
+
+    document.getElementById('res-total-words').textContent = totalWords;
+    document.getElementById('res-total-fillers').textContent = totalFillers;
+    document.getElementById('res-filler-rate').textContent = fillerRate.toFixed(1) + '%';
+    document.getElementById('res-pause-count').textContent = pauses;
+    document.getElementById('res-speaking-pace').textContent = wpm;
+
+    // Breakdown chips
+    const breakdownContainer = document.getElementById('res-breakdown-chips');
+    breakdownContainer.innerHTML = '';
+    let hasAnyFiller = false;
+    FILLER_KEYS.forEach(k => {
+      if (counts[k] > 0) {
+        hasAnyFiller = true;
+        const chip = document.createElement('span');
+        chip.className = 'filler-chip active';
+        chip.textContent = k + ' ×' + counts[k];
+        breakdownContainer.appendChild(chip);
+      }
+    });
+    if (!hasAnyFiller) {
+      breakdownContainer.innerHTML = '<span style="font-size:14px; font-weight:800; color:#15803d;">🎉 Zero filler words detected! Perfectly clean speech.</span>';
+    }
+
+    // Highlighted transcript
+    const transEl = document.getElementById('res-transcript-display');
+    if (transcript.trim()) {
+      const highlighted = transcript.replace(FILLER_REGEX, function(m) {
+        return '<span class="filler-highlight">' + m + '</span>';
+      });
+      transEl.innerHTML = '“' + highlighted + '”';
+    } else {
+      transEl.innerHTML = '<em>No words recorded. Try again and speak closer to your microphone.</em>';
+    }
+
+    // XP & Streak (+15 XP per completed round, +10 bonus if 0-1 fillers)
+    let earnedXP = 15;
+    let hasBonus = false;
+    if (totalWords >= 5 && totalFillers <= 1) {
+      earnedXP += 10;
+      hasBonus = true;
+    }
+    xp += earnedXP;
+    localStorage.setItem('userXP', xp);
+
+    const today = new Date().toDateString();
+    const last = localStorage.getItem('english_flow_last_practice');
+    if (last !== today) {
+      streak += 1;
+      localStorage.setItem('english_flow_streak', streak);
+      localStorage.setItem('english_flow_last_practice', today);
+    }
+    renderStats();
+
+    document.getElementById('final-streak').textContent = streak;
+    document.getElementById('final-xp').textContent = xp;
+    document.getElementById('res-xp-bonus-tag').textContent = hasBonus
+      ? '+15 XP completion + 10 XP low-filler mastery bonus awarded! (+25 XP)'
+      : '+15 XP completion bonus awarded!';
+
+    // WhatsApp share button
+    const canonical = "https://englishflowofficial.github.io/tools/filler-word-counter.html";
+    const shareText = "I scored " + score + "/100 (" + bandTitle + ") with a " + fillerRate.toFixed(1) + "% filler rate on the English Flow Filler Word Counter! 🦉 Test your vocal clarity here: " + canonical;
+    document.getElementById('wa-share-btn').href = "https://api.whatsapp.com/send?text=" + encodeURIComponent(shareText);
+
+    document.getElementById('results-screen').removeAttribute('hidden');
+  }
+
+  function restartSession() {
+    document.getElementById('results-screen').setAttribute('hidden', '');
+    document.getElementById('speaking-screen').setAttribute('hidden', '');
+    document.getElementById('typed-screen').setAttribute('hidden', '');
+    document.getElementById('start-screen').removeAttribute('hidden');
+  }
+
+  renderStats();
+</script>
+<script src="../ef-analytics.js" defer></script>
+</body>
+</html>
