@@ -192,7 +192,7 @@
 
         .btn-outline {
             background-color: transparent;
-            color: #afafaf;
+            color: #555;
             border: 2px solid #e5e5e5;
             box-shadow: 0 4px 0 #e5e5e5;
         }
@@ -285,6 +285,8 @@
 
         .timer-text-container {
             position: absolute;
+            top: 0;
+            left: 0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -571,7 +573,9 @@
             <div class="card" style="text-align: center; border-color: var(--ef-green); background: #f0fbf0;">
                 <h2 style="margin-top: 0; color: var(--ef-green);">Mock Test Complete!</h2>
                 <h3 style="font-size: 22px; margin-bottom: 8px;" id="res-score-band">Good Pace</h3>
+                <p id="res-band-est" style="font-weight: bold; color: #1cb0f6; margin: 4px 0 0;"></p>
                 <p id="res-xp-earned" style="font-weight: bold; color: #ff9600; margin: 0;">+25 XP Earned!</p>
+                <p id="res-typed-note" style="font-size: 13px; color: #777; margin: 8px 0 0;" hidden></p>
             </div>
 
             <div class="results-grid">
@@ -604,6 +608,7 @@
                 <div class="audio-player-wrapper" id="audio-wrapper">
                     <audio id="audio-playback" controls></audio>
                 </div>
+                <p id="audio-note" style="font-size: 14px; color: #777; margin: 0 0 8px;" hidden>🎙️ No audio recording in typed mode — allow the microphone to record yourself and hear the playback here.</p>
                 <p style="font-size: 14px; color: #777; margin-bottom: 8px;">Transcript (Fillers Highlighted):</p>
                 <div class="transcript-box" id="final-transcript" style="min-height: auto; max-height: none; background: #fafafa;">
                     No transcript recorded.
@@ -751,6 +756,12 @@
                 document.getElementById('transcript-display').hidden = true;
                 document.getElementById('fallback-textarea').hidden = false;
                 document.getElementById('fallback-textarea').value = "";
+                document.getElementById('fallback-textarea').oninput = () => {
+                    let tw = countWords(document.getElementById('fallback-textarea').value);
+                    document.getElementById('live-words').innerText = tw;
+                    let tt = Math.max(elapsedSpeakTime, 1);
+                    document.getElementById('live-wpm').innerText = Math.round((tw / tt) * 60) || 0;
+                };
             } else {
                 initAudioAndSpeech();
             }
@@ -874,8 +885,10 @@
             if (isFallback) {
                 finalTranscript = document.getElementById('fallback-textarea').value;
                 document.getElementById('audio-wrapper').hidden = true;
+                document.getElementById('audio-note').hidden = false;
             } else {
                 document.getElementById('audio-wrapper').hidden = false;
+                document.getElementById('audio-note').hidden = true;
             }
 
             document.getElementById('speaking-screen').hidden = true;
@@ -907,35 +920,53 @@
                 highlightedText = "<em>No speech detected or typed.</em>";
             }
 
+            // Typed mode: text is typed instantly, so wall-clock time is NOT speaking time.
+            // Estimate speaking time at a natural 140 WPM pace; do not show a fake live WPM.
+            let bandTime = actualTime;
+            let typedNote = "";
+            if (isFallback && words > 0) {
+                bandTime = Math.round((words / 140) * 60);
+                typedNote = "Typed mode: you typed your answer, so live WPM pace was not measured. Estimated speaking time at a natural 140 WPM pace is " + bandTime + "s — allow the microphone next time for a real pace score.";
+            }
+
             document.getElementById('final-transcript').innerHTML = highlightedText;
             document.getElementById('res-words').innerText = words;
-            document.getElementById('res-time').innerText = actualTime + "s";
-            document.getElementById('res-wpm').innerText = wpm;
+            document.getElementById('res-time').innerText = bandTime + "s";
+            document.getElementById('res-wpm').innerText = isFallback ? "—" : wpm;
             document.getElementById('res-fillers').innerText = fillerCount;
+            document.getElementById('res-typed-note').hidden = !typedNote;
+            if (typedNote) document.getElementById('res-typed-note').innerText = typedNote;
 
-            // Score Band logic
+            // Score Band logic (uses estimated speaking time in typed mode)
             let bandText = "Keep Practicing";
+            let bandEst = "Estimated IELTS band: 5.0 (unofficial estimate)";
             let wpmClass = "";
             let timeClass = "";
 
-            if (actualTime >= 90 && actualTime <= 120) { timeClass = "success"; }
-            else if (actualTime < 90) { timeClass = "warning"; }
+            if (bandTime >= 90 && bandTime <= 120) { timeClass = "success"; }
+            else if (bandTime < 90) { timeClass = "warning"; }
 
-            if (wpm >= 120 && wpm <= 160) { wpmClass = "success"; }
-            else if (wpm > 160) { wpmClass = "warning"; }
-            else if (wpm < 120 && wpm >= 90) { wpmClass = "warning"; }
+            if (!isFallback) {
+                if (wpm >= 120 && wpm <= 160) { wpmClass = "success"; }
+                else if (wpm > 160) { wpmClass = "warning"; }
+                else if (wpm < 120 && wpm >= 90) { wpmClass = "warning"; }
+            }
 
-            if (actualTime >= 90 && wpm >= 120 && wpm <= 160 && fillerCount < 5) {
+            if (bandTime >= 90 && (!isFallback ? (wpm >= 120 && wpm <= 160) : true) && fillerCount < 5) {
                 bandText = "Excellent Pace & Fluency 🏆";
-            } else if (actualTime >= 90 && wpm >= 100) {
+                bandEst = "Estimated IELTS band: 7.0–7.5 (unofficial estimate)";
+            } else if (bandTime >= 60 && (!isFallback ? wpm >= 100 : true)) {
                 bandText = "Great Effort 👍";
-            } else if (actualTime < 90) {
+                bandEst = "Estimated IELTS band: 6.0–6.5 (unofficial estimate)";
+            } else if (bandTime < 90) {
                 bandText = "Try Speaking Longer ⏳";
+                bandEst = "Estimated IELTS band: 5.0–5.5 (unofficial estimate)";
             }
 
             document.getElementById('res-time').className = "val " + timeClass;
             document.getElementById('res-wpm').className = "val " + wpmClass;
             document.getElementById('res-score-band').innerText = bandText;
+            document.getElementById('res-band-est').innerText = bandEst;
 
             applyXP(words);
         }
