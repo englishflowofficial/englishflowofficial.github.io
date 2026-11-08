@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>IELTS Speaking Part 2 Mock Timer & Recorder | English Flow</title>
+    <meta name="description" content="Practice IELTS Speaking Part 2 online free. Real 1-min prep timer, 2-min voice recorder, instant audio playback, transcript & WPM pace score. No signup.">
+    <link rel="canonical" href="https://englishflowofficial.github.io/tools/ielts-speaking-mock-timer.html">
+    
+    <!-- OpenGraph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://englishflowofficial.github.io/tools/ielts-speaking-mock-timer.html">
+    <meta property="og:title" content="IELTS Speaking Part 2 Mock Timer & Recorder | English Flow">
+    <meta property="og:description" content="Practice IELTS Speaking Part 2 online free. Real 1-min prep timer, 2-min voice recorder, instant audio playback, transcript & WPM pace score. No signup.">
+    <meta property="og:image" content="https://englishflowofficial.github.io/og-image.jpg">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://englishflowofficial.github.io/tools/ielts-speaking-mock-timer.html">
+    <meta name="twitter:title" content="IELTS Speaking Part 2 Mock Timer & Recorder | English Flow">
+    <meta name="twitter:description" content="Practice IELTS Speaking Part 2 online free. Real 1-min prep timer, 2-min voice recorder, instant audio playback, transcript & WPM pace score. No signup.">
+    <meta name="twitter:image" content="https://englishflowofficial.github.io/og-image.jpg">
+
+    <!-- Fonts and External CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../game-practice.css">
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    [{
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "IELTS Speaking Part 2 Mock Timer & Recorder",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": 0,
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does the IELTS Speaking Part 2 mock timer work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It simulates the real exam format. You get a random cue card and 1 minute to prepare using a scratchpad. Then, the 2-minute timer begins. We record your voice, transcribe your speech, and calculate your fluency, WPM pace, and filler words."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my voice recording stored anywhere?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, your recording and transcript are processed entirely on your device and stay in your browser. We do not upload or store your audio on any servers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which browsers support the microphone and recording?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Google Chrome, Microsoft Edge, and Safari all support microphone recording. For live speech-to-text transcripts, Chrome and Edge offer the best support. If transcription isn't supported, we provide a typed fallback."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do XP and streaks work on English Flow?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every time you complete a speaking practice, you earn XP (Experience Points). Practicing daily increases your day streak, helping you build a consistent English speaking habit."
+          }
+        }
+      ]
+    }]
+    </script>
+
+    <style>
+        /* Base Styles ensuring exact design match */
+        :root {
+            --ef-green: #58cc02;
+            --ef-green-shadow: #58a700;
+            --ef-blue: #1cb0f6;
+            --ef-blue-shadow: #1899d6;
+            --ef-gray: #e5e5e5;
+            --ef-text: #4b4b4b;
+            --ef-bg: #ffffff;
+            --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --font-main: 'Nunito', sans-serif;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-main);
+            color: var(--ef-text);
+            background-color: #f7f9fa;
+            line-height: 1.6;
+        }
+
+        /* Header & Footer */
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            background: white;
+            border-bottom: 2px solid var(--ef-gray);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--ef-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stats-pill {
+            display: flex;
+            gap: 16px;
+            font-weight: 700;
+            color: #ff9600;
+            background: #fff8e5;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 2px solid #ffc800;
+        }
+
+        .stats-pill span { display: flex; align-items: center; gap: 4px; }
+        .xp-text { color: var(--ef-blue); }
+
+        /* Typography & Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #777;
+            margin-bottom: 40px;
+        }
+
+        /* Chunky 3D Buttons */
+        .btn {
+            display: inline-block;
+            font-family: var(--font-main);
+            font-weight: 700;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 14px 24px;
+            border-radius: 16px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.1s ease;
+            text-decoration: none;
+            width: 100%;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        .btn-green {
+            background-color: var(--ef-green);
+            color: white;
+            box-shadow: 0 6px 0 var(--ef-green-shadow);
+        }
+        .btn-green:active {
+            transform: translateY(6px);
+            box-shadow: 0 0px 0 var(--ef-green-shadow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #afafaf;
+            border: 2px solid #e5e5e5;
+            box-shadow: 0 4px 0 #e5e5e5;
+        }
+        .btn-outline:active {
+            transform: translateY(4px);
+            box-shadow: 0 0px 0 #e5e5e5;
+        }
+        
+        .btn-blue {
+            background-color: var(--ef-blue);
+            color: white;
+            box-shadow: 0 6px 0 var(--ef-blue-shadow);
+        }
+        .btn-blue:active {
+            transform: translateY(6px);
+            box-shadow: 0 0px 0 var(--ef-blue-shadow);
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border: 2px solid var(--ef-gray);
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--card-shadow);
+        }
+
+        /* Cue Card Style */
+        .cue-card {
+            background-color: #fffdf5;
+            border: 2px solid #ffd900;
+            padding: 24px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+        .cue-card h3 {
+            margin-top: 0;
+            font-size: 20px;
+            color: #333;
+        }
+        .cue-card ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+        .cue-card li {
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        .cue-card::before {
+            content: 'Task Card';
+            position: absolute;
+            top: -12px;
+            left: 24px;
+            background: #ffd900;
+            color: #7a5c00;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 12px;
+            text-transform: uppercase;
+        }
+
+        /* Prep Phase & Timers */
+        .timer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .timer-svg {
+            transform: rotate(-90deg);
+        }
+        
+        .timer-ring-bg {
+            stroke: var(--ef-gray);
+        }
+        
+        .timer-ring-progress {
+            stroke: var(--ef-green);
+            stroke-dasharray: 326.7;
+            stroke-dashoffset: 0;
+            transition: stroke-dashoffset 1s linear, stroke 0.3s;
+        }
+
+        .timer-ring-progress.warning { stroke: #ff9600; }
+        .timer-ring-progress.danger { stroke: #ea2b2b; }
+
+        .timer-text-container {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 120px;
+            height: 120px;
+            font-size: 32px;
+            font-weight: 800;
+            color: #333;
+        }
+
+        /* Scratchpad */
+        textarea.scratchpad {
+            width: 100%;
+            height: 120px;
+            padding: 16px;
+            border: 2px solid var(--ef-gray);
+            border-radius: 16px;
+            font-family: var(--font-main);
+            font-size: 16px;
+            resize: vertical;
+            box-sizing: border-box;
+            background: #fafafa;
+            margin-bottom: 24px;
+        }
+        textarea.scratchpad:focus {
+            outline: none;
+            border-color: var(--ef-blue);
+            background: white;
+        }
+
+        /* Speaking Phase */
+        .live-stats {
+            display: flex;
+            justify-content: space-around;
+            background: #f0f7ff;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 24px;
+            border: 2px solid #cce5ff;
+        }
+        .stat-box { text-align: center; }
+        .stat-val { font-size: 24px; font-weight: 800; color: var(--ef-blue); }
+        .stat-label { font-size: 12px; font-weight: 700; color: #666; text-transform: uppercase; }
+
+        .waveform-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 40px;
+            gap: 4px;
+            margin-bottom: 24px;
+        }
+        .wave-bar {
+            width: 8px;
+            background-color: var(--ef-blue);
+            border-radius: 4px;
+            height: 4px;
+            transition: height 0.1s ease;
+        }
+
+        .transcript-box {
+            background: white;
+            border: 2px solid var(--ef-gray);
+            border-radius: 16px;
+            padding: 16px;
+            min-height: 120px;
+            max-height: 250px;
+            overflow-y: auto;
+            font-size: 16px;
+            margin-bottom: 24px;
+            color: #333;
+        }
+
+        .interim { color: #999; }
+        .filler-highlight {
+            background-color: #ffe0e0;
+            color: #cc0000;
+            font-weight: 700;
+            padding: 0 4px;
+            border-radius: 4px;
+        }
+
+        /* Results Screen */
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .result-card {
+            background: white;
+            border: 2px solid var(--ef-gray);
+            border-radius: 16px;
+            padding: 16px;
+            text-align: center;
+        }
+        .result-card h4 { margin: 0 0 8px 0; font-size: 14px; color: #777; text-transform: uppercase; }
+        .result-card .val { font-size: 28px; font-weight: 800; color: #333; margin-bottom: 4px; }
+        .result-card .sub { font-size: 13px; color: #777; }
+        .val.success { color: var(--ef-green); }
+        .val.warning { color: #ff9600; }
+
+        .audio-player-wrapper {
+            margin: 24px 0;
+            text-align: center;
+        }
+        audio {
+            width: 100%;
+            border-radius: 30px;
+        }
+
+        .resources-card {
+            background: #fff8e5;
+            border: 2px solid #ffc800;
+            text-align: center;
+        }
+        
+        .resources-card h3 { color: #7a5c00; margin-top: 0; }
+        .resources-card a.link-item {
+            display: block;
+            color: var(--ef-blue);
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-decoration: none;
+        }
+        .resources-card a.link-item:hover { text-decoration: underline; }
+
+        .cheat-sheet {
+            background: white;
+            padding: 24px;
+            border-radius: 16px;
+            border: 2px solid var(--ef-gray);
+            margin-top: 40px;
+        }
+        .cheat-sheet h3 { margin-top: 0; display: flex; align-items: center; gap: 8px; }
+        .cheat-sheet ul { padding-left: 20px; }
+        .cheat-sheet li { margin-bottom: 12px; }
+
+        .retry-msg {
+            background: #ffe0e0;
+            color: #cc0000;
+            padding: 16px;
+            border-radius: 16px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 600px) {
+            .results-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 26px; }
+            .subtitle { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <a href="/" class="logo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--ef-green)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            English Flow
+        </a>
+        <div class="stats-pill">
+            <span title="Day Streak">🔥 <span id="header-streak">0</span></span>
+            <span class="xp-text" title="Total XP">⚡ <span id="header-xp">0 XP</span></span>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <h1>Free IELTS Speaking Part 2 Mock Timer with Voice Recorder & WPM Score</h1>
+        <p class="subtitle">Real IELTS Part 2 format: 1 minute to prepare, 2 minutes to speak. Record yourself, hear the playback, get a fluency score.</p>
+
+        <!-- STAGE A: START SCREEN -->
+        <div id="start-screen">
+            <div id="mic-error-msg" class="retry-msg" hidden>
+                Microphone access was denied or is unsupported. You can still practice using the typed fallback mode!
+            </div>
+            
+            <div class="cue-card" id="preview-cue-card">
+                <h3 id="preview-title">Loading topic...</h3>
+                <ul id="preview-prompts"></ul>
+            </div>
+            
+            <div style="display: flex; gap: 16px; margin-bottom: 40px; flex-wrap: wrap;">
+                <button class="btn btn-outline" style="flex: 1; min-width: 200px;" onclick="shuffleCueCard()">Shuffle Cue Card</button>
+                <button class="btn btn-green" style="flex: 2; min-width: 200px;" onclick="initTest()">Start My Mock Test</button>
+            </div>
+
+            <div class="cheat-sheet">
+                <h3>💡 5 IELTS Speaking Tips</h3>
+                <ul>
+                    <li><strong>Plan efficiently:</strong> Use the 1-minute prep time to note down exactly 3 to 4 keywords, not full sentences.</li>
+                    <li><strong>Keep talking:</strong> The examiner will stop you when the 2 minutes are up. Don't worry if you get cut off—it means you had plenty to say!</li>
+                    <li><strong>Use signposting:</strong> Link your ideas smoothly with words like <em>first</em>, <em>next</em>, and <em>finally</em> to improve coherence.</li>
+                    <li><strong>Expand answers:</strong> Give a clear reason and a specific example for every bullet point on the cue card.</li>
+                    <li><strong>Review yourself:</strong> Record and replay your answers. Listen for awkward pauses, filler words, or repeated vocabulary.</li>
+                </ul>
+                <p style="margin-top: 16px; font-weight: bold; color: var(--ef-green);">Flo says: Consistency is key! Do one mock test every day.</p>
+            </div>
+        </div>
+
+        <!-- STAGE B: PREP STAGE -->
+        <div id="prep-screen" class="card" hidden>
+            <div style="text-align: center; margin-bottom: 16px;">
+                <h2 style="margin: 0; color: #333;">Preparation Time</h2>
+                <p style="margin: 0; color: #777;">Read the card and take notes.</p>
+            </div>
+            
+            <div class="timer-container">
+                <div style="position: relative; width: 120px; height: 120px;">
+                    <svg class="timer-svg" width="120" height="120">
+                        <circle class="timer-ring-bg" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                        <circle id="prep-ring" class="timer-ring-progress" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                    </svg>
+                    <div class="timer-text-container" id="prep-time-text">60</div>
+                </div>
+            </div>
+
+            <div class="cue-card" id="active-cue-card">
+                <h3 id="active-title"></h3>
+                <ul id="active-prompts"></ul>
+            </div>
+
+            <textarea class="scratchpad" placeholder="Jot 3 keywords here — first / next / finally..."></textarea>
+            
+            <button class="btn btn-blue" onclick="forceStartSpeaking()">Start Speaking Now</button>
+        </div>
+
+        <!-- STAGE C: SPEAKING STAGE -->
+        <div id="speaking-screen" class="card" hidden>
+            <div style="text-align: center; margin-bottom: 16px;">
+                <h2 style="margin: 0; color: #ea2b2b;">🔴 Recording Live</h2>
+                <p style="margin: 0; color: #777;">Speak continuously for up to 2 minutes.</p>
+            </div>
+            
+            <div class="timer-container">
+                <div style="position: relative; width: 120px; height: 120px;">
+                    <svg class="timer-svg" width="120" height="120">
+                        <circle class="timer-ring-bg" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                        <circle id="speak-ring" class="timer-ring-progress" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                    </svg>
+                    <div class="timer-text-container" id="speak-time-text">120</div>
+                </div>
+            </div>
+
+            <div class="waveform-container" id="waveform-ui">
+                <div class="wave-bar" id="wb-1"></div>
+                <div class="wave-bar" id="wb-2"></div>
+                <div class="wave-bar" id="wb-3"></div>
+                <div class="wave-bar" id="wb-4"></div>
+                <div class="wave-bar" id="wb-5"></div>
+            </div>
+
+            <div class="live-stats">
+                <div class="stat-box">
+                    <div class="stat-val" id="live-words">0</div>
+                    <div class="stat-label">Words</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-val" id="live-wpm">0</div>
+                    <div class="stat-label">Pace (WPM)</div>
+                </div>
+            </div>
+
+            <div class="cue-card" style="padding: 16px; margin-bottom: 16px;">
+                <h3 id="speak-title" style="font-size: 16px; margin-bottom: 8px;"></h3>
+                <ul id="speak-prompts" style="font-size: 14px; margin: 0; padding-left: 20px;"></ul>
+            </div>
+
+            <div class="transcript-box" id="transcript-display">
+                Listening for speech...
+            </div>
+            
+            <textarea class="scratchpad" id="fallback-textarea" placeholder="Microphone unavailable. Type your response here while the timer runs to practice timing and get a WPM score..." hidden></textarea>
+
+            <button class="btn btn-green" onclick="finishTest()">Finish & Review Score</button>
+        </div>
+
+        <!-- STAGE D: RESULTS SCREEN -->
+        <div id="results-screen" hidden>
+            <div class="card" style="text-align: center; border-color: var(--ef-green); background: #f0fbf0;">
+                <h2 style="margin-top: 0; color: var(--ef-green);">Mock Test Complete!</h2>
+                <h3 style="font-size: 22px; margin-bottom: 8px;" id="res-score-band">Good Pace</h3>
+                <p id="res-xp-earned" style="font-weight: bold; color: #ff9600; margin: 0;">+25 XP Earned!</p>
+            </div>
+
+            <div class="results-grid">
+                <div class="result-card">
+                    <h4>Pace / Fluency</h4>
+                    <div class="val" id="res-wpm">0</div>
+                    <div class="sub">Words Per Minute</div>
+                    <div class="sub" style="font-size: 11px; margin-top: 4px;">(Ideal: 120–160 WPM)</div>
+                </div>
+                <div class="result-card">
+                    <h4>Speaking Time</h4>
+                    <div class="val" id="res-time">0s</div>
+                    <div class="sub">out of 120s max</div>
+                    <div class="sub" style="font-size: 11px; margin-top: 4px;">(Ideal: 90–110s)</div>
+                </div>
+                <div class="result-card">
+                    <h4>Total Words</h4>
+                    <div class="val" id="res-words">0</div>
+                    <div class="sub">Words spoken</div>
+                </div>
+                <div class="result-card">
+                    <h4>Filler Words</h4>
+                    <div class="val" id="res-fillers">0</div>
+                    <div class="sub">um, uh, like, etc.</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="margin-top: 0;">Audio Playback & Transcript</h3>
+                <div class="audio-player-wrapper" id="audio-wrapper">
+                    <audio id="audio-playback" controls></audio>
+                </div>
+                <p style="font-size: 14px; color: #777; margin-bottom: 8px;">Transcript (Fillers Highlighted):</p>
+                <div class="transcript-box" id="final-transcript" style="min-height: auto; max-height: none; background: #fafafa;">
+                    No transcript recorded.
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;">
+                <button class="btn btn-blue" style="flex: 1; min-width: 200px;" onclick="shareScore()">Share My Score on WhatsApp</button>
+                <button class="btn btn-outline" style="flex: 1; min-width: 200px;" onclick="resetApp()">Try Again</button>
+            </div>
+
+            <!-- Recommended Resources -->
+            <div class="card resources-card">
+                <h3>Recommended English Resources</h3>
+                <p style="font-size: 15px; margin-bottom: 16px;">Take your speaking skills to the next level with our top guides and community practice.</p>
+                <a href="../resources.html" class="link-item">Free English Resources</a>
+                <a href="../game-practice.html" class="link-item">More Interactive Practice Games</a>
+                <a href="https://topmate.io/speak_english_with_confidence/2324225" class="link-item" target="_blank" rel="noopener">Book a 1-on-1 Speaking Session</a>
+                <div style="margin-top: 24px;">
+                    <a href="../30-day-english-flow-workbook.pdf" class="btn btn-green" style="max-width: 320px; margin: 0 auto; padding: 12px; font-size: 16px;">Get the 30-Day Speaking Workbook ($) →</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 40px 20px; color: #999; font-size: 14px;">
+        <p>&copy; 2024 English Flow. All rights reserved.</p>
+    </footer>
+
+    <!-- Analytics -->
+    <script src="../ef-analytics.js" defer></script>
+
+    <!-- Main Logic -->
+    <script>
+        // --- 1. Global Variables & Setup ---
+        const cueCards = [
+            { title: "Describe a time you solved a difficult problem at work or study.", prompts: ["What the problem was", "How you solved it", "Who helped you", "And explain what you learned from this experience."] },
+            { title: "Describe a skill you would like to learn.", prompts: ["What the skill is", "Why you want to learn it", "How you plan to learn it", "And explain how long you think it will take."] },
+            { title: "Describe a place you would like to visit in the future.", prompts: ["Where this place is", "Why you want to go there", "Who you would like to go with", "And explain what you would do there."] },
+            { title: "Describe a person who has influenced your life.", prompts: ["Who the person is", "How you know them", "Why they have influenced you", "And explain what you learned from them."] },
+            { title: "Describe a recent change in your daily routine.", prompts: ["What the change was", "Why you made the change", "How it feels", "And explain the result of this change."] },
+            { title: "Describe a book or film that made a strong impression on you.", prompts: ["The title and what it is about", "When you read or watched it", "Why it made a strong impression", "And explain who you would recommend it to."] },
+            { title: "Describe a goal you hope to achieve in the next five years.", prompts: ["What the goal is", "Why it is important to you", "How you plan to achieve it", "And explain what challenges you might face."] },
+            { title: "Describe a meal you enjoyed with friends or family.", prompts: ["What the meal was", "Where you had it", "Who you were with", "And explain why it was memorable."] }
+        ];
+
+        let currentCard = null;
+        let isFallback = false;
+        let prepInterval, speakInterval;
+        let prepTime = 60;
+        let speakTime = 120;
+        let elapsedSpeakTime = 0;
+        let finalTranscript = "";
+
+        // Audio & Recording vars
+        let audioStream = null;
+        let audioContext, analyser, microphone, dataArray;
+        let mediaRecorder;
+        let audioChunks = [];
+        let recognition;
+        let isRecording = false;
+
+        // --- 2. Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            loadStats();
+            shuffleCueCard();
+        });
+
+        function loadStats() {
+            let xp = parseInt(localStorage.getItem('userXP')) || 0;
+            let streak = parseInt(localStorage.getItem('english_flow_streak')) || 0;
+            document.getElementById('header-xp').innerText = xp + ' XP';
+            document.getElementById('header-streak').innerText = streak;
+        }
+
+        function shuffleCueCard() {
+            let randomIndex = Math.floor(Math.random() * cueCards.length);
+            currentCard = cueCards[randomIndex];
+            
+            const renderCard = (prefix) => {
+                document.getElementById(prefix + '-title').innerText = currentCard.title;
+                const ul = document.getElementById(prefix + '-prompts');
+                ul.innerHTML = '';
+                currentCard.prompts.forEach(p => {
+                    let li = document.createElement('li');
+                    li.innerText = p;
+                    ul.appendChild(li);
+                });
+            };
+
+            renderCard('preview');
+            renderCard('active');
+            renderCard('speak');
+        }
+
+        // --- 3. Prep Phase ---
+        async function initTest() {
+            document.getElementById('mic-error-msg').hidden = true;
+            try {
+                audioStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                isFallback = false;
+            } catch (err) {
+                isFallback = true;
+                document.getElementById('mic-error-msg').hidden = false;
+            }
+
+            document.getElementById('start-screen').hidden = true;
+            document.getElementById('prep-screen').hidden = false;
+            
+            prepTime = 60;
+            updateRing('prep-ring', prepTime, 60);
+            document.getElementById('prep-time-text').innerText = prepTime;
+            
+            prepInterval = setInterval(() => {
+                prepTime--;
+                updateRing('prep-ring', prepTime, 60);
+                document.getElementById('prep-time-text').innerText = prepTime;
+                if (prepTime <= 0) {
+                    forceStartSpeaking();
+                }
+            }, 1000);
+        }
+
+        function forceStartSpeaking() {
+            clearInterval(prepInterval);
+            document.getElementById('prep-screen').hidden = true;
+            startSpeakingPhase();
+        }
+
+        // --- 4. Speaking Phase ---
+        function startSpeakingPhase() {
+            document.getElementById('speaking-screen').hidden = false;
+            speakTime = 120;
+            elapsedSpeakTime = 0;
+            finalTranscript = "";
+            document.getElementById('transcript-display').innerHTML = "Listening for speech...";
+            document.getElementById('live-words').innerText = "0";
+            document.getElementById('live-wpm').innerText = "0";
+            
+            if (isFallback) {
+                document.getElementById('waveform-ui').hidden = true;
+                document.getElementById('transcript-display').hidden = true;
+                document.getElementById('fallback-textarea').hidden = false;
+                document.getElementById('fallback-textarea').value = "";
+            } else {
+                initAudioAndSpeech();
+            }
+
+            speakInterval = setInterval(() => {
+                speakTime--;
+                elapsedSpeakTime++;
+                
+                updateRing('speak-ring', speakTime, 120);
+                document.getElementById('speak-time-text').innerText = speakTime;
+
+                // Live Stats
+                let currentText = isFallback ? document.getElementById('fallback-textarea').value : finalTranscript;
+                let words = countWords(currentText);
+                let wpm = Math.round((words / elapsedSpeakTime) * 60) || 0;
+                
+                document.getElementById('live-words').innerText = words;
+                document.getElementById('live-wpm').innerText = wpm;
+
+                if (speakTime <= 0) {
+                    finishTest();
+                }
+            }, 1000);
+        }
+
+        function initAudioAndSpeech() {
+            isRecording = true;
+            
+            // 1. Waveform
+            try {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                analyser = audioContext.createAnalyser();
+                microphone = audioContext.createMediaStreamSource(audioStream);
+                microphone.connect(analyser);
+                analyser.fftSize = 256;
+                dataArray = new Uint8Array(analyser.frequencyBinCount);
+                drawWaveform();
+            } catch(e) { console.error("AudioContext error", e); }
+
+            // 2. MediaRecorder
+            audioChunks = [];
+            try {
+                mediaRecorder = new MediaRecorder(audioStream);
+                mediaRecorder.ondataavailable = e => { if (e.data.size > 0) audioChunks.push(e.data); };
+                mediaRecorder.onstop = () => {
+                    const audioBlob = new Blob(audioChunks);
+                    const audioUrl = URL.createObjectURL(audioBlob);
+                    document.getElementById('audio-playback').src = audioUrl;
+                };
+                mediaRecorder.start(250);
+            } catch(e) { console.error("MediaRecorder error", e); }
+
+            // 3. Speech Recognition
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (SpeechRecognition) {
+                recognition = new SpeechRecognition();
+                recognition.continuous = true;
+                recognition.interimResults = true;
+                recognition.lang = 'en-US';
+
+                recognition.onresult = (e) => {
+                    let interim = '';
+                    let finalizedChunk = '';
+                    for (let i = e.resultIndex; i < e.results.length; i++) {
+                        if (e.results[i].isFinal) finalizedChunk += e.results[i][0].transcript + ' ';
+                        else interim += e.results[i][0].transcript;
+                    }
+                    finalTranscript += finalizedChunk;
+                    document.getElementById('transcript-display').innerHTML = finalTranscript + '<span class="interim">' + interim + '</span>';
+                };
+                
+                recognition.onend = () => {
+                    if (isRecording) {
+                        try { recognition.start(); } catch(err) {}
+                    }
+                };
+                
+                try { recognition.start(); } catch(e) {}
+            } else {
+                // Browser doesn't support recognition, swap to fallback
+                isFallback = true;
+                document.getElementById('transcript-display').hidden = true;
+                document.getElementById('fallback-textarea').hidden = false;
+            }
+        }
+
+        function drawWaveform() {
+            if (!isRecording) return;
+            requestAnimationFrame(drawWaveform);
+            if (!analyser) return;
+            
+            analyser.getByteFrequencyData(dataArray);
+            let avg = dataArray.reduce((a,b)=>a+b, 0) / dataArray.length;
+            
+            // Update the 5 bars based on pseudo-randomized slices of the average
+            for (let i=1; i<=5; i++) {
+                let bar = document.getElementById('wb-'+i);
+                let height = Math.max(4, (avg / 255) * 40 * (1 + Math.random()*0.5));
+                if(height > 40) height = 40;
+                bar.style.height = height + 'px';
+            }
+        }
+
+        // --- 5. Finish & Results Phase ---
+        function finishTest() {
+            clearInterval(speakInterval);
+            isRecording = false;
+
+            if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+                mediaRecorder.stop();
+            }
+            if (recognition) {
+                recognition.onend = null;
+                recognition.stop();
+            }
+            if (audioStream) {
+                audioStream.getTracks().forEach(track => track.stop());
+            }
+            
+            // Grab final text
+            if (isFallback) {
+                finalTranscript = document.getElementById('fallback-textarea').value;
+                document.getElementById('audio-wrapper').hidden = true;
+            } else {
+                document.getElementById('audio-wrapper').hidden = false;
+            }
+
+            document.getElementById('speaking-screen').hidden = true;
+            document.getElementById('results-screen').hidden = false;
+
+            calculateResults();
+        }
+
+        function calculateResults() {
+            let textToAnalyze = finalTranscript.trim();
+            let words = countWords(textToAnalyze);
+            
+            let actualTime = elapsedSpeakTime;
+            if (actualTime < 1) actualTime = 1;
+            
+            let wpm = Math.round((words / actualTime) * 60);
+            
+            // Fillers calculation
+            const fillerList = ['um', 'uh', 'like', 'basically', 'actually', 'you know', 'erm'];
+            let fillerCount = 0;
+            let highlightedText = textToAnalyze;
+            
+            if (textToAnalyze.length > 0) {
+                const regex = new RegExp('\\b(' + fillerList.join('|') + ')\\b', 'gi');
+                let matches = textToAnalyze.match(regex);
+                if (matches) fillerCount = matches.length;
+                highlightedText = textToAnalyze.replace(regex, '<span class="filler-highlight">$&</span>');
+            } else {
+                highlightedText = "<em>No speech detected or typed.</em>";
+            }
+
+            document.getElementById('final-transcript').innerHTML = highlightedText;
+            document.getElementById('res-words').innerText = words;
+            document.getElementById('res-time').innerText = actualTime + "s";
+            document.getElementById('res-wpm').innerText = wpm;
+            document.getElementById('res-fillers').innerText = fillerCount;
+
+            // Score Band logic
+            let bandText = "Keep Practicing";
+            let wpmClass = "";
+            let timeClass = "";
+
+            if (actualTime >= 90 && actualTime <= 120) { timeClass = "success"; }
+            else if (actualTime < 90) { timeClass = "warning"; }
+
+            if (wpm >= 120 && wpm <= 160) { wpmClass = "success"; }
+            else if (wpm > 160) { wpmClass = "warning"; }
+            else if (wpm < 120 && wpm >= 90) { wpmClass = "warning"; }
+
+            if (actualTime >= 90 && wpm >= 120 && wpm <= 160 && fillerCount < 5) {
+                bandText = "Excellent Pace & Fluency 🏆";
+            } else if (actualTime >= 90 && wpm >= 100) {
+                bandText = "Great Effort 👍";
+            } else if (actualTime < 90) {
+                bandText = "Try Speaking Longer ⏳";
+            }
+
+            document.getElementById('res-time').className = "val " + timeClass;
+            document.getElementById('res-wpm').className = "val " + wpmClass;
+            document.getElementById('res-score-band').innerText = bandText;
+
+            applyXP(words);
+        }
+
+        function applyXP(words) {
+            let earnedXP = 25;
+            if (words >= 100) earnedXP += 15; // fluency bonus
+            
+            document.getElementById('res-xp-earned').innerText = "+" + earnedXP + " XP Earned!";
+            
+            let currentXP = parseInt(localStorage.getItem('userXP')) || 0;
+            localStorage.setItem('userXP', currentXP + earnedXP);
+            
+            let today = new Date().toISOString().split('T')[0];
+            let lastPractice = localStorage.getItem('english_flow_last_practice');
+            let streak = parseInt(localStorage.getItem('english_flow_streak')) || 0;
+            
+            if (lastPractice !== today) {
+                let yesterday = new Date();
+                yesterday.setDate(yesterday.getDate() - 1);
+                let yStr = yesterday.toISOString().split('T')[0];
+                
+                if (lastPractice === yStr) {
+                    streak++;
+                } else {
+                    streak = 1;
+                }
+                localStorage.setItem('english_flow_streak', streak);
+                localStorage.setItem('english_flow_last_practice', today);
+            }
+            
+            loadStats();
+        }
+
+        // --- 6. Utilities & Actions ---
+        function updateRing(elementId, timeLeft, totalTime) {
+            const circle = document.getElementById(elementId);
+            const circumference = 326.7; // 2 * pi * r (r=52)
+            const offset = circumference - (timeLeft / totalTime) * circumference;
+            circle.style.strokeDashoffset = offset;
+
+            circle.classList.remove('warning', 'danger');
+            if (timeLeft <= 10) circle.classList.add('danger');
+            else if (timeLeft <= 30 && totalTime > 60) circle.classList.add('warning');
+        }
+
+        function countWords(str) {
+            return str.trim().split(/\s+/).filter(w => w.length > 0).length;
+        }
+
+        function shareScore() {
+            const wpm = document.getElementById('res-wpm').innerText;
+            const url = "https://englishflowofficial.github.io/tools/ielts-speaking-mock-timer.html";
+            const text = `I just scored ${wpm} WPM on my IELTS Speaking Part 2 Mock Test on English Flow! Practice your speaking for free here: ${url}`;
+            window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(text), '_blank');
+        }
+
+        function resetApp() {
+            document.getElementById('results-screen').hidden = true;
+            document.getElementById('start-screen').hidden = false;
+            shuffleCueCard();
+            document.querySelectorAll('.scratchpad').forEach(ta => ta.value = "");
+        }
+    </script>
+</body>
+</html>
