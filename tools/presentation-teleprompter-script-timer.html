@@ -612,7 +612,10 @@
     const totalWords = scriptWords.length;
     const actualSeconds = Math.max(elapsedSeconds, 5);
     const actualMinutes = actualSeconds / 60;
-    const actualWpm = Math.round(totalWords / actualMinutes);
+    // Pace is only meaningful if the rehearsal ran most of its target time:
+    // finishing seconds in would show an absurd WPM (e.g. 1668), so show "—".
+    const finishedEarly = actualSeconds < targetTotalSeconds * 0.5;
+    const actualWpm = finishedEarly ? "\u2014" : Math.round(totalWords / actualMinutes);
 
     document.getElementById('res-script-words').textContent = totalWords;
     document.getElementById('res-actual-time').textContent = formatMinSecDisplay(actualSeconds);
@@ -713,7 +716,9 @@
 
     // WhatsApp share link
     const canonical = "https://englishflowofficial.github.io/tools/presentation-teleprompter-script-timer.html";
-    const shareText = "I rehearsed my presentation script at " + actualWpm + " WPM with a " + finalScore + "/100 pacing score on the English Flow Teleprompter! 🦉 Rehearse your speech free here: " + canonical;
+    const shareText = finishedEarly
+      ? "I rehearsed my presentation script with the English Flow Teleprompter! \uD83E\uDD89 Rehearse your speech free here: " + canonical
+      : "I rehearsed my presentation script at " + actualWpm + " WPM with a " + finalScore + "/100 pacing score on the English Flow Teleprompter! \uD83E\uDD89 Rehearse your speech free here: " + canonical;
     document.getElementById('wa-share-btn').href = "https://api.whatsapp.com/send?text=" + encodeURIComponent(shareText);
   }
 
