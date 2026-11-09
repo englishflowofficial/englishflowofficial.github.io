@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#58cc02" />
+  <meta name="robots" content="index, follow" />
+  <title>Free Teleprompter &amp; Speech Script Timer | English Flow</title>
+  <meta name="description" content="Paste your speech script, set your pace, and practise aloud as the teleprompter scrolls. Free timing, WPM and rehearsal score. No sign-up." />
+  <meta name="keywords" content="teleprompter online, speech script timer, presentation teleprompter, rehearsal timer wpm, speak with teleprompter, english presentation practice, english flow" />
+  <link rel="canonical" href="https://englishflowofficial.github.io/tools/presentation-teleprompter-script-timer.html" />
+  <link rel="icon" href="../favicon.jpg" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://englishflowofficial.github.io/tools/presentation-teleprompter-script-timer.html" />
+  <meta property="og:title" content="Free Teleprompter &amp; Speech Script Timer | English Flow" />
+  <meta property="og:description" content="Paste your speech script, set your pace, and practise aloud as the teleprompter scrolls. Free timing, WPM and rehearsal score. No sign-up." />
+  <meta property="og:image" content="https://englishflowofficial.github.io/og-image.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@EnglishFlowPodcastt" />
+  <meta name="twitter:title" content="Free Teleprompter &amp; Speech Script Timer | English Flow" />
+  <meta name="twitter:description" content="Paste your speech script, set your pace, and practise aloud as the teleprompter scrolls. Free timing, WPM and rehearsal score. No sign-up." />
+  <meta name="twitter:image" content="https://englishflowofficial.github.io/og-image.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900;1000&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../game-practice.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Teleprompter & Speech Script Timer",
+    "url": "https://englishflowofficial.github.io/tools/presentation-teleprompter-script-timer.html",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": 0,
+      "priceCurrency": "USD"
+    },
+    "description": "Free browser-based presentation teleprompter and speech timer: paste your script, configure your target speaking pace (100–180 WPM), and practice speaking aloud with smooth auto-scrolling, live word tracking, and pacing analytics.",
+    "provider": {
+      "@type": "Organization",
+      "name": "English Flow",
+      "url": "https://englishflowofficial.github.io/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does the teleprompter timing work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The teleprompter counts the total words in your speech script and calculates the exact duration required to read it at your chosen words-per-minute (WPM) pace. As you speak, it smoothly scrolls the script text across your screen at that precise pace."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What speaking pace should I pick for my speech?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For presentations, business pitches, and keynotes, a pace between 120 and 140 WPM is ideal. It allows your audience to easily absorb key takeaways while keeping your delivery natural, confident, and energetic."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my speech script stored or uploaded anywhere?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Your script, voice recognition, and timing data remain entirely within your private browser session. English Flow never stores, saves, or transmits your speech texts to remote servers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do streaks and XP work on English Flow?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You earn +15 XP for completing a full speech rehearsal, plus an extra +10 XP pacing bonus if you finish within 10 seconds of your target time estimate. Completing your first practice session each day advances your daily streak."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    .quiz-wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 40px; font-family: 'Nunito', sans-serif; }
+    .q-card { border: 2px solid #e5e5e5; border-radius: 20px; padding: 26px 22px; background: #fff; box-shadow: 0 4px 0 #e5e5e5; margin: 16px 0; }
+    .result-card { border: 2px solid #e5e5e5; border-radius: 20px; padding: 28px; text-align: center; background: linear-gradient(135deg, #f0fff4, #eff8ff); }
+    .resource-card { border: 2px solid #ffc800; border-radius: 18px; padding: 18px; background: #fffbe6; margin-top: 18px; text-align: left; }
+    .notice-box { background: #fffbeb; border: 2px solid #fde68a; border-radius: 14px; padding: 14px 18px; color: #92400e; font-size: 14px; font-weight: 700; margin: 12px 0; text-align: left; }
+    
+    .score-badge { display: inline-block; padding: 6px 14px; border-radius: 999px; font-weight: 900; font-size: 14px; }
+    .score-high { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+    .score-med { background: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
+    .score-low { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+
+    .action-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 18px; }
+    .btn-3d { min-height: 48px; min-width: 150px; font-size: 16px; font-weight: 900; border-radius: 14px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; padding: 12px 24px; border: none; font-family: inherit; }
+    .btn-green { background: #58cc02; color: #fff; box-shadow: 0 4px 0 #46a302; }
+    .btn-green:active { transform: translateY(3px); box-shadow: 0 1px 0 #46a302; }
+    .btn-blue { background: #1cb0f6; color: #fff; box-shadow: 0 4px 0 #0284c7; }
+    .btn-blue:active { transform: translateY(3px); box-shadow: 0 1px 0 #0284c7; }
+
+    .script-textarea { width: 100%; box-sizing: border-box; min-height: 180px; border: 2px solid #cbd5e1; border-radius: 14px; padding: 16px; font-family: inherit; font-size: 15px; font-weight: 700; color: #1e293b; line-height: 1.6; resize: vertical; }
+    .script-textarea:focus { outline: none; border-color: #58cc02; }
+
+    .pace-slider-wrap { background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 16px; padding: 18px; margin: 16px 0; text-align: left; }
+    .pace-slider-labels { display: flex; justify-content: space-between; font-size: 12.5px; font-weight: 800; color: #64748b; margin-top: 6px; }
+    .slider-element { width: 100%; accent-color: #58cc02; cursor: pointer; height: 8px; }
+
+    .estimate-pill { display: inline-flex; align-items: center; gap: 8px; background: #e0f2fe; color: #0369a1; padding: 8px 16px; border-radius: 999px; font-size: 14px; font-weight: 800; }
+
+    /* TELEPROMPTER VIEWPORT */
+    .prompter-viewport { position: relative; height: 380px; overflow-y: scroll; scroll-behavior: smooth; background: #0f172a; color: #e2e8f0; border-radius: 18px; padding: 140px 28px; box-sizing: border-box; font-size: 26px; line-height: 1.7; font-weight: 800; text-align: left; border: 3px solid #334155; }
+    .prompter-viewport::-webkit-scrollbar { width: 8px; }
+    .prompter-viewport::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
+    .prompter-highlight-bar { position: absolute; top: 140px; left: 0; right: 0; height: 50px; background: rgba(56, 189, 248, 0.15); border-top: 2px dashed #38bdf8; border-bottom: 2px dashed #38bdf8; pointer-events: none; }
+    .spoken-word { color: #4ade80; text-shadow: 0 0 10px rgba(74, 222, 128, 0.4); }
+
+    .teleprompter-controls { display: flex; justify-content: space-between; align-items: center; gap: 12px; background: #1e293b; color: #ffffff; padding: 12px 18px; border-radius: 14px; margin-top: 10px; flex-wrap: wrap; }
+    .speed-btn { background: #334155; color: #ffffff; border: none; padding: 8px 14px; border-radius: 8px; font-weight: 900; font-size: 14px; cursor: pointer; }
+    .speed-btn:active { background: #475569; }
+
+    .progress-bar-wrap { width: 100%; height: 8px; background: #334155; border-radius: 999px; overflow: hidden; margin-top: 10px; }
+    .progress-bar-fill { height: 100%; width: 0%; background: #58cc02; transition: width 0.3s linear; }
+
+    .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 18px 0; }
+    .metric-card { background: #ffffff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 14px 10px; text-align: center; box-shadow: 0 3px 0 #e2e8f0; }
+    .metric-num { font-size: 28px; font-weight: 1000; color: #1e1b4b; line-height: 1.1; margin: 4px 0; }
+    .metric-label { font-size: 11.5px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    .faq-card { background: #fff; border: 2px solid #e5e5e5; border-radius: 16px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 3px 0 #e5e5e5; text-align: left; }
+    .faq-q { font-size: 15.5px; font-weight: 900; color: #1e1b4b; margin: 0 0 6px; }
+    .faq-a { font-size: 14px; font-weight: 700; color: #475569; line-height: 1.6; margin: 0; }
+  </style>
+</head>
+<body>
+<header class="gp-header">
+<a class="gp-brand" href="../index.html">🦉 English <b>Flow</b></a>
+<nav class="gp-nav"><a href="../index.html">Home</a><a href="../game-practice.html">Practice</a><a href="../tenses.html">Tenses</a></nav>
+<div class="gp-stats"><span class="gp-stat streak">🔥 <b id="st-streak">0</b></span><span class="gp-stat xp">⚡ <b id="st-xp">0</b></span></div>
+</header>
+
+<main class="quiz-wrap">
+  <div style="text-align: left; margin-bottom: 8px;">
+    <a href="../index.html" style="font-weight: 800; font-size: 13px; color: #1cb0f6; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">🌐 English Flow</a>
+  </div>
+  <h1 style="font-size: 28px; font-weight: 1000; margin: 0 0 6px; color: #1e1b4b; line-height: 1.3;">Free Online Teleprompter — Rehearse Your Speech at Your Pace</h1>
+  <p style="color: #64748b; font-weight: 700; margin: 0 0 16px; font-size: 15px;">Paste your script, set your target speaking speed, and rehearse out loud with smooth pacing &amp; timing feedback.</p>
+
+  <div id="mic-notice" class="notice-box" hidden>
+    ℹ️ <strong>Speech Recognition Notice:</strong> Microphone voice-matching is optimized for Google Chrome. Auto-scrolling and pacing timers work fully in all web browsers!
+  </div>
+
+  <!-- STAGE 1: SETUP SCREEN -->
+  <div id="stage-setup" class="q-card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+      <span style="font-size: 12px; font-weight: 900; color: #1cb0f6; letter-spacing: 1px; text-transform: uppercase;">YOUR PRESENTATION SCRIPT</span>
+      <span style="font-size: 13px; font-weight: 800; color: #ff9600;">+15 XP per rehearsal</span>
+    </div>
+
+    <textarea id="script-input" class="script-textarea" aria-label="Paste speech script here" placeholder="Paste your presentation script, keynote opener, or pitch here...">Good morning, everyone, and thank you for taking the time to join today's session. Over the past few months, our team has been exploring a major challenge that affects every department: how to communicate complex updates clearly, efficiently, and without unnecessary friction. Today, I am excited to share three concrete shifts we are introducing to streamline our project workflows. First, we are replacing lengthy status emails with structured two-minute executive briefings. Second, we are establishing dedicated focus blocks to minimize context switching during critical sprints. And finally, we are creating transparent documentation hubs so every team member has instant access to real-time decisions. By making these small, intentional upgrades, we will eliminate duplicate effort, accelerate delivery timelines, and ensure our projects run smoothly from start to finish. I look forward to walking through the details and hearing your thoughts.</textarea>
+
+    <!-- Pace Config Slider -->
+    <div class="pace-slider-wrap">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <span style="font-size: 13.5px; font-weight: 900; color: #1e1b4b;">Speaking Pace: <strong id="pace-display-val" style="color:#58cc02; font-size:16px;">130 WPM</strong></span>
+        <span id="pace-badge-label" class="score-badge score-high" style="font-size:12px; padding:3px 10px;">Natural &amp; Clear</span>
+      </div>
+      <input type="range" id="pace-slider" class="slider-element" min="100" max="180" step="5" value="130" oninput="updatePaceEstimates()" />
+      <div class="pace-slider-labels">
+        <span>100 WPM (Slow / Formal)</span>
+        <span>130 WPM (Conversational)</span>
+        <span>180 WPM (Brisk / Energetic)</span>
+      </div>
+    </div>
+
+    <!-- Live Estimate Pill -->
+    <div style="text-align: center; margin: 12px 0;">
+      <div class="estimate-pill">
+        <span>📊 <b id="est-word-count">148</b> Words</span>
+        <span>·</span>
+        <span>⏱️ Estimated Time: <b id="est-time-val">1m 08s</b></span>
+      </div>
+    </div>
+
+    <div id="setup-error-msg" style="color: #dc2626; font-size: 13.5px; font-weight: 800; margin-top: 8px; text-align: center;" hidden>
+      Please enter or keep at least 15 words of script text to begin rehearsal.
+    </div>
+
+    <div class="action-row">
+      <button type="button" class="btn-3d btn-green" onclick="startRehearsalStage()">
+        🚀 Start Rehearsal
+      </button>
+    </div>
+  </div>
+
+  <!-- STAGE 2: REHEARSAL TELEPROMPTER SCREEN -->
+  <div id="stage-rehearsal" class="q-card" hidden style="padding: 18px;">
+    <div style="position: relative;">
+      <div class="prompter-highlight-bar" aria-hidden="true"></div>
+      <div id="prompter-box" class="prompter-viewport">
+        <!-- Rendered text spans -->
+      </div>
+    </div>
+
+    <div class="progress-bar-wrap">
+      <div id="prompter-progress" class="progress-bar-fill"></div>
+    </div>
+
+    <!-- Teleprompter Controls -->
+    <div class="teleprompter-controls">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <button type="button" id="btn-pause-resume" class="speed-btn" onclick="togglePauseResume()" style="background:#58cc02; font-weight:900;">
+          ⏸️ Pause
+        </button>
+        <span style="font-size: 13px; font-weight: 800; color: #94a3b8;">
+          Elapsed: <b id="tele-elapsed-time" style="color:#ffffff;">00:00</b> / <span id="tele-target-time">01:08</span>
+        </span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 6px;">
+        <span style="font-size: 12px; font-weight: 800; color: #94a3b8;">Pace:</span>
+        <button type="button" class="speed-btn" onclick="adjustPaceLive(-5)">−5</button>
+        <b id="tele-live-wpm" style="font-size: 14px; font-weight: 900; min-width: 60px; text-align: center;">130 WPM</b>
+        <button type="button" class="speed-btn" onclick="adjustPaceLive(5)">+5</button>
+      </div>
+
+      <div>
+        <button type="button" class="speed-btn" onclick="finishRehearsal()" style="background:#0284c7;">
+          ⏹️ Finish
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 3: RESULTS SCREEN -->
+  <div id="stage-results" class="result-card" hidden>
+    <div style="font-size: 52px;">🦉</div>
+    <h2 style="font-size: 26px; font-weight: 1000; margin: 4px 0 6px; color: #1e1b4b;">Rehearsal Session Complete!</h2>
+
+    <div style="margin: 8px 0;" id="res-badge-wrap">
+      <span class="score-badge score-high" id="res-score-badge">Rehearsal Score: 94 / 100 · Outstanding</span>
+    </div>
+    <p id="res-feedback-text" style="color: #475569; font-weight: 800; font-size: 15px; margin: 4px 0 16px;">
+      Outstanding! Steady delivery right on target time.
+    </p>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-label">Script Words</div>
+        <div class="metric-num" id="res-script-words">148</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Actual Time</div>
+        <div class="metric-num" id="res-actual-time">1m 09s</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Target Time</div>
+        <div class="metric-num" id="res-target-time">1m 08s</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Average Pace</div>
+        <div class="metric-num" id="res-actual-wpm">129</div>
+        <div style="font-size: 11px; font-weight: 700; color: #64748b;">Words / min</div>
+      </div>
+    </div>
+
+    <!-- Alignment diagnostic -->
+    <div style="background: #ffffff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 14px 18px; text-align: left; margin: 14px 0;">
+      <div style="margin-bottom: 6px;">
+        <strong style="color: #1e1b4b; font-size: 14px;">⏱️ Timing Precision: </strong>
+        <span id="res-timing-diff-note" style="font-size: 13.5px; font-weight: 700; color: #475569;"></span>
+      </div>
+      <div>
+        <strong style="color: #1e1b4b; font-size: 14px;">🎙️ Voice Tracking: </strong>
+        <span id="res-speech-match-note" style="font-size: 13.5px; font-weight: 700; color: #475569;"></span>
+      </div>
+    </div>
+
+    <p style="font-weight: 900; font-size: 16px; color: #1e1b4b; margin: 16px 0 8px;">
+      🔥 Streak: <span id="final-streak">0</span> days · ⚡ Total XP: <span id="final-xp">0</span>
+      <span id="res-xp-bonus-tag" style="display: block; font-size: 13px; color: #58cc02; font-weight: 800; margin-top: 4px;">+15 XP rehearsal completed!</span>
+    </p>
+
+    <div class="action-row">
+      <a id="wa-share-btn" href="#" target="_blank" rel="noopener" class="btn-3d btn-green">
+        💬 Share My Score on WhatsApp
+      </a>
+      <button type="button" class="btn-3d btn-blue" onclick="retrySameScript()">
+        🔁 Try Again
+      </button>
+      <button type="button" class="btn-3d" onclick="resetToNewScript()" style="background:#64748b; color:#ffffff;">
+        ✍️ New Script
+      </button>
+    </div>
+
+    <!-- Recommended English Resources Card -->
+    <div class="resource-card">
+      <h3 style="margin: 0 0 6px; font-size: 17px; color: #1e1b4b;">📚 Recommended English Resources</h3>
+      <p style="margin: 0 0 10px; color: #555; font-weight: 700; font-size: 14px;">Master professional speaking on stage, in meetings, and on camera:</p>
+      <div style="margin-bottom: 12px;">
+        <a href="https://topmate.io/speak_english_with_confidence/2324225" target="_blank" rel="noopener noreferrer" class="btn-3d" style="background:#f59e0b; color:#1e1b4b; font-size:14px; padding:10px 18px; box-shadow:0 3px 0 #b45309;">
+          Get the 30-Day Speaking Workbook ($) →
+        </a>
+      </div>
+      <ul style="margin: 0; padding-left: 18px; font-weight: 700; font-size: 14px; line-height: 1.8;">
+        <li><a href="../30-day-english-flow-workbook.pdf">30-Day English Flow Workbook (PDF)</a> – daily speaking drills</li>
+        <li><a href="../resources.html">Free Resources Library</a> – templates, cheat sheets &amp; audio</li>
+        <li><a href="../game-practice.html">Daily Practice Session</a> – maintain your learning momentum</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CHEAT SHEET SECTION -->
+  <section class="study-cheatsheet" aria-label="5 Ways to Sound Confident on Stage" style="margin: 30px 0 20px; padding: 20px; border: 2px dashed #1cb0f6; border-radius: 18px; background: #f7fdff; text-align: left;">
+    <h2 style="font-size: 20px; font-weight: 900; margin-top: 0; color: #0284c7;">📖 5 Ways to Sound Confident on Stage</h2>
+    <ul style="font-weight: 700; color: #334155; line-height: 1.7; padding-left: 20px;">
+      <li><strong>1. Rehearse at your real pace, not your fast nervous pace</strong> — when adrenaline strikes, speakers accelerate without realizing it. Lock in your calm cadence here first.</li>
+      <li><strong>2. Pause at commas and full stops</strong> — commas give listeners a micro-second to process; full stops mark authority.</li>
+      <li><strong>3. Look up at the end of each sentence, not at the screen</strong> — glance at the teleprompter for the start of the thought, then deliver the final words directly to your audience.</li>
+      <li><strong>4. Mark 3 words to stress in every paragraph</strong> — highlighting key nouns or action verbs prevents a robotic, flat delivery.</li>
+      <li><strong>5. Time your talk twice — once slow, once at full pace</strong> — knowing your exact timing boundaries eliminates clock anxiety entirely.</li>
+    </ul>
+    <p style="font-size: 13px; color: #64748b; font-weight: 700; margin: 12px 0 0;">
+      🦉 Flo tip: A 2-second pause after an important point creates suspense and emphasizes your leadership. Never rush into your next slide!
+    </p>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section style="margin-top: 30px;" aria-label="Frequently asked questions">
+    <h2 style="font-size: 22px; font-weight: 1000; color: #1e1b4b; text-align: left; margin-bottom: 16px;">Frequently Asked Questions</h2>
+    <div class="faq-card">
+      <h3 class="faq-q">How does the teleprompter timing work?</h3>
+      <p class="faq-a">The teleprompter counts the total words in your speech script and calculates the exact duration required to read it at your chosen words-per-minute (WPM) pace. As you speak, it smoothly scrolls the script text across your screen at that precise pace.</p>
+    </div>
+    <div class="faq-card">
+      <h3 class="faq-q">What speaking pace should I pick for my speech?</h3>
+      <p class="faq-a">For presentations, business pitches, and keynotes, a pace between 120 and 140 WPM is ideal. It allows your audience to easily absorb key takeaways while keeping your delivery natural, confident, and energetic.</p>
+    </div>
+    <div class="faq-card">
+      <h3 class="faq-q">Is my speech script stored or uploaded anywhere?</h3>
+      <p class="faq-a">No. Your script, voice recognition, and timing data remain entirely within your private browser session. English Flow never stores, saves, or transmits your speech texts to remote servers.</p>
+    </div>
+    <div class="faq-card">
+      <h3 class="faq-q">How do streaks and XP work on English Flow?</h3>
+      <p class="faq-a">You earn +15 XP for completing a full speech rehearsal, plus an extra +10 XP pacing bonus if you finish within 10 seconds of your target time estimate. Completing your first practice session each day advances your daily streak.</p>
+    </div>
+  </section>
+
+  <footer style="margin-top: 28px; text-align: center; font-size: 14px; font-weight: 800; color: #94a3b8;">
+    <a href="../index.html" style="color: #64748b; text-decoration: none;">← Back to English Flow Home</a>
+  </footer>
+</main>
+
+<script>
+  let scriptWords = [];
+  let currentPace = 130;
+  let targetTotalSeconds = 68;
+  let elapsedSeconds = 0;
+  let isPaused = false;
+  let animationFrameId = null;
+  let timerInterval = null;
+
+  // Teleprompter scroll tracking
+  let scrollStartTime = null;
+  let pausedAtTime = 0;
+  let totalPausedDuration = 0;
+
+  // Speech Recognition state
+  let recognition = null;
+  let isMicActive = false;
+  let recognizedWordsSet = new Set();
+
+  // LocalStorage stats
+  let xp = parseInt(localStorage.getItem('userXP')) || 0;
+  let streak = parseInt(localStorage.getItem('english_flow_streak')) || 0;
+
+  function renderStats() {
+    document.getElementById('st-streak').textContent = streak;
+    document.getElementById('st-xp').textContent = xp;
+  }
+
+  function formatSeconds(sec) {
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60);
+    return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+  }
+
+  function formatMinSecDisplay(sec) {
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60);
+    return m + 'm ' + (s < 10 ? '0' : '') + s + 's';
+  }
+
+  function updatePaceEstimates() {
+    currentPace = parseInt(document.getElementById('pace-slider').value, 10);
+    document.getElementById('pace-display-val').textContent = currentPace + ' WPM';
+
+    const labelBadge = document.getElementById('pace-badge-label');
+    labelBadge.className = 'score-badge';
+    if (currentPace <= 115) {
+      labelBadge.textContent = 'Deliberate / Slow';
+      labelBadge.classList.add('score-med');
+    } else if (currentPace <= 145) {
+      labelBadge.textContent = 'Natural & Clear';
+      labelBadge.classList.add('score-high');
+    } else {
+      labelBadge.textContent = 'Fast / Dynamic';
+      labelBadge.classList.add('score-med');
+    }
+
+    const text = document.getElementById('script-input').value.trim();
+    const words = text ? text.split(/\s+/).filter(Boolean) : [];
+    const count = words.length;
+
+    document.getElementById('est-word-count').textContent = count;
+    targetTotalSeconds = count > 0 ? (count / currentPace) * 60 : 0;
+    document.getElementById('est-time-val').textContent = formatMinSecDisplay(targetTotalSeconds);
+  }
+
+  // Check speech recognition capability
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognition) {
+    document.getElementById('mic-notice').removeAttribute('hidden');
+  }
+
+  function startRehearsalStage() {
+    const rawText = document.getElementById('script-input').value.trim();
+    scriptWords = rawText ? rawText.split(/\s+/).filter(Boolean) : [];
+
+    if (scriptWords.length < 15) {
+      document.getElementById('setup-error-msg').removeAttribute('hidden');
+      return;
+    }
+    document.getElementById('setup-error-msg').setAttribute('hidden', '');
+
+    // Setup prompter words
+    const prompterBox = document.getElementById('prompter-box');
+    prompterBox.innerHTML = '';
+    recognizedWordsSet.clear();
+
+    scriptWords.forEach((word, idx) => {
+      const span = document.createElement('span');
+      span.id = 'word-' + idx;
+      span.textContent = word + ' ';
+      prompterBox.appendChild(span);
+    });
+
+    document.getElementById('stage-setup').setAttribute('hidden', '');
+    document.getElementById('stage-results').setAttribute('hidden', '');
+    document.getElementById('stage-rehearsal').removeAttribute('hidden');
+
+    // Reset view
+    prompterBox.scrollTop = 0;
+    elapsedSeconds = 0;
+    isPaused = false;
+    pausedAtTime = 0;
+    totalPausedDuration = 0;
+    scrollStartTime = null;
+
+    document.getElementById('tele-live-wpm').textContent = currentPace + ' WPM';
+    document.getElementById('tele-target-time').textContent = formatSeconds(targetTotalSeconds);
+    document.getElementById('tele-elapsed-time').textContent = '00:00';
+    document.getElementById('prompter-progress').style.width = '0%';
+    document.getElementById('btn-pause-resume').textContent = '⏸️ Pause';
+    document.getElementById('btn-pause-resume').style.background = '#58cc02';
+
+    // Start live speech listening if available
+    initSpeechRecognition();
+
+    // Start timer & smooth scroll
+    if (timerInterval) clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+      if (!isPaused) {
+        elapsedSeconds++;
+        document.getElementById('tele-elapsed-time').textContent = formatSeconds(elapsedSeconds);
+      }
+    }, 1000);
+
+    requestAnimationFrame(scrollStep);
+  }
+
+  function scrollStep(timestamp) {
+    if (!scrollStartTime) scrollStartTime = timestamp;
+
+    if (!isPaused) {
+      const adjustedTimestamp = timestamp - totalPausedDuration;
+      const timeInSec = (adjustedTimestamp - scrollStartTime) / 1000;
+
+      const prompterBox = document.getElementById('prompter-box');
+      const maxScroll = prompterBox.scrollHeight - prompterBox.clientHeight;
+      const progress = Math.min(1, targetTotalSeconds > 0 ? timeInSec / targetTotalSeconds : 0);
+
+      prompterBox.scrollTop = progress * maxScroll;
+      document.getElementById('prompter-progress').style.width = (progress * 100) + '%';
+
+      if (progress >= 1) {
+        finishRehearsal();
+        return;
+      }
+    }
+
+    if (!document.getElementById('stage-rehearsal').hasAttribute('hidden')) {
+      animationFrameId = requestAnimationFrame(scrollStep);
+    }
+  }
+
+  function togglePauseResume() {
+    const btn = document.getElementById('btn-pause-resume');
+    if (!isPaused) {
+      // Pause
+      isPaused = true;
+      pausedAtTime = performance.now();
+      btn.textContent = '▶️ Resume';
+      btn.style.background = '#1cb0f6';
+      if (recognition && isMicActive) {
+        try { recognition.stop(); } catch(e) {}
+      }
+    } else {
+      // Resume
+      isPaused = false;
+      totalPausedDuration += (performance.now() - pausedAtTime);
+      btn.textContent = '⏸️ Pause';
+      btn.style.background = '#58cc02';
+      if (recognition && !isMicActive) {
+        try { recognition.start(); } catch(e) {}
+      }
+    }
+  }
+
+  function adjustPaceLive(delta) {
+    currentPace = Math.max(90, Math.min(200, currentPace + delta));
+    document.getElementById('tele-live-wpm').textContent = currentPace + ' WPM';
+    
+    // Recalculate remaining duration based on current pace
+    targetTotalSeconds = scriptWords.length > 0 ? (scriptWords.length / currentPace) * 60 : 0;
+    document.getElementById('tele-target-time').textContent = formatSeconds(targetTotalSeconds);
+  }
+
+  function initSpeechRecognition() {
+    if (!SpeechRecognition) return;
+
+    try {
+      recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = 'en-US';
+
+      recognition.onstart = () => { isMicActive = true; };
+      recognition.onend = () => {
+        isMicActive = false;
+        if (!isPaused && !document.getElementById('stage-rehearsal').hasAttribute('hidden')) {
+          try { recognition.start(); } catch(e) {}
+        }
+      };
+
+      recognition.onresult = (event) => {
+        let transcript = '';
+        for (let i = 0; i < event.results.length; i++) {
+          transcript += event.results[i][0].transcript + ' ';
+        }
+        highlightSpokenWords(transcript.toLowerCase());
+      };
+
+      recognition.start();
+    } catch(e) {
+      document.getElementById('mic-notice').removeAttribute('hidden');
+    }
+  }
+
+  function highlightSpokenWords(transcript) {
+    const spokenTokens = transcript.split(/\s+/).filter(Boolean);
+    spokenTokens.forEach(token => {
+      const cleanToken = token.replace(/[^a-z0-9]/g, '');
+      if (cleanToken.length < 2) return;
+
+      scriptWords.forEach((word, idx) => {
+        if (recognizedWordsSet.has(idx)) return;
+        const cleanScriptWord = word.toLowerCase().replace(/[^a-z0-9]/g, '');
+        if (cleanScriptWord === cleanToken) {
+          recognizedWordsSet.add(idx);
+          const el = document.getElementById('word-' + idx);
+          if (el) el.classList.add('spoken-word');
+        }
+      });
+    });
+  }
+
+  function finishRehearsal() {
+    if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    if (timerInterval) clearInterval(timerInterval);
+    if (recognition) {
+      try { recognition.stop(); } catch(e) {}
+    }
+
+    document.getElementById('stage-rehearsal').setAttribute('hidden', '');
+    document.getElementById('stage-results').removeAttribute('hidden');
+
+    computeAndDisplayResults();
+  }
+
+  function computeAndDisplayResults() {
+    const totalWords = scriptWords.length;
+    const actualSeconds = Math.max(elapsedSeconds, 5);
+    const actualMinutes = actualSeconds / 60;
+    const actualWpm = Math.round(totalWords / actualMinutes);
+
+    document.getElementById('res-script-words').textContent = totalWords;
+    document.getElementById('res-actual-time').textContent = formatMinSecDisplay(actualSeconds);
+    document.getElementById('res-target-time').textContent = formatMinSecDisplay(targetTotalSeconds);
+    document.getElementById('res-actual-wpm').textContent = actualWpm;
+
+    // Timing precision delta
+    const diff = Math.abs(actualSeconds - targetTotalSeconds);
+    const diffNote = document.getElementById('res-timing-diff-note');
+    let timingScore = 100;
+
+    if (diff <= 5) {
+      diffNote.textContent = 'Pinpoint precision! You finished within 5s of your target time (' + Math.round(diff) + 's difference).';
+      diffNote.style.color = '#15803d';
+      timingScore = 100;
+    } else if (diff <= 10) {
+      diffNote.textContent = 'Great pacing! Finished within 10s of estimate (' + Math.round(diff) + 's difference).';
+      diffNote.style.color = '#15803d';
+      timingScore = 92;
+    } else if (diff <= 20) {
+      diffNote.textContent = 'Good rhythm! Pace varied slightly from estimate (' + Math.round(diff) + 's difference).';
+      diffNote.style.color = '#0284c7';
+      timingScore = 80;
+    } else {
+      diffNote.textContent = 'Pace differed significantly (' + Math.round(diff) + 's difference). Try another rehearsal to lock in a consistent tempo.';
+      diffNote.style.color = '#b45309';
+      timingScore = Math.max(35, Math.round(100 - (diff * 1.4)));
+    }
+
+    // Voice match note
+    const matchNote = document.getElementById('res-speech-match-note');
+    const matchedCount = recognizedWordsSet.size;
+    let matchPct = 0;
+    if (matchedCount > 0) {
+      matchPct = Math.min(100, Math.round((matchedCount / totalWords) * 100));
+      matchNote.textContent = matchedCount + ' / ' + totalWords + ' words recognized aloud (' + matchPct + '% voice coverage).';
+    } else {
+      matchNote.textContent = 'Rehearsed with manual pacing timer (or microphone was muted).';
+    }
+
+    // Final score blends timing precision with voice coverage. Without mic
+    // confirmation the score caps at 85, since speaking was not verified.
+    let finalScore = timingScore;
+    if (matchedCount > 0) {
+      finalScore = Math.round(timingScore * 0.6 + matchPct * 0.4);
+    } else {
+      finalScore = Math.min(timingScore, 85);
+    }
+
+    // Rehearsal Score Badge
+    const badge = document.getElementById('res-score-badge');
+    badge.className = 'score-badge';
+    let feedback = '';
+
+    if (finalScore >= 90) {
+      badge.textContent = 'Rehearsal Score: ' + finalScore + ' / 100 · Outstanding';
+      badge.classList.add('score-high');
+      feedback = 'Outstanding delivery! Your vocal pacing was consistent, composed, and on schedule.';
+    } else if (finalScore >= 70) {
+      badge.textContent = 'Rehearsal Score: ' + finalScore + ' / 100 · Strong';
+      badge.classList.add('score-med');
+      feedback = 'Strong rehearsal! Solid command over the teleprompter with minor timing fluctuations.';
+    } else if (finalScore >= 40) {
+      badge.textContent = 'Rehearsal Score: ' + finalScore + ' / 100 · Good start';
+      badge.classList.add('score-low');
+      feedback = 'Good start! Use the pace slider to find a tempo that lets you breathe naturally at every punctuation mark.';
+    } else {
+      badge.textContent = 'Rehearsal Score: ' + finalScore + ' / 100 · Keep practicing';
+      badge.classList.add('score-low');
+      feedback = 'Keep practicing! Steady pacing builds muscle memory and keeps you calm under presentation pressure.';
+    }
+    document.getElementById('res-feedback-text').textContent = feedback;
+
+    // XP & Streak Rewards
+    let earnedXP = 15;
+    let hasBonus = false;
+    if (diff <= 10) {
+      earnedXP += 10;
+      hasBonus = true;
+    }
+    xp += earnedXP;
+    localStorage.setItem('userXP', xp);
+
+    const today = new Date().toDateString();
+    const lastPractice = localStorage.getItem('english_flow_last_practice');
+    if (lastPractice !== today) {
+      streak += 1;
+      localStorage.setItem('english_flow_streak', streak);
+      localStorage.setItem('english_flow_last_practice', today);
+    }
+    renderStats();
+
+    document.getElementById('final-streak').textContent = streak;
+    document.getElementById('final-xp').textContent = xp;
+    document.getElementById('res-xp-bonus-tag').textContent = hasBonus
+      ? '+15 XP rehearsal + 10 XP precision timing bonus awarded! (+25 XP)'
+      : '+15 XP rehearsal completion awarded!';
+
+    // WhatsApp share link
+    const canonical = "https://englishflowofficial.github.io/tools/presentation-teleprompter-script-timer.html";
+    const shareText = "I rehearsed my presentation script at " + actualWpm + " WPM with a " + finalScore + "/100 pacing score on the English Flow Teleprompter! 🦉 Rehearse your speech free here: " + canonical;
+    document.getElementById('wa-share-btn').href = "https://api.whatsapp.com/send?text=" + encodeURIComponent(shareText);
+  }
+
+  function retrySameScript() {
+    startRehearsalStage();
+  }
+
+  function resetToNewScript() {
+    document.getElementById('stage-results').setAttribute('hidden', '');
+    document.getElementById('stage-rehearsal').setAttribute('hidden', '');
+    document.getElementById('stage-setup').removeAttribute('hidden');
+    document.getElementById('script-input').value = "";
+    updatePaceEstimates();
+  }
+
+  // Live input listening
+  document.getElementById('script-input').addEventListener('input', updatePaceEstimates);
+
+  // Initialize
+  renderStats();
+  updatePaceEstimates();
+</script>
+<script src="../ef-analytics.js" defer></script>
+</body>
+</html>
