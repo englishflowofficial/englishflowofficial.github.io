@@ -624,11 +624,11 @@
             <div class="card resources-card">
                 <h3>Recommended English Resources</h3>
                 <p style="font-size: 15px; margin-bottom: 16px;">Take your speaking skills to the next level with our top guides and community practice.</p>
-                <a href="../resources.html" class="link-item">Free English Resources</a>
-                <a href="../game-practice.html" class="link-item">More Interactive Practice Games</a>
-                <a href="https://topmate.io/speak_english_with_confidence/2324225" class="link-item" target="_blank" rel="noopener">Book a 1-on-1 Speaking Session</a>
+                <a onclick="if(window.gtag)gtag('event','resource_cta_click',{page_path:location.pathname})" href="../resources.html" class="link-item">Free English Resources</a>
+                <a onclick="if(window.gtag)gtag('event','resource_cta_click',{page_path:location.pathname})" href="../game-practice.html" class="link-item">More Interactive Practice Games</a>
+                <a onclick="if(window.gtag)gtag('event','workbook_download',{page_path:location.pathname})" href="https://topmate.io/speak_english_with_confidence/2324225" class="link-item" target="_blank" rel="noopener">Book a 1-on-1 Speaking Session</a>
                 <div style="margin-top: 24px;">
-                    <a href="../30-day-english-flow-workbook.pdf" class="btn btn-green" style="max-width: 320px; margin: 0 auto; padding: 12px; font-size: 16px;">Get the 30-Day Speaking Workbook ($) →</a>
+                    <a onclick="if(window.gtag)gtag('event','workbook_download',{page_path:location.pathname})" href="../30-day-english-flow-workbook.pdf" class="btn btn-green" style="max-width: 320px; margin: 0 auto; padding: 12px; font-size: 16px;">Get the 30-Day Speaking Workbook ($) →</a>
                 </div>
             </div>
 
@@ -1021,6 +1021,7 @@
             const wpm = document.getElementById('res-wpm').innerText;
             const url = "https://englishflowofficial.github.io/tools/ielts-speaking-mock-timer.html";
             const text = `I just scored ${wpm} WPM on my IELTS Speaking Part 2 Mock Test on English Flow! Practice your speaking for free here: ${url}`;
+            if(window.gtag)gtag('event','whatsapp_share',{page_path:location.pathname});
             window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(text), '_blank');
         }
 
