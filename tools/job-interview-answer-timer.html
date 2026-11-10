@@ -332,6 +332,7 @@
         <span style="font-size: 12px; font-weight: 800; color: #64748b;">Listen back to audit tone &amp; clarity</span>
       </div>
       <audio id="audio-playback-player" controls style="width: 100%; height: 40px; border-radius: 8px; outline: none;"></audio>
+      <p id="res-audio-note" hidden style="margin: 0; font-size: 14px; font-weight: 700; color: #475569;">🎧 No audio recording in typed mode — answer with your microphone on a mic-enabled browser to record and listen back to your answer.</p>
     </div>
 
     <!-- METRICS GRID -->
@@ -406,7 +407,7 @@
           Get the 30-Day Speaking Workbook ($) →
         </a>
       </div>
-      <ul style="margin: 0; padding-left: 18px; font-weight: 700; font-size: 14px; line-height: 1.8;">
+      <ul style="margin: 0; padding-left: 18px; font-weight: 700; font-size: 14px; line-height: 1.8; color: #334155;">
         <li><a href="../30-day-english-flow-workbook.pdf">30-Day English Flow Workbook (PDF)</a> – daily speaking drills</li>
         <li><a href="../resources.html">Free Resources Library</a> – trackers, podcasts &amp; templates</li>
         <li><a href="../game-practice.html">Daily Practice Session</a> – maintain your learning momentum</li>
@@ -684,6 +685,8 @@
           audioBlobUrl = URL.createObjectURL(blob);
           const audioEl = document.getElementById('audio-playback-player');
           audioEl.src = audioBlobUrl;
+          document.getElementById('res-audio-note').setAttribute('hidden', '');
+          audioEl.removeAttribute('hidden');
           document.getElementById('res-audio-card').removeAttribute('hidden');
         }
       };
@@ -855,12 +858,21 @@
     if (typedTimerInterval) clearInterval(typedTimerInterval);
     const text = document.getElementById('typed-answer-input').value.trim();
     document.getElementById('stage-typed').setAttribute('hidden', '');
-    document.getElementById('res-audio-card').setAttribute('hidden', ''); // no audio player
     showResults(text, Math.max(typedElapsed, 5), true);
   }
 
   // RESULTS & AUDIT
   function showResults(transcript, durationSec, isTyped) {
+    // Audio card: typed mode shows an explanatory note (no recording exists);
+    // mic mode shows the player and hides the note.
+    if (isTyped) {
+      document.getElementById('audio-playback-player').setAttribute('hidden', '');
+      document.getElementById('res-audio-note').removeAttribute('hidden');
+      document.getElementById('res-audio-card').removeAttribute('hidden');
+    } else {
+      document.getElementById('res-audio-note').setAttribute('hidden', '');
+      document.getElementById('audio-playback-player').removeAttribute('hidden');
+    }
     const totalWords = countWords(transcript);
     const lower = transcript.toLowerCase();
 
