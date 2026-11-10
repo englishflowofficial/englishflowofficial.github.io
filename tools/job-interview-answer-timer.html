@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#58cc02" />
+  <meta name="robots" content="index, follow" />
+  <title>Job Interview Speaking Timer &amp; Voice Recorder | English Flow</title>
+  <meta name="description" content="Practise interview answers out loud. Hear the question, answer in 90 seconds, then get playback, transcript, WPM and filler feedback. Free, no sign-up." />
+  <meta name="keywords" content="job interview timer, STAR method practice, interview answer recorder, spoken interview simulator, interview speech test, mock interview online free, english flow" />
+  <link rel="canonical" href="https://englishflowofficial.github.io/tools/job-interview-answer-timer.html" />
+  <link rel="icon" href="../favicon.jpg" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://englishflowofficial.github.io/tools/job-interview-answer-timer.html" />
+  <meta property="og:title" content="Job Interview Speaking Timer &amp; Voice Recorder | English Flow" />
+  <meta property="og:description" content="Practise interview answers out loud. Hear the question, answer in 90 seconds, then get playback, transcript, WPM and filler feedback. Free, no sign-up." />
+  <meta property="og:image" content="https://englishflowofficial.github.io/og-image.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@EnglishFlowPodcastt" />
+  <meta name="twitter:title" content="Job Interview Speaking Timer &amp; Voice Recorder | English Flow" />
+  <meta name="twitter:description" content="Practise interview answers out loud. Hear the question, answer in 90 seconds, then get playback, transcript, WPM and filler feedback. Free, no sign-up." />
+  <meta name="twitter:image" content="https://englishflowofficial.github.io/og-image.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900;1000&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../game-practice.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Job Interview Speaking Timer & Voice Recorder",
+    "url": "https://englishflowofficial.github.io/tools/job-interview-answer-timer.html",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": 0,
+      "priceCurrency": "USD"
+    },
+    "description": "Interactive job interview speaking simulator: hear hiring questions spoken aloud, practice answering in the 60–90 second recruiter sweet spot, record your voice for instant playback, and get WPM, filler word, and STAR structure feedback.",
+    "provider": {
+      "@type": "Organization",
+      "name": "English Flow",
+      "url": "https://englishflowofficial.github.io/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does the 90-second interview timer work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The tool simulates a real interview: you hear a question spoken aloud by a hiring-manager voice, get 5 seconds of think time, then speak for up to 90–120 seconds. Recruiter consensus holds that 60–90 seconds is the ideal sweet spot for interview answers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my voice recording stored anywhere?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Your voice recording and transcription stay strictly inside your local web browser session. Nothing is ever uploaded, analyzed on external servers, or stored."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which browsers support microphone recording and speech recognition?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Microphone recording and live speech transcription work best in Google Chrome on desktop and Android. If your browser does not support Web Speech, an interactive typed fallback mode is automatically enabled."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do XP and streaks work on English Flow?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You earn +25 XP for completing an interview question rehearsal, plus a +15 XP bonus when your answer lands in the 60–90 second sweet spot with under 3% filler words. Completing your first challenge of the day advances your daily streak."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    .quiz-wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 40px; font-family: 'Nunito', sans-serif; }
+    .q-card { border: 2px solid #e5e5e5; border-radius: 20px; padding: 26px 22px; background: #fff; box-shadow: 0 4px 0 #e5e5e5; margin: 16px 0; }
+    .result-card { border: 2px solid #e5e5e5; border-radius: 20px; padding: 28px; text-align: center; background: linear-gradient(135deg, #f0fff4, #eff8ff); }
+    .resource-card { border: 2px solid #ffc800; border-radius: 18px; padding: 18px; background: #fffbe6; margin-top: 18px; text-align: left; }
+    .notice-box { background: #fffbeb; border: 2px solid #fde68a; border-radius: 14px; padding: 14px 18px; color: #92400e; font-size: 14px; font-weight: 700; margin: 12px 0; text-align: left; }
+
+    .score-badge { display: inline-block; padding: 6px 14px; border-radius: 999px; font-weight: 900; font-size: 14px; }
+    .score-high { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+    .score-med { background: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
+    .score-low { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+
+    .action-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 18px; }
+    .btn-3d { min-height: 48px; min-width: 150px; font-size: 16px; font-weight: 900; border-radius: 14px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; padding: 12px 24px; border: none; font-family: inherit; }
+    .btn-green { background: #58cc02; color: #fff; box-shadow: 0 4px 0 #46a302; }
+    .btn-green:active { transform: translateY(3px); box-shadow: 0 1px 0 #46a302; }
+    .btn-blue { background: #1cb0f6; color: #fff; box-shadow: 0 4px 0 #0284c7; }
+    .btn-blue:active { transform: translateY(3px); box-shadow: 0 1px 0 #0284c7; }
+
+    .track-pill-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin: 14px 0; }
+    .track-pill { background: #f1f5f9; border: 2px solid #cbd5e1; border-radius: 12px; padding: 8px 14px; font-size: 13px; font-weight: 800; color: #475569; cursor: pointer; }
+    .track-pill.active { background: #e0f2fe; border-color: #0284c7; color: #0369a1; box-shadow: 0 2px 0 #bae6fd; }
+
+    .question-banner { background: #f8fafc; border: 2px dashed #94a3b8; border-radius: 16px; padding: 22px; text-align: center; margin: 16px 0; }
+    .question-text { font-size: 22px; font-weight: 900; color: #1e1b4b; line-height: 1.35; margin: 8px 0; }
+
+    .timer-ring-prep { width: 110px; height: 110px; border-radius: 50%; background: #eff6ff; border: 4px solid #1cb0f6; display: flex; align-items: center; justify-content: center; margin: 14px auto; font-size: 44px; font-weight: 1000; color: #0284c7; box-shadow: 0 4px 0 #bae6fd; }
+    .timer-ring-record { width: 110px; height: 110px; border-radius: 50%; background: #fef2f2; border: 4px solid #ef4444; display: flex; align-items: center; justify-content: center; margin: 14px auto; font-size: 38px; font-weight: 1000; color: #b91c1c; box-shadow: 0 4px 0 #fca5a5; animation: recordPulse 1.3s infinite; }
+    .timer-ring-record.sweet-spot { background: #f0fdf4; border-color: #22c55e; color: #15803d; box-shadow: 0 4px 0 #86efac; animation: sweetPulse 1.3s infinite; }
+    .timer-ring-record.rambling { background: #fffbeb; border-color: #f59e0b; color: #b45309; box-shadow: 0 4px 0 #fde68a; }
+
+    @keyframes recordPulse {
+      0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+      70% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+    @keyframes sweetPulse {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+      70% { box-shadow: 0 0 0 12px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+
+    .mic-level-track { width: 100%; height: 10px; background: #e2e8f0; border-radius: 999px; overflow: hidden; margin: 10px 0; }
+    .mic-level-fill { height: 100%; width: 0%; background: #58cc02; transition: width 0.1s linear; }
+
+    .live-transcript-box { background: #ffffff; border: 2px solid #cbd5e1; border-radius: 14px; padding: 16px; min-height: 110px; max-height: 200px; overflow-y: auto; text-align: left; font-size: 15px; font-weight: 700; color: #1e293b; line-height: 1.6; margin: 14px 0; }
+    .live-transcript-box:empty::before { content: "Speaking into mic... live transcription appears here."; color: #94a3b8; font-style: italic; }
+
+    .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin: 16px 0; }
+    .metric-card { background: #ffffff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 14px 8px; text-align: center; box-shadow: 0 3px 0 #e2e8f0; }
+    .metric-num { font-size: 26px; font-weight: 1000; color: #1e1b4b; margin: 4px 0; }
+    .metric-label { font-size: 11px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    .star-marker-chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 8px; font-size: 12px; font-weight: 800; margin: 2px; }
+    .star-marker-found { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+    .star-marker-missing { background: #f1f5f9; color: #94a3b8; border: 1px dashed #cbd5e1; }
+
+    .filler-highlight { background: #fef08a; color: #854d0e; padding: 2px 6px; border-radius: 6px; font-weight: 900; }
+    .star-highlight { background: #dcfce7; color: #15803d; padding: 2px 6px; border-radius: 6px; font-weight: 900; }
+
+    .faq-card { background: #fff; border: 2px solid #e5e5e5; border-radius: 16px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 3px 0 #e5e5e5; text-align: left; }
+    .faq-q { font-size: 15.5px; font-weight: 900; color: #1e1b4b; margin: 0 0 6px; }
+    .faq-a { font-size: 14px; font-weight: 700; color: #475569; line-height: 1.6; margin: 0; }
+  </style>
+</head>
+<body>
+<header class="gp-header">
+<a class="gp-brand" href="../index.html">🦉 English <b>Flow</b></a>
+<nav class="gp-nav"><a href="../index.html">Home</a><a href="../game-practice.html">Practice</a><a href="../tenses.html">Tenses</a></nav>
+<div class="gp-stats"><span class="gp-stat streak">🔥 <b id="st-streak">0</b></span><span class="gp-stat xp">⚡ <b id="st-xp">0</b></span></div>
+</header>
+
+<main class="quiz-wrap">
+  <div style="text-align: left; margin-bottom: 8px;">
+    <a href="../index.html" style="font-weight: 800; font-size: 13px; color: #1cb0f6; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">🌐 English Flow</a>
+  </div>
+  <h1 style="font-size: 28px; font-weight: 1000; margin: 0 0 6px; color: #1e1b4b; line-height: 1.3;">Job Interview Answer Timer &amp; Voice Recorder</h1>
+  <p style="color: #64748b; font-weight: 700; margin: 0 0 16px; font-size: 15px;">Hear hiring questions spoken aloud, answer in the 60–90 second sweet spot, and audit your pace, fillers, and STAR structure.</p>
+
+  <div id="mic-notice" class="notice-box" hidden>
+    ⚠️ <strong>Microphone Notice:</strong> Voice capture works best in Google Chrome on desktop or Android. If your microphone is unavailable, interactive typed mode is enabled so you can still practice pacing and STAR structure!
+  </div>
+
+  <!-- STAGE 1: SETUP SCREEN -->
+  <div id="stage-setup" class="q-card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+      <span style="font-size: 12px; font-weight: 900; color: #1cb0f6; letter-spacing: 1px; text-transform: uppercase;">SELECT AN INTERVIEW TRACK</span>
+      <span style="font-size: 13px; font-weight: 800; color: #ff9600;">+25 XP per answer</span>
+    </div>
+
+    <!-- Track Picker Buttons -->
+    <div class="track-pill-row">
+      <button type="button" class="track-pill active" onclick="setTrack('all', this)">All Tracks</button>
+      <button type="button" class="track-pill" onclick="setTrack('HR Screening', this)">HR Screening</button>
+      <button type="button" class="track-pill" onclick="setTrack('Behavioral (STAR Method)', this)">Behavioral STAR</button>
+      <button type="button" class="track-pill" onclick="setTrack('Leadership', this)">Leadership</button>
+      <button type="button" class="track-pill" onclick="setTrack('Technical', this)">Technical</button>
+    </div>
+
+    <!-- Question Card -->
+    <div class="question-banner">
+      <span id="setup-track-badge" style="font-size: 12px; font-weight: 900; background: #e0f2fe; color: #0284c7; padding: 4px 10px; border-radius: 999px; text-transform: uppercase;">HR Screening</span>
+      <div id="setup-question-text" class="question-text">“Tell me about yourself.”</div>
+      <p style="font-size: 13px; font-weight: 700; color: #64748b; margin: 6px 0 0;">
+        Recruiter target: <strong>60–90 seconds</strong> · STAR structure encouraged
+      </p>
+    </div>
+
+    <div class="action-row">
+      <button type="button" class="btn-3d btn-blue" onclick="shuffleQuestion()">
+        <span>🎲</span> Shuffle Question
+      </button>
+      <button type="button" class="btn-3d btn-green" onclick="startQuestionDeliveryStage()">
+        <span>🎙️</span> Start My Answer
+      </button>
+    </div>
+
+    <div style="margin-top: 14px; text-align: center;">
+      <a href="javascript:void(0)" onclick="openTypedMode()" style="font-size: 13.5px; font-weight: 800; color: #1cb0f6; text-decoration: none;">
+        ⌨️ No microphone? Practice in typed mode
+      </a>
+    </div>
+  </div>
+
+  <!-- STAGE 2: QUESTION DELIVERY STAGE -->
+  <div id="stage-delivery" class="q-card" hidden>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+      <span style="font-size: 12px; font-weight: 900; color: #0284c7; letter-spacing: 1px; text-transform: uppercase;">STAGE 1 OF 2: QUESTION SPOKEN ALOUD</span>
+      <span id="interviewer-speaking-pill" style="font-size: 12px; font-weight: 800; background: #dcfce7; color: #15803d; padding: 4px 10px; border-radius: 999px;">🔊 The Interviewer is speaking...</span>
+    </div>
+
+    <div class="question-banner" style="margin: 12px 0 16px;">
+      <div id="delivery-question-text" class="question-text" style="font-size: 20px;">“Tell me about yourself.”</div>
+    </div>
+
+    <div class="timer-ring-prep" id="think-timer-val">5</div>
+    <p style="text-align: center; font-weight: 800; color: #0369a1; margin: -4px 0 14px;">seconds of think time: structure your STAR response</p>
+
+    <div style="background: #f8fafc; border: 2px dashed #94a3b8; border-radius: 14px; padding: 12px 16px; text-align: left; margin: 0 auto 16px;">
+      <strong style="color: #1e1b4b; font-size: 13.5px;">STAR Reminder:</strong>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; font-size: 12.5px; font-weight: 800;">
+        <span style="background:#e0f2fe; color:#0369a1; padding:3px 8px; border-radius:6px;">S — Situation</span>
+        <span style="background:#e0f2fe; color:#0369a1; padding:3px 8px; border-radius:6px;">T — Task</span>
+        <span style="background:#dcfce7; color:#15803d; padding:3px 8px; border-radius:6px;">A — Action taken</span>
+        <span style="background:#fef9c3; color:#854d0e; padding:3px 8px; border-radius:6px;">R — Result &amp; Metric</span>
+      </div>
+    </div>
+
+    <div class="action-row">
+      <button type="button" class="btn-3d btn-green" onclick="skipThinkAndRecord()">
+        <span>⚡</span> Skip Think Time &amp; Speak Now
+      </button>
+    </div>
+  </div>
+
+  <!-- STAGE 3: RECORDING STAGE (90s) -->
+  <div id="stage-recording" class="q-card" hidden>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+      <span style="font-size: 12px; font-weight: 900; color: #b91c1c; letter-spacing: 1px; text-transform: uppercase;">STAGE 2 OF 2: ANSWERING LIVE</span>
+      <span id="recording-zone-pill" style="font-size: 12px; font-weight: 800; background: #fee2e2; color: #b91c1c; padding: 4px 10px; border-radius: 999px;">0–45s: Intro Context</span>
+    </div>
+
+    <div class="timer-ring-record" id="recording-timer-val">90</div>
+    <p id="pacing-zone-guidance" style="text-align: center; font-weight: 800; color: #64748b; margin: -4px 0 12px;">
+      Aim to conclude between 60s and 90s for maximum recruiter impact!
+    </p>
+
+    <!-- Voice Level Waveform Bar -->
+    <div class="mic-level-track" title="Live audio projection meter">
+      <div class="mic-level-fill" id="mic-projection-bar"></div>
+    </div>
+
+    <div class="question-banner" style="margin: 10px 0; padding: 12px 16px;">
+      <div id="recording-question-text" style="font-size: 16px; font-weight: 900; color: #1e1b4b;">“Tell me about yourself.”</div>
+    </div>
+
+    <div style="display: flex; justify-content: space-around; gap: 8px; margin: 10px 0;">
+      <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 8px 14px; flex: 1; text-align: center;">
+        <div style="font-size: 22px; font-weight: 1000; color: #1e1b4b;" id="live-word-count">0</div>
+        <div style="font-size: 11px; font-weight: 800; color: #64748b; text-transform: uppercase;">Words</div>
+      </div>
+      <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 8px 14px; flex: 1; text-align: center;">
+        <div style="font-size: 22px; font-weight: 1000; color: #1e1b4b;" id="live-wpm-num">0</div>
+        <div style="font-size: 11px; font-weight: 800; color: #64748b; text-transform: uppercase;">Live WPM</div>
+      </div>
+    </div>
+
+    <div class="live-transcript-box" id="live-transcript-stream"></div>
+
+    <div class="action-row">
+      <button type="button" class="btn-3d btn-green" onclick="finishRecordingStage()">
+        <span>⏹️</span> Finish Answer &amp; Review
+      </button>
+    </div>
+  </div>
+
+  <!-- STAGE 3-ALT: TYPED FALLBACK MODE -->
+  <div id="stage-typed" class="q-card" hidden>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+      <span style="font-size: 12px; font-weight: 900; color: #d97706; letter-spacing: 1px; text-transform: uppercase;">⌨️ TYPED PRACTICE MODE</span>
+      <span id="typed-timer-display" style="font-size: 16px; font-weight: 1000; color: #b91c1c;">90s</span>
+    </div>
+
+    <div class="question-banner" style="margin: 10px 0; padding: 12px 16px;">
+      <div id="typed-question-display" style="font-size: 16px; font-weight: 900; color: #1e1b4b;">“Tell me about yourself.”</div>
+    </div>
+
+    <p style="font-weight: 800; color: #1e1b4b; font-size: 14px; margin: 4px 0 8px;">
+      Type your full answer continuously. The 90-second timer will pace your output:
+    </p>
+
+    <textarea id="typed-answer-input" placeholder="Type your response here using the STAR structure..." disabled style="width: 100%; box-sizing: border-box; min-height: 160px; border: 2px solid #cbd5e1; border-radius: 14px; padding: 14px; font-family: inherit; font-size: 15px; font-weight: 700; color: #1e293b; resize: vertical;"></textarea>
+
+    <div class="action-row">
+      <button type="button" id="btn-start-typed-timer" class="btn-3d btn-green" onclick="startTypedTimer()">
+        ⌨️ Start 90-Second Typing Sprint
+      </button>
+      <button type="button" id="btn-finish-typed-timer" class="btn-3d btn-blue" onclick="finishTypedSession()" hidden>
+        ⏹️ Finish &amp; Audit Response
+      </button>
+    </div>
+  </div>
+
+  <!-- STAGE 4: RESULTS SCREEN -->
+  <div id="stage-results" class="result-card" hidden>
+    <div style="font-size: 52px;">🦉</div>
+    <h2 style="font-size: 26px; font-weight: 1000; margin: 4px 0 6px; color: #1e1b4b;">Recruiter Answer Diagnostic</h2>
+
+    <div style="margin: 6px 0;" id="res-score-badge-wrap">
+      <span class="score-badge score-high" id="res-score-badge">Hire Ready · 92 / 100</span>
+    </div>
+    <p id="res-feedback-line" style="color: #475569; font-weight: 800; font-size: 15px; margin: 4px 0 16px;">
+      Strong delivery! Answer landed squarely in the recruiter sweet spot.
+    </p>
+
+    <!-- NATIVE AUDIO PLAYBACK CARD -->
+    <div id="res-audio-card" style="background: #ffffff; border: 2px solid #e2e8f0; border-radius: 16px; padding: 18px; margin: 16px 0; text-align: left;" hidden>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <h4 style="margin: 0; font-size: 15px; font-weight: 900; color: #1e1b4b;">🔊 Play Your Spoken Answer:</h4>
+        <span style="font-size: 12px; font-weight: 800; color: #64748b;">Listen back to audit tone &amp; clarity</span>
+      </div>
+      <audio id="audio-playback-player" controls style="width: 100%; height: 40px; border-radius: 8px; outline: none;"></audio>
+    </div>
+
+    <!-- METRICS GRID -->
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-label">Speaking Time</div>
+        <div class="metric-num" id="res-duration-metric">0s</div>
+        <div style="font-size: 11px; font-weight: 700; color: #64748b;">Target: 60–90s</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Speaking Pace</div>
+        <div class="metric-num" id="res-wpm-metric">0</div>
+        <div style="font-size: 11px; font-weight: 700; color: #64748b;">Words / min</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Filler Density</div>
+        <div class="metric-num" id="res-fillers-metric" style="color:#b91c1c;">0%</div>
+        <div id="res-fillers-count-sub" style="font-size: 11px; font-weight: 700; color: #64748b;">0 fillers</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Total Words</div>
+        <div class="metric-num" id="res-words-metric">0</div>
+        <div style="font-size: 11px; font-weight: 700; color: #64748b;">Total volume</div>
+      </div>
+    </div>
+
+    <!-- DIAGNOSTIC ASSESSMENT BREAKDOWN -->
+    <div style="background: #ffffff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 16px 18px; text-align: left; margin: 14px 0;">
+      <div style="margin-bottom: 8px;">
+        <strong style="color: #1e1b4b; font-size: 14px;">⏱️ Answer Duration Check: </strong>
+        <span id="res-duration-diagnostic" style="font-size: 13.5px; font-weight: 700;"></span>
+      </div>
+      <div style="margin-bottom: 8px;">
+        <strong style="color: #1e1b4b; font-size: 14px;">🎯 Pace Benchmark (120–150 WPM): </strong>
+        <span id="res-pace-diagnostic" style="font-size: 13.5px; font-weight: 700;"></span>
+      </div>
+      <div>
+        <strong style="color: #1e1b4b; font-size: 14px;">🧩 STAR Structure Signposts: </strong>
+        <div id="res-star-chips" style="margin-top: 6px;"></div>
+      </div>
+    </div>
+
+    <!-- FULL TRANSCRIPT -->
+    <div style="background: #ffffff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 16px; margin: 14px 0; text-align: left;">
+      <h4 style="margin: 0 0 6px; font-size: 14px; font-weight: 900; color: #1e1b4b;">Transcript &amp; Word Audit:</h4>
+      <p id="res-transcript-display" style="margin: 0; font-size: 14.5px; font-weight: 700; color: #334155; line-height: 1.6;"></p>
+    </div>
+
+    <p style="font-weight: 900; font-size: 16px; color: #1e1b4b; margin: 16px 0 8px;">
+      🔥 Streak: <span id="final-streak">0</span> days · ⚡ Total XP: <span id="final-xp">0</span>
+      <span id="res-xp-bonus-tag" style="display: block; font-size: 13px; color: #58cc02; font-weight: 800; margin-top: 4px;">+25 XP interview answer completed!</span>
+    </p>
+
+    <div class="action-row">
+      <a id="wa-share-btn" href="#" target="_blank" rel="noopener" class="btn-3d btn-green">
+        💬 Share My Score on WhatsApp
+      </a>
+      <button type="button" class="btn-3d btn-blue" onclick="retryCurrentQuestion()">
+        🔁 Re-record This Answer
+      </button>
+      <button type="button" class="btn-3d" onclick="shuffleToNewQuestion()" style="background:#64748b; color:#ffffff;">
+        🎲 Try Another Question
+      </button>
+    </div>
+
+    <!-- Recommended English Resources Card -->
+    <div class="resource-card">
+      <h3 style="margin: 0 0 6px; font-size: 17px; color: #1e1b4b;">📚 Recommended English Resources</h3>
+      <p style="margin: 0 0 10px; color: #555; font-weight: 700; font-size: 14px;">Master professional speaking in any meeting, interview, or presentation:</p>
+      <div style="margin-bottom: 12px;">
+        <a href="https://topmate.io/speak_english_with_confidence/2324225" target="_blank" rel="noopener noreferrer" class="btn-3d" style="background:#f59e0b; color:#1e1b4b; font-size:14px; padding:10px 18px; box-shadow:0 3px 0 #b45309;">
+          Get the 30-Day Speaking Workbook ($) →
+        </a>
+      </div>
+      <ul style="margin: 0; padding-left: 18px; font-weight: 700; font-size: 14px; line-height: 1.8;">
+        <li><a href="../30-day-english-flow-workbook.pdf">30-Day English Flow Workbook (PDF)</a> – daily speaking drills</li>
+        <li><a href="../resources.html">Free Resources Library</a> – trackers, podcasts &amp; templates</li>
+        <li><a href="../game-practice.html">Daily Practice Session</a> – maintain your learning momentum</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CHEAT SHEET SECTION -->
+  <section class="study-cheatsheet" aria-label="5 Interview Answer Tips" style="margin: 30px 0 20px; padding: 20px; border: 2px dashed #1cb0f6; border-radius: 18px; background: #f7fdff; text-align: left;">
+    <h2 style="font-size: 20px; font-weight: 900; margin-top: 0; color: #0284c7;">📖 5 Interview Answer Tips</h2>
+    <ul style="font-weight: 700; color: #334155; line-height: 1.7; padding-left: 20px;">
+      <li><strong>1. Structure every answer with STAR</strong> — Situation, Task, Action, Result. Keep Situation and Task under 25 seconds so you can highlight your Action.</li>
+      <li><strong>2. Aim for 60–90 seconds</strong> — under 45 seconds sounds shallow and unprepared; over 120 seconds feels rambling and unfocused.</li>
+      <li><strong>3. End on a result with a number</strong> — metrics (e.g. <em>"reduced turnaround time by 30%"</em>) make your accomplishments concrete and memorable.</li>
+      <li><strong>4. Slow down and pause instead of filling silence</strong> — when searching for words, close your mouth and take a calm breath instead of leaning on <em>"um"</em> or <em>"like"</em>.</li>
+      <li><strong>5. Record yourself and listen back</strong> — hearing your own cadence before the real interview reveals nervous speech habits instantly.</li>
+    </ul>
+    <p style="font-size: 13px; color: #64748b; font-weight: 700; margin: 12px 0 0;">
+      🦉 Flo tip: The strongest candidates don't rush. A confident 2-second pause before delivering your final sentence signals authority and poise!
+    </p>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section style="margin-top: 30px;" aria-label="Frequently asked questions">
+    <h2 style="font-size: 22px; font-weight: 1000; color: #1e1b4b; text-align: left; margin-bottom: 16px;">Frequently Asked Questions</h2>
+    <div class="faq-card">
+      <h3 class="faq-q">How does the 90-second interview timer work?</h3>
+      <p class="faq-a">The tool simulates a real interview: you hear a question spoken aloud by a hiring-manager voice, get 5 seconds of think time, then speak for up to 90–120 seconds. Recruiter consensus holds that 60–90 seconds is the ideal sweet spot for interview answers.</p>
+    </div>
+    <div class="faq-card">
+      <h3 class="faq-q">Is my voice recording stored anywhere?</h3>
+      <p class="faq-a">No. Your voice recording and transcription stay strictly inside your local web browser session. Nothing is ever uploaded, analyzed on external servers, or stored.</p>
+    </div>
+    <div class="faq-card">
+      <h3 class="faq-q">Which browsers support microphone recording and speech recognition?</h3>
+      <p class="faq-a">Microphone recording and live speech transcription work best in Google Chrome on desktop and Android. If your browser does not support Web Speech, an interactive typed fallback mode is automatically enabled.</p>
+    </div>
+    <div class="faq-card">
+      <h3 class="faq-q">How do XP and streaks work on English Flow?</h3>
+      <p class="faq-a">You earn +25 XP for completing an interview question rehearsal, plus a +15 XP bonus when your answer lands in the 60–90 second sweet spot with under 3% filler words. Completing your first challenge of the day advances your daily streak.</p>
+    </div>
+  </section>
+
+  <footer style="margin-top: 28px; text-align: center; font-size: 14px; font-weight: 800; color: #94a3b8;">
+    <a href="../index.html" style="color: #64748b; text-decoration: none;">← Back to English Flow Home</a>
+  </footer>
+</main>
+
+<script>
+  const QUESTIONS = [
+    { id: 1, track: "HR Screening", text: "Tell me about yourself." },
+    { id: 2, track: "Behavioral (STAR Method)", text: "Describe a time you disagreed with a colleague's decision and how you resolved it." },
+    { id: 3, track: "HR Screening", text: "Why should we hire you for this role?" },
+    { id: 4, track: "Leadership", text: "Tell me about a time you led a team through a difficult change." },
+    { id: 5, track: "Technical", text: "Describe a project where you solved a complex problem." },
+    { id: 6, track: "Behavioral (STAR Method)", text: "What is your greatest professional achievement?" },
+    { id: 7, track: "HR Screening", text: "How do you handle pressure and tight deadlines?" },
+    { id: 8, track: "Behavioral (STAR Method)", text: "Tell me about a time you failed and what you learned from it." }
+  ];
+
+  const STAR_SIGNPOSTS = [
+    { key: "first", label: "first" },
+    { key: "because", label: "because" },
+    { key: "the challenge was", label: "the challenge was" },
+    { key: "the result was", label: "the result was" },
+    { key: "so i", label: "so I" },
+    { key: "finally", label: "finally" }
+  ];
+
+  const FILLER_REGEX = /\b(you know|um|uh|like|basically|actually|erm)\b/gi;
+
+  let activeTrack = "all";
+  let currentQuestionIndex = 0;
+
+  let thinkTimer = null;
+  let recordingTimer = null;
+  let thinkSecondsLeft = 5;
+  let elapsedSeconds = 0;
+  let totalTimeLimit = 120; // 90s target, 120s hard max
+
+  // Media & Recognition State
+  let mediaStream = null;
+  let mediaRecorder = null;
+  let audioChunks = [];
+  let audioBlobUrl = null;
+  let audioCtx = null;
+  let analyser = null;
+  let animFrameId = null;
+
+  let recognition = null;
+  let isSpeechSupported = false;
+  let isMediaRecorderSupported = false;
+  let isRecording = false;
+  let liveTranscriptText = "";
+  let mode = "mic"; // "mic" or "typed"
+
+  // LocalStorage stats
+  let xp = parseInt(localStorage.getItem('userXP')) || 0;
+  let streak = parseInt(localStorage.getItem('english_flow_streak')) || 0;
+
+  function renderStats() {
+    document.getElementById('st-streak').textContent = streak;
+    document.getElementById('st-xp').textContent = xp;
+  }
+
+  function getFilteredQuestions() {
+    if (activeTrack === "all") return QUESTIONS;
+    return QUESTIONS.filter(q => q.track === activeTrack);
+  }
+
+  function renderQuestionCard() {
+    const list = getFilteredQuestions();
+    if (currentQuestionIndex >= list.length) currentQuestionIndex = 0;
+    const q = list[currentQuestionIndex];
+
+    document.getElementById('setup-track-badge').textContent = q.track;
+    document.getElementById('setup-question-text').textContent = '“' + q.text + '”';
+    document.getElementById('delivery-question-text').textContent = '“' + q.text + '”';
+    document.getElementById('recording-question-text').textContent = '“' + q.text + '”';
+    document.getElementById('typed-question-display').textContent = '“' + q.text + '”';
+  }
+
+  function setTrack(track, btnEl) {
+    activeTrack = track;
+    document.querySelectorAll('.track-pill').forEach(b => b.classList.remove('active'));
+    btnEl.classList.add('active');
+    currentQuestionIndex = 0;
+    renderQuestionCard();
+  }
+
+  function shuffleQuestion() {
+    const list = getFilteredQuestions();
+    let nextIdx = Math.floor(Math.random() * list.length);
+    if (nextIdx === currentQuestionIndex && list.length > 1) {
+      nextIdx = (currentQuestionIndex + 1) % list.length;
+    }
+    currentQuestionIndex = nextIdx;
+    renderQuestionCard();
+  }
+
+  // Capability checks
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  isSpeechSupported = !!SpeechRecognition;
+  isMediaRecorderSupported = typeof MediaRecorder !== 'undefined';
+
+  if (!isSpeechSupported || !isMediaRecorderSupported) {
+    document.getElementById('mic-notice').removeAttribute('hidden');
+  }
+
+  // STAGE 2: QUESTION DELIVERY
+  function startQuestionDeliveryStage() {
+    document.getElementById('stage-setup').setAttribute('hidden', '');
+    document.getElementById('stage-delivery').removeAttribute('hidden');
+    document.getElementById('stage-recording').setAttribute('hidden', '');
+    document.getElementById('stage-typed').setAttribute('hidden', '');
+    document.getElementById('stage-results').setAttribute('hidden', '');
+
+    const list = getFilteredQuestions();
+    const q = list[currentQuestionIndex];
+
+    // Speak question aloud using speechSynthesis
+    speakQuestionAloud(q.text);
+
+    thinkSecondsLeft = 5;
+    document.getElementById('think-timer-val').textContent = thinkSecondsLeft;
+
+    if (thinkTimer) clearInterval(thinkTimer);
+    thinkTimer = setInterval(() => {
+      thinkSecondsLeft--;
+      document.getElementById('think-timer-val').textContent = thinkSecondsLeft;
+      if (thinkSecondsLeft <= 0) {
+        clearInterval(thinkTimer);
+        startRecordingStage();
+      }
+    }, 1000);
+  }
+
+  function speakQuestionAloud(text) {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-US';
+      utterance.rate = 0.95;
+      utterance.onend = () => {
+        const pill = document.getElementById('interviewer-speaking-pill');
+        if (pill) {
+          pill.textContent = "✓ Question delivered";
+          pill.style.background = "#e0f2fe";
+          pill.style.color = "#0369a1";
+        }
+      };
+      window.speechSynthesis.speak(utterance);
+    }
+  }
+
+  function skipThinkAndRecord() {
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    if (thinkTimer) clearInterval(thinkTimer);
+    startRecordingStage();
+  }
+
+  // STAGE 3: RECORDING STAGE
+  async function startRecordingStage() {
+    mode = "mic";
+    document.getElementById('stage-delivery').setAttribute('hidden', '');
+    document.getElementById('stage-recording').removeAttribute('hidden');
+
+    liveTranscriptText = "";
+    document.getElementById('live-transcript-stream').textContent = "";
+    document.getElementById('live-word-count').textContent = "0";
+    document.getElementById('live-wpm-num').textContent = "0";
+
+    elapsedSeconds = 0;
+    document.getElementById('recording-timer-val').textContent = "90";
+    updatePacingZoneVisuals(0);
+
+    if (!isSpeechSupported || !isMediaRecorderSupported) {
+      openTypedMode();
+      return;
+    }
+
+    try {
+      mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      setupAudioMeter(mediaStream);
+      setupMediaRecorder(mediaStream);
+    } catch (err) {
+      document.getElementById('mic-notice').removeAttribute('hidden');
+      openTypedMode();
+      return;
+    }
+
+    setupSpeechRecognition();
+
+    isRecording = true;
+    try { recognition.start(); } catch(e) {}
+    try { mediaRecorder.start(); } catch(e) {}
+
+    if (recordingTimer) clearInterval(recordingTimer);
+    recordingTimer = setInterval(onRecordingTick, 1000);
+  }
+
+  function setupAudioMeter(stream) {
+    try {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      analyser = audioCtx.createAnalyser();
+      const source = audioCtx.createMediaStreamSource(stream);
+      source.connect(analyser);
+      analyser.fftSize = 64;
+      const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+      function updateWaveform() {
+        if (!isRecording) return;
+        analyser.getByteFrequencyData(dataArray);
+        let sum = 0;
+        for (let i = 0; i < dataArray.length; i++) sum += dataArray[i];
+        let avg = sum / dataArray.length;
+        let pct = Math.min(100, Math.round((avg / 128) * 100));
+        const bar = document.getElementById('mic-projection-bar');
+        if (bar) bar.style.width = pct + '%';
+        animFrameId = requestAnimationFrame(updateWaveform);
+      }
+      updateWaveform();
+    } catch(e) {}
+  }
+
+  function setupMediaRecorder(stream) {
+    audioChunks = [];
+    try {
+      mediaRecorder = new MediaRecorder(stream);
+      mediaRecorder.ondataavailable = e => { if (e.data.size > 0) audioChunks.push(e.data); };
+      mediaRecorder.onstop = () => {
+        if (audioChunks.length > 0) {
+          const blob = new Blob(audioChunks, { type: 'audio/webm' });
+          if (audioBlobUrl) URL.revokeObjectURL(audioBlobUrl);
+          audioBlobUrl = URL.createObjectURL(blob);
+          const audioEl = document.getElementById('audio-playback-player');
+          audioEl.src = audioBlobUrl;
+          document.getElementById('res-audio-card').removeAttribute('hidden');
+        }
+      };
+    } catch(e) {}
+  }
+
+  function setupSpeechRecognition() {
+    recognition = new SpeechRecognition();
+    recognition.lang = "en-US";
+    recognition.continuous = true;
+    recognition.interimResults = true;
+
+    recognition.onresult = event => {
+      let interim = '';
+      let final = '';
+      for (let i = 0; i < event.results.length; i++) {
+        if (event.results[i].isFinal) {
+          final += event.results[i][0].transcript + ' ';
+        } else {
+          interim += event.results[i][0].transcript;
+        }
+      }
+      liveTranscriptText = (final + interim).trim();
+      document.getElementById('live-transcript-stream').textContent = liveTranscriptText;
+      updateLiveMetrics();
+    };
+
+    recognition.onerror = event => {
+      if (event.error === 'not-allowed') {
+        stopMicrophone();
+        openTypedMode();
+      }
+    };
+  }
+
+  function updateLiveMetrics() {
+    const words = countWords(liveTranscriptText);
+    document.getElementById('live-word-count').textContent = words;
+    if (elapsedSeconds >= 10) {
+      const wpm = Math.round(words / (elapsedSeconds / 60));
+      document.getElementById('live-wpm-num').textContent = wpm;
+    } else {
+      document.getElementById('live-wpm-num').textContent = "—";
+    }
+  }
+
+  function countWords(str) {
+    if (!str || !str.trim()) return 0;
+    return str.trim().split(/\s+/).filter(Boolean).length;
+  }
+
+  function onRecordingTick() {
+    elapsedSeconds++;
+    const ringEl = document.getElementById('recording-timer-val');
+
+    if (elapsedSeconds <= 90) {
+      ringEl.textContent = (90 - elapsedSeconds);
+    } else {
+      ringEl.textContent = "+" + (elapsedSeconds - 90);
+    }
+
+    updatePacingZoneVisuals(elapsedSeconds);
+    updateLiveMetrics();
+
+    if (elapsedSeconds >= totalTimeLimit) {
+      finishRecordingStage();
+    }
+  }
+
+  function updatePacingZoneVisuals(sec) {
+    const pill = document.getElementById('recording-zone-pill');
+    const ring = document.getElementById('recording-timer-val');
+    const guide = document.getElementById('pacing-zone-guidance');
+
+    ring.classList.remove('sweet-spot', 'rambling');
+
+    if (sec < 45) {
+      pill.textContent = "0–45s: Intro Context";
+      pill.style.background = "#fee2e2";
+      pill.style.color = "#b91c1c";
+      guide.textContent = "Building situation & task... don't finish too early!";
+    } else if (sec <= 90) {
+      pill.textContent = "45–90s: Recruiter Sweet Spot";
+      pill.style.background = "#dcfce7";
+      pill.style.color = "#15803d";
+      ring.classList.add('sweet-spot');
+      guide.textContent = "🎯 Recruiter Sweet Spot! Elaborate on actions and results.";
+    } else {
+      pill.textContent = "90s+: Rambling Warning Zone";
+      pill.style.background = "#fef3c7";
+      pill.style.color = "#b45309";
+      ring.classList.add('rambling');
+      guide.textContent = "⚠️ Rambling risk! Deliver your closing result sentence now.";
+    }
+  }
+
+  function stopMicrophone() {
+    isRecording = false;
+    if (animFrameId) cancelAnimationFrame(animFrameId);
+    if (recordingTimer) clearInterval(recordingTimer);
+    if (recognition) { try { recognition.stop(); } catch(e) {} }
+    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+      try { mediaRecorder.stop(); } catch(e) {}
+    }
+    if (mediaStream) {
+      mediaStream.getTracks().forEach(t => t.stop());
+    }
+    if (audioCtx && audioCtx.state !== 'closed') {
+      try { audioCtx.close(); } catch(e) {}
+    }
+  }
+
+  function finishRecordingStage() {
+    stopMicrophone();
+    document.getElementById('stage-recording').setAttribute('hidden', '');
+    showResults(liveTranscriptText, Math.max(elapsedSeconds, 5), false);
+  }
+
+  // Typed Fallback Mode
+  let typedSecondsRemaining = 90;
+  let typedElapsed = 0;
+  let typedTimerInterval = null;
+
+  function openTypedMode() {
+    mode = "typed";
+    stopMicrophone();
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    if (thinkTimer) clearInterval(thinkTimer);
+
+    document.getElementById('stage-setup').setAttribute('hidden', '');
+    document.getElementById('stage-delivery').setAttribute('hidden', '');
+    document.getElementById('stage-recording').setAttribute('hidden', '');
+    document.getElementById('stage-results').setAttribute('hidden', '');
+    document.getElementById('stage-typed').removeAttribute('hidden');
+
+    const input = document.getElementById('typed-answer-input');
+    input.setAttribute('disabled', '');
+    input.value = "";
+    document.getElementById('btn-start-typed-timer').removeAttribute('hidden');
+    document.getElementById('btn-finish-typed-timer').setAttribute('hidden', '');
+    document.getElementById('typed-timer-display').textContent = "90s";
+  }
+
+  function startTypedTimer() {
+    const input = document.getElementById('typed-answer-input');
+    input.removeAttribute('disabled');
+    input.value = "";
+    input.focus();
+
+    document.getElementById('btn-start-typed-timer').setAttribute('hidden', '');
+    document.getElementById('btn-finish-typed-timer').removeAttribute('hidden');
+
+    typedSecondsRemaining = 90;
+    typedElapsed = 0;
+    document.getElementById('typed-timer-display').textContent = typedSecondsRemaining + "s";
+
+    if (typedTimerInterval) clearInterval(typedTimerInterval);
+    typedTimerInterval = setInterval(() => {
+      typedElapsed++;
+      typedSecondsRemaining--;
+      document.getElementById('typed-timer-display').textContent = typedSecondsRemaining + "s";
+      if (typedSecondsRemaining <= 0) {
+        finishTypedSession();
+      }
+    }, 1000);
+  }
+
+  function finishTypedSession() {
+    if (typedTimerInterval) clearInterval(typedTimerInterval);
+    const text = document.getElementById('typed-answer-input').value.trim();
+    document.getElementById('stage-typed').setAttribute('hidden', '');
+    document.getElementById('res-audio-card').setAttribute('hidden', ''); // no audio player
+    showResults(text, Math.max(typedElapsed, 5), true);
+  }
+
+  // RESULTS & AUDIT
+  function showResults(transcript, durationSec, isTyped) {
+    const totalWords = countWords(transcript);
+    const lower = transcript.toLowerCase();
+
+    // 1. Duration & WPM Calculations
+    let wpm = 0;
+    let isWpmReliable = false;
+    let estDurationNote = "";
+
+    if (!isTyped) {
+      if (durationSec >= 30 && totalWords >= 15) {
+        isWpmReliable = true;
+        wpm = Math.round(totalWords / (durationSec / 60));
+        document.getElementById('res-wpm-metric').textContent = wpm;
+      } else {
+        document.getElementById('res-wpm-metric').textContent = "—";
+      }
+    } else {
+      // Typed mode: estimate speaking duration at standard 140 WPM
+      const estSec = Math.round((totalWords / 140) * 60);
+      document.getElementById('res-wpm-metric').textContent = "—";
+      estDurationNote = " (Estimated ~" + estSec + "s at 140 WPM spoken pace)";
+    }
+
+    document.getElementById('res-duration-metric').textContent = durationSec + "s";
+    document.getElementById('res-words-metric').textContent = totalWords;
+
+    // 2. Filler word density
+    const fillerMatches = transcript.match(FILLER_REGEX) || [];
+    const fillerCount = fillerMatches.length;
+    const fillerRate = totalWords > 0 ? ((fillerCount / totalWords) * 100) : 0;
+
+    document.getElementById('res-fillers-metric').textContent = fillerRate.toFixed(1) + "%";
+    document.getElementById('res-fillers-count-sub').textContent = fillerCount + " fillers detected";
+
+    // 3. STAR Signpost Markers
+    const chipsContainer = document.getElementById('res-star-chips');
+    chipsContainer.innerHTML = '';
+    let foundSignpostsCount = 0;
+
+    STAR_SIGNPOSTS.forEach(item => {
+      const isFound = lower.includes(item.key);
+      const span = document.createElement('span');
+      span.className = 'star-marker-chip ' + (isFound ? 'star-marker-found' : 'star-marker-missing');
+      span.textContent = (isFound ? '✓ ' : '— ') + item.label;
+      chipsContainer.appendChild(span);
+      if (isFound) foundSignpostsCount++;
+    });
+
+    // 4. Diagnostic Notes
+    const durDiagnostic = document.getElementById('res-duration-diagnostic');
+    let durScore = 0;
+    if (durationSec >= 60 && durationSec <= 90) {
+      durDiagnostic.textContent = "Optimal Recruiter Sweet Spot (" + durationSec + "s). Perfectly sized for attention retention.";
+      durDiagnostic.style.color = "#15803d";
+      durScore = 40;
+    } else if (durationSec > 90 && durationSec <= 110) {
+      durDiagnostic.textContent = "Slightly Extended (" + durationSec + "s). Good detail, but tighten your closing result.";
+      durDiagnostic.style.color = "#b45309";
+      durScore = 30;
+    } else if (durationSec < 60 && durationSec >= 40) {
+      durDiagnostic.textContent = "Too Brief (" + durationSec + "s). Elaborate more on your specific personal actions.";
+      durDiagnostic.style.color = "#b45309";
+      durScore = 20;
+    } else if (durationSec > 110) {
+      durDiagnostic.textContent = "Rambling Risk (" + durationSec + "s). Exceeded 90s target; cut background backstory.";
+      durDiagnostic.style.color = "#b91c1c";
+      durScore = 15;
+    } else {
+      durDiagnostic.textContent = "Under 40 seconds. Too shallow to evaluate candidate competency.";
+      durDiagnostic.style.color = "#b91c1c";
+      durScore = 5;
+    }
+    if (estDurationNote) durDiagnostic.textContent += estDurationNote;
+
+    const paceDiagnostic = document.getElementById('res-pace-diagnostic');
+    let paceScore = 0;
+    if (isWpmReliable) {
+      if (wpm >= 120 && wpm <= 150) {
+        paceDiagnostic.textContent = wpm + " WPM — Ideal Interview Cadence. Clear, confident, and listener-friendly.";
+        paceDiagnostic.style.color = "#15803d";
+        paceScore = 30;
+      } else if (wpm >= 100 && wpm < 120) {
+        paceDiagnostic.textContent = wpm + " WPM — Steady & Deliberate. Slight pause reduction will build energy.";
+        paceDiagnostic.style.color = "#0284c7";
+        paceScore = 24;
+      } else if (wpm > 150 && wpm <= 175) {
+        paceDiagnostic.textContent = wpm + " WPM — Rushed Cadence. Inhale before transitions to prevent breathless delivery.";
+        paceDiagnostic.style.color = "#b45309";
+        paceScore = 20;
+      } else {
+        paceDiagnostic.textContent = wpm + " WPM — Pace needs regulation. Practice with steady speech shadowing.";
+        paceDiagnostic.style.color = "#b91c1c";
+        paceScore = 12;
+      }
+    } else {
+      paceDiagnostic.textContent = isTyped
+        ? "Typed response — speaking pace estimation applied."
+        : "Answer concluded too quickly (<30s) to compute verified speaking pace.";
+      paceDiagnostic.style.color = "#64748b";
+      paceScore = 15;
+    }
+
+    // STAR score contribution (up to 20 pts)
+    const starScore = Math.min(20, foundSignpostsCount * 5);
+    // Filler score contribution (up to 10 pts)
+    const fillerScore = Math.max(0, Math.round(10 - (fillerRate * 2)));
+
+    // Total Score Calculation
+    let totalScore = durScore + paceScore + starScore + fillerScore;
+    if (isTyped) totalScore = Math.min(85, totalScore); // Score capped at 85 without mic verification
+
+    if (totalWords < 15) totalScore = 15;
+
+    // Badge styling & Feedback
+    const badge = document.getElementById('res-score-badge');
+    badge.className = 'score-badge';
+    let feedback = "";
+
+    if (totalScore >= 90) {
+      badge.textContent = "Hire Ready · " + totalScore + " / 100";
+      badge.classList.add('score-high');
+      feedback = "Outstanding delivery! Structured STAR framework, natural pacing, and zero rambles.";
+    } else if (totalScore >= 70) {
+      badge.textContent = "Strong Candidate · " + totalScore + " / 100";
+      badge.classList.add('score-high');
+      feedback = "Strong performance! You maintained clear focus with solid time management.";
+    } else if (totalScore >= 40) {
+      badge.textContent = "Good Start · " + totalScore + " / 100";
+      badge.classList.add('score-med');
+      feedback = "Good foundation. Structure your talk with more specific actions and measurable results.";
+    } else {
+      badge.textContent = "Keep Practising · " + totalScore + " / 100";
+      badge.classList.add('score-low');
+      feedback = "Keep practising! Aim for at least 60 seconds with clear problem-and-solution markers.";
+    }
+    document.getElementById('res-feedback-line').textContent = feedback;
+
+    // Full Transcript with highlights
+    const transBox = document.getElementById('res-transcript-display');
+    if (transcript.trim()) {
+      let highlighted = transcript.replace(FILLER_REGEX, m => '<span class="filler-highlight">' + m + '</span>');
+      STAR_SIGNPOSTS.forEach(s => {
+        const r = new RegExp('\\b(' + s.key + ')\\b', 'gi');
+        highlighted = highlighted.replace(r, '<span class="star-highlight">$1</span>');
+      });
+      transBox.innerHTML = '“' + highlighted + '”';
+    } else {
+      transBox.innerHTML = '<em>No spoken response detected. Please verify microphone permissions and speak clearly near your device.</em>';
+    }
+
+    // XP & Streak (+25 XP base, +15 XP bonus if in 60-90s sweet spot with < 3% fillers)
+    let earnedXP = 25;
+    let hasBonus = false;
+    if (durationSec >= 60 && durationSec <= 90 && fillerRate < 3.0 && totalWords >= 40) {
+      earnedXP += 15;
+      hasBonus = true;
+    }
+    xp += earnedXP;
+    localStorage.setItem('userXP', xp);
+
+    const today = new Date().toDateString();
+    const lastPractice = localStorage.getItem('english_flow_last_practice');
+    if (lastPractice !== today) {
+      streak += 1;
+      localStorage.setItem('english_flow_streak', streak);
+      localStorage.setItem('english_flow_last_practice', today);
+    }
+    renderStats();
+
+    document.getElementById('final-streak').textContent = streak;
+    document.getElementById('final-xp').textContent = xp;
+    document.getElementById('res-xp-bonus-tag').textContent = hasBonus
+      ? '+25 XP completion + 15 XP recruiter sweet spot mastery bonus awarded! (+40 XP)'
+      : '+25 XP interview answer completed!';
+
+    // WhatsApp share
+    const canonical = "https://englishflowofficial.github.io/tools/job-interview-answer-timer.html";
+    const shareText = "I practiced answering interview questions on English Flow! Landed a " + totalScore + "/100 score in the " + durationSec + "s recruiter window. Practice your answers here: " + canonical;
+    document.getElementById('wa-share-btn').href = "https://api.whatsapp.com/send?text=" + encodeURIComponent(shareText);
+
+    document.getElementById('stage-results').removeAttribute('hidden');
+  }
+
+  function retryCurrentQuestion() {
+    document.getElementById('stage-results').setAttribute('hidden', '');
+    document.getElementById('stage-recording').setAttribute('hidden', '');
+    document.getElementById('stage-typed').setAttribute('hidden', '');
+    startQuestionDeliveryStage();
+  }
+
+  function shuffleToNewQuestion() {
+    shuffleQuestion();
+    document.getElementById('stage-results').setAttribute('hidden', '');
+    document.getElementById('stage-delivery').setAttribute('hidden', '');
+    document.getElementById('stage-recording').setAttribute('hidden', '');
+    document.getElementById('stage-typed').setAttribute('hidden', '');
+    document.getElementById('stage-setup').removeAttribute('hidden');
+  }
+
+  // Initialize
+  renderStats();
+  renderQuestionCard();
+</script>
+<script src="../ef-analytics.js" defer></script>
+</body>
+</html>
