@@ -423,17 +423,17 @@ LOCKED_SHELL = """<!doctype html>
         <h2 id="score-title" style="margin:8px 0">You scored 0/10!</h2>
         <p id="score-msg" style="color:#555;font-weight:700"></p>
         <p style="font-weight:900">🔥 Streak: <span id="final-streak">0</span> days · ⚡ XP: <span id="final-xp">0</span></p>
-        <a id="wa-share" href="#" target="_blank" rel="noopener" class="btn-3d btn-green" style="display:inline-block;text-decoration:none;margin:8px 4px">Share My Score on WhatsApp</a>
+        <a id="wa-share" onclick="if(window.gtag)gtag('event','whatsapp_share',{page_path:location.pathname})" href="#" target="_blank" rel="noopener" class="btn-3d btn-green" style="display:inline-block;text-decoration:none;margin:8px 4px">Share My Score on WhatsApp</a>
         <button class="btn-3d btn-blue" onclick="location.reload()" style="margin:8px 4px">Play Again</button>
         <div class="resource-card">
           <h3 style="margin:0 0 8px">📚 Recommended English Resources</h3>
           <p style="margin:0 0 10px;color:#555;font-weight:700;font-size:14px">Keep the momentum. Flo recommends:</p>
           <ul style="margin:0;padding-left:18px;font-weight:700;font-size:14px">
-            <li>🦉 Keep going: <a href="interview-english-2026-11-01.html">Interview English Quiz</a> and <a href="presentation-openers-quiz-strong-speech-openings-2026-11-03.html">Presentation Openers Quiz</a> — speak with confidence everywhere.</li>
-            <li><a href="https://topmate.io/speak_english_with_confidence/2324225">Get the 30-Day Speaking Workbook ($) →</a> – the 30-day speaking blueprint</li>
-            <li><a href="../30-day-english-flow-workbook.pdf">30-Day English Flow Workbook (PDF)</a> – daily speaking drills</li>
-            <li><a href="../resources.html">Free Resources Library</a> – trackers, podcasts, worksheets</li>
-            <li><a href="../game-practice.html">Daily Practice Session</a> – keep your streak alive</li>
+            <li>🦉 Keep going: <a onclick="if(window.gtag)gtag('event','resource_cta_click',{page_path:location.pathname})" href="interview-english-2026-11-01.html">Interview English Quiz</a> and <a onclick="if(window.gtag)gtag('event','resource_cta_click',{page_path:location.pathname})" href="presentation-openers-quiz-strong-speech-openings-2026-11-03.html">Presentation Openers Quiz</a> — speak with confidence everywhere.</li>
+            <li><a onclick="if(window.gtag)gtag('event','workbook_download',{page_path:location.pathname})" href="https://topmate.io/speak_english_with_confidence/2324225">Get the 30-Day Speaking Workbook ($) →</a> – the 30-day speaking blueprint</li>
+            <li><a onclick="if(window.gtag)gtag('event','workbook_download',{page_path:location.pathname})" href="../30-day-english-flow-workbook.pdf">30-Day English Flow Workbook (PDF)</a> – daily speaking drills</li>
+            <li><a onclick="if(window.gtag)gtag('event','resource_cta_click',{page_path:location.pathname})" href="../resources.html">Free Resources Library</a> – trackers, podcasts, worksheets</li>
+            <li><a onclick="if(window.gtag)gtag('event','resource_cta_click',{page_path:location.pathname})" href="../game-practice.html">Daily Practice Session</a> – keep your streak alive</li>
           </ul>
         </div>
       </div>
@@ -518,7 +518,10 @@ def main():
     chosen = [TOPICS[(doy * 2 + i) % len(TOPICS)] for i in range(2)]
     created = []
     for topic in chosen:
-        slug = f"{slugify(topic)}-{today}"
+        slug = slugify(topic)  # evergreen slug, no date suffix (2026-11-10)
+        if (QUIZ_DIR / f"{slug}.html").exists():
+            print(f"skip: quizzes/{slug}.html already exists (evergreen slug)")
+            continue
         prompt = PROMPT_TMPL.format(topic=topic,
                                     existing_slugs=existing_slugs or "none yet")
         content = gemini_content(prompt, model)
