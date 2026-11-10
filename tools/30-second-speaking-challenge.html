@@ -243,10 +243,10 @@
       <h3 style="margin: 0 0 12px; color: #92400e;">📚 Recommended Resources</h3>
       <p style="margin: 0 0 16px; color: #854d0e; font-size: 15px; font-weight: 600;">Take your speaking skills to the next level with our structured materials.</p>
       <div class="resource-links">
-        <a href="https://topmate.io/speak_english_with_confidence/2324225" target="_blank" rel="noopener">Get the 30-Day Speaking Workbook ($) →</a>
-        <a href="../30-day-english-flow-workbook.pdf" target="_blank">Free Preview: 30-Day Workbook PDF →</a>
-        <a href="../game-practice.html">Play More Speaking Games →</a>
-        <a href="../resources.html">Browse All Free Resources →</a>
+        <a onclick="if(window.gtag)gtag('event','workbook_download',{page_path:location.pathname})" href="https://topmate.io/speak_english_with_confidence/2324225" target="_blank" rel="noopener">Get the 30-Day Speaking Workbook ($) →</a>
+        <a onclick="if(window.gtag)gtag('event','workbook_download',{page_path:location.pathname})" href="../30-day-english-flow-workbook.pdf" target="_blank">Free Preview: 30-Day Workbook PDF →</a>
+        <a onclick="if(window.gtag)gtag('event','resource_cta_click',{page_path:location.pathname})" href="../game-practice.html">Play More Speaking Games →</a>
+        <a onclick="if(window.gtag)gtag('event','resource_cta_click',{page_path:location.pathname})" href="../resources.html">Browse All Free Resources →</a>
       </div>
     </div>
   </div>
@@ -530,6 +530,7 @@
     const shareText = `I just scored ${score}/100 on the English Flow 30-Second Speaking Challenge! Topic: "${currentTopic.prompt}". Try it here:`;
     const shareUrl = "https://englishflowofficial.github.io/tools/30-second-speaking-challenge.html";
     document.getElementById('btn-share').onclick = () => {
+      if(window.gtag)gtag('event','whatsapp_share',{page_path:location.pathname});
       window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`, '_blank');
     };
   }
