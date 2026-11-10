@@ -543,10 +543,10 @@
     <div class="card card-yellow">
         <h2 style="margin-top:0;">📚 Recommended English Resources</h2>
         <p style="font-weight: 700;">Take your fluency further with the 30-Day Speaking Blueprint.</p>
-        <a href="https://topmate.io/speak_english_with_confidence/2324225" target="_blank" class="btn-3d" style="font-size: 16px; padding: 12px; max-width: 100%;">Get the 30-Day Speaking Workbook ($) →</a>
+        <a onclick="if(window.gtag)gtag('event','workbook_download',{page_path:location.pathname})" href="https://topmate.io/speak_english_with_confidence/2324225" target="_blank" class="btn-3d" style="font-size: 16px; padding: 12px; max-width: 100%;">Get the 30-Day Speaking Workbook ($) →</a>
         <ul class="resources-list">
-            <li>🔗 <a href="../30-day-english-flow-workbook.pdf" target="_blank">Free Preview: 30-Day Workbook (PDF)</a></li>
-            <li>🔗 <a href="../resources.html">More Free Tools & Resources</a></li>
+            <li>🔗 <a onclick="if(window.gtag)gtag('event','workbook_download',{page_path:location.pathname})" href="../30-day-english-flow-workbook.pdf" target="_blank">Free Preview: 30-Day Workbook (PDF)</a></li>
+            <li>🔗 <a onclick="if(window.gtag)gtag('event','resource_cta_click',{page_path:location.pathname})" href="../resources.html">More Free Tools & Resources</a></li>
         </ul>
     </div>
 
@@ -894,6 +894,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Share button
         const shareText = `I speak at ${wpm} WPM on the English Flow Speaking Speed Test! Interview sweet spot is 120–150. Try it here: https://englishflowofficial.github.io/tools/speaking-speed-test-wpm.html`;
         btnShareWa.onclick = () => {
+            if(window.gtag)gtag('event','whatsapp_share',{page_path:location.pathname});
             window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`, '_blank');
         };
     }
