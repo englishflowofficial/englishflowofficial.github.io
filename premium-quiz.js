@@ -242,7 +242,7 @@ function renderHub() {
       <h2>🔓 Unlock all 6 sets — ₹99</h2>
       <p>Pay securely on Topmate, then enter your access code here. Sign in with Google first so your unlock works on all your devices.</p>
       <div class="pq-banner-actions">
-        <a class="btn-3d btn-green" href="${TOPMATE_QUIZ_LINK}" target="_blank" rel="noopener">💳 Buy on Topmate · ₹99</a>
+        <a class="btn-3d btn-green" href="${TOPMATE_QUIZ_LINK}" target="_blank" rel="noopener" onclick="if(window.gtag)gtag('event','workbook_download',{page_path:location.pathname});">💳 Buy on Topmate · ₹99</a>
         <button class="btn-3d btn-blue" id="pq-open-unlock">I already paid — unlock</button>
       </div>
     </section>`}`;
@@ -269,7 +269,7 @@ function openUnlockModal() {
       <h2>🔓 Unlock Pro Vocab Quiz</h2>
       <ol class="pq-steps">
         <li><strong>Pay ₹99 on Topmate</strong> — you'll get an access code instantly after payment.<br>
-          <a class="btn-3d btn-green pq-mini" href="${TOPMATE_QUIZ_LINK}" target="_blank" rel="noopener" style="margin-top:8px;display:inline-block">💳 Buy on Topmate · ₹99</a></li>
+          <a class="btn-3d btn-green pq-mini" href="${TOPMATE_QUIZ_LINK}" target="_blank" rel="noopener" style="margin-top:8px;display:inline-block" onclick="if(window.gtag)gtag('event','workbook_download',{page_path:location.pathname});">💳 Buy on Topmate · ₹99</a></li>
         <li><strong>Sign in with Google</strong> (top-right button) so your unlock syncs across devices.</li>
         <li><strong>Enter your access code</strong> below.</li>
       </ol>
