@@ -310,7 +310,7 @@
     </p>
 
     <div class="action-row">
-      <a id="wa-share-btn" href="#" target="_blank" rel="noopener" class="btn-3d btn-green">
+      <a onclick="if(window.gtag)gtag('event','whatsapp_share',{page_path:location.pathname})" id="wa-share-btn" href="#" target="_blank" rel="noopener" class="btn-3d btn-green">
         💬 Share My Score on WhatsApp
       </a>
       <button type="button" class="btn-3d btn-blue" onclick="restartSession()">
@@ -323,14 +323,14 @@
       <h3 style="margin: 0 0 6px; font-size: 17px; color: #1e1b4b;">📚 Recommended English Resources</h3>
       <p style="margin: 0 0 10px; color: #555; font-weight: 700; font-size: 14px;">Master professional speaking in any meeting:</p>
       <div style="margin-bottom: 12px;">
-        <a href="https://topmate.io/speak_english_with_confidence/2324225" target="_blank" rel="noopener noreferrer" class="btn-3d" style="background:#f59e0b; color:#1e1b4b; font-size:14px; padding:10px 18px; box-shadow:0 3px 0 #b45309;">
+        <a onclick="if(window.gtag)gtag('event','workbook_download',{page_path:location.pathname})" href="https://topmate.io/speak_english_with_confidence/2324225" target="_blank" rel="noopener noreferrer" class="btn-3d" style="background:#f59e0b; color:#1e1b4b; font-size:14px; padding:10px 18px; box-shadow:0 3px 0 #b45309;">
           Get the 30-Day Speaking Workbook ($) →
         </a>
       </div>
       <ul style="margin: 0; padding-left: 18px; font-weight: 700; font-size: 14px; line-height: 1.8; color: #334155;">
-        <li style="color: #334155;"><a href="../30-day-english-flow-workbook.pdf">30-Day English Flow Workbook (PDF)</a> <span style="color: #334155;">– daily speaking drills</span></li>
-        <li style="color: #334155;"><a href="../resources.html">Free Resources Library</a> <span style="color: #334155;">– trackers, podcasts &amp; templates</span></li>
-        <li style="color: #334155;"><a href="../game-practice.html">Daily Practice Session</a> <span style="color: #334155;">– maintain your learning momentum</span></li>
+        <li style="color: #334155;"><a onclick="if(window.gtag)gtag('event','workbook_download',{page_path:location.pathname})" href="../30-day-english-flow-workbook.pdf">30-Day English Flow Workbook (PDF)</a> <span style="color: #334155;">– daily speaking drills</span></li>
+        <li style="color: #334155;"><a onclick="if(window.gtag)gtag('event','resource_cta_click',{page_path:location.pathname})" href="../resources.html">Free Resources Library</a> <span style="color: #334155;">– trackers, podcasts &amp; templates</span></li>
+        <li style="color: #334155;"><a onclick="if(window.gtag)gtag('event','resource_cta_click',{page_path:location.pathname})" href="../game-practice.html">Daily Practice Session</a> <span style="color: #334155;">– maintain your learning momentum</span></li>
       </ul>
     </div>
   </div>
