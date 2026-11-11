@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>60-Second Fluency Score Test | English Flow</title>
+    <meta name="description" content="Test your spoken English fluency in 60 seconds. Speak on a surprise topic, get your fluency score, WPM, filler count and tips. Free, no sign-up.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#58cc02">
+    <link rel="canonical" href="https://englishflowofficial.github.io/tools/60-second-fluency-score-test.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://englishflowofficial.github.io/tools/60-second-fluency-score-test.html">
+    <meta property="og:title" content="60-Second Fluency Score Test | English Flow">
+    <meta property="og:description" content="Test your spoken English fluency in 60 seconds. Speak on a surprise topic, get your fluency score, WPM, filler count and tips. Free, no sign-up.">
+    <meta property="og:image" content="https://englishflowofficial.github.io/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@EnglishFlowPodcastt">
+    <meta property="twitter:url" content="https://englishflowofficial.github.io/tools/60-second-fluency-score-test.html">
+    <meta property="twitter:title" content="60-Second Fluency Score Test | English Flow">
+    <meta property="twitter:description" content="Test your spoken English fluency in 60 seconds. Speak on a surprise topic, get your fluency score, WPM, filler count and tips. Free, no sign-up.">
+    <meta property="twitter:image" content="https://englishflowofficial.github.io/og-image.jpg">
+    
+    <link rel="icon" href="../favicon.jpg" type="image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../game-practice.css">
+    
+    <style>
+        /* Specific Tool Styles */
+        .topic-card {
+            background: #fff;
+            border: 2px solid #e5e5e5;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            margin: 20px 0;
+            box-shadow: 0 4px 0 #e5e5e5;
+        }
+        .topic-text {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #4b4b4b;
+            margin: 15px 0;
+            line-height: 1.4;
+        }
+        .timer-container {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 20px auto;
+        }
+        .timer-svg {
+            width: 140px;
+            height: 140px;
+        }
+        .timer-ring-bg {
+            fill: none;
+            stroke: #e5e5e5;
+            stroke-width: 10;
+        }
+        .timer-ring-circle {
+            fill: none;
+            stroke: #58cc02;
+            stroke-width: 10;
+            stroke-linecap: round;
+            stroke-dasharray: 377; /* 2 * PI * 60 */
+            stroke-dashoffset: 0;
+            transition: stroke-dashoffset 1s linear;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        .timer-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #58cc02;
+        }
+        .audio-visualizer-container {
+            background: #f9f9f9;
+            border: 2px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        canvas#audio-visualizer {
+            width: 100%;
+            height: 60px;
+            display: block;
+        }
+        .transcript-box {
+            background: #fff;
+            border: 2px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 15px;
+            min-height: 120px;
+            max-height: 250px;
+            overflow-y: auto;
+            text-align: left;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #4b4b4b;
+            margin-bottom: 20px;
+        }
+        .interim-text {
+            color: #999;
+            font-style: italic;
+        }
+        .filler-word {
+            background-color: #ffe0e0;
+            color: #d32f2f;
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-weight: bold;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .metric-card {
+            background: #fff;
+            border: 2px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #4b4b4b;
+            margin-bottom: 5px;
+        }
+        .metric-label {
+            font-size: 0.9rem;
+            color: #777;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .score-badge-large {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: #58cc02;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            border: 6px solid #e5e5e5;
+            box-shadow: 0 6px 0 rgba(0,0,0,0.1);
+        }
+        .score-badge-large .score-num {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .score-badge-large .score-label {
+            font-size: 1rem;
+            font-weight: 700;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        .score-band-text {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        .text-fluent { color: #58cc02; }
+        .text-confident { color: #1cb0f6; }
+        .text-building { color: #ff9600; }
+        .text-practice { color: #ff4b4b; }
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .typing-area {
+            width: 100%;
+            height: 150px;
+            border: 2px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-family: inherit;
+            resize: none;
+            margin-bottom: 20px;
+        }
+        .typing-area:focus {
+            outline: none;
+            border-color: #1cb0f6;
+        }
+        .error-message {
+            background: #ffe0e0;
+            color: #d32f2f;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        /* Shared template classes (same as shipped Tools 1-6) */
+        .quiz-wrap {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 24px 16px 40px;
+        }
+        .q-card {
+            border: 2px solid #e5e5e5;
+            border-radius: 20px;
+            padding: 26px 22px;
+            background: #fff;
+            box-shadow: 0 4px 0 #e5e5e5;
+            margin: 16px 0;
+            text-align: center;
+        }
+        .result-card {
+            border: 2px solid #e5e5e5;
+            border-radius: 20px;
+            padding: 28px;
+            text-align: center;
+            background: linear-gradient(135deg, #f0fff4, #eff8ff);
+            color: #4b4b4b;
+        }
+        .notice-box {
+            background: #fffbeb;
+            border: 2px solid #fde68a;
+            border-radius: 14px;
+            padding: 14px 18px;
+            color: #92400e;
+            font-size: 14px;
+            font-weight: 700;
+            margin: 12px 0;
+            text-align: left;
+        }
+        .resource-card {
+            border: 2px solid #ffc800;
+            border-radius: 18px;
+            padding: 18px;
+            background: #fffbe6;
+            margin-top: 18px;
+            text-align: left;
+            color: #334155;
+        }
+        .resource-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        .resource-links a {
+            display: block;
+            background: #fff;
+            border: 2px solid #fde047;
+            padding: 12px 16px;
+            border-radius: 12px;
+            color: #854d0e;
+            font-weight: 800;
+            text-decoration: none;
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "60-Second Fluency Score Test",
+      "url": "https://englishflowofficial.github.io/tools/60-second-fluency-score-test.html",
+      "description": "Test your spoken English fluency in 60 seconds. Speak on a surprise topic, get your fluency score, WPM, filler count and tips.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How does the 60-second fluency test work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It gives you a surprise topic, records you speaking for up to 60 seconds, and analyzes your speech for pace, word count, and filler words to estimate your fluency level."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Is my voice recording stored anywhere?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. All speech recognition happens directly in your browser. No audio is ever uploaded or saved to our servers."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Which browsers support the microphone recording?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For the best experience, use Google Chrome, Microsoft Edge, or Safari on iOS. If your browser doesn't support the Web Speech API, a typing fallback is provided."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How do XP and streaks work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You earn 15 XP for every completed fluency test. Practising once a day increases your daily streak. This helps you stay consistent!"
+        }
+      }]
+    }
+    </script>
+</head>
+<body>
+
+    <header class="gp-header">
+        <div class="gp-header-inner container">
+            <div class="gp-nav">
+                <a href="../index.html" class="gp-back-btn" aria-label="Back to Home">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                </a>
+                <span class="gp-breadcrumb">Home / Practice / Fluency Test</span>
+            </div>
+            <div class="gp-stats">
+                <div class="gp-stat item-streak" title="Daily Streak">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="#ff9600"><path d="M17.5 10c0 3-2.5 5.5-5.5 5.5S6.5 13 6.5 10c0-2 1.5-4 3-5 .5 2 2 3.5 3.5 3.5 1-1.5 2-3 2.5-4.5 1.5 1.5 2 3.5 2 6z"></path></svg>
+                    <span id="streak-count">0</span>
+                </div>
+                <div class="gp-stat item-xp" title="Total XP">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="#58cc02"><polygon points="12 2 15 8 22 9 17 14 18 21 12 17 6 21 7 14 2 9 9 8 12 2"></polygon></svg>
+                    <span id="xp-count">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <h1 style="margin-bottom: 10px;">60-Second Fluency Score Test</h1>
+            <p style="color: #777; font-size: 1.1rem;">Speak naturally on a surprise topic and get an instant fluency score.</p>
+        </div>
+
+        <div class="quiz-wrap">
+            
+            <!-- START SCREEN -->
+            <div id="start-screen" class="q-card">
+                <p style="font-size: 1.1rem; color: #4b4b4b; text-align: center; margin-bottom: 20px;">
+                    You will get 60 seconds to speak about the topic below.<br>
+                    Try to speak clearly and continuously.
+                </p>
+                
+                <div class="topic-card">
+                    <span style="color: #777; font-weight: 700; text-transform: uppercase; font-size: 0.9rem;">Your Surprise Topic</span>
+                    <div id="start-topic" class="topic-text">Loading topic...</div>
+                    <button class="btn-3d btn-blue" id="btn-shuffle" style="padding: 8px 16px; font-size: 0.9rem; margin-top: 10px;">Shuffle Topic</button>
+                </div>
+
+                <div id="mic-error-msg" class="error-message" hidden></div>
+
+                <button class="btn-3d btn-green" id="btn-start" style="width: 100%; font-size: 1.2rem; padding: 15px;">Start My 60-Second Test</button>
+            </div>
+
+            <!-- SPEAKING SCREEN -->
+            <div id="speaking-screen" class="q-card" hidden>
+                <div style="text-align: center; margin-bottom: 15px;">
+                    <span style="color: #ff4b4b; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">🔴 Speak Now</span>
+                </div>
+                
+                <div class="topic-text" id="speaking-topic-display" style="text-align: center; margin-top: 0;"></div>
+
+                <div class="timer-container">
+                    <svg class="timer-svg" viewBox="0 0 140 140">
+                        <circle class="timer-ring-bg" cx="70" cy="70" r="60"></circle>
+                        <circle id="timer-ring-path" class="timer-ring-circle" cx="70" cy="70" r="60"></circle>
+                    </svg>
+                    <div id="timer-text" class="timer-text">60</div>
+                </div>
+
+                <div class="audio-visualizer-container" id="visualizer-wrapper">
+                    <canvas id="audio-visualizer"></canvas>
+                </div>
+
+                <div class="transcript-box" id="live-transcript">
+                    <span style="color: #ccc;">Listening...</span>
+                </div>
+
+                <div style="text-align: center; margin-bottom: 20px; font-weight: 700; color: #777;">
+                    Words: <span id="live-word-count">0</span>
+                </div>
+
+                <button class="btn-3d btn-red" id="btn-finish-early" style="width: 100%; padding: 12px;">Finish & See My Score</button>
+            </div>
+
+            <!-- TYPING FALLBACK SCREEN -->
+            <div id="typing-screen" class="q-card" hidden>
+                <div class="notice-box" style="margin-bottom: 20px;">
+                    <strong>Mic not detected.</strong> Typed mode active. Write your response to the topic below as if you were speaking it.
+                </div>
+                
+                <div class="topic-text" id="typing-topic-display" style="text-align: center;"></div>
+                
+                <div style="text-align: center; margin-bottom: 15px;">
+                    <span style="font-size: 1.5rem; font-weight: 800; color: #58cc02;" id="typing-timer">60s</span> remaining
+                </div>
+
+                <textarea id="typing-input" class="typing-area" placeholder="Start typing your answer here..."></textarea>
+                
+                <button class="btn-3d btn-green" id="btn-finish-typing" style="width: 100%; padding: 12px;">Submit & Get Score</button>
+            </div>
+
+            <!-- RESULT SCREEN -->
+            <div id="result-screen" class="result-card" hidden>
+                <h2 style="text-align: center; margin-bottom: 20px;">Your Results</h2>
+                
+                <div class="score-badge-large">
+                    <span id="final-score" class="score-num">0</span>
+                    <span class="score-label">/ 100</span>
+                </div>
+                
+                <div id="score-band" class="score-band-text" style="text-align: center;"></div>
+                <p style="text-align: center; font-weight: 800; color: #58cc02; margin: 0 0 20px;">🎉 +15 XP earned!</p>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div id="res-time" class="metric-value">0s</div>
+                        <div class="metric-label">Speaking Time</div>
+                    </div>
+                    <div class="metric-card">
+                        <div id="res-pace" class="metric-value">0</div>
+                        <div class="metric-label">Pace (WPM)</div>
+                    </div>
+                    <div class="metric-card">
+                        <div id="res-fillers" class="metric-value">0</div>
+                        <div class="metric-label">Filler Words</div>
+                    </div>
+                    <div class="metric-card">
+                        <div id="res-words" class="metric-value">0</div>
+                        <div class="metric-label">Total Words</div>
+                    </div>
+                </div>
+
+                <div class="notice-box" id="score-note" hidden style="margin-bottom: 20px;"></div>
+
+                <h3 style="margin-bottom: 10px; font-size: 1.1rem;">Transcript Analysis</h3>
+                <div class="transcript-box" id="final-transcript" style="margin-bottom: 10px;"></div>
+                <p style="font-size: 0.85rem; color: #777; margin-bottom: 20px;">* Highlighted words indicate common fillers (um, uh, like, actually, etc.)</p>
+
+                <div class="action-buttons">
+                    <button class="btn-3d btn-green" id="btn-share-whatsapp" style="padding: 12px;">Share My Score on WhatsApp</button>
+                    <button class="btn-3d btn-blue" id="btn-try-again" style="padding: 12px;">Try Another Topic</button>
+                </div>
+
+                <div class="resource-card" style="margin-top: 30px;">
+                    <h3>Recommended English Resources</h3>
+                    <p>Want to speak confidently every time? Follow a structured 30-day speaking plan.</p>
+                    <a href="https://topmate.io/speak_english_with_confidence/2324225" target="_blank" rel="noopener" class="btn-3d btn-blue" style="display: block; margin: 15px 0;">Get the 30-Day Speaking Workbook ($) →</a>
+                    <div class="resource-links">
+                        <a href="../30-day-english-flow-workbook.pdf" target="_blank">Free 30-Day PDF</a>
+                        <a href="../resources.html">All Resources</a>
+                        <a href="../game-practice.html">More Practice Games</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5 WAYS SECTION -->
+        <section style="margin: 40px 0;">
+            <h2 style="margin-bottom: 20px; color: #4b4b4b;">5 Ways to Sound More Fluent</h2>
+            <div class="q-card" style="padding: 25px;">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+                        <span style="position: absolute; left: 0; top: 0; font-size: 1.2rem;">🗣️</span>
+                        <strong>Speak in full sentences:</strong> Avoid giving one-word answers. Expand on your ideas.
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+                        <span style="position: absolute; left: 0; top: 0; font-size: 1.2rem;">⏸️</span>
+                        <strong>Pause, don't fill:</strong> Slow down slightly and pause silently instead of filling the silence with "um" or "uh".
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+                        <span style="position: absolute; left: 0; top: 0; font-size: 1.2rem;">🔗</span>
+                        <strong>Link your ideas:</strong> Use transition words like <em>first</em>, <em>then</em>, and <em>finally</em> to structure your thoughts.
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+                        <span style="position: absolute; left: 0; top: 0; font-size: 1.2rem;">💡</span>
+                        <strong>Give reasons and examples:</strong> Whenever you make a point, follow it up with a reason ("because...") and an example.
+                    </li>
+                    <li style="margin-bottom: 0; padding-left: 30px; position: relative;">
+                        <span style="position: absolute; left: 0; top: 0; font-size: 1.2rem;">📅</span>
+                        <strong>Practise daily:</strong> Try one surprise topic every single day to build quick-thinking skills.
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="notice-box" style="margin-top: 20px; display: flex; align-items: center; gap: 15px;">
+                <div style="font-size: 2.5rem;">🦉</div>
+                <div>
+                    <strong>Flo says:</strong> "Fluency isn't about speaking fast, it's about speaking smoothly! Aim for a steady pace of around 130 words per minute."
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section style="margin: 40px 0;">
+            <h2 style="margin-bottom: 20px; color: #4b4b4b;">Frequently Asked Questions</h2>
+            
+            <div class="q-card" style="margin-bottom: 15px; padding: 20px;">
+                <h3 style="font-size: 1.1rem; margin-bottom: 10px;">How does the 60-second fluency test work?</h3>
+                <p style="color: #555; line-height: 1.5;">It gives you a surprise topic, records you speaking for up to 60 seconds, and analyzes your speech for pace, word count, and filler words to estimate your fluency level.</p>
+            </div>
+
+            <div class="q-card" style="margin-bottom: 15px; padding: 20px;">
+                <h3 style="font-size: 1.1rem; margin-bottom: 10px;">Is my voice recording stored anywhere?</h3>
+                <p style="color: #555; line-height: 1.5;">No. All speech recognition happens directly in your browser. No audio is ever uploaded or saved to our servers.</p>
+            </div>
+
+            <div class="q-card" style="margin-bottom: 15px; padding: 20px;">
+                <h3 style="font-size: 1.1rem; margin-bottom: 10px;">Which browsers support the microphone recording?</h3>
+                <p style="color: #555; line-height: 1.5;">For the best experience, use Google Chrome, Microsoft Edge, or Safari on iOS. If your browser doesn't support the Web Speech API, a typing fallback is provided.</p>
+            </div>
+
+            <div class="q-card" style="padding: 20px;">
+                <h3 style="font-size: 1.1rem; margin-bottom: 10px;">How do XP and streaks work?</h3>
+                <p style="color: #555; line-height: 1.5;">You earn 15 XP for every completed fluency test. Practising once a day increases your daily streak. This helps you stay consistent!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 20px; color: #777; margin-top: 40px; border-top: 2px solid #e5e5e5;">
+        <p>&copy; 2024 English Flow. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Constants & Data
+        const TOPICS = [
+            "Describe your perfect weekend.",
+            "Talk about a skill you would love to learn and why.",
+            "Describe the best meal you have ever had.",
+            "Talk about a place you would love to visit one day.",
+            "Describe a person who inspires you and why.",
+            "Talk about your morning routine and how it helps you.",
+            "Describe a movie or book that changed how you think.",
+            "Talk about a goal you want to achieve this year."
+        ];
+        
+        const FILLER_WORDS = ['um', 'uh', 'like', 'basically', 'actually', 'you know', 'erm'];
+        const TARGET_TIME = 60;
+        const XP_REWARD = 15;
+
+        // Variables
+        let currentTopic = "";
+        let isRecording = false;
+        let isTypingMode = false;
+        let timeLeft = TARGET_TIME;
+        let timerInterval;
+        let finalTranscriptStr = "";
+        let recognition;
+        
+        // Audio Visualizer
+        let audioContext;
+        let analyser;
+        let microphone;
+        let visualizerCanvas;
+        let canvasCtx;
+        let visualizerAnimFrame;
+
+        // DOM Elements
+        const screens = {
+            start: document.getElementById('start-screen'),
+            speak: document.getElementById('speaking-screen'),
+            type: document.getElementById('typing-screen'),
+            result: document.getElementById('result-screen')
+        };
+        
+        const ui = {
+            startTopic: document.getElementById('start-topic'),
+            speakTopic: document.getElementById('speaking-topic-display'),
+            typeTopic: document.getElementById('typing-topic-display'),
+            btnShuffle: document.getElementById('btn-shuffle'),
+            btnStart: document.getElementById('btn-start'),
+            btnFinishEarly: document.getElementById('btn-finish-early'),
+            btnFinishTyping: document.getElementById('btn-finish-typing'),
+            btnTryAgain: document.getElementById('btn-try-again'),
+            btnShare: document.getElementById('btn-share-whatsapp'),
+            micError: document.getElementById('mic-error-msg'),
+            timerText: document.getElementById('timer-text'),
+            timerRing: document.getElementById('timer-ring-path'),
+            typeTimer: document.getElementById('typing-timer'),
+            liveTranscript: document.getElementById('live-transcript'),
+            liveWordCount: document.getElementById('live-word-count'),
+            typingInput: document.getElementById('typing-input'),
+            streakCount: document.getElementById('streak-count'),
+            xpCount: document.getElementById('xp-count')
+        };
+
+        // Initialize
+        function init() {
+            loadStats();
+            shuffleTopic();
+            setupEventListeners();
+            visualizerCanvas = document.getElementById('audio-visualizer');
+            canvasCtx = visualizerCanvas.getContext('2d');
+        }
+
+        function loadStats() {
+            const streak = localStorage.getItem('english_flow_streak') || 0;
+            const xp = localStorage.getItem('userXP') || 0;
+            ui.streakCount.textContent = streak;
+            ui.xpCount.textContent = xp;
+        }
+
+        function saveStats() {
+            let streak = parseInt(localStorage.getItem('english_flow_streak') || 0);
+            let xp = parseInt(localStorage.getItem('userXP') || 0);
+            const lastPractice = localStorage.getItem('english_flow_last_practice');
+            const today = new Date().toDateString();
+
+            if (lastPractice !== today) {
+                streak += 1;
+                localStorage.setItem('english_flow_streak', streak);
+                localStorage.setItem('english_flow_last_practice', today);
+            }
+            
+            xp += XP_REWARD;
+            localStorage.setItem('userXP', xp);
+            
+            ui.streakCount.textContent = streak;
+            ui.xpCount.textContent = xp;
+        }
+
+        function shuffleTopic() {
+            const newTopic = TOPICS[Math.floor(Math.random() * TOPICS.length)];
+            currentTopic = newTopic;
+            ui.startTopic.textContent = currentTopic;
+            ui.speakTopic.textContent = currentTopic;
+            ui.typeTopic.textContent = currentTopic;
+        }
+
+        function setupEventListeners() {
+            ui.btnShuffle.addEventListener('click', shuffleTopic);
+            ui.btnStart.addEventListener('click', startTest);
+            ui.btnFinishEarly.addEventListener('click', finishTest);
+            ui.btnFinishTyping.addEventListener('click', finishTest);
+            ui.btnTryAgain.addEventListener('click', resetTest);
+            ui.btnShare.addEventListener('click', shareWhatsApp);
+        }
+
+        async function startTest() {
+            ui.micError.hidden = true;
+            timeLeft = TARGET_TIME;
+            finalTranscriptStr = "";
+            
+            const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+            
+            if (SpeechRec) {
+                try {
+                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+                    isRecording = true;
+                    isTypingMode = false;
+                    
+                    // Setup Audio Context for visualizer
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    analyser = audioContext.createAnalyser();
+                    microphone = audioContext.createMediaStreamSource(stream);
+                    microphone.connect(analyser);
+                    analyser.fftSize = 256;
+                    
+                    initSpeechRecognition(SpeechRec);
+                    showScreen('speak');
+                    startTimer();
+                    drawVisualizer();
+                    
+                } catch (err) {
+                    // Mic denied or failed
+                    console.warn("Mic access denied or error", err);
+                    startTypingFallback();
+                }
+            } else {
+                // Speech API not supported
+                startTypingFallback();
+            }
+        }
+
+        function startTypingFallback() {
+            isRecording = false;
+            isTypingMode = true;
+            timeLeft = TARGET_TIME;
+            ui.typingInput.value = "";
+            showScreen('type');
+            startTimer();
+        }
+
+        function initSpeechRecognition(SpeechRecClass) {
+            recognition = new SpeechRecClass();
+            recognition.continuous = true;
+            recognition.interimResults = true;
+            recognition.lang = 'en-US';
+
+            recognition.onresult = (event) => {
+                let interim = "";
+                finalTranscriptStr = "";
+
+                for (let i = 0; i < event.results.length; ++i) {
+                    if (event.results[i].isFinal) {
+                        finalTranscriptStr += event.results[i][0].transcript + " ";
+                    } else {
+                        interim += event.results[i][0].transcript;
+                    }
+                }
+
+                ui.liveTranscript.innerHTML = finalTranscriptStr + `<span class="interim-text">${interim}</span>`;
+                ui.liveWordCount.textContent = countWords(finalTranscriptStr + interim);
+            };
+
+            recognition.onerror = (event) => {
+                console.error("Speech recognition error", event.error);
+                if(event.error === 'not-allowed') {
+                    finishTest();
+                }
+            };
+
+            recognition.start();
+        }
+
+        function startTimer() {
+            updateTimerDisplay();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    finishTest();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            if (isTypingMode) {
+                ui.typeTimer.textContent = timeLeft + "s";
+            } else {
+                ui.timerText.textContent = timeLeft;
+                // SVG Circle Circumference is ~377
+                const offset = 377 - (377 * (timeLeft / TARGET_TIME));
+                ui.timerRing.style.strokeDashoffset = offset;
+            }
+        }
+
+        function drawVisualizer() {
+            if (!isRecording) return;
+            visualizerAnimFrame = requestAnimationFrame(drawVisualizer);
+            
+            const bufferLength = analyser.frequencyBinCount;
+            const dataArray = new Uint8Array(bufferLength);
+            analyser.getByteTimeDomainData(dataArray);
+            
+            canvasCtx.fillStyle = '#f9f9f9';
+            canvasCtx.fillRect(0, 0, visualizerCanvas.width, visualizerCanvas.height);
+            canvasCtx.lineWidth = 2;
+            canvasCtx.strokeStyle = '#58cc02';
+            canvasCtx.beginPath();
+            
+            const sliceWidth = visualizerCanvas.width * 1.0 / bufferLength;
+            let x = 0;
+            
+            for (let i = 0; i < bufferLength; i++) {
+                const v = dataArray[i] / 128.0;
+                const y = v * visualizerCanvas.height / 2;
+                if (i === 0) canvasCtx.moveTo(x, y);
+                else canvasCtx.lineTo(x, y);
+                x += sliceWidth;
+            }
+            
+            canvasCtx.lineTo(visualizerCanvas.width, visualizerCanvas.height / 2);
+            canvasCtx.stroke();
+        }
+
+        function finishTest() {
+            clearInterval(timerInterval);
+            if (isRecording) {
+                isRecording = false;
+                if(recognition) recognition.stop();
+                if(audioContext) audioContext.close();
+                cancelAnimationFrame(visualizerAnimFrame);
+            }
+            
+            const actualTime = TARGET_TIME - timeLeft;
+            let textToScore = isTypingMode ? ui.typingInput.value : ui.liveTranscript.textContent.replace('Listening...', '');
+            
+            // Handle completely empty input gracefully
+            if (textToScore.trim().length === 0) {
+                ui.micError.textContent = "No speech/text detected. Please try again.";
+                ui.micError.hidden = false;
+                showScreen('start');
+                return;
+            }
+            
+            calculateScore(textToScore, actualTime);
+        }
+
+        function countWords(text) {
+            return text.trim().split(/\s+/).filter(w => w.length > 0).length;
+        }
+
+        function analyzeFillers(text) {
+            let highlighted = text;
+            let count = 0;
+            
+            FILLER_WORDS.forEach(filler => {
+                const regex = new RegExp(`\\b${filler}\\b`, 'gi');
+                highlighted = highlighted.replace(regex, (match) => {
+                    count++;
+                    return `<span class="filler-word">${match}</span>`;
+                });
+            });
+            
+            return { highlightedText: highlighted, fillerCount: count };
+        }
+
+        function calculateScore(text, timeSeconds) {
+            const wordCount = countWords(text);
+            const { highlightedText, fillerCount } = analyzeFillers(text);
+            
+            let baseScore = 100;
+            let wpm = 0;
+            let paceNote = "";
+            let finalTimeDisplay = timeSeconds + "s";
+            
+            document.getElementById('score-note').hidden = true;
+            document.getElementById('score-note').innerHTML = "";
+
+            if (isTypingMode) {
+                // Typing fallback logic
+                wpm = "—";
+                finalTimeDisplay = "~" + Math.max(1, Math.round(wordCount / 140 * 60)) + "s (est.)";
+                baseScore = 85; // Cap score
+                const note = document.getElementById('score-note');
+                note.innerHTML = "<strong>Note:</strong> Since you typed your answer, pace and speaking time couldn't be measured. Score is capped at 85.";
+                note.hidden = false;
+                
+                // Deduct for fillers in typing
+                if (wordCount > 0) {
+                    const fillerRate = (fillerCount / wordCount) * 100;
+                    if (fillerRate > 2) baseScore -= Math.floor((fillerRate - 2) * 2);
+                }
+                if (wordCount < 20) baseScore -= 20;
+
+            } else {
+                // Speech logic
+                if (timeSeconds < 3) {
+                    // Prevent divide by zero / absurd stats for instant clicks
+                    wpm = "—";
+                    baseScore = 30;
+                    const note = document.getElementById('score-note');
+                    note.innerHTML = "<strong>Note:</strong> Test finished too quickly to provide an accurate pace measurement.";
+                    note.hidden = false;
+                } else {
+                    wpm = Math.round((wordCount / timeSeconds) * 60);
+                    
+                    // Deductions
+                    const fillerRate = wordCount > 0 ? (fillerCount / wordCount) * 100 : 0;
+                    if (fillerRate > 2) baseScore -= Math.floor((fillerRate - 2) * 2);
+                    
+                    if (wpm < 110) baseScore -= Math.min(20, Math.floor((110 - wpm) / 2));
+                    else if (wpm > 170) baseScore -= Math.min(15, Math.floor((wpm - 170) / 2));
+                    
+                    if (timeSeconds < 30) baseScore -= 15;
+                    if (timeSeconds < 15) baseScore -= 30;
+                }
+            }
+
+            // Boundary enforcement
+            if (baseScore < 0) baseScore = 0;
+            if (baseScore > 100) baseScore = 100;
+            if (wordCount < 5) baseScore = Math.min(baseScore, 20);
+
+            displayResults(baseScore, finalTimeDisplay, wpm, fillerCount, wordCount, highlightedText);
+            saveStats();
+        }
+
+        function displayResults(score, time, wpm, fillers, words, transcriptHTML) {
+            document.getElementById('final-score').textContent = score;
+            document.getElementById('res-time').textContent = time;
+            document.getElementById('res-pace').textContent = wpm;
+            document.getElementById('res-fillers').textContent = fillers;
+            document.getElementById('res-words').textContent = words;
+            document.getElementById('final-transcript').innerHTML = transcriptHTML;
+
+            const bandEl = document.getElementById('score-band');
+            if (score >= 90) {
+                bandEl.innerHTML = '<span class="text-fluent">Fluent Speaker 🌟</span>';
+            } else if (score >= 70) {
+                bandEl.innerHTML = '<span class="text-confident">Confident Speaker 👍</span>';
+            } else if (score >= 40) {
+                bandEl.innerHTML = '<span class="text-building">Building Fluency 📈</span>';
+            } else {
+                bandEl.innerHTML = '<span class="text-practice">Keep Practising 💪</span>';
+            }
+
+            showScreen('result');
+        }
+
+        function resetTest() {
+            shuffleTopic();
+            ui.timerRing.style.strokeDashoffset = 0;
+            ui.liveTranscript.innerHTML = '<span style="color: #ccc;">Listening...</span>';
+            ui.liveWordCount.textContent = "0";
+            showScreen('start');
+        }
+
+        function showScreen(screenName) {
+            Object.values(screens).forEach(s => s.hidden = true);
+            screens[screenName].hidden = false;
+        }
+
+        function shareWhatsApp() {
+            const score = document.getElementById('final-score').textContent;
+            const wpm = document.getElementById('res-pace').textContent;
+            let text = `I just scored ${score}/100 on the 60-Second Fluency Test at English Flow! 🎙️`;
+            if (wpm !== "—") text += ` My speaking pace: ${wpm} WPM.`;
+            text += `\n\nTest your fluency for free here:\nhttps://englishflowofficial.github.io/tools/60-second-fluency-score-test.html`;
+            
+            const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+
+        // Boot
+        window.addEventListener('DOMContentLoaded', init);
+
+    </script>
+    <script src="../ef-analytics.js" defer></script>
+</body>
+</html>
