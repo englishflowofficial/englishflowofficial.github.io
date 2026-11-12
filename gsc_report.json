@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T10:03:10.130614Z",
+  "generated_at": "2026-11-12T10:28:59.014255Z",
   "site": "https://englishflowofficial.github.io/",
   "sitemap_submit": {
     "url": "https://englishflowofficial.github.io/sitemap.xml",
@@ -8,7 +8,7 @@
   "sitemaps": [
     {
       "path": "https://englishflowofficial.github.io/sitemap.xml",
-      "lastSubmitted": "2026-11-11T10:03:10.299Z",
+      "lastSubmitted": "2026-11-12T10:28:59.177Z",
       "isPending": true,
       "isSitemapsIndex": false,
       "warnings": "0",
@@ -16,8 +16,8 @@
     }
   ],
   "search_analytics_28d": {
-    "startDate": "2026-10-14",
-    "endDate": "2026-11-11",
+    "startDate": "2026-10-15",
+    "endDate": "2026-11-12",
     "rows": [
       {
         "keys": [
@@ -55,9 +55,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
-        "impressions": 21,
+        "impressions": 24,
         "ctr": 0,
-        "position": 6.809523809523809
+        "position": 6.541666666666667
       },
       {
         "keys": [
