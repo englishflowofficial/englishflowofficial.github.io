@@ -462,6 +462,7 @@
             <p style="color: #666; font-size: 0.9rem; margin-bottom: 20px;">*Score based on words recognized by the browser. This is not a per-sound or accent grade.</p>
             
             <div id="score-circle" class="score-circle">0%</div>
+            <div id="score-cap-note" style="color: #ff9600; font-weight: bold; font-size: 0.9rem; margin-bottom: 16px;" hidden></div>
 
             <div id="diagnostic-box" class="word-by-word-box">
                 <!-- Injected word-by-word feedback -->
@@ -541,6 +542,7 @@
     const btnSubmitTyped = document.getElementById('btn-submit-typed');
     
     const scoreCircle = document.getElementById('score-circle');
+    const scoreCapNote = document.getElementById('score-cap-note');
     const diagnosticBox = document.getElementById('diagnostic-box');
     const btnReplayNative = document.getElementById('btn-replay-native');
     const userAudioPlayer = document.getElementById('user-audio-player');
@@ -582,21 +584,22 @@
         let xp = parseInt(localStorage.getItem('userXP')) || 0;
         let streak = parseInt(localStorage.getItem('english_flow_streak')) || 0;
         let lastPractice = localStorage.getItem('english_flow_last_practice');
-        let today = new Date().toISOString().split('T')[0];
-        
+        // House standard date format: toDateString() — same as the homepage and
+        // Tools 1, 2, 3, 5, 6, 7. (ISO format here used to reset streaks recorded
+        // by those pages, because "Wed Nov 11 2026" never equals "2026-11-11".)
+        let today = new Date().toDateString();
+
         // XP logic
         let earned = 15;
         if (accuracy >= 90) earned += 10;
         xp += earned;
         localStorage.setItem('userXP', xp);
-        
+
         // Streak logic
         if (lastPractice !== today) {
-            let yesterday = new Date();
-            yesterday.setDate(yesterday.getDate() - 1);
-            let yesterdayStr = yesterday.toISOString().split('T')[0];
-            
-            if (lastPractice === yesterdayStr) {
+            let yesterday = new Date(Date.now() - 86400000).toDateString();
+
+            if (lastPractice === yesterday) {
                 streak += 1;
             } else {
                 streak = 1;
@@ -604,7 +607,7 @@
             localStorage.setItem('english_flow_streak', streak);
             localStorage.setItem('english_flow_last_practice', today);
         }
-        
+
         loadStats();
         xpEarnedMsg.innerText = `+${earned} XP Earned!`;
     }
@@ -826,20 +829,33 @@
 
         let totalValidWords = targetWords.length;
         if (totalValidWords === 0) totalValidWords = 1;
-        
-        let acc = Math.round((matchedCount / totalValidWords) * 100);
-        if (isTypedFallback && acc > 85) acc = 85; // Honest scoring cap for typed
-        
+
+        // Raw word-match accuracy drives the word-by-word colours and the +10 XP
+        // bonus (FAQ: "90%+ word accuracy"). In typed mode the DISPLAYED score is
+        // capped at 85 without mic confirmation, and the cap is explained on
+        // screen — an exact typed match must never show all-green words next to
+        // an unexplained 85%.
+        let rawAcc = Math.round((matchedCount / totalValidWords) * 100);
+        let acc = rawAcc;
+        if (isTypedFallback && acc > 85) acc = 85;
+
         finalAccuracy = acc;
         scoreCircle.innerText = acc + "%";
-        
+
+        if (isTypedFallback && rawAcc > 85) {
+            scoreCapNote.innerText = `Typed check — your word accuracy was ${rawAcc}%, but the score is capped at 85 without mic confirmation. Use your mic for a full score.`;
+            scoreCapNote.hidden = false;
+        } else {
+            scoreCapNote.hidden = true;
+        }
+
         if (acc >= 90) scoreCircle.style.background = "#58cc02";
         else if (acc >= 60) scoreCircle.style.background = "#ff9600";
         else scoreCircle.style.background = "#ff4b4b";
 
         diagnosticBox.innerHTML = htmlOutput + `<div class="transcript-compare"><strong>Browser Heard:</strong> "${spoken}"</div>`;
-        
-        updateStats(acc);
+
+        updateStats(rawAcc);
     }
 
     // Playback & Restart Actions
@@ -856,6 +872,7 @@
     btnRetry.addEventListener('click', () => {
         screenResults.hidden = true;
         resourceCard.hidden = true;
+        fallbackTextarea.value = "";
         btnStartTest.click();
     });
 
