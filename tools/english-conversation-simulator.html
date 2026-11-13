@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#58cc02" />
+  <meta name="robots" content="index, follow" />
+  <title>Free English Conversation Simulator (Voice) | English Flow</title>
+  <meta name="description" content="Practice real-life English conversations out loud with your mic. Hear your speaking partner, reply in 4 turns, and review your fluency. Free, no sign-up." />
+  <meta name="keywords" content="english conversation simulator, practice speaking english alone, english conversation practice online, voice roleplay english, spoken english practice, english flow" />
+  <link rel="canonical" href="https://englishflowofficial.github.io/tools/english-conversation-simulator.html" />
+  <link rel="icon" href="../favicon.jpg" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://englishflowofficial.github.io/tools/english-conversation-simulator.html" />
+  <meta property="og:title" content="Free English Conversation Simulator (Voice) | English Flow" />
+  <meta property="og:description" content="Practice real-life English conversations out loud with your mic. Hear your speaking partner, reply in 4 turns, and review your fluency. Free, no sign-up." />
+  <meta property="og:image" content="https://englishflowofficial.github.io/og-image.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@EnglishFlowPodcastt" />
+  <meta name="twitter:title" content="Free English Conversation Simulator (Voice) | English Flow" />
+  <meta name="twitter:description" content="Practice real-life English conversations out loud with your mic. Hear your speaking partner, reply in 4 turns, and review your fluency. Free, no sign-up." />
+  <meta name="twitter:image" content="https://englishflowofficial.github.io/og-image.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900;1000&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../game-practice.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free English Conversation Simulator",
+    "url": "https://englishflowofficial.github.io/tools/english-conversation-simulator.html",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": 0,
+      "priceCurrency": "USD"
+    },
+    "description": "Free browser-based 4-turn English conversation simulator: choose a real-life scenario, hear your scripted practice partner speak aloud, reply with your microphone, and review your fluency score and audio playback.",
+    "provider": {
+      "@type": "Organization",
+      "name": "English Flow",
+      "url": "https://englishflowofficial.github.io/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does the English conversation simulator work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You choose one of six everyday or workplace scenarios and start a 4-turn practice call with a scripted practice partner. The browser speaks each partner line aloud, you reply using your microphone, and at the end you receive a fluency summary with speaking pace, filler count, and playback of your turns."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my voice recording stored anywhere?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Your voice recording and call transcript stay strictly inside your local browser session. Nothing is uploaded, saved on external servers, or shared."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which browsers support the live microphone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Live microphone speech recognition and audio recording work best in Google Chrome on desktop and Android. If your browser does not support speech recognition, you can still hear the scripted partner and type your replies in typed call mode."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do XP and streaks work on English Flow?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You earn +25 XP for completing a 4-turn practice call, plus a +10 XP bonus when all 4 turns are completed using your microphone. Completing your first call of the day advances your daily English Flow streak."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    .quiz-wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 40px; font-family: 'Nunito', sans-serif; }
+    .q-card { border: 2px solid #e5e5e5; border-radius: 20px; padding: 26px 22px; background: #fff; box-shadow: 0 4px 0 #e5e5e5; margin: 16px 0; }
+    .result-card { border: 2px solid #e5e5e5; border-radius: 20px; padding: 28px 22px; text-align: center; background: linear-gradient(135deg, #f0fff4, #eff8ff); }
+    .resource-card { border: 2px solid #ffc800; border-radius: 18px; padding: 18px; background: #fffbe6; margin-top: 18px; text-align: left; color: #334155; }
+    .notice-box { background: #fffbeb; border: 2px solid #fde68a; border-radius: 14px; padding: 14px 18px; color: #92400e; font-size: 14px; font-weight: 700; margin: 12px 0; text-align: left; }
+
+    .score-badge { display: inline-block; padding: 6px 14px; border-radius: 999px; font-weight: 900; font-size: 14px; }
+    .score-high { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+    .score-med { background: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
+    .score-low { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+
+    .action-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 18px; }
+    .btn-3d { min-height: 48px; min-width: 150px; font-size: 16px; font-weight: 900; border-radius: 14px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; padding: 12px 22px; border: none; font-family: inherit; }
+    .btn-green { background: #58cc02; color: #fff; box-shadow: 0 4px 0 #46a302; }
+    .btn-green:active { transform: translateY(3px); box-shadow: 0 1px 0 #46a302; }
+    .btn-blue { background: #1cb0f6; color: #fff; box-shadow: 0 4px 0 #0284c7; }
+    .btn-blue:active { transform: translateY(3px); box-shadow: 0 1px 0 #0284c7; }
+    .btn-slate { background: #64748b; color: #fff; box-shadow: 0 4px 0 #475569; }
+    .btn-slate:active { transform: translateY(3px); box-shadow: 0 1px 0 #475569; }
+
+    .scenario-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin: 16px 0; }
+    .scenario-card { background: #f8fafc; border: 2px solid #cbd5e1; border-radius: 16px; padding: 16px 14px; text-align: left; cursor: pointer; font-family: inherit; transition: all 0.15s; box-shadow: 0 3px 0 #e2e8f0; }
+    .scenario-card:hover { border-color: #1cb0f6; background: #f0f9ff; }
+    .scenario-card.active { border-color: #58cc02; background: #f0fff4; box-shadow: 0 3px 0 #86efac; }
+    .scenario-icon { font-size: 24px; display: block; margin-bottom: 6px; }
+    .scenario-title { font-size: 15.5px; font-weight: 900; color: #1e1b4b; margin: 0 0 4px; }
+    .scenario-desc { font-size: 12.5px; font-weight: 700; color: #64748b; margin: 0; line-height: 1.4; }
+
+    /* CALL TRANSCRIPT CHAT BUBBLES */
+    .call-header-bar { display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 2px solid #f1f5f9; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; }
+    .call-transcript-feed { display: flex; flex-direction: column; gap: 12px; max-height: 330px; overflow-y: auto; padding: 8px 4px; margin-bottom: 14px; }
+    .bubble-row { display: flex; flex-direction: column; max-width: 86%; }
+    .bubble-row.partner { align-self: flex-start; align-items: flex-start; }
+    .bubble-row.user { align-self: flex-end; align-items: flex-end; }
+    .bubble-sender { font-size: 11.5px; font-weight: 900; color: #64748b; margin: 0 6px 4px; text-transform: uppercase; letter-spacing: 0.4px; }
+    .bubble { padding: 12px 16px; border-radius: 18px; font-size: 15.5px; font-weight: 800; line-height: 1.45; }
+    .bubble.partner { background: #f1f5f9; color: #1e1b4b; border: 2px solid #e2e8f0; border-bottom-left-radius: 4px; }
+    .bubble.user { background: #dcfce7; color: #14532d; border: 2px solid #86efac; border-bottom-right-radius: 4px; }
+
+    .hints-box { background: #f0f9ff; border: 2px dashed #7dd3fc; border-radius: 14px; padding: 12px 14px; margin: 10px 0 14px; text-align: left; }
+    .hints-label { font-size: 11.5px; font-weight: 900; color: #0369a1; text-transform: uppercase; letter-spacing: 0.5px; margin: 0 0 8px; }
+    .hint-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+    .hint-chip { background: #ffffff; border: 1.5px solid #bae6fd; color: #0c4a6e; border-radius: 999px; padding: 5px 12px; font-size: 13px; font-weight: 800; }
+
+    .mic-waveform-track { width: 100%; height: 10px; background: #e2e8f0; border-radius: 999px; overflow: hidden; margin: 10px 0; }
+    .mic-waveform-fill { height: 100%; width: 0%; background: #58cc02; transition: width 0.08s linear; }
+
+    .live-reply-preview { background: #f8fafc; border: 2px solid #cbd5e1; border-radius: 14px; padding: 12px 14px; min-height: 62px; text-align: left; font-size: 15px; font-weight: 700; color: #1e293b; line-height: 1.5; margin: 10px 0; }
+    .live-reply-preview:empty::before { content: "Your spoken reply will appear here live..."; color: #94a3b8; font-style: italic; }
+
+    .typed-reply-area { width: 100%; box-sizing: border-box; min-height: 82px; border: 2px solid #cbd5e1; border-radius: 14px; padding: 12px 14px; font-family: inherit; font-size: 15.5px; font-weight: 700; color: #1e293b; resize: vertical; margin: 8px 0; }
+    .typed-reply-area:focus { outline: none; border-color: #58cc02; }
+
+    .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 10px; margin: 16px 0; }
+    .metric-card { background: #ffffff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 14px 8px; text-align: center; box-shadow: 0 3px 0 #e2e8f0; }
+    .metric-num { font-size: 26px; font-weight: 1000; color: #1e1b4b; margin: 4px 0; }
+    .metric-label { font-size: 11px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    .filler-highlight { background: #fef08a; color: #854d0e; padding: 2px 6px; border-radius: 6px; font-weight: 900; }
+
+    .faq-card { background: #fff; border: 2px solid #e5e5e5; border-radius: 16px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 3px 0 #e5e5e5; text-align: left; }
+    .faq-q { font-size: 15.5px; font-weight: 900; color: #1e1b4b; margin: 0 0 6px; }
+    .faq-a { font-size: 14px; font-weight: 700; color: #475569; line-height: 1.6; margin: 0; }
+  </style>
+</head>
+<body>
+<header class="gp-header">
+<a class="gp-brand" href="../index.html">🦉 English <b>Flow</b></a>
+<nav class="gp-nav"><a href="../index.html">Home</a><a href="../game-practice.html">Practice</a><a href="../tenses.html">Tenses</a></nav>
+<div class="gp-stats"><span class="gp-stat streak">🔥 <b id="st-streak">0</b></span><span class="gp-stat xp">⚡ <b id="st-xp">0</b></span></div>
+</header>
+
+<main class="quiz-wrap">
+  <div style="text-align: left; margin-bottom: 8px;">
+    <a href="../index.html" style="font-weight: 800; font-size: 13px; color: #1cb0f6; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">🌐 English Flow</a>
+  </div>
+  <h1 style="font-size: 28px; font-weight: 1000; margin: 0 0 6px; color: #1e1b4b; line-height: 1.3;">Free English Conversation Simulator</h1>
+  <p style="color: #64748b; font-weight: 700; margin: 0 0 16px; font-size: 15px;">Pick a real-life scenario and hold a 4-turn voice practice call with a scripted practice partner. Hear each line, reply with your mic, and review your fluency.</p>
+
+  <div id="mic-compat-notice" class="notice-box" hidden>
+    ⚠️ <strong>Microphone Notice:</strong> Live microphone speech recognition works best in Google Chrome on desktop or Android. You can still hear the scripted partner and type your replies in typed call mode.
+  </div>
+
+  <!-- STAGE 1: SCENARIO SETUP -->
+  <div id="stage-setup" class="q-card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+      <span style="font-size: 12px; font-weight: 900; color: #1cb0f6; letter-spacing: 1px; text-transform: uppercase;">CHOOSE A 4-TURN SCENARIO</span>
+      <span style="font-size: 13px; font-weight: 800; color: #ff9600;">+25 XP per call · +10 XP mic bonus</span>
+    </div>
+
+    <div class="scenario-grid" id="scenario-grid">
+      <button type="button" class="scenario-card active" onclick="selectScenario(0, this)">
+        <span class="scenario-icon">💻</span>
+        <div class="scenario-title">Team Stand-up Check-in</div>
+        <p class="scenario-desc">Share yesterday's progress, today's focus, and blockers.</p>
+      </button>
+      <button type="button" class="scenario-card" onclick="selectScenario(1, this)">
+        <span class="scenario-icon">☕</span>
+        <div class="scenario-title">Coffee Shop Order</div>
+        <p class="scenario-desc">Order a drink, pick hot or iced, and add food.</p>
+      </button>
+      <button type="button" class="scenario-card" onclick="selectScenario(2, this)">
+        <span class="scenario-icon">🏨</span>
+        <div class="scenario-title">Hotel Check-in</div>
+        <p class="scenario-desc">Confirm your booking, show ID, and ask for extras.</p>
+      </button>
+      <button type="button" class="scenario-card" onclick="selectScenario(3, this)">
+        <span class="scenario-icon">🤝</span>
+        <div class="scenario-title">Networking Introduction</div>
+        <p class="scenario-desc">Introduce your work, current projects, and background.</p>
+      </button>
+      <button type="button" class="scenario-card" onclick="selectScenario(4, this)">
+        <span class="scenario-icon">📅</span>
+        <div class="scenario-title">Rescheduling a Client Call</div>
+        <p class="scenario-desc">Politely move a meeting and confirm a new slot.</p>
+      </button>
+      <button type="button" class="scenario-card" onclick="selectScenario(5, this)">
+        <span class="scenario-icon">🗺️</span>
+        <div class="scenario-title">Asking for Directions</div>
+        <p class="scenario-desc">Ask how to get somewhere walking or by bus.</p>
+      </button>
+    </div>
+
+    <div class="action-row">
+      <button type="button" class="btn-3d btn-green" onclick="startVoiceCall()">
+        📞 Start Voice Call
+      </button>
+    </div>
+  </div>
+
+  <!-- STAGE 2: ACTIVE 4-TURN CALL -->
+  <div id="stage-call" class="q-card" hidden>
+    <div class="call-header-bar">
+      <div>
+        <span id="call-scenario-badge" style="font-size: 12px; font-weight: 900; background: #e0f2fe; color: #0284c7; padding: 4px 10px; border-radius: 999px; text-transform: uppercase;">Team Stand-up Check-in</span>
+        <span id="call-mode-badge" style="font-size: 12px; font-weight: 800; color: #15803d; margin-left: 6px;">🎙️ Live Mic Call</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <b id="call-turn-counter" style="font-size: 14px; color: #1e1b4b;">Turn 1 of 4</b>
+        <button type="button" class="btn-3d btn-blue" onclick="replayPartnerLine()" style="min-height: 36px; min-width: auto; padding: 6px 12px; font-size: 13px;">
+          🔊 Hear Again
+        </button>
+      </div>
+    </div>
+
+    <!-- Chat-bubble transcript -->
+    <div id="call-transcript-feed" class="call-transcript-feed" aria-live="polite"></div>
+
+    <!-- Starter-phrase hints for current turn -->
+    <div class="hints-box">
+      <p class="hints-label">💡 Starter-phrase hints for your reply:</p>
+      <div id="turn-hints-container" class="hint-chips"></div>
+    </div>
+
+    <!-- Mic Controls Area -->
+    <div id="mic-reply-controls">
+      <div class="mic-waveform-track" title="Live microphone volume">
+        <div id="mic-waveform-bar" class="mic-waveform-fill"></div>
+      </div>
+
+      <div id="live-reply-preview" class="live-reply-preview"></div>
+
+      <div id="reply-retry-msg" class="notice-box" hidden>
+        No speech was recognised yet. Tap <strong>Speak Reply</strong>, speak clearly into your mic, and then tap <strong>Send Reply</strong>.
+      </div>
+
+      <div class="action-row">
+        <button type="button" id="btn-speak-reply" class="btn-3d btn-blue" onclick="activateMicForTurn()">
+          🎙️ Speak Reply
+        </button>
+        <button type="button" id="btn-send-reply" class="btn-3d btn-green" onclick="submitMicReply()" hidden>
+          ✓ Send Reply
+        </button>
+      </div>
+    </div>
+
+    <!-- Typed Fallback Controls Area -->
+    <div id="typed-reply-controls" hidden>
+      <textarea id="typed-reply-input" class="typed-reply-area" placeholder="Type your reply to the practice partner here..."></textarea>
+      <div id="typed-retry-msg" class="notice-box" hidden>
+        Please type a short reply before sending.
+      </div>
+      <div class="action-row">
+        <button type="button" class="btn-3d btn-green" onclick="submitTypedReply()">
+          ✓ Send Typed Reply
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 3: CALL SUMMARY -->
+  <div id="stage-results" class="result-card" hidden>
+    <div style="font-size: 50px;">🦉</div>
+    <h2 style="font-size: 26px; font-weight: 1000; margin: 4px 0 6px; color: #1e1b4b;">Practice Call Complete!</h2>
+
+    <div style="margin: 8px 0;">
+      <span id="res-score-badge" class="score-badge score-high">Natural Flow · 92 / 100</span>
+    </div>
+    <p id="res-honesty-note" style="color: #475569; font-weight: 800; font-size: 14.5px; margin: 6px auto 16px; max-width: 560px;"></p>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-label">Words Spoken</div>
+        <div class="metric-num" id="res-words-num">0</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Speaking Pace</div>
+        <div class="metric-num" id="res-wpm-num">0</div>
+        <div style="font-size: 11px; font-weight: 700; color: #64748b;">Words / min</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Filler Words</div>
+        <div class="metric-num" id="res-fillers-num" style="color: #b91c1c;">0</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Turns Completed</div>
+        <div class="metric-num" id="res-turns-num" style="color: #15803d;">4 / 4</div>
+      </div>
+    </div>
+
+    <!-- Audio Playback of User Turns -->
+    <div id="res-audio-card" style="background: #ffffff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 14px 16px; margin: 14px 0; text-align: left;" hidden>
+      <h4 style="margin: 0 0 8px; font-size: 14px; font-weight: 900; color: #1e1b4b;">🔊 Play Back Your Spoken Turns:</h4>
+      <audio id="user-audio-player" controls style="width: 100%; height: 38px; outline: none;"></audio>
+    </div>
+
+    <!-- Full Call Transcript Review -->
+    <div style="background: #ffffff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 16px; margin: 14px 0; text-align: left;">
+      <h4 style="margin: 0 0 10px; font-size: 14px; font-weight: 900; color: #1e1b4b;">Full Practice Call Transcript (Fillers Highlighted):</h4>
+      <div id="res-full-transcript" style="display: flex; flex-direction: column; gap: 8px; font-size: 14.5px; font-weight: 700; color: #334155;"></div>
+    </div>
+
+    <p style="font-weight: 900; font-size: 16px; color: #1e1b4b; margin: 16px 0 8px;">
+      🔥 Streak: <span id="final-streak">0</span> days · ⚡ Total XP: <span id="final-xp">0</span>
+      <span id="res-xp-note" style="display: block; font-size: 13px; color: #58cc02; font-weight: 800; margin-top: 4px;">+25 XP practice call completed!</span>
+    </p>
+
+    <div class="action-row">
+      <a id="wa-share-btn" href="#" target="_blank" rel="noopener" class="btn-3d btn-green">
+        💬 Share My Score on WhatsApp
+      </a>
+      <button type="button" class="btn-3d btn-blue" onclick="tryAnotherScenario()">
+        🔄 Try Another Scenario
+      </button>
+    </div>
+
+    <!-- Recommended English Resources Card -->
+    <div class="resource-card">
+      <h3 style="margin: 0 0 6px; font-size: 17px; color: #1e1b4b;">📚 Recommended English Resources</h3>
+      <p style="margin: 0 0 10px; color: #555; font-weight: 700; font-size: 14px;">Build real-life speaking confidence with guided daily conversation drills:</p>
+      <div style="margin-bottom: 12px;">
+        <a href="https://topmate.io/speak_english_with_confidence/2324225" target="_blank" rel="noopener noreferrer" class="btn-3d" style="background:#f59e0b; color:#1e1b4b; font-size:14px; padding:10px 18px; box-shadow:0 3px 0 #b45309;">
+          Get the 30-Day Speaking Workbook ($) →
+        </a>
+      </div>
+      <ul style="margin: 0; padding-left: 18px; font-weight: 700; font-size: 14px; line-height: 1.8;">
+        <li><a href="../30-day-english-flow-workbook.pdf">30-Day English Flow Workbook (PDF)</a> – daily speaking drills</li>
+        <li><a href="../resources.html">Free Resources Library</a> – trackers, podcasts & templates</li>
+        <li><a href="../game-practice.html">Daily Practice Session</a> – keep your streak active</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FAQ SECTION -->
+  <section style="margin-top: 30px;" aria-label="Frequently asked questions">
+    <h2 style="font-size: 22px; font-weight: 1000; color: #1e1b4b; text-align: left; margin-bottom: 16px;">Frequently Asked Questions</h2>
+    <div class="faq-card">
+      <h3 class="faq-q">How does the English conversation simulator work?</h3>
+      <p class="faq-a">You choose one of six everyday or workplace scenarios and start a 4-turn practice call with a scripted practice partner. The browser speaks each partner line aloud, you reply using your microphone, and at the end you receive a fluency summary with speaking pace, filler count, and playback of your turns.</p>
+    </div>
+    <div class="faq-card">
+      <h3 class="faq-q">Is my voice recording stored anywhere?</h3>
+      <p class="faq-a">No. Your voice recording and call transcript stay strictly inside your local browser session. Nothing is uploaded, saved on external servers, or shared.</p>
+    </div>
+    <div class="faq-card">
+      <h3 class="faq-q">Which browsers support the live microphone?</h3>
+      <p class="faq-a">Live microphone speech recognition and audio recording work best in Google Chrome on desktop and Android. If your browser does not support speech recognition, you can still hear the scripted partner and type your replies in typed call mode.</p>
+    </div>
+    <div class="faq-card">
+      <h3 class="faq-q">How do XP and streaks work on English Flow?</h3>
+      <p class="faq-a">You earn +25 XP for completing a 4-turn practice call, plus a +10 XP bonus when all 4 turns are completed using your microphone. Completing your first call of the day advances your daily English Flow streak.</p>
+    </div>
+  </section>
+
+  <footer style="margin-top: 28px; text-align: center; font-size: 14px; font-weight: 800; color: #94a3b8;">
+    <a href="../index.html" style="color: #64748b; text-decoration: none;">← Back to English Flow Home</a>
+  </footer>
+</main>
+
+<script>
+  const SCENARIOS = [
+    {
+      title: "Team Stand-up Check-in",
+      partnerLines: [
+        "Morning! Let's do a quick stand-up. What did you work on yesterday?",
+        "Got it — and what's your main focus for today?",
+        "Sounds good. Is anything blocking you, or do you need help from the team?",
+        "Perfect, thanks for the update. Let's catch up again tomorrow."
+      ],
+      turnHints: [
+        ["Yesterday I finished…", "I worked on the…", "I wrapped up…"],
+        ["Today I will focus on…", "My main priority today is…", "I'm planning to finish…"],
+        ["No blockers right now.", "I need help with…", "I'm waiting on feedback for…"],
+        ["Sounds good, talk tomorrow!", "Thanks, have a productive day!", "See you at tomorrow's stand-up."]
+      ]
+    },
+    {
+      title: "Coffee Shop Order",
+      partnerLines: [
+        "Hi there! Welcome — what can I get for you today?",
+        "Sure — would you like that hot or iced? And any milk preference?",
+        "Great choice. Would you like anything to eat with that?",
+        "That'll be ready in just a minute. Have a lovely day!"
+      ],
+      turnHints: [
+        ["I'd like a coffee, please.", "Can I get a medium latte?", "Could I order an americano?"],
+        ["Can I have it hot, please?", "Iced with oat milk, please.", "Hot, with regular milk is fine."],
+        ["Just the drink, thanks.", "Could I add a croissant?", "No food today, thank you."],
+        ["Thank you so much!", "Thanks, have a great day too!", "Appreciate it, bye!"]
+      ]
+    },
+    {
+      title: "Hotel Check-in",
+      partnerLines: [
+        "Good evening, and welcome! Do you have a reservation with us?",
+        "Wonderful. Could I see your passport or ID, please?",
+        "Thank you. Your room is on the third floor — breakfast is served from 7 to 10. Is there anything else you need?",
+        "Here's your key card. Enjoy your stay!"
+      ],
+      turnHints: [
+        ["Yes, I booked a room for two nights.", "Yes, the reservation is under…", "Hi, I have a booking for tonight."],
+        ["Here is my passport.", "Sure, here is my ID card.", "Of course, here you go."],
+        ["Could I have an extra towel, please?", "What is the Wi-Fi password?", "No, that's everything, thank you."],
+        ["Thank you very much!", "Great, thanks for your help!", "Have a pleasant evening!"]
+      ]
+    },
+    {
+      title: "Networking Introduction",
+      partnerLines: [
+        "Hi, I'm Alex — I don't think we've met. What do you do?",
+        "Interesting! What kind of projects are you working on at the moment?",
+        "That sounds fascinating. How did you get into that field?",
+        "It was great chatting with you — let's stay in touch!"
+      ],
+      turnHints: [
+        ["I'm a… and I work in…", "Nice to meet you! I work as…", "I'm currently in…"],
+        ["I work on… at the moment.", "Right now I'm focused on…", "We're building a new…"],
+        ["I got into it because…", "I started out studying…", "A friend introduced me to…"],
+        ["Definitely, let's connect!", "Great talking with you too!", "Here's my contact info, bye!"]
+      ]
+    },
+    {
+      title: "Rescheduling a Client Call",
+      partnerLines: [
+        "Hello, thanks for calling. I understand you need to move our meeting — is that right?",
+        "No problem at all. What day works better for you?",
+        "That works for me. Would the same time suit you, or would you prefer earlier?",
+        "Done — I'll send a new invite right away. Thanks for letting me know!"
+      ],
+      turnHints: [
+        ["Yes, something came up on…", "That's right, I'm sorry to ask.", "Yes, I have a schedule conflict."],
+        ["Would Thursday work instead?", "Could we move it to Friday?", "How does next Tuesday look?"],
+        ["The same time is fine, thanks.", "An hour earlier would be great.", "Same time works well for me."],
+        ["Thank you for being flexible!", "Great, I'll watch for the invite.", "Thanks again, speak soon!"]
+      ]
+    },
+    {
+      title: "Asking for Directions",
+      partnerLines: [
+        "Hello! How can I help you today?",
+        "Sure — are you walking, or would you prefer the quickest route by bus?",
+        "Okay, go straight ahead for two blocks, then turn left at the pharmacy. You can't miss it.",
+        "You're welcome! Have a great day — and enjoy the city!"
+      ],
+      turnHints: [
+        ["Excuse me, how do I get to…?", "Could you tell me where… is?", "I'm looking for the nearest…"],
+        ["I'm walking, please.", "I'd prefer to take the bus.", "Walking is fine if it's close."],
+        ["Thank you so much!", "Got it — two blocks, then left.", "Thanks, that sounds easy to find."],
+        ["Thanks again, goodbye!", "You too, have a wonderful day!", "Appreciate your help!"]
+      ]
+    }
+  ];
+
+  const FILLER_REGEX = /\b(you know|um|uh|like|basically|actually|erm)\b/gi;
+
+  let selectedScenarioIdx = 0;
+  let currentTurn = 0; // 0 to 3
+  let callHistory = []; // { sender: 'partner'|'user', text: string }
+  let totalSpeakingMs = 0;
+  let turnMicStartTime = 0;
+  let isTypedMode = false;
+  let currentTurnTranscript = "";
+
+  // Media & Speech State
+  let mediaStream = null;
+  let mediaRecorder = null;
+  let audioChunks = [];
+  let audioBlobUrl = null;
+  let audioCtx = null;
+  let analyser = null;
+  let animFrameId = null;
+
+  let recognition = null;
+  let isMicListening = false;
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const isSpeechSupported = !!SpeechRecognition;
+  const isMediaRecorderSupported = typeof MediaRecorder !== 'undefined';
+
+  // LocalStorage stats (exact keys + toDateString)
+  let xp = parseInt(localStorage.getItem('userXP')) || 0;
+  let streak = parseInt(localStorage.getItem('english_flow_streak')) || 0;
+
+  function renderStats() {
+    document.getElementById('st-streak').textContent = streak;
+    document.getElementById('st-xp').textContent = xp;
+  }
+
+  if (!isSpeechSupported || !isMediaRecorderSupported) {
+    document.getElementById('mic-compat-notice').removeAttribute('hidden');
+  }
+
+  function selectScenario(idx, cardEl) {
+    selectedScenarioIdx = idx;
+    document.querySelectorAll('.scenario-card').forEach(c => c.classList.remove('active'));
+    cardEl.classList.add('active');
+  }
+
+  function speakText(text) {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'en-US';
+      u.rate = 0.96;
+      window.speechSynthesis.speak(u);
+    }
+  }
+
+  function replayPartnerLine() {
+    const scenario = SCENARIOS[selectedScenarioIdx];
+    speakText(scenario.partnerLines[currentTurn]);
+  }
+
+  // STAGE 2: START VOICE CALL
+  async function startVoiceCall() {
+    currentTurn = 0;
+    callHistory = [];
+    totalSpeakingMs = 0;
+    currentTurnTranscript = "";
+    audioChunks = [];
+    isTypedMode = false;
+
+    document.getElementById('stage-setup').setAttribute('hidden', '');
+    document.getElementById('stage-results').setAttribute('hidden', '');
+    document.getElementById('stage-call').removeAttribute('hidden');
+    document.getElementById('call-transcript-feed').innerHTML = '';
+
+    const scenario = SCENARIOS[selectedScenarioIdx];
+    document.getElementById('call-scenario-badge').textContent = scenario.title;
+
+    if (!isSpeechSupported || !isMediaRecorderSupported) {
+      switchToTypedCallMode();
+    } else {
+      try {
+        mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        setupAudioMeter(mediaStream);
+        setupSingleSessionRecorder(mediaStream);
+        document.getElementById('call-mode-badge').textContent = '🎙️ Live Mic Call';
+        document.getElementById('mic-reply-controls').removeAttribute('hidden');
+        document.getElementById('typed-reply-controls').setAttribute('hidden', '');
+      } catch (err) {
+        document.getElementById('mic-compat-notice').removeAttribute('hidden');
+        switchToTypedCallMode();
+      }
+    }
+
+    presentPartnerTurn(0);
+  }
+
+  function switchToTypedCallMode() {
+    isTypedMode = true;
+    document.getElementById('call-mode-badge').textContent = '⌨️ Typed Call Mode';
+    document.getElementById('mic-reply-controls').setAttribute('hidden', '');
+    document.getElementById('typed-reply-controls').removeAttribute('hidden');
+    document.getElementById('typed-reply-input').value = '';
+    document.getElementById('typed-retry-msg').setAttribute('hidden', '');
+  }
+
+  function setupAudioMeter(stream) {
+    try {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      analyser = audioCtx.createAnalyser();
+      const source = audioCtx.createMediaStreamSource(stream);
+      source.connect(analyser);
+      analyser.fftSize = 64;
+      const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+      function updateMeter() {
+        if (isMicListening) {
+          analyser.getByteFrequencyData(dataArray);
+          let sum = 0;
+          for (let i = 0; i < dataArray.length; i++) sum += dataArray[i];
+          const pct = Math.min(100, Math.round(((sum / dataArray.length) / 128) * 100));
+          const bar = document.getElementById('mic-waveform-bar');
+          if (bar) bar.style.width = pct + '%';
+        } else {
+          const bar = document.getElementById('mic-waveform-bar');
+          if (bar) bar.style.width = '0%';
+        }
+        animFrameId = requestAnimationFrame(updateMeter);
+      }
+      updateMeter();
+    } catch (e) {}
+  }
+
+  function setupSingleSessionRecorder(stream) {
+    audioChunks = [];
+    try {
+      mediaRecorder = new MediaRecorder(stream);
+      mediaRecorder.ondataavailable = e => {
+        if (e.data && e.data.size > 0) audioChunks.push(e.data);
+      };
+      mediaRecorder.onstop = () => {
+        if (audioChunks.length > 0) {
+          const blob = new Blob(audioChunks, { type: 'audio/webm' });
+          if (audioBlobUrl) URL.revokeObjectURL(audioBlobUrl);
+          audioBlobUrl = URL.createObjectURL(blob);
+          const player = document.getElementById('user-audio-player');
+          player.src = audioBlobUrl;
+          document.getElementById('res-audio-card').removeAttribute('hidden');
+        }
+      };
+    } catch (e) {}
+  }
+
+  function appendChatBubble(sender, text) {
+    callHistory.push({ sender: sender, text: text });
+    const feed = document.getElementById('call-transcript-feed');
+    const row = document.createElement('div');
+    row.className = 'bubble-row ' + sender;
+
+    const label = document.createElement('span');
+    label.className = 'bubble-sender';
+    label.textContent = sender === 'partner' ? 'Practice Partner' : 'You';
+
+    const bubble = document.createElement('div');
+    bubble.className = 'bubble ' + sender;
+    bubble.textContent = text;
+
+    row.appendChild(label);
+    row.appendChild(bubble);
+    feed.appendChild(row);
+    feed.scrollTop = feed.scrollHeight;
+  }
+
+  function presentPartnerTurn(turnIdx) {
+    const scenario = SCENARIOS[selectedScenarioIdx];
+    const partnerLine = scenario.partnerLines[turnIdx];
+    document.getElementById('call-turn-counter').textContent = 'Turn ' + (turnIdx + 1) + ' of 4';
+
+    appendChatBubble('partner', partnerLine);
+    speakText(partnerLine);
+
+    // Render hints for this turn
+    const hintsWrap = document.getElementById('turn-hints-container');
+    hintsWrap.innerHTML = '';
+    const hints = scenario.turnHints[turnIdx] || [];
+    hints.forEach(h => {
+      const span = document.createElement('span');
+      span.className = 'hint-chip';
+      span.textContent = h;
+      hintsWrap.appendChild(span);
+    });
+
+    // Reset turn reply UI
+    currentTurnTranscript = "";
+    document.getElementById('live-reply-preview').textContent = "";
+    document.getElementById('reply-retry-msg').setAttribute('hidden', '');
+    document.getElementById('btn-speak-reply').removeAttribute('hidden');
+    document.getElementById('btn-send-reply').setAttribute('hidden', '');
+    document.getElementById('typed-reply-input').value = "";
+    document.getElementById('typed-retry-msg').setAttribute('hidden', '');
+  }
+
+  function activateMicForTurn() {
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    document.getElementById('reply-retry-msg').setAttribute('hidden', '');
+
+    currentTurnTranscript = "";
+    document.getElementById('live-reply-preview').textContent = "";
+    turnMicStartTime = Date.now();
+    isMicListening = true;
+
+    document.getElementById('btn-speak-reply').setAttribute('hidden', '');
+    document.getElementById('btn-send-reply').removeAttribute('hidden');
+
+    if (mediaRecorder) {
+      try {
+        if (mediaRecorder.state === 'inactive') {
+          mediaRecorder.start();
+        } else if (mediaRecorder.state === 'paused') {
+          mediaRecorder.resume();
+        }
+      } catch (e) {}
+    }
+
+    recognition = new SpeechRecognition();
+    recognition.lang = 'en-US';
+    recognition.continuous = true;
+    recognition.interimResults = true;
+
+    recognition.onresult = event => {
+      let interim = '';
+      let final = '';
+      for (let i = 0; i < event.results.length; i++) {
+        if (event.results[i].isFinal) {
+          final += event.results[i][0].transcript + ' ';
+        } else {
+          interim += event.results[i][0].transcript;
+        }
+      }
+      currentTurnTranscript = (final + interim).trim();
+      document.getElementById('live-reply-preview').textContent = currentTurnTranscript;
+    };
+
+    recognition.onerror = event => {
+      if (event.error === 'not-allowed') {
+        stopTurnMic();
+        switchToTypedCallMode();
+      }
+    };
+
+    try { recognition.start(); } catch (e) {}
+  }
+
+  function stopTurnMic() {
+    isMicListening = false;
+    if (recognition) { try { recognition.stop(); } catch (e) {} }
+    if (mediaRecorder && mediaRecorder.state === 'recording') {
+      try { mediaRecorder.pause(); } catch (e) {}
+    }
+  }
+
+  function submitMicReply() {
+    const turnElapsed = Date.now() - turnMicStartTime;
+    stopTurnMic();
+
+    const cleanReply = currentTurnTranscript.trim();
+    if (!cleanReply) {
+      document.getElementById('reply-retry-msg').removeAttribute('hidden');
+      document.getElementById('btn-speak-reply').removeAttribute('hidden');
+      document.getElementById('btn-send-reply').setAttribute('hidden', '');
+      return;
+    }
+
+    totalSpeakingMs += Math.max(turnElapsed, 1000);
+    advanceAfterUserReply(cleanReply);
+  }
+
+  function submitTypedReply() {
+    const typedText = document.getElementById('typed-reply-input').value.trim();
+    if (!typedText) {
+      document.getElementById('typed-retry-msg').removeAttribute('hidden');
+      return;
+    }
+    document.getElementById('typed-retry-msg').setAttribute('hidden', '');
+    advanceAfterUserReply(typedText);
+  }
+
+  function advanceAfterUserReply(replyText) {
+    appendChatBubble('user', replyText);
+    currentTurn++;
+
+    if (currentTurn < 4) {
+      setTimeout(() => {
+        presentPartnerTurn(currentTurn);
+      }, 350);
+    } else {
+      endCallAndShowSummary();
+    }
+  }
+
+  function cleanupCallResources() {
+    isMicListening = false;
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    if (animFrameId) cancelAnimationFrame(animFrameId);
+    if (recognition) { try { recognition.stop(); } catch (e) {} }
+    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+      try { mediaRecorder.stop(); } catch (e) {}
+    }
+    if (mediaStream) {
+      mediaStream.getTracks().forEach(t => t.stop());
+    }
+    if (audioCtx && audioCtx.state !== 'closed') {
+      try { audioCtx.close(); } catch (e) {}
+    }
+  }
+
+  function endCallAndShowSummary() {
+    cleanupCallResources();
+    document.getElementById('stage-call').setAttribute('hidden', '');
+
+    if (isTypedMode) {
+      document.getElementById('res-audio-card').setAttribute('hidden', '');
+    }
+
+    // Analyze user turns only
+    const userTurns = callHistory.filter(item => item.sender === 'user');
+    const combinedUserText = userTurns.map(t => t.text).join(' ').trim();
+    const words = combinedUserText ? combinedUserText.split(/\s+/).filter(Boolean) : [];
+    const totalWords = words.length;
+
+    const fillerMatches = combinedUserText.match(FILLER_REGEX) || [];
+    const fillerCount = fillerMatches.length;
+    const fillerRate = totalWords > 0 ? ((fillerCount / totalWords) * 100) : 0;
+
+    // WPM calculation (honesty: "—" in typed mode or near-instant finish < 10s)
+    const elapsedSec = totalSpeakingMs / 1000;
+    let wpmDisplay = "—";
+    let numericWpm = 0;
+
+    if (!isTypedMode && elapsedSec >= 10 && totalWords >= 10) {
+      numericWpm = Math.round(totalWords / (elapsedSec / 60));
+      wpmDisplay = numericWpm;
+    }
+
+    document.getElementById('res-words-num').textContent = totalWords;
+    document.getElementById('res-wpm-num').textContent = wpmDisplay;
+    document.getElementById('res-fillers-num').textContent = fillerCount;
+    document.getElementById('res-turns-num').textContent = userTurns.length + ' / 4';
+
+    // Score calculation (words spoken, turn completion, pace, filler rate)
+    let score = 0;
+    const turnPts = userTurns.length * 10; // up to 40 pts
+    const volumePts = Math.min(35, Math.round((totalWords / 36) * 35)); // 36+ words = 35 pts
+    const fillerPts = Math.max(0, Math.round(15 - (fillerRate * 2)));
+    let pacePts = 10;
+    if (!isTypedMode && numericWpm > 0) {
+      pacePts = (numericWpm >= 110 && numericWpm <= 165) ? 10 : 6;
+    }
+
+    score = Math.min(100, turnPts + volumePts + fillerPts + pacePts);
+    if (isTypedMode) {
+      score = Math.min(85, score);
+    }
+
+    // Band classification
+    const badge = document.getElementById('res-score-badge');
+    badge.className = 'score-badge';
+    let bandLabel = '';
+
+    if (score >= 90) {
+      bandLabel = 'Natural Flow';
+      badge.classList.add('score-high');
+    } else if (score >= 70) {
+      bandLabel = 'Smooth Talker';
+      badge.classList.add('score-high');
+    } else if (score >= 40) {
+      bandLabel = 'Good Start';
+      badge.classList.add('score-med');
+    } else {
+      bandLabel = 'Keep Practising';
+      badge.classList.add('score-low');
+    }
+    badge.textContent = bandLabel + ' · ' + score + ' / 100';
+
+    const honestyNote = document.getElementById('res-honesty-note');
+    if (isTypedMode) {
+      honestyNote.textContent = 'Typed call completed (score capped at 85 without live microphone verification; WPM cannot be measured from typing).';
+    } else {
+      honestyNote.textContent = 'Scored from your 4 spoken turns with the scripted practice partner based on words spoken, turn completion, pace, and filler rate.';
+    }
+
+    // Full transcript display
+    const fullTransEl = document.getElementById('res-full-transcript');
+    fullTransEl.innerHTML = '';
+    callHistory.forEach(entry => {
+      const p = document.createElement('p');
+      p.style.margin = '0';
+      if (entry.sender === 'partner') {
+        p.innerHTML = '<strong style="color:#0284c7;">Partner:</strong> ' + escapeHtml(entry.text);
+      } else {
+        const highlighted = escapeHtml(entry.text).replace(FILLER_REGEX, m => '<span class="filler-highlight">' + m + '</span>');
+        p.innerHTML = '<strong style="color:#15803d;">You:</strong> ' + highlighted;
+      }
+      fullTransEl.appendChild(p);
+    });
+
+    // XP & Streak (+25 per completed 4-turn call, +10 bonus for all 4 turns via mic)
+    let earnedXP = 25;
+    let micBonus = false;
+    if (!isTypedMode && userTurns.length === 4) {
+      earnedXP += 10;
+      micBonus = true;
+    }
+    xp += earnedXP;
+    localStorage.setItem('userXP', xp);
+
+    const today = new Date().toDateString();
+    const lastPractice = localStorage.getItem('english_flow_last_practice');
+    if (lastPractice !== today) {
+      streak += 1;
+      localStorage.setItem('english_flow_streak', streak);
+      localStorage.setItem('english_flow_last_practice', today);
+    }
+    renderStats();
+
+    document.getElementById('final-streak').textContent = streak;
+    document.getElementById('final-xp').textContent = xp;
+    document.getElementById('res-xp-note').textContent = micBonus
+      ? '+25 XP practice call + 10 XP live mic bonus awarded! (+35 XP)'
+      : '+25 XP practice call completed!';
+
+    // WhatsApp Share
+    const canonical = "https://englishflowofficial.github.io/tools/english-conversation-simulator.html";
+    const shareText = "I completed a 4-turn '" + SCENARIOS[selectedScenarioIdx].title + "' voice practice call on English Flow (" + bandLabel + " · " + score + "/100)! 🦉 Try a free practice call here: " + canonical;
+    document.getElementById('wa-share-btn').href = "https://api.whatsapp.com/send?text=" + encodeURIComponent(shareText);
+
+    document.getElementById('stage-results').removeAttribute('hidden');
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
+  }
+
+  function tryAnotherScenario() {
+    cleanupCallResources();
+    document.getElementById('stage-results').setAttribute('hidden', '');
+    document.getElementById('stage-call').setAttribute('hidden', '');
+    document.getElementById('stage-setup').removeAttribute('hidden');
+  }
+
+  // Initialize
+  renderStats();
+</script>
+<script src="../ef-analytics.js" defer></script>
+</body>
+</html>
