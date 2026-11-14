@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#58cc02" />
+  <meta name="robots" content="index, follow" />
+  <title>Free English Shadowing Practice Tool (Mic) | English Flow</title>
+  <meta name="description" content="Practice English shadowing online free. Listen to native rhythm, shadow aloud into your mic, and compare your timing, words, and audio playback. No sign-up." />
+  <meta name="keywords" content="english shadowing practice, shadowing english speaking online, shadowing speaking tool, connected speech practice, repeat after me english, english flow" />
+  <link rel="canonical" href="https://englishflowofficial.github.io/tools/english-shadowing-practice.html" />
+  <link rel="icon" href="../favicon.jpg" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://englishflowofficial.github.io/tools/english-shadowing-practice.html" />
+  <meta property="og:title" content="Free English Shadowing Practice Tool (Mic) | English Flow" />
+  <meta property="og:description" content="Practice English shadowing online free. Listen to native rhythm, shadow aloud into your mic, and compare your timing, words, and audio playback. No sign-up." />
+  <meta property="og:image" content="https://englishflowofficial.github.io/og-image.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@EnglishFlowPodcastt" />
+  <meta name="twitter:title" content="Free English Shadowing Practice Tool (Mic) | English Flow" />
+  <meta name="twitter:description" content="Practice English shadowing online free. Listen to native rhythm, shadow aloud into your mic, and compare your timing, words, and audio playback. No sign-up." />
+  <meta name="twitter:image" content="https://englishflowofficial.github.io/og-image.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900;1000&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../game-practice.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free English Shadowing Practice Tool",
+    "url": "https://englishflowofficial.github.io/tools/english-shadowing-practice.html",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": 0,
+      "priceCurrency": "USD"
+    },
+    "description": "Free client-side English shadowing practice utility: listen to native-style browser audio with karaoke word pacing, shadow aloud into your microphone in Echo or Sync mode, and get word-recognition accuracy, timing sync scoring, and instant A/B playback.",
+    "provider": {
+      "@type": "Organization",
+      "name": "English Flow",
+      "url": "https://englishflowofficial.github.io/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is English shadowing practice and how does this tool work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Shadowing is a speaking technique where you listen to a passage and repeat it aloud to match the speaker's rhythm, pace, and connected speech. This tool plays built-in everyday passages using native-style browser audio with karaoke word highlighting, records your voice, and compares your words recognised and timing sync against the target passage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need a microphone to use the shadowing tool?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Live microphone shadowing and audio playback work best in Google Chrome on desktop and Android. If you do not have a microphone or your browser does not support Web Speech recognition, you can still listen to the karaoke-paced audio, shadow aloud on your own, and use the built-in typed check mode."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my voice audio uploaded or stored anywhere?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Your voice recording and speech recognition transcript stay 100% inside your local web browser session. Nothing is uploaded to any server or saved after you close the page."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do XP and daily streaks work on English Flow?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You earn +20 XP for completing a shadowing round, plus a +10 XP rhythm bonus when your speaking duration lands within ±15% of the native benchmark duration. Completing your first practice session of the day increments your daily English Flow streak."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    .quiz-wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 40px; font-family: 'Nunito', sans-serif; color: #1e1b4b; }
+    .q-card { border: 2px solid #e5e5e5; border-radius: 20px; padding: 26px 22px; background: #fff; box-shadow: 0 4px 0 #e5e5e5; margin: 16px 0; color: #1e1b4b; }
+    .result-card { border: 2px solid #e5e5e5; border-radius: 20px; padding: 28px 22px; text-align: center; background: linear-gradient(135deg, #f0fff4, #eff8ff); color: #1e1b4b; }
+    .resource-card { border: 2px solid #ffc800; border-radius: 18px; padding: 18px; background: #fffbe6; margin-top: 18px; text-align: left; color: #334155; }
+    .resource-card h3 { color: #1e1b4b; margin: 0 0 6px; font-size: 17px; }
+    .resource-card p, .resource-card ul, .resource-card li { color: #334155; font-weight: 700; font-size: 14px; line-height: 1.8; }
+    .resource-card a:not(.btn-3d) { color: #0284c7; font-weight: 800; text-decoration: underline; }
+    .notice-box { background: #fffbeb; border: 2px solid #fde68a; border-radius: 14px; padding: 14px 18px; color: #92400e; font-size: 14px; font-weight: 700; margin: 12px 0; text-align: left; }
+
+    .score-badge { display: inline-block; padding: 6px 14px; border-radius: 999px; font-weight: 900; font-size: 14px; }
+    .score-high { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+    .score-med { background: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
+    .score-low { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+
+    .action-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 18px; }
+    .btn-3d { min-height: 48px; min-width: 150px; font-size: 16px; font-weight: 900; border-radius: 14px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; padding: 12px 22px; border: none; font-family: inherit; }
+    .btn-green { background: #58cc02; color: #fff; box-shadow: 0 4px 0 #46a302; }
+    .btn-green:active { transform: translateY(3px); box-shadow: 0 1px 0 #46a302; }
+    .btn-blue { background: #1cb0f6; color: #fff; box-shadow: 0 4px 0 #0284c7; }
+    .btn-blue:active { transform: translateY(3px); box-shadow: 0 1px 0 #0284c7; }
+    .btn-slate { background: #64748b; color: #fff; box-shadow: 0 4px 0 #475569; }
+    .btn-slate:active { transform: translateY(3px); box-shadow: 0 1px 0 #475569; }
+
+    .passage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; margin: 14px 0; }
+    .passage-card { background: #f8fafc; border: 2px solid #cbd5e1; border-radius: 14px; padding: 14px 12px; text-align: left; cursor: pointer; font-family: inherit; transition: all 0.15s; box-shadow: 0 3px 0 #e2e8f0; }
+    .passage-card:hover { border-color: #1cb0f6; background: #f0f9ff; }
+    .passage-card.active { border-color: #58cc02; background: #f0fff4; box-shadow: 0 3px 0 #86efac; }
+    .passage-card-title { font-size: 15px; font-weight: 900; color: #1e1b4b; margin: 0 0 4px; display: flex; align-items: center; gap: 6px; }
+    .passage-card-snippet { font-size: 12.5px; font-weight: 700; color: #64748b; margin: 0; line-height: 1.4; }
+
+    .setup-controls-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin: 16px 0; text-align: left; }
+    .control-box { background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 14px; padding: 12px 14px; }
+    .control-label { font-size: 12px; font-weight: 900; color: #475569; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; display: block; }
+    .toggle-group { display: flex; gap: 6px; }
+    .toggle-btn { flex: 1; border: 2px solid #cbd5e1; background: #ffffff; color: #334155; padding: 8px 10px; border-radius: 10px; font-family: inherit; font-size: 13px; font-weight: 800; cursor: pointer; text-align: center; }
+    .toggle-btn.active { background: #e0f2fe; border-color: #0284c7; color: #0369a1; box-shadow: 0 2px 0 #bae6fd; }
+
+    /* KARAOKE & PASSAGE BOX */
+    .karaoke-stage-box { background: #f8fafc; border: 2px dashed #94a3b8; border-radius: 18px; padding: 22px 18px; margin: 14px 0; text-align: left; line-height: 2.0; font-size: 20px; font-weight: 800; color: #1e1b4b; }
+    .k-word { display: inline-block; padding: 2px 7px; margin: 2px 1px; border-radius: 8px; transition: all 0.12s; }
+    .k-word.active-cursor { background: #fef08a; color: #854d0e; border: 2px solid #facc15; transform: scale(1.06); box-shadow: 0 2px 6px rgba(250, 204, 21, 0.35); }
+    .k-word.passed-word { color: #0284c7; }
+    .k-word.spoken-match { background: #dcfce7; color: #15803d; }
+
+    .linking-cues-box { background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 14px; padding: 12px 16px; margin: 12px 0; text-align: left; }
+    .linking-cues-title { font-size: 12px; font-weight: 900; color: #0369a1; text-transform: uppercase; letter-spacing: 0.5px; margin: 0 0 8px; }
+    .cue-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .cue-pill { background: #ffffff; border: 1.5px solid #7dd3fc; color: #0c4a6e; border-radius: 999px; padding: 4px 12px; font-size: 13px; font-weight: 800; }
+
+    .mic-pulse-badge { display: inline-flex; align-items: center; gap: 8px; background: #fef2f2; border: 2px solid #fca5a5; color: #b91c1c; padding: 6px 14px; border-radius: 999px; font-weight: 900; font-size: 13.5px; animation: micGlow 1.3s infinite; }
+    @keyframes micGlow {
+      0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.35); }
+      70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+
+    .mic-waveform-track { width: 100%; height: 12px; background: #e2e8f0; border-radius: 999px; overflow: hidden; margin: 12px 0; }
+    .mic-waveform-fill { height: 100%; width: 0%; background: #58cc02; transition: width 0.08s linear; }
+
+    .live-transcript-box { background: #ffffff; border: 2px solid #cbd5e1; border-radius: 14px; padding: 14px 16px; min-height: 78px; max-height: 150px; overflow-y: auto; text-align: left; font-size: 15px; font-weight: 700; color: #1e293b; line-height: 1.55; margin: 12px 0; }
+    .live-transcript-box:empty::before { content: "Shadow the passage aloud into your mic... recognised words appear here live."; color: #94a3b8; font-style: italic; }
+
+    .typed-shadow-area { width: 100%; box-sizing: border-box; min-height: 100px; border: 2px solid #cbd5e1; border-radius: 14px; padding: 12px 14px; font-family: inherit; font-size: 15.5px; font-weight: 700; color: #1e293b; resize: vertical; margin: 10px 0; }
+    .typed-shadow-area:focus { outline: none; border-color: #58cc02; }
+
+    /* DIAGNOSTIC WORD TOKENS */
+    .diagnostic-passage-box { background: #ffffff; border: 2px solid #cbd5e1; border-radius: 16px; padding: 18px; margin: 14px 0; text-align: left; line-height: 2.0; }
+    .diag-token { display: inline-block; padding: 2px 9px; margin: 2px; border-radius: 8px; font-size: 17px; font-weight: 900; }
+    .diag-ok { background: #dcfce7; color: #15803d; border: 1.5px solid #86efac; }
+    .diag-miss { background: #fee2e2; color: #b91c1c; border: 1.5px solid #fca5a5; text-decoration: underline wavy #ef4444; }
+
+    .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 10px; margin: 16px 0; }
+    .metric-card { background: #ffffff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 14px 8px; text-align: center; box-shadow: 0 3px 0 #e2e8f0; color: #1e1b4b; }
+    .metric-num { font-size: 25px; font-weight: 1000; color: #1e1b4b; margin: 4px 0; }
+    .metric-label { font-size: 11px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    .ab-playback-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin: 16px 0; text-align: left; }
+    .ab-card { background: #ffffff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 14px 16px; box-shadow: 0 3px 0 #e2e8f0; color: #1e1b4b; }
+    .ab-card h4 { margin: 0 0 8px; font-size: 14px; font-weight: 900; color: #1e1b4b; }
+
+    .faq-card { background: #fff; border: 2px solid #e5e5e5; border-radius: 16px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 3px 0 #e5e5e5; text-align: left; }
+    .faq-q { font-size: 15.5px; font-weight: 900; color: #1e1b4b; margin: 0 0 6px; }
+    .faq-a { font-size: 14px; font-weight: 700; color: #475569; line-height: 1.6; margin: 0; }
+  </style>
+</head>
+<body>
+<header class="gp-header">
+<a class="gp-brand" href="../index.html">🦉 English <b>Flow</b></a>
+<nav class="gp-nav"><a href="../index.html">Home</a><a href="../game-practice.html">Practice</a><a href="../tenses.html">Tenses</a></nav>
+<div class="gp-stats"><span class="gp-stat streak">🔥 <b id="st-streak">0</b></span><span class="gp-stat xp">⚡ <b id="st-xp">0</b></span></div>
+</header>
+
+<main class="quiz-wrap">
+  <div style="text-align: left; margin-bottom: 8px;">
+    <a href="../index.html" style="font-weight: 800; font-size: 13px; color: #1cb0f6; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">🌐 English Flow</a>
+  </div>
+  <h1 style="font-size: 28px; font-weight: 1000; margin: 0 0 6px; color: #1e1b4b; line-height: 1.3;">Free English Shadowing Practice Tool</h1>
+  <p style="color: #64748b; font-weight: 700; margin: 0 0 16px; font-size: 15px;">No video to hunt for and zero sign-up — listen to built-in everyday passages with karaoke word pacing, shadow aloud into your mic, and get your timing sync score, words recognised, and instant A/B playback in one page.</p>
+
+  <div id="mic-compat-notice" class="notice-box" hidden>
+    ⚠️ <strong>Browser Notice:</strong> Live microphone shadowing works best in Google Chrome on desktop or Android. You can still listen to the karaoke-paced native-style browser audio and use the typed check mode below.
+  </div>
+
+  <!-- STAGE 1: SETUP -->
+  <div id="stage-setup" class="q-card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+      <span style="font-size: 12px; font-weight: 900; color: #1cb0f6; letter-spacing: 1px; text-transform: uppercase;">1. PICK AN EVERYDAY PASSAGE (3 SENTENCES)</span>
+      <span style="font-size: 13px; font-weight: 800; color: #ff9600;">+20 XP · +10 XP rhythm bonus</span>
+    </div>
+
+    <div class="passage-grid" id="passage-grid">
+      <button type="button" class="passage-card active" onclick="selectPassage(0, this)">
+        <div class="passage-card-title"><span>💻</span> Morning Stand-up</div>
+        <p class="passage-card-snippet">“Good morning, everyone. Yesterday I finished the report…”</p>
+      </button>
+      <button type="button" class="passage-card" onclick="selectPassage(1, this)">
+        <div class="passage-card-title"><span>☕</span> Coffee Shop Order</div>
+        <p class="passage-card-snippet">“Hi, could I have a large coffee, please? I would like it…”</p>
+      </button>
+      <button type="button" class="passage-card" onclick="selectPassage(2, this)">
+        <div class="passage-card-title"><span>🏨</span> Hotel Check-in</div>
+        <p class="passage-card-snippet">“Hello, I have a reservation under the name Sharma…”</p>
+      </button>
+      <button type="button" class="passage-card" onclick="selectPassage(3, this)">
+        <div class="passage-card-title"><span>🤝</span> Networking Introduction</div>
+        <p class="passage-card-snippet">“Hi, I am Priya and I work in marketing. I am really…”</p>
+      </button>
+      <button type="button" class="passage-card" onclick="selectScenarioPassage(4, this)">
+        <div class="passage-card-title"><span>📅</span> Rescheduling a Client Call</div>
+        <p class="passage-card-snippet">“Hi Sarah, I am calling about our meeting on Friday…”</p>
+      </button>
+      <button type="button" class="passage-card" onclick="selectPassage(5, this)">
+        <div class="passage-card-title"><span>🗺️</span> Asking for Directions</div>
+        <p class="passage-card-snippet">“Excuse me, could you help me find the train station?…”</p>
+      </button>
+    </div>
+
+    <!-- Selected Passage Preview -->
+    <div style="background: #f8fafc; border: 2px dashed #94a3b8; border-radius: 14px; padding: 16px; margin: 12px 0; text-align: left;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+        <strong id="setup-passage-title" style="font-size: 14px; color: #0284c7; text-transform: uppercase;">Morning Stand-up</strong>
+        <span id="setup-benchmark-pill" style="font-size: 12px; font-weight: 800; color: #64748b;">Target pace: ~11s</span>
+      </div>
+      <p id="setup-passage-text" style="margin: 0; font-size: 16.5px; font-weight: 800; color: #1e1b4b; line-height: 1.55;"></p>
+    </div>
+
+    <!-- Speed & Shadow Mode Controls -->
+    <div class="setup-controls-grid">
+      <div class="control-box">
+        <span class="control-label">⚡ Pacing Speed</span>
+        <div class="toggle-group">
+          <button type="button" id="speed-btn-slow" class="toggle-btn" onclick="setShadowSpeed(0.85)">0.85x Training</button>
+          <button type="button" id="speed-btn-natural" class="toggle-btn active" onclick="setShadowSpeed(1.0)">1.0x Natural</button>
+        </div>
+      </div>
+      <div class="control-box">
+        <span class="control-label">🎧 Shadowing Mode</span>
+        <div class="toggle-group">
+          <button type="button" id="mode-btn-echo" class="toggle-btn active" onclick="setShadowMode('echo')">Echo Mode (Listen → Repeat)</button>
+          <button type="button" id="mode-btn-sync" class="toggle-btn" onclick="setShadowMode('sync')">Sync Shadow (Speak Along)</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-row">
+      <button type="button" class="btn-3d btn-green" onclick="beginShadowingFlow()">
+        🎙️ Start Shadowing
+      </button>
+    </div>
+  </div>
+
+  <!-- STAGE 2: NATIVE RHYTHM PREVIEW & KARAOKE GUIDE -->
+  <div id="stage-preview" class="q-card" hidden>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+      <span style="font-size: 12px; font-weight: 900; color: #0284c7; letter-spacing: 1px; text-transform: uppercase;">STAGE 1 OF 2: NATIVE RHYTHM PREVIEW & KARAOKE GUIDE</span>
+      <span id="preview-status-pill" style="font-size: 12.5px; font-weight: 800; background: #e0f2fe; color: #0369a1; padding: 4px 12px; border-radius: 999px;">🔊 Playing native-style browser audio…</span>
+    </div>
+
+    <p style="font-size: 14px; font-weight: 700; color: #475569; margin: 4px 0 10px; text-align: left;">
+      Follow the yellow karaoke cursor and notice how adjacent words link together smoothly:
+    </p>
+
+    <div id="preview-karaoke-box" class="karaoke-stage-box" aria-live="polite"></div>
+
+    <div class="linking-cues-box">
+      <p class="linking-cues-title">🔗 Connected-Speech & Linking Cues in This Passage:</p>
+      <div id="preview-linking-cues" class="cue-pills"></div>
+    </div>
+
+    <div class="action-row">
+      <button type="button" class="btn-3d btn-blue" onclick="replayPreviewAudio()">
+        🔊 Listen Again
+      </button>
+      <button type="button" class="btn-3d btn-green" onclick="proceedToMicCapture()">
+        🎙️ Shadow Now With Mic →
+      </button>
+    </div>
+  </div>
+
+  <!-- STAGE 3: LIVE MIC SHADOWING & CAPTURE -->
+  <div id="stage-shadowing" class="q-card" hidden>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+      <span id="shadowing-live-badge" class="mic-pulse-badge">🔴 Mic Active — Shadow Aloud Now</span>
+      <span style="font-size: 14px; font-weight: 900; color: #1e1b4b;">
+        ⏱️ <span id="shadowing-elapsed-num">0.0</span>s <small style="color:#64748b;">(Target: <span id="shadowing-target-num">11.0</span>s)</small>
+      </span>
+    </div>
+
+    <div id="shadowing-karaoke-box" class="karaoke-stage-box"></div>
+
+    <div class="linking-cues-box" style="margin: 10px 0;">
+      <p class="linking-cues-title">🔗 Rhythm & Linking Cues:</p>
+      <div id="shadowing-linking-cues" class="cue-pills"></div>
+    </div>
+
+    <!-- Live Mic Waveform -->
+    <div id="mic-capture-panel">
+      <div class="mic-waveform-track" title="Live microphone volume">
+        <div id="mic-waveform-bar" class="mic-waveform-fill"></div>
+      </div>
+
+      <div id="live-transcript-box" class="live-transcript-box"></div>
+
+      <div id="shadow-retry-msg" class="notice-box" hidden>
+        No spoken words were recognised yet. Please check your microphone and speak the passage clearly, or switch to Typed Check Mode below.
+      </div>
+
+      <div class="action-row">
+        <button type="button" class="btn-3d btn-green" onclick="stopAndScoreShadowing()">
+          ⏹️ Stop & See My Score
+        </button>
+        <button type="button" class="btn-3d btn-slate" onclick="switchToTypedFallback()" style="min-width: auto; font-size: 14px; padding: 10px 16px;">
+          ⌨️ Typed Check Mode
+        </button>
+      </div>
+    </div>
+
+    <!-- Typed Fallback Panel -->
+    <div id="typed-capture-panel" hidden>
+      <p style="font-size: 14px; font-weight: 800; color: #475569; text-align: left; margin: 8px 0 4px;">
+        Shadow the passage out loud while the timer runs, then type what you shadowed below (Typed check — score capped at 85 without mic):
+      </p>
+      <textarea id="typed-shadow-input" class="typed-shadow-area" placeholder="Type the passage you shadowed here..."></textarea>
+      <div id="typed-empty-msg" class="notice-box" hidden>
+        Please type the sentences you shadowed before checking your score.
+      </div>
+      <div class="action-row">
+        <button type="button" class="btn-3d btn-green" onclick="submitTypedShadowing()">
+          ✓ Stop & See My Score
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 4: RHYTHM & WORD-MATCH DIAGNOSTIC + A/B PLAYBACK -->
+  <div id="stage-results" class="result-card" hidden>
+    <div style="font-size: 48px;">🦉</div>
+    <h2 style="font-size: 25px; font-weight: 1000; margin: 4px 0 6px; color: #1e1b4b;">Shadowing Sync & Word Diagnostic</h2>
+
+    <div style="margin: 8px 0;">
+      <span id="res-score-badge" class="score-badge score-high">Rhythm Master · 92 / 100</span>
+    </div>
+    <p id="res-honesty-note" style="color: #475569; font-weight: 800; font-size: 14px; margin: 6px auto 14px; max-width: 580px;"></p>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-label">Words Recognised</div>
+        <div class="metric-num" id="res-words-recognised" style="color: #15803d;">0 / 0</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Words Missed</div>
+        <div class="metric-num" id="res-words-missed" style="color: #b91c1c;">0</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Timing Sync</div>
+        <div class="metric-num" id="res-timing-sync">0s vs 0s</div>
+        <div id="res-timing-sub" style="font-size: 11px; font-weight: 800; color: #64748b;">You vs Target</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Speaking Pace</div>
+        <div class="metric-num" id="res-wpm-num">0</div>
+        <div style="font-size: 11px; font-weight: 800; color: #64748b;">Words / min</div>
+      </div>
+    </div>
+
+    <!-- Green / Red Passage Diagnostic -->
+    <div style="text-align: left; margin: 14px 0 6px;">
+      <strong style="font-size: 13.5px; font-weight: 900; color: #1e1b4b;">Word-by-Word Recognition Map:</strong>
+      <span style="font-size: 12px; font-weight: 800; color: #64748b; margin-left: 8px;">
+        <span style="color:#15803d;">■ Green = recognised</span> · <span style="color:#b91c1c;">■ Red = missed</span>
+      </span>
+    </div>
+    <div id="res-passage-diagnostic" class="diagnostic-passage-box"></div>
+
+    <!-- A/B Playback Comparison -->
+    <div class="ab-playback-grid">
+      <div class="ab-card">
+        <h4>🎙️ A: Your Shadowed Recording</h4>
+        <audio id="user-audio-player" controls style="width: 100%; height: 38px; outline: none;"></audio>
+        <p id="no-audio-fallback-note" style="font-size: 13px; font-weight: 700; color: #64748b; margin: 6px 0 0;" hidden>
+          Self-playback is unavailable in typed check mode.
+        </p>
+      </div>
+      <div class="ab-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <h4>🔊 B: Native-Style Browser Audio</h4>
+        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+          <button type="button" class="btn-3d btn-blue" onclick="replayNativeFromResults()" style="min-height: 40px; padding: 8px 16px; font-size: 14px; flex: 1;">
+            🔊 Replay Native
+          </button>
+          <span id="res-speed-tag" style="font-size: 12px; font-weight: 800; color: #0284c7; background: #e0f2fe; padding: 6px 10px; border-radius: 8px;">1.0x</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-weight: 900; font-size: 16px; color: #1e1b4b; margin: 16px 0 8px;">
+      🔥 Streak: <span id="final-streak">0</span> days · ⚡ Total XP: <span id="final-xp">0</span>
+      <span id="res-xp-note" style="display: block; font-size: 13px; color: #58cc02; font-weight: 800; margin-top: 4px;">+20 XP shadowing session completed!</span>
+    </p>
+
+    <div class="action-row">
+      <a id="wa-share-btn" href="#" target="_blank" rel="noopener" class="btn-3d btn-green">
+        💬 Share My Score on WhatsApp
+      </a>
+      <button type="button" class="btn-3d btn-blue" onclick="retrySamePassage()">
+        🔁 Try Again
+      </button>
+      <button type="button" class="btn-3d btn-slate" onclick="backToSetup()">
+        📚 Pick Another Passage
+      </button>
+    </div>
+
+    <!-- Recommended English Resources Card -->
+    <div class="resource-card">
+      <h3>📚 Recommended English Resources</h3>
+      <p style="margin: 0 0 10px;">Build natural speaking rhythm and confidence with structured daily practice:</p>
+      <div style="margin-bottom: 12px;">
+        <a href="https://topmate.io/speak_english_with_confidence/2324225" target="_blank" rel="noopener noreferrer" class="btn-3d" style="background:#f59e0b; color:#1e1b4b; font-size:14px; padding:10px 18px; box-shadow:0 3px 0 #b45309;">
+          Get the 30-Day Speaking Workbook ($) →
+        </a>
+      </div>
+      <ul style="margin: 0; padding-left: 18px;">
+        <li><a href="../30-day-english-flow-workbook.pdf">30-Day English Flow Workbook (PDF)</a> – daily speaking drills</li>
+        <li><a href="../resources.html">Free Resources Library</a> – trackers, podcasts & templates</li>
+        <li><a href="../game-practice.html">Daily Practice Session</a> – keep your daily streak active</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CHEAT-SHEET SECTION: HOW SHADOWING WORKS -->
+  <section class="study-cheatsheet" aria-label="How Shadowing Works" style="margin: 30px 0 20px; padding: 20px; border: 2px dashed #1cb0f6; border-radius: 18px; background: #f7fdff; text-align: left;">
+    <h2 style="font-size: 20px; font-weight: 900; margin-top: 0; color: #0284c7;">📖 How Shadowing Works</h2>
+    <ul style="font-weight: 700; color: #334155; line-height: 1.7; padding-left: 20px;">
+      <li><strong>1. Listen first</strong> — hear the passage once from start to finish so your ear catches where the speaker pauses and stresses key words.</li>
+      <li><strong>2. Copy the rhythm, not just the words</strong> — focus on musical cadence and word linking (like <em>"going to" → "gonna"</em>) rather than pronouncing every word like a robot.</li>
+      <li><strong>3. Shadow half a beat behind the speaker</strong> — in Sync Shadow mode, speak right on the heels of the karaoke highlight so you match the natural speed.</li>
+      <li><strong>4. Loop hard lines at 0.85x</strong> — switch to 0.85x Training speed whenever a sentence feels tongue-twisting, then step back up to 1.0x Natural.</li>
+      <li><strong>5. Record and compare yourself</strong> — play back your recording right next to the native-style browser audio to hear if your timing and flow match.</li>
+    </ul>
+    <p style="font-size: 13px; color: #64748b; font-weight: 700; margin: 12px 0 0;">
+      🦉 Flo tip: Don't worry if you miss a word while shadowing in real time — keep moving with the rhythm cursor just like a musician staying on beat!
+    </p>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section style="margin-top: 30px;" aria-label="Frequently asked questions">
+    <h2 style="font-size: 22px; font-weight: 1000; color: #1e1b4b; text-align: left; margin-bottom: 16px;">Frequently Asked Questions</h2>
+    <div class="faq-card">
+      <h3 class="faq-q">What is English shadowing practice and how does this tool work?</h3>
+      <p class="faq-a">Shadowing is a speaking technique where you listen to a passage and repeat it aloud to match the speaker's rhythm, pace, and connected speech. This tool plays built-in everyday passages using native-style browser audio with karaoke word highlighting, records your voice, and compares your words recognised and timing sync against the target passage.</p>
+    </div>
+    <div class="faq-card">
+      <h3 class="faq-q">Do I need a microphone to use the shadowing tool?</h3>
+      <p class="faq-a">Live microphone shadowing and audio playback work best in Google Chrome on desktop and Android. If you do not have a microphone or your browser does not support Web Speech recognition, you can still listen to the karaoke-paced audio, shadow aloud on your own, and use the built-in typed check mode.</p>
+    </div>
+    <div class="faq-card">
+      <h3 class="faq-q">Is my voice audio uploaded or stored anywhere?</h3>
+      <p class="faq-a">No. Your voice recording and speech recognition transcript stay 100% inside your local web browser session. Nothing is uploaded to any server or saved after you close the page.</p>
+    </div>
+    <div class="faq-card">
+      <h3 class="faq-q">How do XP and daily streaks work on English Flow?</h3>
+      <p class="faq-a">You earn +20 XP for completing a shadowing round, plus a +10 XP rhythm bonus when your speaking duration lands within ±15% of the native benchmark duration. Completing your first practice session of the day increments your daily English Flow streak.</p>
+    </div>
+  </section>
+
+  <footer style="margin-top: 28px; text-align: center; font-size: 14px; font-weight: 800; color: #94a3b8;">
+    <a href="../index.html" style="color: #64748b; text-decoration: none;">← Back to English Flow Home</a>
+  </footer>
+</main>
+
+<script>
+  const PASSAGES = [
+    {
+      title: "Morning Stand-up",
+      text: "Good morning, everyone. Yesterday I finished the report and I am going to send it to the team today. If you have any questions, just let me know.",
+      cues: [
+        "‘going to’ → ‘gonna’",
+        "‘send it to’ → ‘send-it-to’",
+        "‘let me know’ → ‘lemme know’"
+      ]
+    },
+    {
+      title: "Coffee Shop Order",
+      text: "Hi, could I have a large coffee, please? I would like it with oat milk and a little bit of sugar. That is everything, thank you so much.",
+      cues: [
+        "‘could I have a’ → ‘could-I hava’",
+        "‘like it’ → ‘li-kit’",
+        "‘little bit of’ → ‘liddle bitta’"
+      ]
+    },
+    {
+      title: "Hotel Check-in",
+      text: "Hello, I have a reservation under the name Sharma. Could I check in a little bit early? And could you tell me what time breakfast starts tomorrow?",
+      cues: [
+        "‘have a’ → ‘hava’",
+        "‘check in a’ → ‘check-in-a’",
+        "‘could you’ → ‘could-ja’"
+      ]
+    },
+    {
+      title: "Networking Introduction",
+      text: "Hi, I am Priya and I work in marketing. I am really interested in what your team is doing with new products. Would you like to grab a coffee and talk about it?",
+      cues: [
+        "‘work in’ → ‘wor-kin’",
+        "‘would you’ → ‘would-ja’",
+        "‘grab a’ → ‘grabba’",
+        "‘talk about it’ → ‘talk-abou-dit’"
+      ]
+    },
+    {
+      title: "Rescheduling a Client Call",
+      text: "Hi Sarah, I am calling about our meeting on Friday. Something has come up and I need to move it to Monday morning. Would ten o'clock work for you?",
+      cues: [
+        "‘calling about’ → ‘callin-about’",
+        "‘come up’ → ‘cuh-mup’",
+        "‘need to move it’ → ‘need-ta moo-vit’"
+      ]
+    },
+    {
+      title: "Asking for Directions",
+      text: "Excuse me, could you help me find the train station? I think I am going the wrong way. Is it far from here, or can I walk there in ten minutes?",
+      cues: [
+        "‘could you’ → ‘could-ja’",
+        "‘is it’ → ‘i-zit’",
+        "‘can I’ → ‘ca-nI’"
+      ]
+    }
+  ];
+
+  let currentPassageIdx = 0;
+  let shadowSpeed = 1.0; // 0.85 or 1.0
+  let shadowMode = 'echo'; // 'echo' or 'sync'
+  let nativeBenchmarkSec = 11.0;
+
+  // Timers & Karaoke state
+  let karaokeInterval = null;
+  let elapsedTimer = null;
+  let shadowStartTime = 0;
+  let actualElapsedSec = 0;
+  let isTypedCheck = false;
+  let liveTranscriptText = "";
+
+  // Media & Speech APIs
+  let mediaStream = null;
+  let mediaRecorder = null;
+  let audioChunks = [];
+  let audioBlobUrl = null;
+  let audioCtx = null;
+  let analyser = null;
+  let animFrameId = null;
+
+  let recognition = null;
+  let isMicActive = false;
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const isSpeechSupported = !!SpeechRecognition;
+  const isMediaRecorderSupported = typeof MediaRecorder !== 'undefined';
+
+  // Unified localStorage stats
+  let xp = parseInt(localStorage.getItem('userXP')) || 0;
+  let streak = parseInt(localStorage.getItem('english_flow_streak')) || 0;
+
+  function renderStats() {
+    document.getElementById('st-streak').textContent = streak;
+    document.getElementById('st-xp').textContent = xp;
+  }
+
+  if (!isSpeechSupported || !isMediaRecorderSupported) {
+    document.getElementById('mic-compat-notice').removeAttribute('hidden');
+  }
+
+  function cleanWord(w) {
+    return w.toLowerCase().replace(/[^a-z0-9']/g, '');
+  }
+
+  function getPassageWords(idx) {
+    return PASSAGES[idx].text.trim().split(/\s+/).filter(Boolean);
+  }
+
+  function computeBenchmarkSeconds(idx, rate) {
+    const wordCount = getPassageWords(idx).length;
+    // Natural spoken pace ~145 WPM at 1.0x
+    const baseWpm = 145 * rate;
+    return Math.max(5, Math.round(((wordCount / baseWpm) * 60) * 10) / 10);
+  }
+
+  function updateSetupPreview() {
+    const p = PASSAGES[currentPassageIdx];
+    nativeBenchmarkSec = computeBenchmarkSeconds(currentPassageIdx, shadowSpeed);
+    document.getElementById('setup-passage-title').textContent = p.title;
+    document.getElementById('setup-passage-text').textContent = '“' + p.text + '”';
+    document.getElementById('setup-benchmark-pill').textContent =
+      'Target duration: ~' + nativeBenchmarkSec.toFixed(1) + 's (' + shadowSpeed + 'x)';
+  }
+
+  function selectPassage(idx, cardEl) {
+    currentPassageIdx = idx;
+    document.querySelectorAll('.passage-card').forEach(c => c.classList.remove('active'));
+    cardEl.classList.add('active');
+    updateSetupPreview();
+  }
+
+  function selectScenarioPassage(idx, cardEl) {
+    selectPassage(idx, cardEl);
+  }
+
+  function setShadowSpeed(rate) {
+    shadowSpeed = rate;
+    document.getElementById('speed-btn-slow').classList.toggle('active', rate === 0.85);
+    document.getElementById('speed-btn-natural').classList.toggle('active', rate === 1.0);
+    updateSetupPreview();
+  }
+
+  function setShadowMode(mode) {
+    shadowMode = mode;
+    document.getElementById('mode-btn-echo').classList.toggle('active', mode === 'echo');
+    document.getElementById('mode-btn-sync').classList.toggle('active', mode === 'sync');
+  }
+
+  function renderKaraokeTokens(containerId, cuesContainerId) {
+    const p = PASSAGES[currentPassageIdx];
+    const words = p.text.trim().split(/\s+/);
+    const box = document.getElementById(containerId);
+    box.innerHTML = '';
+
+    words.forEach((w, i) => {
+      const span = document.createElement('span');
+      span.className = 'k-word';
+      span.setAttribute('data-kidx', i);
+      span.textContent = w;
+      box.appendChild(span);
+      box.appendChild(document.createTextNode(' '));
+    });
+
+    const cuesBox = document.getElementById(cuesContainerId);
+    cuesBox.innerHTML = '';
+    p.cues.forEach(c => {
+      const pill = document.createElement('span');
+      pill.className = 'cue-pill';
+      pill.textContent = c;
+      cuesBox.appendChild(pill);
+    });
+  }
+
+  function highlightKaraokeWord(containerId, wordIndex) {
+    const box = document.getElementById(containerId);
+    if (!box) return;
+    const spans = box.querySelectorAll('.k-word');
+    spans.forEach((s, idx) => {
+      s.classList.remove('active-cursor');
+      if (idx < wordIndex) {
+        s.classList.add('passed-word');
+      } else {
+        s.classList.remove('passed-word');
+      }
+      if (idx === wordIndex) {
+        s.classList.add('active-cursor');
+      }
+    });
+  }
+
+  function stopKaraokeAndSpeech() {
+    if (karaokeInterval) {
+      clearInterval(karaokeInterval);
+      karaokeInterval = null;
+    }
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+  }
+
+  function playKaraokeSpeech(containerId, onDoneCallback) {
+    stopKaraokeAndSpeech();
+    const p = PASSAGES[currentPassageIdx];
+    const words = p.text.trim().split(/\s+/);
+    const totalWords = words.length;
+    const expectedSec = computeBenchmarkSeconds(currentPassageIdx, shadowSpeed);
+    const msPerWord = (expectedSec * 1000) / totalWords;
+
+    let currentWordIdx = 0;
+    highlightKaraokeWord(containerId, 0);
+
+    // Timed fallback pacing cursor (runs smoothly even if browser onboundary doesn't fire)
+    karaokeInterval = setInterval(() => {
+      currentWordIdx++;
+      if (currentWordIdx < totalWords) {
+        highlightKaraokeWord(containerId, currentWordIdx);
+      } else {
+        clearInterval(karaokeInterval);
+        karaokeInterval = null;
+      }
+    }, msPerWord);
+
+    if ('speechSynthesis' in window) {
+      const u = new SpeechSynthesisUtterance(p.text);
+      u.lang = 'en-US';
+      u.rate = shadowSpeed;
+
+      // Map charIndex boundary events to word index when supported
+      const charOffsets = [];
+      let running = 0;
+      words.forEach(w => {
+        charOffsets.push(running);
+        running += w.length + 1;
+      });
+
+      u.onboundary = event => {
+        if (event.name === 'word' && typeof event.charIndex === 'number') {
+          let foundIdx = 0;
+          for (let i = 0; i < charOffsets.length; i++) {
+            if (event.charIndex >= charOffsets[i]) foundIdx = i;
+          }
+          currentWordIdx = foundIdx;
+          highlightKaraokeWord(containerId, foundIdx);
+        }
+      };
+
+      u.onend = () => {
+        if (karaokeInterval) {
+          clearInterval(karaokeInterval);
+          karaokeInterval = null;
+        }
+        highlightKaraokeWord(containerId, totalWords);
+        if (typeof onDoneCallback === 'function') onDoneCallback();
+      };
+
+      window.speechSynthesis.speak(u);
+    } else if (typeof onDoneCallback === 'function') {
+      setTimeout(onDoneCallback, expectedSec * 1000);
+    }
+  }
+
+  // STAGE 2: NATIVE RHYTHM PREVIEW
+  function beginShadowingFlow() {
+    document.getElementById('stage-setup').setAttribute('hidden', '');
+    document.getElementById('stage-results').setAttribute('hidden', '');
+    document.getElementById('stage-shadowing').setAttribute('hidden', '');
+    document.getElementById('stage-preview').removeAttribute('hidden');
+
+    renderKaraokeTokens('preview-karaoke-box', 'preview-linking-cues');
+    document.getElementById('preview-status-pill').textContent = '🔊 Playing native-style browser audio…';
+
+    playKaraokeSpeech('preview-karaoke-box', () => {
+      document.getElementById('preview-status-pill').textContent = '✓ Preview complete — ready to shadow!';
+    });
+  }
+
+  function replayPreviewAudio() {
+    document.getElementById('preview-status-pill').textContent = '🔊 Playing native-style browser audio…';
+    playKaraokeSpeech('preview-karaoke-box', () => {
+      document.getElementById('preview-status-pill').textContent = '✓ Preview complete — ready to shadow!';
+    });
+  }
+
+  // STAGE 3: LIVE MIC SHADOWING & CAPTURE
+  async function proceedToMicCapture() {
+    stopKaraokeAndSpeech();
+    document.getElementById('stage-preview').setAttribute('hidden', '');
+    document.getElementById('stage-shadowing').removeAttribute('hidden');
+
+    renderKaraokeTokens('shadowing-karaoke-box', 'shadowing-linking-cues');
+    nativeBenchmarkSec = computeBenchmarkSeconds(currentPassageIdx, shadowSpeed);
+    document.getElementById('shadowing-target-num').textContent = nativeBenchmarkSec.toFixed(1);
+    document.getElementById('shadowing-elapsed-num').textContent = '0.0';
+    document.getElementById('shadow-retry-msg').setAttribute('hidden', '');
+
+    liveTranscriptText = "";
+    document.getElementById('live-transcript-box').textContent = "";
+    isTypedCheck = false;
+
+    if (!isSpeechSupported || !isMediaRecorderSupported) {
+      switchToTypedFallback();
+      return;
+    }
+
+    try {
+      mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    } catch (err) {
+      document.getElementById('mic-compat-notice').removeAttribute('hidden');
+      switchToTypedFallback();
+      return;
+    }
+
+    document.getElementById('mic-capture-panel').removeAttribute('hidden');
+    document.getElementById('typed-capture-panel').setAttribute('hidden', '');
+
+    isMicActive = true;
+    setupAudioMeter(mediaStream);
+    setupMediaRecorder(mediaStream);
+    setupSpeechRecognition();
+
+    try { recognition.start(); } catch (e) {}
+    try { mediaRecorder.start(); } catch (e) {}
+
+    startShadowingTimersAndPacing();
+  }
+
+  function startShadowingTimersAndPacing() {
+    shadowStartTime = Date.now();
+    if (elapsedTimer) clearInterval(elapsedTimer);
+    elapsedTimer = setInterval(() => {
+      actualElapsedSec = (Date.now() - shadowStartTime) / 1000;
+      document.getElementById('shadowing-elapsed-num').textContent = actualElapsedSec.toFixed(1);
+    }, 100);
+
+    if (shadowMode === 'sync') {
+      document.getElementById('shadowing-live-badge').textContent = '🔴 Sync Shadow Mode — Speak Along With Audio';
+      playKaraokeSpeech('shadowing-karaoke-box');
+    } else {
+      document.getElementById('shadowing-live-badge').textContent = '🔴 Echo Mode — Follow the Pacing Cursor Aloud';
+      // Pacing guide cursor without browser voice so mic only records user
+      const words = getPassageWords(currentPassageIdx);
+      const msPerWord = (nativeBenchmarkSec * 1000) / words.length;
+      let idx = 0;
+      highlightKaraokeWord('shadowing-karaoke-box', 0);
+      karaokeInterval = setInterval(() => {
+        idx++;
+        if (idx < words.length) {
+          highlightKaraokeWord('shadowing-karaoke-box', idx);
+        } else {
+          clearInterval(karaokeInterval);
+          karaokeInterval = null;
+        }
+      }, msPerWord);
+    }
+  }
+
+  function setupAudioMeter(stream) {
+    try {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      analyser = audioCtx.createAnalyser();
+      const source = audioCtx.createMediaStreamSource(stream);
+      source.connect(analyser);
+      analyser.fftSize = 64;
+      const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+      function updateWave() {
+        if (!isMicActive) return;
+        analyser.getByteFrequencyData(dataArray);
+        let sum = 0;
+        for (let i = 0; i < dataArray.length; i++) sum += dataArray[i];
+        const pct = Math.min(100, Math.round(((sum / dataArray.length) / 128) * 100));
+        const bar = document.getElementById('mic-waveform-bar');
+        if (bar) bar.style.width = pct + '%';
+        animFrameId = requestAnimationFrame(updateWave);
+      }
+      updateWave();
+    } catch (e) {}
+  }
+
+  function setupMediaRecorder(stream) {
+    audioChunks = [];
+    try {
+      mediaRecorder = new MediaRecorder(stream);
+      mediaRecorder.ondataavailable = e => {
+        if (e.data && e.data.size > 0) audioChunks.push(e.data);
+      };
+      mediaRecorder.onstop = () => {
+        if (audioChunks.length > 0) {
+          const blob = new Blob(audioChunks, { type: 'audio/webm' });
+          if (audioBlobUrl) URL.revokeObjectURL(audioBlobUrl);
+          audioBlobUrl = URL.createObjectURL(blob);
+          const player = document.getElementById('user-audio-player');
+          player.src = audioBlobUrl;
+          player.removeAttribute('hidden');
+          document.getElementById('no-audio-fallback-note').setAttribute('hidden', '');
+        }
+      };
+    } catch (e) {}
+  }
+
+  function setupSpeechRecognition() {
+    recognition = new SpeechRecognition();
+    recognition.lang = 'en-US';
+    recognition.continuous = true;
+    recognition.interimResults = true;
+
+    recognition.onresult = event => {
+      let interim = '';
+      let final = '';
+      for (let i = 0; i < event.results.length; i++) {
+        if (event.results[i].isFinal) {
+          final += event.results[i][0].transcript + ' ';
+        } else {
+          interim += event.results[i][0].transcript;
+        }
+      }
+      liveTranscriptText = (final + interim).trim();
+      document.getElementById('live-transcript-box').textContent = liveTranscriptText;
+    };
+
+    recognition.onerror = event => {
+      if (event.error === 'not-allowed') {
+        cleanupMedia();
+        document.getElementById('mic-compat-notice').removeAttribute('hidden');
+        switchToTypedFallback();
+      }
+    };
+  }
+
+  function cleanupMedia() {
+    isMicActive = false;
+    stopKaraokeAndSpeech();
+    if (elapsedTimer) {
+      clearInterval(elapsedTimer);
+      elapsedTimer = null;
+    }
+    if (animFrameId) cancelAnimationFrame(animFrameId);
+    if (recognition) { try { recognition.stop(); } catch (e) {} }
+    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+      try { mediaRecorder.stop(); } catch (e) {}
+    }
+    if (mediaStream) {
+      mediaStream.getTracks().forEach(t => t.stop());
+    }
+    if (audioCtx && audioCtx.state !== 'closed') {
+      try { audioCtx.close(); } catch (e) {}
+    }
+  }
+
+  function switchToTypedFallback() {
+    cleanupMedia();
+    isTypedCheck = true;
+    document.getElementById('mic-capture-panel').setAttribute('hidden', '');
+    document.getElementById('typed-capture-panel').removeAttribute('hidden');
+    document.getElementById('typed-shadow-input').value = '';
+    document.getElementById('typed-empty-msg').setAttribute('hidden', '');
+    document.getElementById('shadowing-live-badge').textContent = '⌨️ Typed Check Mode — Timer Running';
+
+    shadowStartTime = Date.now();
+    elapsedTimer = setInterval(() => {
+      actualElapsedSec = (Date.now() - shadowStartTime) / 1000;
+      document.getElementById('shadowing-elapsed-num').textContent = actualElapsedSec.toFixed(1);
+    }, 100);
+  }
+
+  function stopAndScoreShadowing() {
+    const durationSec = Math.max(1, (Date.now() - shadowStartTime) / 1000);
+    const spokenTokens = liveTranscriptText.trim().split(/\s+/).map(cleanWord).filter(Boolean);
+
+    if (spokenTokens.length < 2) {
+      document.getElementById('shadow-retry-msg').removeAttribute('hidden');
+      return;
+    }
+
+    cleanupMedia();
+    document.getElementById('stage-shadowing').setAttribute('hidden', '');
+    evaluateShadowingDiagnostic(liveTranscriptText, durationSec, false);
+  }
+
+  function submitTypedShadowing() {
+    const typedText = document.getElementById('typed-shadow-input').value.trim();
+    const tokens = typedText.split(/\s+/).map(cleanWord).filter(Boolean);
+    if (tokens.length < 2) {
+      document.getElementById('typed-empty-msg').removeAttribute('hidden');
+      return;
+    }
+    const durationSec = Math.max(2, (Date.now() - shadowStartTime) / 1000);
+    cleanupMedia();
+    document.getElementById('stage-shadowing').setAttribute('hidden', '');
+    document.getElementById('user-audio-player').setAttribute('hidden', '');
+    document.getElementById('no-audio-fallback-note').removeAttribute('hidden');
+    evaluateShadowingDiagnostic(typedText, durationSec, true);
+  }
+
+  // STAGE 4: RHYTHM & WORD-MATCH DIAGNOSTIC
+  function evaluateShadowingDiagnostic(userText, userDurationSec, isTyped) {
+    const targetWordsRaw = getPassageWords(currentPassageIdx);
+    const spokenPool = userText.trim().split(/\s+/).map(cleanWord).filter(Boolean);
+
+    const diagBox = document.getElementById('res-passage-diagnostic');
+    diagBox.innerHTML = '';
+
+    let matchedCount = 0;
+    let totalTargetCount = 0;
+
+    targetWordsRaw.forEach(rawWord => {
+      const cleaned = cleanWord(rawWord);
+      if (!cleaned) return;
+      totalTargetCount++;
+
+      const idx = spokenPool.indexOf(cleaned);
+      const isHit = idx !== -1;
+      if (isHit) {
+        matchedCount++;
+        spokenPool.splice(idx, 1);
+      }
+
+      const span = document.createElement('span');
+      span.className = 'diag-token ' + (isHit ? 'diag-ok' : 'diag-miss');
+      span.textContent = rawWord;
+      diagBox.appendChild(span);
+    });
+
+    const missedCount = Math.max(0, totalTargetCount - matchedCount);
+    const wordAccuracyPct = totalTargetCount > 0 ? (matchedCount / totalTargetCount) * 100 : 0;
+
+    // Timing Sync sub-score (native passage duration vs learner's recorded duration)
+    const diffRatio = Math.abs(userDurationSec - nativeBenchmarkSec) / nativeBenchmarkSec;
+    const withinRhythmBonusBand = !isTyped && diffRatio <= 0.15;
+    const timingSyncPct = Math.max(0, Math.min(100, Math.round((1 - Math.min(1, diffRatio)) * 100)));
+
+    // Combined Shadowing Sync Score (70% word recognition + 30% timing sync)
+    let syncScore = Math.round((wordAccuracyPct * 0.7) + (timingSyncPct * 0.3));
+    if (isTyped) {
+      syncScore = Math.min(85, Math.round(wordAccuracyPct));
+    }
+
+    // Score band label
+    const badge = document.getElementById('res-score-badge');
+    badge.className = 'score-badge';
+    let bandName = '';
+    if (syncScore >= 90) {
+      bandName = 'Rhythm Master';
+      badge.classList.add('score-high');
+    } else if (syncScore >= 70) {
+      bandName = 'Smooth Shadow';
+      badge.classList.add('score-high');
+    } else if (syncScore >= 40) {
+      bandName = 'Good Start';
+      badge.classList.add('score-med');
+    } else {
+      bandName = 'Keep Practising';
+      badge.classList.add('score-low');
+    }
+    badge.textContent = bandName + ' · Shadowing Sync Score: ' + syncScore + ' / 100';
+
+    const honestyEl = document.getElementById('res-honesty-note');
+    if (isTyped) {
+      honestyEl.textContent = 'Typed check — score capped at 85 without mic. Based on words recognised vs missed.';
+    } else {
+      honestyEl.textContent =
+        'Scored from browser word-recognition match (' + matchedCount + ' recognised, ' + missedCount + ' missed) + timing sync (' +
+        userDurationSec.toFixed(1) + 's vs ' + nativeBenchmarkSec.toFixed(1) + 's native-style browser audio benchmark).';
+    }
+
+    // Metrics
+    document.getElementById('res-words-recognised').textContent = matchedCount + ' / ' + totalTargetCount;
+    document.getElementById('res-words-missed').textContent = missedCount;
+    document.getElementById('res-timing-sync').textContent =
+      userDurationSec.toFixed(1) + 's vs ' + nativeBenchmarkSec.toFixed(1) + 's';
+    document.getElementById('res-timing-sub').textContent =
+      withinRhythmBonusBand ? '✓ Within ±15% rhythm target!' : 'Timing sync: ' + timingSyncPct + '%';
+
+    // WPM (words / actual elapsed time; "—" in typed mode or <3s finish)
+    const userSpokenCount = userText.trim().split(/\s+/).filter(Boolean).length;
+    if (isTyped || userDurationSec < 3) {
+      document.getElementById('res-wpm-num').textContent = '—';
+    } else {
+      const wpm = Math.round(userSpokenCount / (userDurationSec / 60));
+      document.getElementById('res-wpm-num').textContent = wpm;
+    }
+
+    document.getElementById('res-speed-tag').textContent = shadowSpeed + 'x';
+
+    // XP & Streak (+20 XP + 10 XP rhythm bonus when within ±15% of native duration)
+    let earnedXP = 20;
+    if (withinRhythmBonusBand) {
+      earnedXP += 10;
+    }
+    xp += earnedXP;
+    localStorage.setItem('userXP', xp);
+
+    const today = new Date().toDateString();
+    const lastPractice = localStorage.getItem('english_flow_last_practice');
+    if (lastPractice !== today) {
+      streak += 1;
+      localStorage.setItem('english_flow_streak', streak);
+      localStorage.setItem('english_flow_last_practice', today);
+    }
+    renderStats();
+
+    document.getElementById('final-streak').textContent = streak;
+    document.getElementById('final-xp').textContent = xp;
+    document.getElementById('res-xp-note').textContent = withinRhythmBonusBand
+      ? '+20 XP shadowing + 10 XP rhythm sync bonus awarded! (+30 XP)'
+      : '+20 XP shadowing session completed!';
+
+    // WhatsApp Share
+    const canonical = "https://englishflowofficial.github.io/tools/english-shadowing-practice.html";
+    const shareText =
+      "I scored " + syncScore + "/100 (" + bandName + ") shadowing '" + PASSAGES[currentPassageIdx].title +
+      "' on the English Flow Shadowing Practice Tool! 🦉 Try it free: " + canonical;
+    document.getElementById('wa-share-btn').href = "https://api.whatsapp.com/send?text=" + encodeURIComponent(shareText);
+
+    document.getElementById('stage-results').removeAttribute('hidden');
+  }
+
+  function replayNativeFromResults() {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(PASSAGES[currentPassageIdx].text);
+      u.lang = 'en-US';
+      u.rate = shadowSpeed;
+      window.speechSynthesis.speak(u);
+    }
+  }
+
+  function retrySamePassage() {
+    cleanupMedia();
+    document.getElementById('stage-results').setAttribute('hidden', '');
+    beginShadowingFlow();
+  }
+
+  function backToSetup() {
+    cleanupMedia();
+    document.getElementById('stage-results').setAttribute('hidden', '');
+    document.getElementById('stage-shadowing').setAttribute('hidden', '');
+    document.getElementById('stage-preview').setAttribute('hidden', '');
+    document.getElementById('stage-setup').removeAttribute('hidden');
+    updateSetupPreview();
+  }
+
+  // Initialize
+  renderStats();
+  updateSetupPreview();
+</script>
+<script src="../ef-analytics.js" defer></script>
+</body>
+</html>
