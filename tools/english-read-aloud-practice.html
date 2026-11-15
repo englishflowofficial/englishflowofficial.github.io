@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#58cc02" />
+  <meta name="robots" content="index, follow" />
+  <title>Free English Read Aloud Practice (Mic Test) | English Flow</title>
+  <meta name="description" content="Practice English read-aloud speaking tests online free. Skim in 35s, read aloud in 40s, and get word accuracy, WPM pace, pause count, and audio playback." />
+  <meta name="keywords" content="english read aloud practice, read aloud speaking test online, oral reading fluency test, english speaking timer, read aloud mic test, english flow" />
+  <link rel="canonical" href="https://englishflowofficial.github.io/tools/english-read-aloud-practice.html" />
+  <link rel="icon" href="../favicon.jpg" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://englishflowofficial.github.io/tools/english-read-aloud-practice.html" />
+  <meta property="og:title" content="Free English Read Aloud Practice (Mic Test) | English Flow" />
+  <meta property="og:description" content="Practice English read-aloud speaking tests online free. Skim in 35s, read aloud in 40s, and get word accuracy, WPM pace, pause count, and audio playback." />
+  <meta property="og:image" content="https://englishflowofficial.github.io/og-image.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@EnglishFlowPodcastt" />
+  <meta name="twitter:title" content="Free English Read Aloud Practice (Mic Test) | English Flow" />
+  <meta name="twitter:description" content="Practice English read-aloud speaking tests online free. Skim in 35s, read aloud in 40s, and get word accuracy, WPM pace, pause count, and audio playback." />
+  <meta name="twitter:image" content="https://englishflowofficial.github.io/og-image.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900;1000&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../game-practice.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free English Read Aloud Practice & Oral Fluency Scorer",
+    "url": "https://englishflowofficial.github.io/tools/english-read-aloud-practice.html",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": 0,
+      "priceCurrency": "USD"
+    },
+    "description": "Free browser-based English read-aloud speaking test: skim a 55–65 word passage in 35 seconds with optional phrase chunk markers, read aloud in 40 seconds into your microphone, and get word-recognition accuracy, reading pace (WPM), hesitation count, and side-by-side audio playback.",
+    "provider": {
+      "@type": "Organization",
+      "name": "English Flow",
+      "url": "https://englishflowofficial.github.io/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does the English Read Aloud test work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You choose one of eight 55–65 word workplace or academic passages (or paste your own 40–90 word paragraph), skim it during a 35-second prep countdown with optional phrase chunk markers ( / ), and then read it aloud into your microphone within 40 seconds. The tool scores your words recognised vs missed, reading pace in WPM, and 2s+ hesitations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my voice audio stored or uploaded anywhere?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Your voice recording and browser speech recognition transcript stay strictly inside your local browser session. Nothing is uploaded, stored on external servers, or shared."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which web browsers support microphone recording and speech recognition?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Live microphone speech recognition and audio recording work best in Google Chrome on desktop and Android. If your browser does not support Web Speech recognition, you can still use the prep timer, listen to the native-style browser audio, and run a typed check."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do XP and daily streaks work on English Flow?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You earn +20 XP for completing a read-aloud test, plus a +10 XP mastery bonus when you achieve 90% or higher words recognised with zero 2s+ hesitations. Completing your first session of the day advances your daily English Flow streak."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    .quiz-wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 40px; font-family: 'Nunito', sans-serif; color: #1e1b4b; }
+    .q-card { border: 2px solid #e5e5e5; border-radius: 20px; padding: 26px 22px; background: #fff; box-shadow: 0 4px 0 #e5e5e5; margin: 16px 0; color: #1e1b4b; }
+    .result-card { border: 2px solid #e5e5e5; border-radius: 20px; padding: 28px 22px; text-align: center; background: linear-gradient(135deg, #f0fff4, #eff8ff); color: #1e1b4b; }
+    .resource-card { border: 2px solid #ffc800; border-radius: 18px; padding: 18px; background: #fffbe6; margin-top: 18px; text-align: left; color: #334155; }
+    .resource-card h3 { color: #1e1b4b; margin: 0 0 6px; font-size: 17px; }
+    .resource-card p, .resource-card ul, .resource-card li { color: #334155; font-weight: 700; font-size: 14px; line-height: 1.8; }
+    .resource-card a:not(.btn-3d) { color: #0284c7; font-weight: 800; text-decoration: underline; }
+    .resource-links { list-style: none; padding-left: 0; }
+    .notice-box { background: #fffbeb; border: 2px solid #fde68a; border-radius: 14px; padding: 14px 18px; color: #92400e; font-size: 14px; font-weight: 700; margin: 12px 0; text-align: left; }
+
+    .score-badge { display: inline-block; padding: 6px 14px; border-radius: 999px; font-weight: 900; font-size: 14px; }
+    .score-high { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+    .score-med { background: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
+    .score-low { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+
+    .action-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 18px; }
+    .btn-3d { min-height: 48px; min-width: 150px; font-size: 16px; font-weight: 900; border-radius: 14px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; padding: 12px 22px; border: none; font-family: inherit; }
+    .btn-green { background: #58cc02; color: #fff; box-shadow: 0 4px 0 #46a302; }
+    .btn-green:active { transform: translateY(3px); box-shadow: 0 1px 0 #46a302; }
+    .btn-blue { background: #1cb0f6; color: #fff; box-shadow: 0 4px 0 #0284c7; }
+    .btn-blue:active { transform: translateY(3px); box-shadow: 0 1px 0 #0284c7; }
+    .btn-slate { background: #64748b; color: #fff; box-shadow: 0 4px 0 #475569; }
+    .btn-slate:active { transform: translateY(3px); box-shadow: 0 1px 0 #475569; }
+
+    .passage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(168px, 1fr)); gap: 10px; margin: 14px 0; }
+    .passage-card { background: #f8fafc; border: 2px solid #cbd5e1; border-radius: 14px; padding: 12px; text-align: left; cursor: pointer; font-family: inherit; transition: all 0.15s; box-shadow: 0 3px 0 #e2e8f0; }
+    .passage-card:hover { border-color: #1cb0f6; background: #f0f9ff; }
+    .passage-card.active { border-color: #58cc02; background: #f0fff4; box-shadow: 0 3px 0 #86efac; }
+    .passage-card-title { font-size: 14px; font-weight: 900; color: #1e1b4b; margin: 0 0 4px; }
+    .passage-card-meta { font-size: 11.5px; font-weight: 800; color: #64748b; margin: 0; }
+
+    .passage-reading-box { background: #f8fafc; border: 2px dashed #94a3b8; border-radius: 18px; padding: 22px 20px; margin: 14px 0; text-align: left; line-height: 1.9; font-size: 19px; font-weight: 800; color: #1e1b4b; }
+    .chunk-slash { display: inline-block; color: #0284c7; background: #e0f2fe; font-weight: 1000; padding: 0 6px; margin: 0 3px; border-radius: 6px; font-size: 16px; }
+
+    .custom-textarea { width: 100%; box-sizing: border-box; min-height: 110px; border: 2px solid #cbd5e1; border-radius: 14px; padding: 14px; font-family: inherit; font-size: 15.5px; font-weight: 700; color: #1e293b; line-height: 1.55; resize: vertical; margin-top: 8px; }
+    .custom-textarea:focus { outline: none; border-color: #58cc02; }
+
+    .controls-strip { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 14px; padding: 12px 16px; margin: 12px 0; }
+    .toggle-pill-btn { border: 2px solid #0284c7; background: #ffffff; color: #0369a1; border-radius: 999px; padding: 6px 14px; font-family: inherit; font-size: 13px; font-weight: 900; cursor: pointer; }
+    .toggle-pill-btn.active { background: #0284c7; color: #ffffff; }
+
+    .timer-ring-prep { width: 108px; height: 108px; border-radius: 50%; background: #eff6ff; border: 4px solid #1cb0f6; display: flex; align-items: center; justify-content: center; margin: 12px auto; font-size: 38px; font-weight: 1000; color: #0284c7; box-shadow: 0 4px 0 #bae6fd; }
+    .timer-ring-read { width: 108px; height: 108px; border-radius: 50%; background: #fef2f2; border: 4px solid #ef4444; display: flex; align-items: center; justify-content: center; margin: 12px auto; font-size: 38px; font-weight: 1000; color: #b91c1c; box-shadow: 0 4px 0 #fca5a5; animation: micPulse 1.3s infinite; }
+    @keyframes micPulse {
+      0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.35); }
+      70% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+
+    .mic-waveform-track { width: 100%; height: 12px; background: #e2e8f0; border-radius: 999px; overflow: hidden; margin: 12px 0; }
+    .mic-waveform-fill { height: 100%; width: 0%; background: #58cc02; transition: width 0.08s linear; }
+
+    .live-transcript-box { background: #ffffff; border: 2px solid #cbd5e1; border-radius: 14px; padding: 14px 16px; min-height: 82px; max-height: 150px; overflow-y: auto; text-align: left; font-size: 15px; font-weight: 700; color: #1e293b; line-height: 1.55; margin: 12px 0; }
+    .live-transcript-box:empty::before { content: "Reading aloud... recognised words appear here in real time."; color: #94a3b8; font-style: italic; }
+
+    .hesitation-pill { display: inline-flex; align-items: center; gap: 6px; background: #f1f5f9; color: #475569; padding: 4px 12px; border-radius: 999px; font-size: 12.5px; font-weight: 800; border: 1.5px solid #cbd5e1; }
+    .hesitation-pill.flash { background: #fef3c7; color: #92400e; border-color: #f59e0b; }
+
+    .diagnostic-passage-box { background: #ffffff; border: 2px solid #cbd5e1; border-radius: 16px; padding: 18px; margin: 14px 0; text-align: left; line-height: 2.0; }
+    .diag-token { display: inline-block; padding: 2px 9px; margin: 2px; border-radius: 8px; font-size: 16.5px; font-weight: 900; }
+    .diag-ok { background: #dcfce7; color: #15803d; border: 1.5px solid #86efac; }
+    .diag-miss { background: #fee2e2; color: #b91c1c; border: 1.5px solid #fca5a5; text-decoration: underline wavy #ef4444; }
+
+    .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 10px; margin: 16px 0; }
+    .metric-card { background: #ffffff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 14px 8px; text-align: center; box-shadow: 0 3px 0 #e2e8f0; color: #1e1b4b; }
+    .metric-num { font-size: 25px; font-weight: 1000; color: #1e1b4b; margin: 4px 0; }
+    .metric-label { font-size: 11px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    .ab-playback-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin: 16px 0; text-align: left; }
+    .ab-card { background: #ffffff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 14px 16px; box-shadow: 0 3px 0 #e2e8f0; color: #1e1b4b; }
+    .ab-card h4 { margin: 0 0 8px; font-size: 14px; font-weight: 900; color: #1e1b4b; }
+
+    .faq-card { background: #fff; border: 2px solid #e5e5e5; border-radius: 16px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 3px 0 #e5e5e5; text-align: left; }
+    .faq-q { font-size: 15.5px; font-weight: 900; color: #1e1b4b; margin: 0 0 6px; }
+    .faq-a { font-size: 14px; font-weight: 700; color: #475569; line-height: 1.6; margin: 0; }
+  </style>
+</head>
+<body>
+<header class="gp-header">
+<a class="gp-brand" href="../index.html">🦉 English <b>Flow</b></a>
+<nav class="gp-nav"><a href="../index.html">Home</a><a href="../game-practice.html">Practice</a><a href="../tenses.html">Tenses</a></nav>
+<div class="gp-stats"><span class="gp-stat streak">🔥 <b id="st-streak">0</b></span><span class="gp-stat xp">⚡ <b id="st-xp">0</b></span></div>
+</header>
+
+<main class="quiz-wrap">
+  <div style="text-align: left; margin-bottom: 8px;">
+    <a href="../index.html" style="font-weight: 800; font-size: 13px; color: #1cb0f6; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">🌐 English Flow</a>
+  </div>
+  <h1 style="font-size: 28px; font-weight: 1000; margin: 0 0 6px; color: #1e1b4b; line-height: 1.3;">Free English Read Aloud Practice & Oral Fluency Scorer</h1>
+  <p style="color: #64748b; font-weight: 700; margin: 0 0 16px; font-size: 15px;">Skim a workplace or academic passage in 35 seconds, read it aloud in 40 seconds into your microphone, and get your words recognised, reading pace (WPM), hesitation count, and side-by-side audio playback.</p>
+
+  <div id="mic-compat-notice" class="notice-box" hidden>
+    ⚠️ <strong>Browser Notice:</strong> Live microphone speech recognition and recording work best in Google Chrome on desktop or Android. You can still use the prep timer, listen to native-style browser audio, and run a typed check below.
+  </div>
+
+  <!-- STAGE 1: PASSAGE SELECTION & CHUNKING PREVIEW -->
+  <div id="stage-setup" class="q-card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+      <span style="font-size: 12px; font-weight: 900; color: #1cb0f6; letter-spacing: 1px; text-transform: uppercase;">1. PICK A PASSAGE (55–65 WORDS) OR PASTE YOUR OWN</span>
+      <span style="font-size: 13px; font-weight: 800; color: #ff9600;">+20 XP · +10 XP fluency bonus</span>
+    </div>
+
+    <div class="passage-grid" id="passage-grid">
+      <button type="button" class="passage-card active" onclick="selectPresetPassage(0, this)">
+        <div class="passage-card-title">💻 1. Morning Stand-up</div>
+        <p class="passage-card-meta">Workplace · 59 words</p>
+      </button>
+      <button type="button" class="passage-card" onclick="selectPresetPassage(1, this)">
+        <div class="passage-card-title">🚀 2. Product Launch</div>
+        <p class="passage-card-meta">Announcement · 62 words</p>
+      </button>
+      <button type="button" class="passage-card" onclick="selectPresetPassage(2, this)">
+        <div class="passage-card-title">🏨 3. Hotel Check-in</div>
+        <p class="passage-card-meta">Hospitality · 63 words</p>
+      </button>
+      <button type="button" class="passage-card" onclick="selectPresetPassage(3, this)">
+        <div class="passage-card-title">🎯 4. Job Interview Intro</div>
+        <p class="passage-card-meta">Career · 65 words</p>
+      </button>
+      <button type="button" class="passage-card" onclick="selectPresetPassage(4, this)">
+        <div class="passage-card-title">📚 5. Power of Reading</div>
+        <p class="passage-card-meta">Academic · 65 words</p>
+      </button>
+      <button type="button" class="passage-card" onclick="selectPresetPassage(5, this)">
+        <div class="passage-card-title">✈️ 6. Customer Service Call</div>
+        <p class="passage-card-meta">Travel Support · 65 words</p>
+      </button>
+      <button type="button" class="passage-card" onclick="selectPresetPassage(6, this)">
+        <div class="passage-card-title">🎤 7. Presentation Opening</div>
+        <p class="passage-card-meta">Executive · 65 words</p>
+      </button>
+      <button type="button" class="passage-card" onclick="selectPresetPassage(7, this)">
+        <div class="passage-card-title">📅 8. Project Deadline</div>
+        <p class="passage-card-meta">Team Update · 65 words</p>
+      </button>
+    </div>
+
+    <!-- Custom Passage Toggle -->
+    <div style="text-align: left; margin: 10px 0;">
+      <button type="button" id="btn-toggle-custom" class="toggle-pill-btn" onclick="toggleCustomPassageBox()">
+        ✍️ Paste My Own Paragraph (40–90 words)
+      </button>
+    </div>
+
+    <div id="custom-passage-panel" hidden style="text-align: left; margin-bottom: 12px;">
+      <label for="custom-passage-input" style="font-size: 13px; font-weight: 800; color: #475569;">
+        Paste a 40–90 word English paragraph (<span id="custom-word-counter">0</span> words):
+      </label>
+      <textarea id="custom-passage-input" class="custom-textarea" placeholder="Paste or type your 40 to 90 word paragraph here..." oninput="onCustomPassageInput()"></textarea>
+      <div id="custom-validation-msg" class="notice-box" hidden></div>
+    </div>
+
+    <!-- Controls Strip: Phrase Chunk Markers (/) & Model Audio Speed -->
+    <div class="controls-strip">
+      <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+        <button type="button" id="btn-chunk-toggle" class="toggle-pill-btn active" onclick="toggleChunkMarkers()">
+          ✓ Phrase Chunk Markers ( / ) ON
+        </button>
+        <span style="font-size: 12.5px; font-weight: 800; color: #0369a1;">Shows natural breathing & phrasing pauses</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 6px;">
+        <span style="font-size: 12px; font-weight: 900; color: #0369a1;">Model Speed:</span>
+        <button type="button" id="speed-slow-btn" class="toggle-pill-btn" onclick="setModelRate(0.85)">0.85x Slow</button>
+        <button type="button" id="speed-nat-btn" class="toggle-pill-btn active" onclick="setModelRate(1.0)">1.0x Natural</button>
+      </div>
+    </div>
+
+    <!-- Passage Preview Box -->
+    <div id="setup-passage-display" class="passage-reading-box"></div>
+
+    <div class="action-row">
+      <button type="button" class="btn-3d btn-green" onclick="startPrepStage()">
+        ⏱️ Start 35s Prep Timer
+      </button>
+      <button type="button" class="btn-3d btn-blue" onclick="skipPrepAndStartReading()">
+        🎙️ Skip Prep & Read Now
+      </button>
+    </div>
+  </div>
+
+  <!-- STAGE 2: 35-SECOND SILENT SKIM & PREP -->
+  <div id="stage-prep" class="q-card" hidden>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+      <span style="font-size: 12px; font-weight: 900; color: #0284c7; letter-spacing: 1px; text-transform: uppercase;">STAGE 1 OF 2: 35-SECOND SILENT SKIM & PREP</span>
+      <span style="font-size: 13px; font-weight: 800; color: #0369a1;">Skim phrase groups & tricky words</span>
+    </div>
+
+    <div class="timer-ring-prep" id="prep-timer-val">35</div>
+    <p style="text-align: center; font-weight: 800; color: #0369a1; margin: -4px 0 12px;">
+      seconds before microphone opens automatically…
+    </p>
+
+    <div class="controls-strip">
+      <button type="button" class="btn-3d btn-blue" onclick="playModelReading()" style="min-height: 40px; padding: 8px 16px; font-size: 14px; min-width: auto;">
+        🔊 Hear Model Reading
+      </button>
+      <div style="display: flex; align-items: center; gap: 6px;">
+        <button type="button" id="prep-speed-slow" class="toggle-pill-btn" onclick="setModelRate(0.85)">0.85x Slow</button>
+        <button type="button" id="prep-speed-nat" class="toggle-pill-btn active" onclick="setModelRate(1.0)">1.0x Natural</button>
+      </div>
+    </div>
+
+    <div id="prep-passage-display" class="passage-reading-box"></div>
+
+    <div class="action-row">
+      <button type="button" class="btn-3d btn-green" onclick="skipPrepAndStartReading()">
+        🎙️ Start Reading Aloud Now →
+      </button>
+    </div>
+  </div>
+
+  <!-- STAGE 3: 40-SECOND LIVE MIC READING -->
+  <div id="stage-reading" class="q-card" hidden>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+      <span id="reading-mode-badge" style="font-size: 12px; font-weight: 900; color: #b91c1c; letter-spacing: 1px; text-transform: uppercase;">🔴 STAGE 2 OF 2: READING ALOUD LIVE (40s)</span>
+      <span id="live-hesitation-pill" class="hesitation-pill">⏸️ Hesitations (2s+): <b id="live-hesitation-count">0</b></span>
+    </div>
+
+    <div class="timer-ring-read" id="read-timer-val">40</div>
+    <p style="text-align: center; font-weight: 800; color: #64748b; margin: -4px 0 10px;">
+      Read the passage smoothly in one continuous take!
+    </p>
+
+    <div id="read-passage-display" class="passage-reading-box"></div>
+
+    <!-- Live Mic Capture Area -->
+    <div id="mic-reading-panel">
+      <div class="mic-waveform-track" title="Live microphone volume">
+        <div id="mic-waveform-bar" class="mic-waveform-fill"></div>
+      </div>
+
+      <div id="live-transcript-box" class="live-transcript-box"></div>
+
+      <div id="read-retry-msg" class="notice-box" hidden>
+        No spoken words were recognised yet. Please check your microphone and read the passage aloud clearly, or switch to Typed Fallback below.
+      </div>
+
+      <div class="action-row">
+        <button type="button" class="btn-3d btn-green" onclick="finishAndScoreReading()">
+          ⏹️ Finish & Score My Reading
+        </button>
+        <button type="button" class="btn-3d btn-slate" onclick="switchToTypedReadingFallback()" style="min-width: auto; font-size: 14px; padding: 10px 16px;">
+          ⌨️ Typed Fallback
+        </button>
+      </div>
+    </div>
+
+    <!-- Typed Fallback Area -->
+    <div id="typed-reading-panel" hidden>
+      <p style="font-size: 14px; font-weight: 800; color: #475569; text-align: left; margin: 8px 0 4px;">
+        Read the passage aloud while the 40s timer runs, then type what you read below (Typed check — score capped at 85 without mic; WPM shown as "—"):
+      </p>
+      <textarea id="typed-reading-input" class="custom-textarea" placeholder="Type the passage you read here..."></textarea>
+      <div id="typed-empty-msg" class="notice-box" hidden>
+        Please type the words you read before scoring.
+      </div>
+      <div class="action-row">
+        <button type="button" class="btn-3d btn-green" onclick="submitTypedReading()">
+          ✓ Finish & Score My Reading
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 4: ORAL READING DIAGNOSTIC & A/B PLAYBACK -->
+  <div id="stage-results" class="result-card" hidden>
+    <div style="font-size: 48px;">🦉</div>
+    <h2 style="font-size: 25px; font-weight: 1000; margin: 4px 0 6px; color: #1e1b4b;">Oral Reading Diagnostic & Score</h2>
+
+    <div style="margin: 8px 0;">
+      <span id="res-score-badge" class="score-badge score-high">Oral Reading Score: 92 / 100 · Fluent Reader</span>
+    </div>
+    <p id="res-honesty-note" style="color: #475569; font-weight: 800; font-size: 14px; margin: 6px auto 14px; max-width: 580px;"></p>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-label">Words Recognised</div>
+        <div class="metric-num" id="res-words-recognised" style="color: #15803d;">0 / 0</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Words Missed</div>
+        <div class="metric-num" id="res-words-missed" style="color: #b91c1c;">0</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Reading Pace</div>
+        <div class="metric-num" id="res-wpm-num">0</div>
+        <div id="res-wpm-bench" style="font-size: 11px; font-weight: 800; color: #64748b;">Sweet spot: 130–160 WPM</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Hesitations (2s+)</div>
+        <div class="metric-num" id="res-hesitations-num">0</div>
+        <div style="font-size: 11px; font-weight: 800; color: #64748b;">Mid-passage pauses</div>
+      </div>
+    </div>
+
+    <!-- Word-by-Word Green / Red Map -->
+    <div style="text-align: left; margin: 14px 0 6px;">
+      <strong style="font-size: 13.5px; font-weight: 900; color: #1e1b4b;">Word-by-Word Recognition Map:</strong>
+      <span style="font-size: 12px; font-weight: 800; color: #64748b; margin-left: 8px;">
+        <span style="color:#15803d;">■ Green = word recognised</span> · <span style="color:#b91c1c;">■ Red = word missed or skipped</span>
+      </span>
+    </div>
+    <div id="res-passage-diagnostic" class="diagnostic-passage-box"></div>
+
+    <!-- Side-by-Side A/B Playback -->
+    <div class="ab-playback-grid">
+      <div class="ab-card">
+        <h4>🎙️ A: Your Read-Aloud Recording</h4>
+        <audio id="user-audio-player" controls style="width: 100%; height: 38px; outline: none;"></audio>
+        <p id="no-audio-fallback-note" style="font-size: 13px; font-weight: 700; color: #64748b; margin: 6px 0 0;" hidden>
+          Self-playback is unavailable in typed check mode.
+        </p>
+      </div>
+      <div class="ab-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <h4>🔊 B: Native-Style Browser Audio</h4>
+        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+          <button type="button" class="btn-3d btn-blue" onclick="playModelReading()" style="min-height: 40px; padding: 8px 16px; font-size: 14px; flex: 1;">
+            🔊 Play Model Audio
+          </button>
+          <span id="res-speed-tag" style="font-size: 12px; font-weight: 800; color: #0284c7; background: #e0f2fe; padding: 6px 10px; border-radius: 8px;">1.0x</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-weight: 900; font-size: 16px; color: #1e1b4b; margin: 16px 0 8px;">
+      🔥 Streak: <span id="final-streak">0</span> days · ⚡ Total XP: <span id="final-xp">0</span>
+      <span id="res-xp-note" style="display: block; font-size: 13px; color: #58cc02; font-weight: 800; margin-top: 4px;">+20 XP read-aloud test completed!</span>
+    </p>
+
+    <div class="action-row">
+      <a id="wa-share-btn" href="#" target="_blank" rel="noopener" class="btn-3d btn-green">
+        💬 Share My Score on WhatsApp
+      </a>
+      <button type="button" class="btn-3d btn-blue" onclick="retrySamePassage()">
+        🔁 Read This Passage Again
+      </button>
+      <button type="button" class="btn-3d btn-slate" onclick="backToSetup()">
+        📚 Pick Another Passage
+      </button>
+    </div>
+
+    <!-- Recommended English Resources Card -->
+    <div class="resource-card">
+      <h3>📚 Recommended English Resources</h3>
+      <p style="margin: 0 0 10px;">Build natural speaking rhythm and oral fluency with structured daily practice:</p>
+      <div style="margin-bottom: 12px;">
+        <a href="https://topmate.io/speak_english_with_confidence/2324225" target="_blank" rel="noopener noreferrer" class="btn-3d" style="background:#f59e0b; color:#1e1b4b; font-size:14px; padding:10px 18px; box-shadow:0 3px 0 #b45309;">
+          Get the 30-Day Speaking Workbook ($) →
+        </a>
+      </div>
+      <ul class="resource-links" style="margin: 0; padding-left: 18px;">
+        <li><a href="../30-day-english-flow-workbook.pdf">30-Day English Flow Workbook (PDF)</a> – daily speaking drills</li>
+        <li><a href="../resources.html">Free Resources Library</a> – trackers, podcasts & templates</li>
+        <li><a href="../game-practice.html">Daily Practice Session</a> – keep your daily streak active</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CHEAT-SHEET SECTION: 5 READ-ALOUD TIPS -->
+  <section class="study-cheatsheet" aria-label="5 Read-Aloud Tips" style="margin: 30px 0 20px; padding: 20px; border: 2px dashed #1cb0f6; border-radius: 18px; background: #f7fdff; text-align: left;">
+    <h2 style="font-size: 20px; font-weight: 900; margin-top: 0; color: #0284c7;">📖 5 Read-Aloud Tips</h2>
+    <ul style="font-weight: 700; color: #334155; line-height: 1.7; padding-left: 20px;">
+      <li><strong>1. Read in phrases, not word by word</strong> — group 3 to 5 words together into meaningful thought chunks so your voice flows naturally.</li>
+      <li><strong>2. Breathe at the chunk markers ( / )</strong> — use commas, conjunctions, and full stops as your natural places to pause and take a quick breath.</li>
+      <li><strong>3. Keep going after a mistake, never stop</strong> — if you stumble on a word, do not backtrack or repeat yourself; keep your forward rhythm steady.</li>
+      <li><strong>4. Stress the key words in each sentence</strong> — give nouns, main verbs, and numbers slightly more volume while gliding lightly over small grammar words.</li>
+      <li><strong>5. Record and replay yourself</strong> — listen to your own recording beside the model audio to spot flat intonation or rushed endings.</li>
+    </ul>
+    <p style="font-size: 13px; color: #64748b; font-weight: 700; margin: 12px 0 0;">
+      🦉 Flo tip: During your 35-second prep window, whisper any long names or numbers out loud once so your tongue is ready when the mic opens!
+    </p>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section style="margin-top: 30px;" aria-label="Frequently asked questions">
+    <h2 style="font-size: 22px; font-weight: 1000; color: #1e1b4b; text-align: left; margin-bottom: 16px;">Frequently Asked Questions</h2>
+    <div class="faq-card">
+      <h3 class="faq-q">How does the English Read Aloud test work?</h3>
+      <p class="faq-a">You choose one of eight 55–65 word workplace or academic passages (or paste your own 40–90 word paragraph), skim it during a 35-second prep countdown with optional phrase chunk markers ( / ), and then read it aloud into your microphone within 40 seconds. The tool scores your words recognised vs missed, reading pace in WPM, and 2s+ hesitations.</p>
+    </div>
+    <div class="faq-card">
+      <h3 class="faq-q">Is my voice audio stored or uploaded anywhere?</h3>
+      <p class="faq-a">No. Your voice recording and browser speech recognition transcript stay strictly inside your local browser session. Nothing is uploaded, stored on external servers, or shared.</p>
+    </div>
+    <div class="faq-card">
+      <h3 class="faq-q">Which web browsers support microphone recording and speech recognition?</h3>
+      <p class="faq-a">Live microphone speech recognition and audio recording work best in Google Chrome on desktop and Android. If your browser does not support Web Speech recognition, you can still use the prep timer, listen to the native-style browser audio, and run a typed check.</p>
+    </div>
+    <div class="faq-card">
+      <h3 class="faq-q">How do XP and daily streaks work on English Flow?</h3>
+      <p class="faq-a">You earn +20 XP for completing a read-aloud test, plus a +10 XP mastery bonus when you achieve 90% or higher words recognised with zero 2s+ hesitations. Completing your first session of the day advances your daily English Flow streak.</p>
+    </div>
+  </section>
+
+  <footer style="margin-top: 28px; text-align: center; font-size: 14px; font-weight: 800; color: #94a3b8;">
+    <a href="../index.html" style="color: #64748b; text-decoration: none;">← Back to English Flow Home</a>
+  </footer>
+</main>
+
+<script>
+  const PASSAGES = [
+    {
+      title: "Morning Stand-up",
+      text: "Good morning, everyone. Thank you for joining today's stand-up. Yesterday, our team finished the first draft of the client report, and we fixed the three errors in the sales data. Today, we will review the final charts, confirm the delivery date, and send the report to the client before lunch. Please let me know if any task is blocked."
+    },
+    {
+      title: "Product Launch",
+      text: "We are excited to announce the launch of our new online learning platform. Starting Monday, customers in every country can join live classes, practise speaking with a coach, and track their progress every week. The first month is free for all new members, and there is no need to download any software. Sign up today, and start learning with us tomorrow morning."
+    },
+    {
+      title: "Hotel Check-in",
+      text: "Welcome to the Riverside Hotel. Your room is on the fourth floor, and the lift is just behind the front desk. Breakfast is served in the garden restaurant from seven to ten every morning, and the swimming pool is open until nine in the evening. If you need extra towels, a taxi, or help with your luggage, please call reception at any time."
+    },
+    {
+      title: "Job Interview Introduction",
+      text: "Thank you for inviting me to this interview. My name is Sarah Chen, and I have worked in customer service for six years. In my last job, I led a team of eight people, solved difficult problems every day, and helped our company keep its customers happy. I am excited about this role because I love working with people, and I learn new skills quickly."
+    },
+    {
+      title: "The Power of Reading",
+      text: "Reading daily is one of the best ways to learn a new language. When you read, you see new words in sentences, and you learn how grammar works without studying rules. Choose a book or an article about a topic you enjoy, read for fifteen minutes, and write down five new words. After one month, your vocabulary, your spelling, and your confidence will all improve."
+    },
+    {
+      title: "Customer Service Call",
+      text: "Good afternoon, thank you for calling Bright Travel. My name is James, and I will be happy to help you today. I understand your flight to London was delayed, and I am sorry for the trouble this has caused. Let me check the next flight for you right now. I can also change your hotel booking, so your room will be ready when you arrive."
+    },
+    {
+      title: "Presentation Opening",
+      text: "Good morning, everyone, and welcome to our presentation. Today, I will show you how our new plan can save the company time and money. First, I will explain the problem we face. Next, I will describe our solution in three simple steps. Finally, I will answer your questions. By the end of this talk, you will see why this plan works for all of us."
+    },
+    {
+      title: "Project Deadline Update",
+      text: "Dear team, I have important news about our project. The client moved the deadline forward by one week, so our final report is now due on Friday, the twentieth of June. We still need to finish the last two chapters, check all the numbers, and prepare the slides for the meeting. Please send your updates by Wednesday evening, and thank you for your hard work."
+    }
+  ];
+
+  let selectedPassageIdx = 0;
+  let useCustomPassage = false;
+  let activePassageText = PASSAGES[0].text;
+  let activePassageTitle = PASSAGES[0].title;
+  let showChunkMarkers = true;
+  let modelSpeechRate = 1.0;
+
+  // Timers & Reading state
+  let prepInterval = null;
+  let readInterval = null;
+  let prepSecondsLeft = 35;
+  let readSecondsLeft = 40;
+  let readStartTime = 0;
+  let lastWordTimestamp = 0;
+  let hesitationCount = 0;
+  let hasStartedSpeaking = false;
+  let liveTranscriptText = "";
+  let isTypedFallback = false;
+
+  // Media & Speech APIs
+  let mediaStream = null;
+  let mediaRecorder = null;
+  let audioChunks = [];
+  let audioBlobUrl = null;
+  let audioCtx = null;
+  let analyser = null;
+  let animFrameId = null;
+
+  let recognition = null;
+  let isMicActive = false;
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const isSpeechSupported = !!SpeechRecognition;
+  const isMediaRecorderSupported = typeof MediaRecorder !== 'undefined';
+
+  // Unified localStorage stats
+  let xp = parseInt(localStorage.getItem('userXP')) || 0;
+  let streak = parseInt(localStorage.getItem('english_flow_streak')) || 0;
+
+  function renderStats() {
+    document.getElementById('st-streak').textContent = streak;
+    document.getElementById('st-xp').textContent = xp;
+  }
+
+  if (!isSpeechSupported || !isMediaRecorderSupported) {
+    document.getElementById('mic-compat-notice').removeAttribute('hidden');
+  }
+
+  function cleanWord(w) {
+    return w.toLowerCase().replace(/[^a-z0-9']/g, '');
+  }
+
+  function getWordsList(str) {
+    return str.trim().split(/\s+/).filter(w => cleanWord(w).length > 0);
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
+  }
+
+  function formatPassageWithChunkMarkers(text) {
+    const safe = escapeHtml(text);
+    if (!showChunkMarkers) return safe;
+    // Insert phrase chunk markers ( / ) at commas, semicolons, and full stops
+    return safe
+      .replace(/,\s+/g, ', <span class="chunk-slash" aria-hidden="true">/</span> ')
+      .replace(/\.\s+/g, '. <span class="chunk-slash" aria-hidden="true">//</span> ');
+  }
+
+  function renderPassageDisplays() {
+    const html = formatPassageWithChunkMarkers(activePassageText);
+    document.getElementById('setup-passage-display').innerHTML = html;
+    document.getElementById('prep-passage-display').innerHTML = html;
+    document.getElementById('read-passage-display').innerHTML = html;
+  }
+
+  function selectPresetPassage(idx, cardEl) {
+    selectedPassageIdx = idx;
+    useCustomPassage = false;
+    activePassageText = PASSAGES[idx].text;
+    activePassageTitle = PASSAGES[idx].title;
+    document.querySelectorAll('.passage-card').forEach(c => c.classList.remove('active'));
+    cardEl.classList.add('active');
+    document.getElementById('custom-passage-panel').setAttribute('hidden', '');
+    document.getElementById('btn-toggle-custom').classList.remove('active');
+    renderPassageDisplays();
+  }
+
+  function toggleCustomPassageBox() {
+    const panel = document.getElementById('custom-passage-panel');
+    const btn = document.getElementById('btn-toggle-custom');
+    if (panel.hasAttribute('hidden')) {
+      panel.removeAttribute('hidden');
+      btn.classList.add('active');
+      useCustomPassage = true;
+      document.querySelectorAll('.passage-card').forEach(c => c.classList.remove('active'));
+      onCustomPassageInput();
+    } else {
+      panel.setAttribute('hidden', '');
+      btn.classList.remove('active');
+      useCustomPassage = false;
+      const cards = document.querySelectorAll('.passage-card');
+      if (cards[selectedPassageIdx]) cards[selectedPassageIdx].classList.add('active');
+      activePassageText = PASSAGES[selectedPassageIdx].text;
+      activePassageTitle = PASSAGES[selectedPassageIdx].title;
+      renderPassageDisplays();
+    }
+  }
+
+  function onCustomPassageInput() {
+    const raw = document.getElementById('custom-passage-input').value.trim();
+    const words = getWordsList(raw);
+    document.getElementById('custom-word-counter').textContent = words.length;
+    const msgBox = document.getElementById('custom-validation-msg');
+
+    if (words.length >= 40 && words.length <= 90) {
+      msgBox.setAttribute('hidden', '');
+      activePassageText = raw;
+      activePassageTitle = "Custom Passage";
+      renderPassageDisplays();
+    } else {
+      msgBox.removeAttribute('hidden');
+      msgBox.textContent =
+        words.length < 40
+          ? 'Please enter at least 40 words for a realistic read-aloud test (currently ' + words.length + ' words).'
+          : 'Please keep your custom passage to 90 words or fewer so it fits the 40-second reading window (currently ' + words.length + ' words).';
+    }
+  }
+
+  function validateSelectedPassage() {
+    if (!useCustomPassage) return true;
+    const raw = document.getElementById('custom-passage-input').value.trim();
+    const words = getWordsList(raw);
+    if (words.length < 40 || words.length > 90) {
+      onCustomPassageInput();
+      return false;
+    }
+    activePassageText = raw;
+    activePassageTitle = "Custom Passage";
+    renderPassageDisplays();
+    return true;
+  }
+
+  function toggleChunkMarkers() {
+    showChunkMarkers = !showChunkMarkers;
+    const btn = document.getElementById('btn-chunk-toggle');
+    btn.classList.toggle('active', showChunkMarkers);
+    btn.textContent = showChunkMarkers ? '✓ Phrase Chunk Markers ( / ) ON' : 'Phrase Chunk Markers ( / ) OFF';
+    renderPassageDisplays();
+  }
+
+  function setModelRate(rate) {
+    modelSpeechRate = rate;
+    document.getElementById('speed-slow-btn').classList.toggle('active', rate === 0.85);
+    document.getElementById('speed-nat-btn').classList.toggle('active', rate === 1.0);
+    document.getElementById('prep-speed-slow').classList.toggle('active', rate === 0.85);
+    document.getElementById('prep-speed-nat').classList.toggle('active', rate === 1.0);
+    document.getElementById('res-speed-tag').textContent = rate + 'x';
+  }
+
+  function playModelReading() {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(activePassageText);
+      u.lang = 'en-US';
+      u.rate = modelSpeechRate;
+      window.speechSynthesis.speak(u);
+    }
+  }
+
+  // STAGE 2: 35-SECOND SILENT SKIM & PREP
+  function startPrepStage() {
+    if (!validateSelectedPassage()) return;
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+
+    document.getElementById('stage-setup').setAttribute('hidden', '');
+    document.getElementById('stage-reading').setAttribute('hidden', '');
+    document.getElementById('stage-results').setAttribute('hidden', '');
+    document.getElementById('stage-prep').removeAttribute('hidden');
+
+    prepSecondsLeft = 35;
+    document.getElementById('prep-timer-val').textContent = prepSecondsLeft;
+
+    if (prepInterval) clearInterval(prepInterval);
+    prepInterval = setInterval(() => {
+      prepSecondsLeft--;
+      document.getElementById('prep-timer-val').textContent = prepSecondsLeft;
+      if (prepSecondsLeft <= 0) {
+        clearInterval(prepInterval);
+        prepInterval = null;
+        startLiveReadingStage();
+      }
+    }, 1000);
+  }
+
+  function skipPrepAndStartReading() {
+    if (!validateSelectedPassage()) return;
+    if (prepInterval) {
+      clearInterval(prepInterval);
+      prepInterval = null;
+    }
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    startLiveReadingStage();
+  }
+
+  // STAGE 3: 40-SECOND LIVE MIC READING
+  async function startLiveReadingStage() {
+    document.getElementById('stage-setup').setAttribute('hidden', '');
+    document.getElementById('stage-prep').setAttribute('hidden', '');
+    document.getElementById('stage-results').setAttribute('hidden', '');
+    document.getElementById('stage-reading').removeAttribute('hidden');
+
+    liveTranscriptText = "";
+    hesitationCount = 0;
+    hasStartedSpeaking = false;
+    lastWordTimestamp = Date.now();
+    isTypedFallback = false;
+
+    document.getElementById('live-hesitation-count').textContent = '0';
+    document.getElementById('live-transcript-box').textContent = '';
+    document.getElementById('read-retry-msg').setAttribute('hidden', '');
+
+    if (!isSpeechSupported || !isMediaRecorderSupported) {
+      switchToTypedReadingFallback();
+      return;
+    }
+
+    try {
+      mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    } catch (err) {
+      document.getElementById('mic-compat-notice').removeAttribute('hidden');
+      switchToTypedReadingFallback();
+      return;
+    }
+
+    document.getElementById('mic-reading-panel').removeAttribute('hidden');
+    document.getElementById('typed-reading-panel').setAttribute('hidden', '');
+    document.getElementById('reading-mode-badge').textContent = '🔴 STAGE 2 OF 2: READING ALOUD LIVE (40s)';
+
+    isMicActive = true;
+    setupAudioMeter(mediaStream);
+    setupMediaRecorder(mediaStream);
+    setupSpeechRecognition();
+
+    try { recognition.start(); } catch (e) {}
+    try { mediaRecorder.start(); } catch (e) {}
+
+    startReadingCountdown();
+  }
+
+  function startReadingCountdown() {
+    readSecondsLeft = 40;
+    readStartTime = Date.now();
+    lastWordTimestamp = Date.now();
+    document.getElementById('read-timer-val').textContent = readSecondsLeft;
+
+    if (readInterval) clearInterval(readInterval);
+    readInterval = setInterval(() => {
+      readSecondsLeft--;
+      document.getElementById('read-timer-val').textContent = Math.max(0, readSecondsLeft);
+
+      // Detect ongoing 2s+ mid-passage hesitation
+      if (!isTypedFallback && hasStartedSpeaking && lastWordTimestamp > 0) {
+        const gapSec = (Date.now() - lastWordTimestamp) / 1000;
+        if (gapSec >= 2.2) {
+          hesitationCount++;
+          document.getElementById('live-hesitation-count').textContent = hesitationCount;
+          flashHesitationPill();
+          lastWordTimestamp = Date.now();
+        }
+      }
+
+      if (readSecondsLeft <= 0) {
+        clearInterval(readInterval);
+        readInterval = null;
+        if (isTypedFallback) {
+          submitTypedReading(true);
+        } else {
+          finishAndScoreReading(true);
+        }
+      }
+    }, 1000);
+  }
+
+  function flashHesitationPill() {
+    const pill = document.getElementById('live-hesitation-pill');
+    pill.classList.add('flash');
+    setTimeout(() => pill.classList.remove('flash'), 750);
+  }
+
+  function setupAudioMeter(stream) {
+    try {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      analyser = audioCtx.createAnalyser();
+      const source = audioCtx.createMediaStreamSource(stream);
+      source.connect(analyser);
+      analyser.fftSize = 64;
+      const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+      function updateWave() {
+        if (!isMicActive) return;
+        analyser.getByteFrequencyData(dataArray);
+        let sum = 0;
+        for (let i = 0; i < dataArray.length; i++) sum += dataArray[i];
+        const pct = Math.min(100, Math.round(((sum / dataArray.length) / 128) * 100));
+        const bar = document.getElementById('mic-waveform-bar');
+        if (bar) bar.style.width = pct + '%';
+        animFrameId = requestAnimationFrame(updateWave);
+      }
+      updateWave();
+    } catch (e) {}
+  }
+
+  function setupMediaRecorder(stream) {
+    audioChunks = [];
+    try {
+      mediaRecorder = new MediaRecorder(stream);
+      mediaRecorder.ondataavailable = e => {
+        if (e.data && e.data.size > 0) audioChunks.push(e.data);
+      };
+      mediaRecorder.onstop = () => {
+        if (audioChunks.length > 0) {
+          const blob = new Blob(audioChunks, { type: 'audio/webm' });
+          if (audioBlobUrl) URL.revokeObjectURL(audioBlobUrl);
+          audioBlobUrl = URL.createObjectURL(blob);
+          const player = document.getElementById('user-audio-player');
+          player.src = audioBlobUrl;
+          player.removeAttribute('hidden');
+          document.getElementById('no-audio-fallback-note').setAttribute('hidden', '');
+        }
+      };
+    } catch (e) {}
+  }
+
+  function setupSpeechRecognition() {
+    recognition = new SpeechRecognition();
+    recognition.lang = 'en-US';
+    recognition.continuous = true;
+    recognition.interimResults = true;
+
+    recognition.onresult = event => {
+      let interim = '';
+      let final = '';
+      for (let i = 0; i < event.results.length; i++) {
+        if (event.results[i].isFinal) {
+          final += event.results[i][0].transcript + ' ';
+        } else {
+          interim += event.results[i][0].transcript;
+        }
+      }
+      const now = Date.now();
+      if (hasStartedSpeaking && lastWordTimestamp > 0) {
+        const gapSec = (now - lastWordTimestamp) / 1000;
+        if (gapSec >= 2.0) {
+          hesitationCount++;
+          document.getElementById('live-hesitation-count').textContent = hesitationCount;
+          flashHesitationPill();
+        }
+      }
+      hasStartedSpeaking = true;
+      lastWordTimestamp = now;
+
+      liveTranscriptText = (final + interim).trim();
+      document.getElementById('live-transcript-box').textContent = liveTranscriptText;
+    };
+
+    recognition.onerror = event => {
+      if (event.error === 'not-allowed') {
+        cleanupMedia();
+        document.getElementById('mic-compat-notice').removeAttribute('hidden');
+        switchToTypedReadingFallback();
+      }
+    };
+  }
+
+  function cleanupMedia() {
+    isMicActive = false;
+    if (prepInterval) { clearInterval(prepInterval); prepInterval = null; }
+    if (readInterval) { clearInterval(readInterval); readInterval = null; }
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    if (animFrameId) cancelAnimationFrame(animFrameId);
+    if (recognition) { try { recognition.stop(); } catch (e) {} }
+    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+      try { mediaRecorder.stop(); } catch (e) {}
+    }
+    if (mediaStream) {
+      mediaStream.getTracks().forEach(t => t.stop());
+    }
+    if (audioCtx && audioCtx.state !== 'closed') {
+      try { audioCtx.close(); } catch (e) {}
+    }
+  }
+
+  function switchToTypedReadingFallback() {
+    cleanupMedia();
+    isTypedFallback = true;
+    document.getElementById('mic-reading-panel').setAttribute('hidden', '');
+    document.getElementById('typed-reading-panel').removeAttribute('hidden');
+    document.getElementById('typed-reading-input').value = '';
+    document.getElementById('typed-empty-msg').setAttribute('hidden', '');
+    document.getElementById('reading-mode-badge').textContent = '⌨️ TYPED FALLBACK MODE (40s)';
+    startReadingCountdown();
+  }
+
+  function finishAndScoreReading(autoFinished) {
+    const elapsedSec = Math.max(1, (Date.now() - readStartTime) / 1000);
+    const spokenTokens = getWordsList(liveTranscriptText);
+
+    if (spokenTokens.length < 3 && !autoFinished) {
+      document.getElementById('read-retry-msg').removeAttribute('hidden');
+      return;
+    }
+    if (spokenTokens.length < 3 && autoFinished) {
+      cleanupMedia();
+      document.getElementById('read-retry-msg').removeAttribute('hidden');
+      return;
+    }
+
+    cleanupMedia();
+    document.getElementById('stage-reading').setAttribute('hidden', '');
+    evaluateReadAloudResults(liveTranscriptText, elapsedSec, false);
+  }
+
+  function submitTypedReading(autoFinished) {
+    const typedText = document.getElementById('typed-reading-input').value.trim();
+    const tokens = getWordsList(typedText);
+    if (tokens.length < 3 && !autoFinished) {
+      document.getElementById('typed-empty-msg').removeAttribute('hidden');
+      return;
+    }
+    const elapsedSec = Math.max(2, (Date.now() - readStartTime) / 1000);
+    cleanupMedia();
+    document.getElementById('stage-reading').setAttribute('hidden', '');
+    document.getElementById('user-audio-player').setAttribute('hidden', '');
+    document.getElementById('no-audio-fallback-note').removeAttribute('hidden');
+    evaluateReadAloudResults(typedText, elapsedSec, true);
+  }
+
+  // STAGE 4: ORAL READING DIAGNOSTIC & SCORE
+  function evaluateReadAloudResults(userText, elapsedSec, isTyped) {
+    const targetRawWords = activePassageText.trim().split(/\s+/).filter(Boolean);
+    const spokenPool = userText.trim().split(/\s+/).map(cleanWord).filter(Boolean);
+
+    const diagBox = document.getElementById('res-passage-diagnostic');
+    diagBox.innerHTML = '';
+
+    let matchedCount = 0;
+    let totalTargetCount = 0;
+
+    targetRawWords.forEach(rawWord => {
+      const cleaned = cleanWord(rawWord);
+      if (!cleaned) return;
+      totalTargetCount++;
+
+      const idx = spokenPool.indexOf(cleaned);
+      const isHit = idx !== -1;
+      if (isHit) {
+        matchedCount++;
+        spokenPool.splice(idx, 1);
+      }
+
+      const span = document.createElement('span');
+      span.className = 'diag-token ' + (isHit ? 'diag-ok' : 'diag-miss');
+      span.textContent = rawWord;
+      diagBox.appendChild(span);
+    });
+
+    const missedCount = Math.max(0, totalTargetCount - matchedCount);
+    const wordAccuracyPct = totalTargetCount > 0 ? (matchedCount / totalTargetCount) * 100 : 0;
+
+    // Reading Pace (WPM) benchmarked against 130–160 WPM sweet spot
+    const userWordsTotal = getWordsList(userText).length;
+    let wpmDisplay = '—';
+    let numericWpm = 0;
+    let pacePts = 15;
+
+    if (!isTyped && elapsedSec >= 5 && userWordsTotal >= 5) {
+      numericWpm = Math.round(userWordsTotal / (elapsedSec / 60));
+      wpmDisplay = numericWpm;
+      if (numericWpm >= 130 && numericWpm <= 160) {
+        pacePts = 20;
+        document.getElementById('res-wpm-bench').textContent = '✓ Ideal 130–160 WPM sweet spot!';
+      } else if (numericWpm >= 105 && numericWpm <= 180) {
+        pacePts = 15;
+        document.getElementById('res-wpm-bench').textContent = 'Sweet spot: 130–160 WPM';
+      } else {
+        pacePts = 8;
+        document.getElementById('res-wpm-bench').textContent = numericWpm < 105 ? 'Slightly slow (<130 WPM)' : 'Slightly rushed (>160 WPM)';
+      }
+    } else {
+      document.getElementById('res-wpm-bench').textContent = isTyped ? 'Pace not measured in typed mode' : 'Sweet spot: 130–160 WPM';
+    }
+
+    // Hesitation sub-score (10 pts max, -3 pts per 2s+ hesitation)
+    const hesitationPts = isTyped ? 10 : Math.max(0, 10 - (hesitationCount * 3));
+
+    // Total Oral Reading Score (70% word accuracy + 20% pace + 10% hesitation control)
+    let totalScore = Math.round((wordAccuracyPct * 0.7) + pacePts + hesitationPts);
+    if (isTyped) {
+      totalScore = Math.min(85, Math.round(wordAccuracyPct));
+    }
+
+    const badge = document.getElementById('res-score-badge');
+    badge.className = 'score-badge';
+    let bandName = '';
+    if (totalScore >= 90) {
+      bandName = 'Fluent Reader';
+      badge.classList.add('score-high');
+    } else if (totalScore >= 70) {
+      bandName = 'Clear Reader';
+      badge.classList.add('score-high');
+    } else if (totalScore >= 40) {
+      bandName = 'Good Start';
+      badge.classList.add('score-med');
+    } else {
+      bandName = 'Keep Practising';
+      badge.classList.add('score-low');
+    }
+    badge.textContent = 'Oral Reading Score: ' + totalScore + ' / 100 · ' + bandName;
+
+    const honestyEl = document.getElementById('res-honesty-note');
+    if (isTyped) {
+      honestyEl.textContent = 'Typed check — score capped at 85 without live mic confirmation, and WPM is shown as "—". Based on words recognised vs missed.';
+    } else {
+      honestyEl.textContent =
+        'Scored from browser word-recognition match (' + matchedCount + ' words recognised, ' + missedCount + ' missed), reading pace (' +
+        wpmDisplay + ' WPM in ' + elapsedSec.toFixed(1) + 's), and ' + hesitationCount + ' mid-passage hesitations (2s+).';
+    }
+
+    document.getElementById('res-words-recognised').textContent = matchedCount + ' / ' + totalTargetCount;
+    document.getElementById('res-words-missed').textContent = missedCount;
+    document.getElementById('res-wpm-num').textContent = wpmDisplay;
+    document.getElementById('res-hesitations-num').textContent = isTyped ? '—' : hesitationCount;
+
+    // XP & Streak (+20 XP + 10 XP bonus for >=90% words recognised with 0 hesitations)
+    const earnedBonus = !isTyped && wordAccuracyPct >= 90 && hesitationCount === 0;
+    const earnedXP = earnedBonus ? 30 : 20;
+    xp += earnedXP;
+    localStorage.setItem('userXP', xp);
+
+    const today = new Date().toDateString();
+    const lastPractice = localStorage.getItem('english_flow_last_practice');
+    if (lastPractice !== today) {
+      streak += 1;
+      localStorage.setItem('english_flow_streak', streak);
+      localStorage.setItem('english_flow_last_practice', today);
+    }
+    renderStats();
+
+    document.getElementById('final-streak').textContent = streak;
+    document.getElementById('final-xp').textContent = xp;
+    document.getElementById('res-xp-note').textContent = earnedBonus
+      ? '+20 XP read-aloud + 10 XP zero-hesitation accuracy bonus awarded! (+30 XP)'
+      : '+20 XP read-aloud test completed!';
+
+    // WhatsApp Share
+    const canonical = "https://englishflowofficial.github.io/tools/english-read-aloud-practice.html";
+    const shareText =
+      "I scored " + totalScore + "/100 (" + matchedCount + "/" + totalTargetCount + " words recognised) on the English Flow Read Aloud Practice Test! 🦉 Try it free: " + canonical;
+    document.getElementById('wa-share-btn').href = "https://api.whatsapp.com/send?text=" + encodeURIComponent(shareText);
+
+    document.getElementById('stage-results').removeAttribute('hidden');
+  }
+
+  function retrySamePassage() {
+    cleanupMedia();
+    document.getElementById('stage-results').setAttribute('hidden', '');
+    startPrepStage();
+  }
+
+  function backToSetup() {
+    cleanupMedia();
+    document.getElementById('stage-results').setAttribute('hidden', '');
+    document.getElementById('stage-reading').setAttribute('hidden', '');
+    document.getElementById('stage-prep').setAttribute('hidden', '');
+    document.getElementById('stage-setup').removeAttribute('hidden');
+    renderPassageDisplays();
+  }
+
+  // Initialize
+  renderStats();
+  renderPassageDisplays();
+</script>
+<script src="../ef-analytics.js" defer></script>
+</body>
+</html>
