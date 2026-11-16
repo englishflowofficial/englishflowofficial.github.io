@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#58cc02" />
+  <meta name="robots" content="index, follow" />
+  <title>Impromptu Speaking Practice & Topic Timer | English Flow</title>
+  <meta name="description" content="Practise impromptu speaking online free. Get a surprise topic, 30 seconds to prepare, speak for 2 minutes, and get WPM, filler and PREP feedback. No sign-up." />
+  <meta name="keywords" content="impromptu speaking practice, impromptu speech topic generator timer, table topics timer, impromptu speech practice online, speaking timer with transcript, english flow" />
+  <link rel="canonical" href="https://englishflowofficial.github.io/tools/impromptu-speaking-practice.html" />
+  <link rel="icon" href="../favicon.jpg" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://englishflowofficial.github.io/tools/impromptu-speaking-practice.html" />
+  <meta property="og:title" content="Impromptu Speaking Practice & Topic Timer | English Flow" />
+  <meta property="og:description" content="Practise impromptu speaking online free. Get a surprise topic, 30 seconds to prepare, speak for 2 minutes, and get WPM, filler and PREP feedback. No sign-up." />
+  <meta property="og:image" content="https://englishflowofficial.github.io/og-image.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@EnglishFlowPodcastt" />
+  <meta name="twitter:title" content="Impromptu Speaking Practice & Topic Timer | English Flow" />
+  <meta name="twitter:description" content="Practise impromptu speaking online free. Get a surprise topic, 30 seconds to prepare, speak for 2 minutes, and get WPM, filler and PREP feedback. No sign-up." />
+  <meta name="twitter:image" content="https://englishflowofficial.github.io/og-image.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900;1000&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../game-practice.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Impromptu Speaking Topic Generator & Speech Timer",
+    "url": "https://englishflowofficial.github.io/tools/impromptu-speaking-practice.html",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": 0,
+      "priceCurrency": "USD"
+    },
+    "description": "Free solo impromptu speaking practice timer and topic generator: draw a surprise prompt with talking points, prepare for 30 seconds, speak for up to 2 minutes with a traffic-light timer, and get live transcript, WPM, filler count, PREP signposts found, and local audio playback.",
+    "provider": {
+      "@type": "Organization",
+      "name": "English Flow",
+      "url": "https://englishflowofficial.github.io/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does impromptu speaking practice work on this page?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You pick a topic category (or draw any surprise topic), listen to the prompt via native-style browser audio, take 30 seconds to jot an opening line and one example using the PREP framework, and then speak for 1 to 2 minutes against a traffic-light timer. At the end, you see your words recognised, speaking pace in WPM, filler count, PREP signposts found, and a playback player for your own recording."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my voice audio stored or uploaded anywhere?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Your voice recording and browser speech recognition transcript stay strictly inside your local browser session. Nothing is uploaded, stored on external servers, or shared."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which browsers support microphone recording and live speech recognition?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Live microphone speech recognition and audio recording work best in Google Chrome on desktop and Android. If your browser does not support Web Speech recognition, you can still use the topic generator, 30s prep timer, traffic-light clock, and typed fallback mode."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do XP and daily streaks work on English Flow?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You earn +25 XP for completing an impromptu speaking round, plus a +10 XP bonus when you use all 4 PREP signposts or speak for 60–120 seconds with under 3% filler words. Completing your first practice session of the day increments your daily English Flow streak."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    .quiz-wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 40px; font-family: 'Nunito', sans-serif; color: #1e1b4b; }
+    .q-card { border: 2px solid #e5e5e5; border-radius: 20px; padding: 26px 22px; background: #fff; box-shadow: 0 4px 0 #e5e5e5; margin: 16px 0; color: #1e1b4b; }
+    .result-card { border: 2px solid #e5e5e5; border-radius: 20px; padding: 28px 22px; text-align: center; background: linear-gradient(135deg, #f0fff4, #eff8ff); color: #1e1b4b; }
+    .resource-card { border: 2px solid #ffc800; border-radius: 18px; padding: 18px; background: #fffbe6; margin-top: 18px; text-align: left; color: #334155; }
+    .resource-card h3 { color: #1e1b4b; margin: 0 0 6px; font-size: 17px; }
+    .resource-card p, .resource-card ul, .resource-card li { color: #334155; font-weight: 700; font-size: 14px; line-height: 1.8; }
+    .resource-card a:not(.btn-3d) { color: #0284c7; font-weight: 800; text-decoration: underline; }
+    .notice-box { background: #fffbeb; border: 2px solid #fde68a; border-radius: 14px; padding: 14px 18px; color: #92400e; font-size: 14px; font-weight: 700; margin: 12px 0; text-align: left; }
+
+    .score-badge { display: inline-block; padding: 6px 14px; border-radius: 999px; font-weight: 900; font-size: 14px; }
+    .score-high { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+    .score-med { background: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
+    .score-low { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+
+    .action-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 18px; }
+    .btn-3d { min-height: 48px; min-width: 150px; font-size: 16px; font-weight: 900; border-radius: 14px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; padding: 12px 22px; border: none; font-family: inherit; }
+    .btn-green { background: #58cc02; color: #fff; box-shadow: 0 4px 0 #46a302; }
+    .btn-green:active { transform: translateY(3px); box-shadow: 0 1px 0 #46a302; }
+    .btn-blue { background: #1cb0f6; color: #fff; box-shadow: 0 4px 0 #0284c7; }
+    .btn-blue:active { transform: translateY(3px); box-shadow: 0 1px 0 #0284c7; }
+    .btn-slate { background: #64748b; color: #fff; box-shadow: 0 4px 0 #475569; }
+    .btn-slate:active { transform: translateY(3px); box-shadow: 0 1px 0 #475569; }
+
+    .cat-pill-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin: 12px 0 16px; }
+    .cat-pill { background: #f1f5f9; border: 2px solid #cbd5e1; border-radius: 12px; padding: 8px 14px; font-size: 13px; font-weight: 800; color: #475569; cursor: pointer; font-family: inherit; transition: all 0.15s; }
+    .cat-pill:hover { border-color: #1cb0f6; background: #f0f9ff; }
+    .cat-pill.active { background: #e0f2fe; border-color: #0284c7; color: #0369a1; box-shadow: 0 2px 0 #bae6fd; }
+
+    .topic-card-box { background: #f8fafc; border: 2px dashed #94a3b8; border-radius: 18px; padding: 20px; margin: 14px 0; text-align: left; }
+    .topic-prompt-title { font-size: 21px; font-weight: 900; color: #1e1b4b; line-height: 1.35; margin: 8px 0 12px; }
+    .talking-points-list { margin: 6px 0 0; padding-left: 20px; font-size: 14.5px; font-weight: 700; color: #334155; line-height: 1.65; }
+
+    .prep-framework-card { background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 14px 16px; margin: 14px 0; text-align: left; }
+    .prep-framework-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; margin-top: 8px; }
+    .prep-step-pill { background: #ffffff; border: 1.5px solid #7dd3fc; border-radius: 10px; padding: 8px 10px; font-size: 12.5px; font-weight: 800; color: #0c4a6e; line-height: 1.4; }
+    .prep-step-pill strong { display: block; color: #0284c7; font-size: 13px; }
+
+    .timer-ring-prep { width: 108px; height: 108px; border-radius: 50%; background: #eff6ff; border: 4px solid #1cb0f6; display: flex; align-items: center; justify-content: center; margin: 12px auto; font-size: 38px; font-weight: 1000; color: #0284c7; box-shadow: 0 4px 0 #bae6fd; }
+
+    /* TRAFFIC-LIGHT TIMER RING */
+    .timer-ring-traffic { width: 118px; height: 118px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 12px auto; font-size: 32px; font-weight: 1000; transition: all 0.25s; }
+    .traffic-green { background: #f0fdf4; border: 5px solid #22c55e; color: #15803d; box-shadow: 0 4px 0 #86efac; }
+    .traffic-yellow { background: #fefce8; border: 5px solid #eab308; color: #854d0e; box-shadow: 0 4px 0 #fde047; }
+    .traffic-red { background: #fef2f2; border: 5px solid #ef4444; color: #b91c1c; box-shadow: 0 4px 0 #fca5a5; animation: redPulse 1.1s infinite; }
+    @keyframes redPulse {
+      0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+      70% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+
+    .traffic-legend-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 8px 0 12px; font-size: 12px; font-weight: 800; }
+    .t-dot { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 999px; background: #f1f5f9; color: #475569; }
+    .t-dot.active-zone { font-weight: 900; border: 1.5px solid currentColor; }
+
+    .notes-textarea { width: 100%; box-sizing: border-box; min-height: 84px; border: 2px solid #cbd5e1; border-radius: 14px; padding: 12px 14px; font-family: inherit; font-size: 15px; font-weight: 700; color: #1e293b; resize: vertical; margin-top: 6px; }
+    .notes-textarea:focus { outline: none; border-color: #58cc02; }
+
+    .mic-waveform-track { width: 100%; height: 12px; background: #e2e8f0; border-radius: 999px; overflow: hidden; margin: 12px 0; }
+    .mic-waveform-fill { height: 100%; width: 0%; background: #58cc02; transition: width 0.08s linear; }
+
+    .live-transcript-box { background: #ffffff; border: 2px solid #cbd5e1; border-radius: 14px; padding: 14px 16px; min-height: 92px; max-height: 170px; overflow-y: auto; text-align: left; font-size: 15px; font-weight: 700; color: #1e293b; line-height: 1.55; margin: 12px 0; }
+    .live-transcript-box:empty::before { content: "Speaking on the clock... recognised words appear here live."; color: #94a3b8; font-style: italic; }
+
+    .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 10px; margin: 16px 0; }
+    .metric-card { background: #ffffff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 14px 8px; text-align: center; box-shadow: 0 3px 0 #e2e8f0; color: #1e1b4b; }
+    .metric-num { font-size: 25px; font-weight: 1000; color: #1e1b4b; margin: 4px 0; }
+    .metric-label { font-size: 11px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    .signpost-chip { display: inline-flex; align-items: center; gap: 5px; padding: 5px 11px; border-radius: 10px; font-size: 12.5px; font-weight: 800; margin: 3px; }
+    .signpost-found { background: #dcfce7; color: #15803d; border: 1.5px solid #86efac; }
+    .signpost-missed { background: #f1f5f9; color: #64748b; border: 1.5px dashed #cbd5e1; }
+
+    .filler-highlight { background: #fef08a; color: #854d0e; padding: 2px 6px; border-radius: 6px; font-weight: 900; }
+    .prep-highlight { background: #dcfce7; color: #15803d; padding: 2px 6px; border-radius: 6px; font-weight: 900; }
+
+    .faq-card { background: #fff; border: 2px solid #e5e5e5; border-radius: 16px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 3px 0 #e5e5e5; text-align: left; }
+    .faq-q { font-size: 15.5px; font-weight: 900; color: #1e1b4b; margin: 0 0 6px; }
+    .faq-a { font-size: 14px; font-weight: 700; color: #475569; line-height: 1.6; margin: 0; }
+  </style>
+</head>
+<body>
+<header class="gp-header">
+<a class="gp-brand" href="../index.html">🦉 English <b>Flow</b></a>
+<nav class="gp-nav"><a href="../index.html">Home</a><a href="../game-practice.html">Practice</a><a href="../tenses.html">Tenses</a></nav>
+<div class="gp-stats"><span class="gp-stat streak">🔥 <b id="st-streak">0</b></span><span class="gp-stat xp">⚡ <b id="st-xp">0</b></span></div>
+</header>
+
+<main class="quiz-wrap">
+  <div style="text-align: left; margin-bottom: 8px;">
+    <a href="../index.html" style="font-weight: 800; font-size: 13px; color: #1cb0f6; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">🌐 English Flow</a>
+  </div>
+  <h1 style="font-size: 28px; font-weight: 1000; margin: 0 0 6px; color: #1e1b4b; line-height: 1.3;">Free Impromptu Speaking Topic Generator & Speech Timer</h1>
+  <p style="color: #64748b; font-weight: 700; margin: 0 0 16px; font-size: 15px;">Solo practice timer with spoken topic prompts: draw a surprise question, take 30 seconds to plan with PREP, speak for up to 2 minutes on the traffic-light clock, and get your words recognised, WPM, filler count, PREP signposts found, and voice playback.</p>
+
+  <div id="mic-compat-notice" class="notice-box" hidden>
+    ⚠️ <strong>Browser Notice:</strong> Live microphone speech recognition and recording work best in Google Chrome on desktop and Android. You can still use the topic generator, 30s prep timer, traffic-light clock, and typed fallback mode below.
+  </div>
+
+  <!-- STAGE 1: TOPIC DRAW & FRAMEWORK -->
+  <div id="stage-draw" class="q-card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+      <span style="font-size: 12px; font-weight: 900; color: #1cb0f6; letter-spacing: 1px; text-transform: uppercase;">1. PICK A CATEGORY & DRAW A TOPIC</span>
+      <span style="font-size: 13px; font-weight: 800; color: #ff9600;">+25 XP · +10 XP PREP/fluency bonus</span>
+    </div>
+
+    <div class="cat-pill-row">
+      <button type="button" class="cat-pill active" onclick="selectCategory('Any Topic', this)">🎲 Any Topic</button>
+      <button type="button" class="cat-pill" onclick="selectCategory('Opinion', this)">💬 Opinion</button>
+      <button type="button" class="cat-pill" onclick="selectCategory('Work', this)">💼 Work</button>
+      <button type="button" class="cat-pill" onclick="selectCategory('Personal Story', this)">📖 Personal Story</button>
+      <button type="button" class="cat-pill" onclick="selectCategory('Big Questions', this)">🌍 Big Questions</button>
+    </div>
+
+    <!-- Drawn Topic Card -->
+    <div class="topic-card-box">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+        <span id="draw-cat-badge" style="font-size: 12px; font-weight: 900; background: #e0f2fe; color: #0284c7; padding: 4px 10px; border-radius: 999px; text-transform: uppercase;">Opinion</span>
+        <button type="button" class="btn-3d btn-blue" onclick="hearCurrentTopic()" style="min-height: 36px; min-width: auto; padding: 6px 14px; font-size: 13px;">
+          🔊 Hear the Topic
+        </button>
+      </div>
+      <div id="draw-topic-prompt" class="topic-prompt-title">“Should everyone learn a second language?”</div>
+      <p style="font-size: 12.5px; font-weight: 900; color: #64748b; margin: 0; text-transform: uppercase; letter-spacing: 0.4px;">3 Talking Points to Help You Start:</p>
+      <ul id="draw-talking-points" class="talking-points-list"></ul>
+    </div>
+
+    <!-- PREP Framework Reminder Card -->
+    <div class="prep-framework-card">
+      <div style="font-size: 12.5px; font-weight: 900; color: #0369a1; text-transform: uppercase; letter-spacing: 0.5px;">
+        🧩 Use the PREP Framework (Signpost Phrases Detected Automatically):
+      </div>
+      <div class="prep-framework-grid">
+        <div class="prep-step-pill">
+          <strong>P — Point</strong>
+          “My main point is…” / “My point is…”
+        </div>
+        <div class="prep-step-pill">
+          <strong>R — Reason</strong>
+          “The reason is…” / “Because…”
+        </div>
+        <div class="prep-step-pill">
+          <strong>E — Example</strong>
+          “For example…”
+        </div>
+        <div class="prep-step-pill">
+          <strong>P — Point</strong>
+          “That is why…” / “So in conclusion…”
+        </div>
+      </div>
+    </div>
+
+    <div class="action-row">
+      <button type="button" class="btn-3d btn-blue" onclick="shuffleSurpriseTopic()">
+        🎲 Shuffle a Surprise Topic
+      </button>
+      <button type="button" class="btn-3d btn-green" onclick="startPrepStage()">
+        ⏱️ Start 30s Prep
+      </button>
+    </div>
+  </div>
+
+  <!-- STAGE 2: 30-SECOND PREP -->
+  <div id="stage-prep" class="q-card" hidden>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+      <span style="font-size: 12px; font-weight: 900; color: #0284c7; letter-spacing: 1px; text-transform: uppercase;">STAGE 1 OF 2: 30-SECOND PREPARATION</span>
+      <button type="button" class="btn-3d btn-blue" onclick="hearCurrentTopic()" style="min-height: 36px; min-width: auto; padding: 6px 14px; font-size: 13px;">
+        🔊 Hear the Topic Again
+      </button>
+    </div>
+
+    <div class="timer-ring-prep" id="prep-timer-val">30</div>
+    <p style="text-align: center; font-weight: 800; color: #0369a1; margin: -4px 0 12px;">
+      seconds to plan your opening point and one concrete example…
+    </p>
+
+    <div class="topic-card-box" style="margin: 10px 0;">
+      <div id="prep-topic-prompt" class="topic-prompt-title" style="font-size: 19px; margin-top: 0;"></div>
+      <ul id="prep-talking-points" class="talking-points-list"></ul>
+    </div>
+
+    <div style="text-align: left; margin-top: 12px;">
+      <label for="prep-notes-input" style="font-size: 13px; font-weight: 800; color: #475569;">
+        Quick Notes (Jot one opening line & one example — stays visible while speaking):
+      </label>
+      <textarea id="prep-notes-input" class="notes-textarea" placeholder="Opening point: My main point is... | Example: For example..."></textarea>
+    </div>
+
+    <div class="action-row">
+      <button type="button" class="btn-3d btn-green" onclick="skipPrepAndStartSpeaking()">
+        🎙️ Start Speaking Now →
+      </button>
+    </div>
+  </div>
+
+  <!-- STAGE 3: SPEAKING ON THE CLOCK (TRAFFIC-LIGHT TIMER) -->
+  <div id="stage-speaking" class="q-card" hidden>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+      <span id="speaking-status-badge" style="font-size: 12px; font-weight: 900; color: #15803d; letter-spacing: 1px; text-transform: uppercase;">🟢 GREEN ZONE (0:00–1:00): BUILD YOUR POINT & REASON</span>
+      <button type="button" class="btn-3d btn-blue" onclick="hearCurrentTopic()" style="min-height: 34px; min-width: auto; padding: 5px 12px; font-size: 12.5px;">
+        🔊 Hear the Topic Again
+      </button>
+    </div>
+
+    <!-- Traffic-Light Timer Ring -->
+    <div id="traffic-timer-ring" class="timer-ring-traffic traffic-green">
+      <span id="speaking-clock-display">0:00</span>
+      <small id="speaking-zone-sub" style="font-size: 11px; font-weight: 900; text-transform: uppercase;">of 2:00 max</small>
+    </div>
+
+    <div class="traffic-legend-row">
+      <span id="leg-green" class="t-dot active-zone" style="color:#15803d; background:#dcfce7;">🟢 0:00–1:00 Develop</span>
+      <span id="leg-yellow" class="t-dot" style="color:#854d0e; background:#fef9c3;">🟡 1:00–1:30 Sweet Spot</span>
+      <span id="leg-red" class="t-dot" style="color:#b91c1c; background:#fee2e2;">🔴 1:30–2:00 Wrap Up</span>
+    </div>
+
+    <div class="topic-card-box" style="margin: 10px 0; padding: 14px 16px;">
+      <div id="speaking-topic-prompt" style="font-size: 17px; font-weight: 900; color: #1e1b4b; margin-bottom: 6px;"></div>
+      <ul id="speaking-talking-points" class="talking-points-list" style="font-size: 13.5px;"></ul>
+      <div id="speaking-notes-preview" style="margin-top: 8px; font-size: 13px; font-weight: 800; color: #0284c7;" hidden></div>
+    </div>
+
+    <!-- Live Word & WPM Counters -->
+    <div style="display: flex; justify-content: space-around; gap: 10px; margin: 10px 0;">
+      <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 8px 14px; flex: 1; text-align: center;">
+        <div style="font-size: 22px; font-weight: 1000; color: #1e1b4b;" id="live-word-count">0</div>
+        <div style="font-size: 11px; font-weight: 800; color: #64748b; text-transform: uppercase;">Words Recognised</div>
+      </div>
+      <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 8px 14px; flex: 1; text-align: center;">
+        <div style="font-size: 22px; font-weight: 1000; color: #1e1b4b;" id="live-wpm-readout">—</div>
+        <div style="font-size: 11px; font-weight: 800; color: #64748b; text-transform: uppercase;">Live WPM</div>
+      </div>
+    </div>
+
+    <!-- Mic Capture Panel -->
+    <div id="mic-speaking-panel">
+      <div class="mic-waveform-track" title="Live microphone volume">
+        <div id="mic-waveform-bar" class="mic-waveform-fill"></div>
+      </div>
+
+      <div id="live-transcript-box" class="live-transcript-box"></div>
+
+      <div id="speak-retry-msg" class="notice-box" hidden>
+        No spoken words were recognised yet. Please check your microphone and speak clearly, or switch to Typed Fallback below.
+      </div>
+
+      <div class="action-row">
+        <button type="button" class="btn-3d btn-green" onclick="finishAndScoreSpeech(false)">
+          ⏹️ Finish & See My Score
+        </button>
+        <button type="button" class="btn-3d btn-slate" onclick="switchToTypedSpeechFallback()" style="min-width: auto; font-size: 14px; padding: 10px 16px;">
+          ⌨️ Typed Fallback
+        </button>
+      </div>
+    </div>
+
+    <!-- Typed Fallback Panel -->
+    <div id="typed-speaking-panel" hidden>
+      <p style="font-size: 14px; font-weight: 800; color: #475569; text-align: left; margin: 8px 0 4px;">
+        Type your impromptu response while the traffic-light clock runs (Typed check — score capped at 85 without live mic confirmation; WPM shown as "—"):
+      </p>
+      <textarea id="typed-speech-input" class="notes-textarea" style="min-height: 120px;" placeholder="Start typing your speech using PREP signposts (My main point is... The reason is... For example... That is why...)"></textarea>
+      <div id="typed-empty-msg" class="notice-box" hidden>
+        Please type your response before scoring.
+      </div>
+      <div class="action-row">
+        <button type="button" class="btn-3d btn-green" onclick="submitTypedSpeech(false)">
+          ✓ Finish & See My Score
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 4: IMPROMPTU DIAGNOSTIC & PLAYBACK -->
+  <div id="stage-results" class="result-card" hidden>
+    <div style="font-size: 48px;">🦉</div>
+    <h2 style="font-size: 25px; font-weight: 1000; margin: 4px 0 6px; color: #1e1b4b;">Impromptu Speaking Diagnostic</h2>
+
+    <div style="margin: 8px 0;">
+      <span id="res-score-badge" class="score-badge score-high">Natural Speaker · 92 / 100</span>
+    </div>
+    <p id="res-honesty-note" style="color: #475569; font-weight: 800; font-size: 14px; margin: 6px auto 14px; max-width: 580px;"></p>
+
+    <!-- Metrics Grid -->
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-label">Words Recognised</div>
+        <div class="metric-num" id="res-words-num">0</div>
+        <div style="font-size: 11px; font-weight: 800; color: #64748b;">Total volume</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Speaking Pace</div>
+        <div class="metric-num" id="res-wpm-num">0</div>
+        <div id="res-wpm-sub" style="font-size: 11px; font-weight: 800; color: #64748b;">Ideal: 120–160 WPM</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Speaking Time</div>
+        <div class="metric-num" id="res-time-num">0s</div>
+        <div id="res-time-sub" style="font-size: 11px; font-weight: 800; color: #64748b;">Sweet spot: 60–120s</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Filler Count</div>
+        <div class="metric-num" id="res-fillers-num" style="color: #b91c1c;">0</div>
+        <div id="res-fillers-sub" style="font-size: 11px; font-weight: 800; color: #64748b;">0.0% filler rate</div>
+      </div>
+    </div>
+
+    <!-- PREP Signposts Found (0-4) -->
+    <div style="background: #ffffff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 14px 16px; margin: 14px 0; text-align: left; color: #1e1b4b;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+        <strong style="font-size: 14px; font-weight: 900; color: #1e1b4b;">🧩 PREP Signposts Found (<span id="res-prep-count">0 / 4</span>):</strong>
+        <span style="font-size: 12px; font-weight: 800; color: #64748b;">Green = found · Grey = missed</span>
+      </div>
+      <div id="res-prep-chips"></div>
+    </div>
+
+    <!-- Self-Playback Audio Player -->
+    <div style="background: #ffffff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 14px 16px; margin: 14px 0; text-align: left; color: #1e1b4b;">
+      <h4 style="margin: 0 0 8px; font-size: 14px; font-weight: 900; color: #1e1b4b;">🔊 Play Back Your Impromptu Speech:</h4>
+      <audio id="user-audio-player" controls style="width: 100%; height: 38px; outline: none;"></audio>
+      <p id="no-audio-fallback-note" style="font-size: 13px; font-weight: 700; color: #64748b; margin: 6px 0 0;" hidden>
+        Self-playback is unavailable in typed fallback mode.
+      </p>
+    </div>
+
+    <!-- Full Transcript with Fillers & PREP Highlighted -->
+    <div style="background: #ffffff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 16px; margin: 14px 0; text-align: left; color: #1e1b4b;">
+      <h4 style="margin: 0 0 6px; font-size: 14px; font-weight: 900; color: #1e1b4b;">Your Transcript (Fillers in Yellow, PREP Signposts in Green):</h4>
+      <p id="res-transcript-display" style="margin: 0; font-size: 14.5px; font-weight: 700; color: #334155; line-height: 1.65;"></p>
+    </div>
+
+    <p style="font-weight: 900; font-size: 16px; color: #1e1b4b; margin: 16px 0 8px;">
+      🔥 Streak: <span id="final-streak">0</span> days · ⚡ Total XP: <span id="final-xp">0</span>
+      <span id="res-xp-note" style="display: block; font-size: 13px; color: #58cc02; font-weight: 800; margin-top: 4px;">+25 XP impromptu speech completed!</span>
+    </p>
+
+    <div class="action-row">
+      <a id="wa-share-btn" href="#" target="_blank" rel="noopener" class="btn-3d btn-green">
+        💬 Share My Score on WhatsApp
+      </a>
+      <button type="button" class="btn-3d btn-blue" onclick="tryAgainNewTopic()">
+        🔁 Try Again
+      </button>
+    </div>
+
+    <!-- Recommended English Resources Card -->
+    <div class="resource-card">
+      <h3>📚 Recommended English Resources</h3>
+      <p style="margin: 0 0 10px;">Build spontaneous speaking fluency and confidence with structured daily practice:</p>
+      <div style="margin-bottom: 12px;">
+        <a href="https://topmate.io/speak_english_with_confidence/2324225" target="_blank" rel="noopener noreferrer" class="btn-3d" style="background:#f59e0b; color:#1e1b4b; font-size:14px; padding:10px 18px; box-shadow:0 3px 0 #b45309;">
+          Get the 30-Day Speaking Workbook ($) →
+        </a>
+      </div>
+      <ul style="margin: 0; padding-left: 18px;">
+        <li><a href="../30-day-english-flow-workbook.pdf">30-Day English Flow Workbook (PDF)</a> – daily speaking drills</li>
+        <li><a href="../resources.html">Free Resources Library</a> – trackers, podcasts & templates</li>
+        <li><a href="../game-practice.html">Daily Practice Session</a> – keep your daily streak active</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CHEAT-SHEET SECTION: 5 IMPROMPTU SPEAKING TIPS -->
+  <section class="study-cheatsheet" aria-label="5 Impromptu Speaking Tips" style="margin: 30px 0 20px; padding: 20px; border: 2px dashed #1cb0f6; border-radius: 18px; background: #f7fdff; text-align: left;">
+    <h2 style="font-size: 20px; font-weight: 900; margin-top: 0; color: #0284c7;">📖 5 Impromptu Speaking Tips</h2>
+    <ul style="font-weight: 700; color: #334155; line-height: 1.7; padding-left: 20px;">
+      <li><strong>1. Use PREP — point, reason, example, point</strong> — state your position first, give one clear reason, share a real story, and restate your point at the end.</li>
+      <li><strong>2. Buy thinking time with one opening line</strong> — start calmly with <em>"That is an important question, and my main point is…"</em> while your brain organises the middle.</li>
+      <li><strong>3. Give one specific example, not five vague ones</strong> — a single 30-second personal story is far more convincing and easier to deliver than a list of abstract ideas.</li>
+      <li><strong>4. Keep talking until the timer enters the 1:00–2:00 sweet spot</strong> — when the traffic light turns yellow at 1:00, transition into your closing point.</li>
+      <li><strong>5. Record and replay yourself</strong> — listening back to your own 2-minute take is the fastest way to catch filler words and rushed transitions.</li>
+    </ul>
+    <p style="font-size: 13px; color: #64748b; font-weight: 700; margin: 12px 0 0;">
+      🦉 Flo tip: You don't need a perfect opinion on a surprise topic — pick one side within 5 seconds and commit to one real-life example!
+    </p>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section style="margin-top: 30px;" aria-label="Frequently asked questions">
+    <h2 style="font-size: 22px; font-weight: 1000; color: #1e1b4b; text-align: left; margin-bottom: 16px;">Frequently Asked Questions</h2>
+    <div class="faq-card">
+      <h3 class="faq-q">How does impromptu speaking practice work on this page?</h3>
+      <p class="faq-a">You pick a topic category (or draw any surprise topic), listen to the prompt via native-style browser audio, take 30 seconds to jot an opening line and one example using the PREP framework, and then speak for 1 to 2 minutes against a traffic-light timer. At the end, you see your words recognised, speaking pace in WPM, filler count, PREP signposts found, and a playback player for your own recording.</p>
+    </div>
+    <div class="faq-card">
+      <h3 class="faq-q">Is my voice audio stored or uploaded anywhere?</h3>
+      <p class="faq-a">No. Your voice recording and browser speech recognition transcript stay strictly inside your local browser session. Nothing is uploaded, stored on external servers, or shared.</p>
+    </div>
+    <div class="faq-card">
+      <h3 class="faq-q">Which browsers support microphone recording and live speech recognition?</h3>
+      <p class="faq-a">Live microphone speech recognition and audio recording work best in Google Chrome on desktop and Android. If your browser does not support Web Speech recognition, you can still use the topic generator, 30s prep timer, traffic-light clock, and typed fallback mode.</p>
+    </div>
+    <div class="faq-card">
+      <h3 class="faq-q">How do XP and daily streaks work on English Flow?</h3>
+      <p class="faq-a">You earn +25 XP for completing an impromptu speaking round, plus a +10 XP bonus when you use all 4 PREP signposts or speak for 60–120 seconds with under 3% filler words. Completing your first practice session of the day increments your daily English Flow streak.</p>
+    </div>
+  </section>
+
+  <footer style="margin-top: 28px; text-align: center; font-size: 14px; font-weight: 800; color: #94a3b8;">
+    <a href="../index.html" style="color: #64748b; text-decoration: none;">← Back to English Flow Home</a>
+  </footer>
+</main>
+
+<script>
+  const TOPICS = [
+    {
+      cat: "Opinion",
+      prompt: "Should everyone learn a second language?",
+      points: [
+        "how it changes the way you think",
+        "career and travel doors it opens",
+        "how you would start learning one"
+      ]
+    },
+    {
+      cat: "Opinion",
+      prompt: "Is working from home better than working in an office?",
+      points: [
+        "focus and quiet time",
+        "teamwork and quick questions",
+        "the line between work and home life"
+      ]
+    },
+    {
+      cat: "Opinion",
+      prompt: "Should phones be banned at the dinner table?",
+      points: [
+        "attention and real conversation",
+        "respect for the people with you",
+        "one exception where a phone helps"
+      ]
+    },
+    {
+      cat: "Work",
+      prompt: "Describe a time you solved a difficult problem at work.",
+      points: [
+        "what the problem was",
+        "what you did step by step",
+        "the result and what you learned"
+      ]
+    },
+    {
+      cat: "Work",
+      prompt: "How do you handle a disagreement with a colleague?",
+      points: [
+        "listen first and repeat their point",
+        "find the common ground",
+        "agree on clear next steps"
+      ]
+    },
+    {
+      cat: "Work",
+      prompt: "What makes a great team leader?",
+      points: [
+        "listening before deciding",
+        "giving clear direction",
+        "trusting the team to deliver"
+      ]
+    },
+    {
+      cat: "Personal Story",
+      prompt: "Describe the best advice you ever received.",
+      points: [
+        "who gave it to you",
+        "what the advice was",
+        "how it changed what you did"
+      ]
+    },
+    {
+      cat: "Personal Story",
+      prompt: "Talk about a skill you would love to learn.",
+      points: [
+        "why this skill interests you",
+        "how you would learn it",
+        "what you would do with it first"
+      ]
+    },
+    {
+      cat: "Personal Story",
+      prompt: "Describe a place that makes you feel calm.",
+      points: [
+        "where the place is",
+        "what it looks and sounds like",
+        "why it calms you down"
+      ]
+    },
+    {
+      cat: "Big Questions",
+      prompt: "Will robots do most jobs in twenty years?",
+      points: [
+        "which jobs change first",
+        "what only humans can do",
+        "how people should prepare"
+      ]
+    },
+    {
+      cat: "Big Questions",
+      prompt: "Is it better to have many friends or a few close ones?",
+      points: [
+        "time and trust",
+        "support in hard times",
+        "your own experience"
+      ]
+    },
+    {
+      cat: "Big Questions",
+      prompt: "What is one habit that changed your life?",
+      points: [
+        "the habit itself",
+        "how you started it",
+        "the difference it made"
+      ]
+    }
+  ];
+
+  const PREP_SIGNPOSTS = [
+    {
+      step: "P — Point",
+      label: "“my main point” / “my point is”",
+      patterns: ["my main point", "my point is"]
+    },
+    {
+      step: "R — Reason",
+      label: "“the reason is” / “because”",
+      patterns: ["the reason is", "because"]
+    },
+    {
+      step: "E — Example",
+      label: "“for example”",
+      patterns: ["for example"]
+    },
+    {
+      step: "P — Closing Point",
+      label: "“that is why” / “so in conclusion”",
+      patterns: ["that is why", "so in conclusion"]
+    }
+  ];
+
+  const FILLER_REGEX = /\b(you know|um|uh|like|basically|actually|erm)\b/gi;
+
+  let currentCategory = "Any Topic";
+  let currentTopicObj = TOPICS[0];
+
+  // Timers & Speech State
+  let prepInterval = null;
+  let speakingInterval = null;
+  let prepSecondsLeft = 30;
+  let speakingElapsedSec = 0;
+  let speakingMaxSec = 120; // 2:00 max
+  let isTypedFallback = false;
+  let liveTranscriptText = "";
+
+  // Media & Speech APIs
+  let mediaStream = null;
+  let mediaRecorder = null;
+  let audioChunks = [];
+  let audioBlobUrl = null;
+  let audioCtx = null;
+  let analyser = null;
+  let animFrameId = null;
+
+  let recognition = null;
+  let isMicActive = false;
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const isSpeechSupported = !!SpeechRecognition;
+  const isMediaRecorderSupported = typeof MediaRecorder !== 'undefined';
+
+  // Unified localStorage stats
+  let xp = parseInt(localStorage.getItem('userXP')) || 0;
+  let streak = parseInt(localStorage.getItem('english_flow_streak')) || 0;
+
+  function renderStats() {
+    document.getElementById('st-streak').textContent = streak;
+    document.getElementById('st-xp').textContent = xp;
+  }
+
+  if (!isSpeechSupported || !isMediaRecorderSupported) {
+    document.getElementById('mic-compat-notice').removeAttribute('hidden');
+  }
+
+  function getPoolForCategory(cat) {
+    if (cat === "Any Topic") return TOPICS;
+    return TOPICS.filter(t => t.cat === cat);
+  }
+
+  function renderCurrentTopicViews() {
+    document.getElementById('draw-cat-badge').textContent = currentTopicObj.cat;
+    document.getElementById('draw-topic-prompt').textContent = '“' + currentTopicObj.prompt + '”';
+    document.getElementById('prep-topic-prompt').textContent = '“' + currentTopicObj.prompt + '”';
+    document.getElementById('speaking-topic-prompt').textContent = '“' + currentTopicObj.prompt + '”';
+
+    ['draw-talking-points', 'prep-talking-points', 'speaking-talking-points'].forEach(listId => {
+      const ul = document.getElementById(listId);
+      ul.innerHTML = '';
+      currentTopicObj.points.forEach(pt => {
+        const li = document.createElement('li');
+        li.textContent = pt;
+        ul.appendChild(li);
+      });
+    });
+  }
+
+  function selectCategory(cat, btnEl) {
+    currentCategory = cat;
+    document.querySelectorAll('.cat-pill').forEach(b => b.classList.remove('active'));
+    btnEl.classList.add('active');
+    const pool = getPoolForCategory(cat);
+    currentTopicObj = pool[0];
+    renderCurrentTopicViews();
+  }
+
+  function shuffleSurpriseTopic() {
+    const pool = getPoolForCategory(currentCategory);
+    if (pool.length <= 1) return;
+    let candidate = pool[Math.floor(Math.random() * pool.length)];
+    if (candidate.prompt === currentTopicObj.prompt) {
+      const idx = pool.indexOf(currentTopicObj);
+      candidate = pool[(idx + 1) % pool.length];
+    }
+    currentTopicObj = candidate;
+    renderCurrentTopicViews();
+  }
+
+  function hearCurrentTopic() {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(currentTopicObj.prompt);
+      u.lang = 'en-US';
+      u.rate = 0.96;
+      window.speechSynthesis.speak(u);
+    }
+  }
+
+  // STAGE 2: 30-SECOND PREP
+  function startPrepStage() {
+    document.getElementById('stage-draw').setAttribute('hidden', '');
+    document.getElementById('stage-speaking').setAttribute('hidden', '');
+    document.getElementById('stage-results').setAttribute('hidden', '');
+    document.getElementById('stage-prep').removeAttribute('hidden');
+
+    document.getElementById('prep-notes-input').value = '';
+    prepSecondsLeft = 30;
+    document.getElementById('prep-timer-val').textContent = prepSecondsLeft;
+
+    hearCurrentTopic();
+
+    if (prepInterval) clearInterval(prepInterval);
+    prepInterval = setInterval(() => {
+      prepSecondsLeft--;
+      document.getElementById('prep-timer-val').textContent = prepSecondsLeft;
+      if (prepSecondsLeft <= 0) {
+        clearInterval(prepInterval);
+        prepInterval = null;
+        startSpeakingStage();
+      }
+    }, 1000);
+  }
+
+  function skipPrepAndStartSpeaking() {
+    if (prepInterval) {
+      clearInterval(prepInterval);
+      prepInterval = null;
+    }
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    startSpeakingStage();
+  }
+
+  function formatMinSec(sec) {
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60);
+    return m + ':' + (s < 10 ? '0' : '') + s;
+  }
+
+  function updateTrafficLightVisuals(sec) {
+    const ring = document.getElementById('traffic-timer-ring');
+    const badge = document.getElementById('speaking-status-badge');
+    const gDot = document.getElementById('leg-green');
+    const yDot = document.getElementById('leg-yellow');
+    const rDot = document.getElementById('leg-red');
+
+    ring.classList.remove('traffic-green', 'traffic-yellow', 'traffic-red');
+    gDot.classList.remove('active-zone');
+    yDot.classList.remove('active-zone');
+    rDot.classList.remove('active-zone');
+
+    if (sec < 60) {
+      ring.classList.add('traffic-green');
+      gDot.classList.add('active-zone');
+      badge.textContent = '🟢 GREEN ZONE (0:00–1:00): STATE YOUR POINT, REASON & EXAMPLE';
+      badge.style.color = '#15803d';
+    } else if (sec < 90) {
+      ring.classList.add('traffic-yellow');
+      yDot.classList.add('active-zone');
+      badge.textContent = '🟡 YELLOW ZONE (1:00–1:30): SWEET SPOT REACHED — DEEPEN OR CONCLUDE';
+      badge.style.color = '#854d0e';
+    } else {
+      ring.classList.add('traffic-red');
+      rDot.classList.add('active-zone');
+      badge.textContent = '🔴 RED ZONE (1:30–2:00): WRAP UP WITH YOUR CLOSING POINT NOW';
+      badge.style.color = '#b91c1c';
+    }
+  }
+
+  // STAGE 3: SPEAKING ON THE CLOCK
+  async function startSpeakingStage() {
+    document.getElementById('stage-draw').setAttribute('hidden', '');
+    document.getElementById('stage-prep').setAttribute('hidden', '');
+    document.getElementById('stage-results').setAttribute('hidden', '');
+    document.getElementById('stage-speaking').removeAttribute('hidden');
+
+    const notes = document.getElementById('prep-notes-input').value.trim();
+    const notesPreview = document.getElementById('speaking-notes-preview');
+    if (notes) {
+      notesPreview.textContent = '📝 Your Prep Notes: ' + notes;
+      notesPreview.removeAttribute('hidden');
+    } else {
+      notesPreview.setAttribute('hidden', '');
+    }
+
+    liveTranscriptText = "";
+    speakingElapsedSec = 0;
+    isTypedFallback = false;
+
+    document.getElementById('speaking-clock-display').textContent = '0:00';
+    document.getElementById('live-word-count').textContent = '0';
+    document.getElementById('live-wpm-readout').textContent = '—';
+    document.getElementById('live-transcript-box').textContent = '';
+    document.getElementById('speak-retry-msg').setAttribute('hidden', '');
+    updateTrafficLightVisuals(0);
+
+    if (!isSpeechSupported || !isMediaRecorderSupported) {
+      switchToTypedSpeechFallback();
+      return;
+    }
+
+    try {
+      mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    } catch (err) {
+      document.getElementById('mic-compat-notice').removeAttribute('hidden');
+      switchToTypedSpeechFallback();
+      return;
+    }
+
+    document.getElementById('mic-speaking-panel').removeAttribute('hidden');
+    document.getElementById('typed-speaking-panel').setAttribute('hidden', '');
+
+    isMicActive = true;
+    setupAudioMeter(mediaStream);
+    setupMediaRecorder(mediaStream);
+    setupSpeechRecognition();
+
+    try { recognition.start(); } catch (e) {}
+    try { mediaRecorder.start(); } catch (e) {}
+
+    startTrafficLightClock();
+  }
+
+  function startTrafficLightClock() {
+    speakingElapsedSec = 0;
+    if (speakingInterval) clearInterval(speakingInterval);
+    speakingInterval = setInterval(() => {
+      speakingElapsedSec++;
+      document.getElementById('speaking-clock-display').textContent = formatMinSec(speakingElapsedSec);
+      updateTrafficLightVisuals(speakingElapsedSec);
+      updateLiveWpmAndWords();
+
+      if (speakingElapsedSec >= speakingMaxSec) {
+        clearInterval(speakingInterval);
+        speakingInterval = null;
+        if (isTypedFallback) {
+          submitTypedSpeech(true);
+        } else {
+          finishAndScoreSpeech(true);
+        }
+      }
+    }, 1000);
+  }
+
+  function countWords(str) {
+    if (!str || !str.trim()) return 0;
+    return str.trim().split(/\s+/).filter(Boolean).length;
+  }
+
+  function updateLiveWpmAndWords() {
+    const words = countWords(liveTranscriptText);
+    document.getElementById('live-word-count').textContent = words;
+    if (!isTypedFallback && speakingElapsedSec >= 15 && words >= 5) {
+      const wpm = Math.round(words / (speakingElapsedSec / 60));
+      document.getElementById('live-wpm-readout').textContent = wpm;
+    } else {
+      document.getElementById('live-wpm-readout').textContent = '—';
+    }
+  }
+
+  function setupAudioMeter(stream) {
+    try {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      analyser = audioCtx.createAnalyser();
+      const source = audioCtx.createMediaStreamSource(stream);
+      source.connect(analyser);
+      analyser.fftSize = 64;
+      const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+      function updateWave() {
+        if (!isMicActive) return;
+        analyser.getByteFrequencyData(dataArray);
+        let sum = 0;
+        for (let i = 0; i < dataArray.length; i++) sum += dataArray[i];
+        const pct = Math.min(100, Math.round(((sum / dataArray.length) / 128) * 100));
+        const bar = document.getElementById('mic-waveform-bar');
+        if (bar) bar.style.width = pct + '%';
+        animFrameId = requestAnimationFrame(updateWave);
+      }
+      updateWave();
+    } catch (e) {}
+  }
+
+  function setupMediaRecorder(stream) {
+    audioChunks = [];
+    try {
+      mediaRecorder = new MediaRecorder(stream);
+      mediaRecorder.ondataavailable = e => {
+        if (e.data && e.data.size > 0) audioChunks.push(e.data);
+      };
+      mediaRecorder.onstop = () => {
+        if (audioChunks.length > 0) {
+          const blob = new Blob(audioChunks, { type: 'audio/webm' });
+          if (audioBlobUrl) URL.revokeObjectURL(audioBlobUrl);
+          audioBlobUrl = URL.createObjectURL(blob);
+          const player = document.getElementById('user-audio-player');
+          player.src = audioBlobUrl;
+          player.removeAttribute('hidden');
+          document.getElementById('no-audio-fallback-note').setAttribute('hidden', '');
+        }
+      };
+    } catch (e) {}
+  }
+
+  function setupSpeechRecognition() {
+    recognition = new SpeechRecognition();
+    recognition.lang = 'en-US';
+    recognition.continuous = true;
+    recognition.interimResults = true;
+
+    recognition.onresult = event => {
+      let interim = '';
+      let final = '';
+      for (let i = 0; i < event.results.length; i++) {
+        if (event.results[i].isFinal) {
+          final += event.results[i][0].transcript + ' ';
+        } else {
+          interim += event.results[i][0].transcript;
+        }
+      }
+      liveTranscriptText = (final + interim).trim();
+      document.getElementById('live-transcript-box').textContent = liveTranscriptText;
+      updateLiveWpmAndWords();
+    };
+
+    recognition.onerror = event => {
+      if (event.error === 'not-allowed') {
+        cleanupMedia();
+        document.getElementById('mic-compat-notice').removeAttribute('hidden');
+        switchToTypedSpeechFallback();
+      }
+    };
+  }
+
+  function cleanupMedia() {
+    isMicActive = false;
+    if (prepInterval) { clearInterval(prepInterval); prepInterval = null; }
+    if (speakingInterval) { clearInterval(speakingInterval); speakingInterval = null; }
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    if (animFrameId) cancelAnimationFrame(animFrameId);
+    if (recognition) { try { recognition.stop(); } catch (e) {} }
+    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+      try { mediaRecorder.stop(); } catch (e) {}
+    }
+    if (mediaStream) {
+      mediaStream.getTracks().forEach(t => t.stop());
+    }
+    if (audioCtx && audioCtx.state !== 'closed') {
+      try { audioCtx.close(); } catch (e) {}
+    }
+  }
+
+  function switchToTypedSpeechFallback() {
+    cleanupMedia();
+    isTypedFallback = true;
+    document.getElementById('mic-speaking-panel').setAttribute('hidden', '');
+    document.getElementById('typed-speaking-panel').removeAttribute('hidden');
+    document.getElementById('typed-speech-input').value = '';
+    document.getElementById('typed-empty-msg').setAttribute('hidden', '');
+    startTrafficLightClock();
+  }
+
+  function finishAndScoreSpeech(autoFinished) {
+    const words = countWords(liveTranscriptText);
+    if (words < 3 && !autoFinished) {
+      document.getElementById('speak-retry-msg').removeAttribute('hidden');
+      return;
+    }
+    if (words < 3 && autoFinished) {
+      cleanupMedia();
+      document.getElementById('speak-retry-msg').removeAttribute('hidden');
+      return;
+    }
+
+    const durationSec = Math.max(5, speakingElapsedSec);
+    cleanupMedia();
+    document.getElementById('stage-speaking').setAttribute('hidden', '');
+    evaluateImpromptuResults(liveTranscriptText, durationSec, false);
+  }
+
+  function submitTypedSpeech(autoFinished) {
+    const typedText = document.getElementById('typed-speech-input').value.trim();
+    const words = countWords(typedText);
+    if (words < 3 && !autoFinished) {
+      document.getElementById('typed-empty-msg').removeAttribute('hidden');
+      return;
+    }
+    const durationSec = Math.max(5, speakingElapsedSec);
+    cleanupMedia();
+    document.getElementById('stage-speaking').setAttribute('hidden', '');
+    document.getElementById('user-audio-player').setAttribute('hidden', '');
+    document.getElementById('no-audio-fallback-note').removeAttribute('hidden');
+    evaluateImpromptuResults(typedText, durationSec, true);
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
+  }
+
+  // STAGE 4: IMPROMPTU DIAGNOSTIC & PLAYBACK
+  function evaluateImpromptuResults(transcript, durationSec, isTyped) {
+    const totalWords = countWords(transcript);
+    const lower = transcript.toLowerCase();
+
+    // 1. Duration sub-score (max 30 pts; sweet spot 60–120s)
+    let durationPts = 10;
+    const timeSubEl = document.getElementById('res-time-sub');
+    if (durationSec >= 60 && durationSec <= 120) {
+      durationPts = 30;
+      timeSubEl.textContent = '✓ In 60–120s sweet spot!';
+      timeSubEl.style.color = '#15803d';
+    } else if (durationSec >= 40) {
+      durationPts = 20;
+      timeSubEl.textContent = 'Aim for 60–120s sweet spot';
+      timeSubEl.style.color = '#854d0e';
+    } else {
+      durationPts = 10;
+      timeSubEl.textContent = 'Under 60s target window';
+      timeSubEl.style.color = '#b91c1c';
+    }
+
+    // 2. WPM sub-score (max 25 pts; ideal band 120–160 WPM; honest "—" in typed mode or <15s)
+    let wpmDisplay = '—';
+    let numericWpm = 0;
+    let pacePts = 18;
+    const wpmSubEl = document.getElementById('res-wpm-sub');
+
+    if (!isTyped && durationSec >= 15 && totalWords >= 10) {
+      numericWpm = Math.round(totalWords / (durationSec / 60));
+      wpmDisplay = numericWpm;
+      if (numericWpm >= 120 && numericWpm <= 160) {
+        pacePts = 25;
+        wpmSubEl.textContent = '✓ Ideal 120–160 WPM band!';
+        wpmSubEl.style.color = '#15803d';
+      } else if (numericWpm >= 95 && numericWpm <= 180) {
+        pacePts = 18;
+        wpmSubEl.textContent = 'Ideal: 120–160 WPM';
+        wpmSubEl.style.color = '#854d0e';
+      } else {
+        pacePts = 10;
+        wpmSubEl.textContent = numericWpm < 95 ? 'Steady (<120 WPM)' : 'Fast (>160 WPM)';
+        wpmSubEl.style.color = '#b91c1c';
+      }
+    } else {
+      wpmSubEl.textContent = isTyped ? 'Pace not measured in typed mode' : 'Speak 15s+ for WPM';
+      wpmSubEl.style.color = '#64748b';
+    }
+
+    // 3. Filler count & sub-score (max 20 pts)
+    const fillerMatches = transcript.match(FILLER_REGEX) || [];
+    const fillerCount = fillerMatches.length;
+    const fillerRate = totalWords > 0 ? (fillerCount / totalWords) * 100 : 0;
+    const fillerPts = Math.max(0, Math.round(20 - (fillerRate * 2.5)));
+
+    // 4. PREP Signpost detection (0–4; max 25 pts)
+    let prepFoundCount = 0;
+    const chipsBox = document.getElementById('res-prep-chips');
+    chipsBox.innerHTML = '';
+
+    PREP_SIGNPOSTS.forEach(item => {
+      const isHit = item.patterns.some(pat => lower.includes(pat));
+      if (isHit) prepFoundCount++;
+      const chip = document.createElement('span');
+      chip.className = 'signpost-chip ' + (isHit ? 'signpost-found' : 'signpost-missed');
+      chip.textContent = (isHit ? '✓ ' : '— ') + item.step + ': ' + item.label;
+      chipsBox.appendChild(chip);
+    });
+
+    document.getElementById('res-prep-count').textContent = prepFoundCount + ' / 4';
+    const prepPts = Math.round((prepFoundCount / 4) * 25);
+
+    // Total Impromptu Score (0–100)
+    let totalScore = Math.min(100, durationPts + pacePts + fillerPts + prepPts);
+    if (isTyped) {
+      totalScore = Math.min(85, totalScore);
+    }
+
+    const badge = document.getElementById('res-score-badge');
+    badge.className = 'score-badge';
+    let bandName = '';
+    if (totalScore >= 90) {
+      bandName = 'Natural Speaker';
+      badge.classList.add('score-high');
+    } else if (totalScore >= 70) {
+      bandName = 'Confident Impromptu';
+      badge.classList.add('score-high');
+    } else if (totalScore >= 40) {
+      bandName = 'Good Start';
+      badge.classList.add('score-med');
+    } else {
+      bandName = 'Keep Practising';
+      badge.classList.add('score-low');
+    }
+    badge.textContent = bandName + ' · Impromptu Score: ' + totalScore + ' / 100';
+
+    const honestyEl = document.getElementById('res-honesty-note');
+    if (isTyped) {
+      honestyEl.textContent = 'Typed check — score capped at 85 without live mic confirmation, and WPM is shown as "—". Based on words recognised, PREP signposts found, and filler count.';
+    } else {
+      honestyEl.textContent =
+        'Scored from browser word-recognition match (' + totalWords + ' words recognised), speaking time (' +
+        durationSec + 's vs 60–120s sweet spot), filler count (' + fillerCount + '), and PREP signposts found (' + prepFoundCount + '/4).';
+    }
+
+    document.getElementById('res-words-num').textContent = totalWords;
+    document.getElementById('res-wpm-num').textContent = wpmDisplay;
+    document.getElementById('res-time-num').textContent = durationSec + 's';
+    document.getElementById('res-fillers-num').textContent = fillerCount;
+    document.getElementById('res-fillers-sub').textContent = fillerRate.toFixed(1) + '% filler rate';
+
+    // Highlight fillers and PREP signposts in transcript
+    let safeHtml = escapeHtml(transcript.trim() || 'No text recorded.');
+    safeHtml = safeHtml.replace(FILLER_REGEX, m => '<span class="filler-highlight">' + m + '</span>');
+    const prepPhrasesRegex = /\b(my main point|my point is|the reason is|because|for example|that is why|so in conclusion)\b/gi;
+    safeHtml = safeHtml.replace(prepPhrasesRegex, m => '<span class="prep-highlight">' + m + '</span>');
+    document.getElementById('res-transcript-display').innerHTML = '“' + safeHtml + '”';
+
+    // XP & Streak (+25 XP + 10 XP bonus for all 4 PREP signposts OR speaking 60–120s with <3% fillers)
+    const earnedBonus = (prepFoundCount === 4) || (!isTyped && durationSec >= 60 && durationSec <= 120 && fillerRate < 3.0);
+    const earnedXP = earnedBonus ? 35 : 25;
+    xp += earnedXP;
+    localStorage.setItem('userXP', xp);
+
+    const today = new Date().toDateString();
+    const lastPractice = localStorage.getItem('english_flow_last_practice');
+    if (lastPractice !== today) {
+      streak += 1;
+      localStorage.setItem('english_flow_streak', streak);
+      localStorage.setItem('english_flow_last_practice', today);
+    }
+    renderStats();
+
+    document.getElementById('final-streak').textContent = streak;
+    document.getElementById('final-xp').textContent = xp;
+    document.getElementById('res-xp-note').textContent = earnedBonus
+      ? '+25 XP impromptu speech + 10 XP PREP/fluency mastery bonus awarded! (+35 XP)'
+      : '+25 XP impromptu speech completed!';
+
+    // WhatsApp Share
+    const canonical = "https://englishflowofficial.github.io/tools/impromptu-speaking-practice.html";
+    const shareText =
+      "I scored " + totalScore + "/100 (" + bandName + ") with " + prepFoundCount +
+      "/4 PREP signposts on the English Flow Impromptu Speaking Timer! 🦉 Try a surprise topic free: " + canonical;
+    document.getElementById('wa-share-btn').href = "https://api.whatsapp.com/send?text=" + encodeURIComponent(shareText);
+
+    document.getElementById('stage-results').removeAttribute('hidden');
+  }
+
+  function tryAgainNewTopic() {
+    cleanupMedia();
+    shuffleSurpriseTopic();
+    document.getElementById('stage-results').setAttribute('hidden', '');
+    document.getElementById('stage-speaking').setAttribute('hidden', '');
+    document.getElementById('stage-prep').setAttribute('hidden', '');
+    document.getElementById('stage-draw').removeAttribute('hidden');
+  }
+
+  // Initialize
+  renderStats();
+  renderCurrentTopicViews();
+</script>
+<script src="../ef-analytics.js" defer></script>
+</body>
+</html>
