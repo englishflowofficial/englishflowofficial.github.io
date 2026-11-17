@@ -954,6 +954,13 @@
     document.getElementById('typed-description-input').value = '';
     document.getElementById('typed-empty-msg').setAttribute('hidden', '');
     document.getElementById('speaking-mode-badge').textContent = '⌨️ TYPED FALLBACK MODE (40s)';
+    // Live word count in typed mode: mirror the textarea into the live transcript
+    // so updateLiveMetrics() counts typed words (it otherwise only reads speech recognition).
+    document.getElementById('typed-description-input').oninput = function () {
+      liveTranscriptText = this.value.trim();
+      document.getElementById('live-transcript-box').textContent = liveTranscriptText;
+      updateLiveMetrics();
+    };
     startSpeakingCountdown();
   }
 
