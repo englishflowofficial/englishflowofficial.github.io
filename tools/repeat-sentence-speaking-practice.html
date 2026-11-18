@@ -304,7 +304,8 @@
       <p style="font-size: 14px; font-weight: 800; color: #475569; text-align: left; margin: 8px 0 4px;">
         Type the sentence you just heard from memory before the 15s timer ends (Typed check — score capped at 85 without live mic confirmation; WPM shown as "—"):
       </p>
-      <textarea id="typed-repeat-input" class="typed-memory-area" placeholder="Type what you remember hearing..."></textarea>
+      <textarea id="typed-repeat-input" class="typed-memory-area" placeholder="Type what you remember hearing..." oninput="updateTypedWordCount()"></textarea>
+      <p id="typed-word-count" style="font-size: 13px; font-weight: 800; color: #475569; margin: 2px 0 8px; text-align: left;">0 words typed</p>
       <div id="typed-empty-msg" class="notice-box" hidden>
         Please type the words you remember before scoring.
       </div>
@@ -775,12 +776,19 @@
     }
   }
 
+  function updateTypedWordCount() {
+    const n = getCleanTokens(document.getElementById('typed-repeat-input').value).length;
+    const el = document.getElementById('typed-word-count');
+    if (el) el.textContent = n + (n === 1 ? ' word typed' : ' words typed');
+  }
+
   function switchToTypedRepeatFallback() {
     cleanupMedia();
     isTypedFallback = true;
     document.getElementById('mic-repeat-panel').setAttribute('hidden', '');
     document.getElementById('typed-repeat-panel').removeAttribute('hidden');
     document.getElementById('typed-repeat-input').value = '';
+    document.getElementById('typed-word-count').textContent = '0 words typed';
     document.getElementById('typed-empty-msg').setAttribute('hidden', '');
     document.getElementById('repeat-mode-badge').textContent = '⌨️ TYPED FALLBACK MODE (15s)';
     startRepeatCountdown();
