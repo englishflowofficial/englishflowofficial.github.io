@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#58cc02" />
+  <meta name="robots" content="index, follow" />
+  <title>Repeat Sentence Speaking Practice (Mic) | English Flow</title>
+  <meta name="description" content="Practise repeat-sentence speaking tests online free. Hear a sentence once with text hidden, repeat it into your mic, and check words matched & audio playback." />
+  <meta name="keywords" content="repeat sentence speaking practice, PTE repeat sentence practice online, listen and repeat english test, english memory speaking test, english flow" />
+  <link rel="canonical" href="https://englishflowofficial.github.io/tools/repeat-sentence-speaking-practice.html" />
+  <link rel="icon" href="../favicon.jpg" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://englishflowofficial.github.io/tools/repeat-sentence-speaking-practice.html" />
+  <meta property="og:title" content="Repeat Sentence Speaking Practice (Mic) | English Flow" />
+  <meta property="og:description" content="Practise repeat-sentence speaking tests online free. Hear a sentence once with text hidden, repeat it into your mic, and check words matched & audio playback." />
+  <meta property="og:image" content="https://englishflowofficial.github.io/og-image.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@EnglishFlowPodcastt" />
+  <meta name="twitter:title" content="Repeat Sentence Speaking Practice (Mic) | English Flow" />
+  <meta name="twitter:description" content="Practise repeat-sentence speaking tests online free. Hear a sentence once with text hidden, repeat it into your mic, and check words matched & audio playback." />
+  <meta name="twitter:image" content="https://englishflowofficial.github.io/og-image.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900;1000&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../game-practice.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Repeat Sentence Speaking Practice",
+    "url": "https://englishflowofficial.github.io/tools/repeat-sentence-speaking-practice.html",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": 0,
+      "priceCurrency": "USD"
+    },
+    "description": "Free browser-based repeat-sentence speaking practice: listen to a hidden English sentence once via native-style browser speech, repeat it from memory into your microphone after the chime cue, and review your words recognised in sequence alongside A/B audio playback.",
+    "provider": {
+      "@type": "Organization",
+      "name": "English Flow",
+      "url": "https://englishflowofficial.github.io/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does Repeat Sentence speaking practice work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You pick a difficulty tier (Short 7–9 words, Medium 10–12 words, or Long 13–14 words) and tap Hear Sentence. The sentence is spoken once using native-style browser speech while the text stays hidden. After a short chime cue, you have 15 seconds to repeat the sentence from memory into your microphone, and then the hidden sentence reveals word-by-word showing which words were recognised in sequence."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my voice audio stored or uploaded anywhere?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Your voice recording and browser speech recognition transcript stay 100% inside your local web browser session. Nothing is uploaded, stored on external servers, or shared."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which web browsers support microphone recording and speech recognition?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Live microphone speech recognition and audio recording work best in Google Chrome on desktop and Android. If your browser does not support Web Speech recognition, you can still listen to the hidden sentence and type what you remember in typed fallback mode."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do XP and daily streaks work on English Flow?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You earn +20 XP for completing a repeat-sentence check, plus a +10 XP bonus when 90% or more of the target words are recognised in sequence from memory using your microphone. Completing your first session of the day advances your daily English Flow streak."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    .quiz-wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 40px; font-family: 'Nunito', sans-serif; color: #1e1b4b; }
+    .q-card { border: 2px solid #e5e5e5; border-radius: 20px; padding: 26px 22px; background: #fff; box-shadow: 0 4px 0 #e5e5e5; margin: 16px 0; color: #1e1b4b; }
+    .result-card { border: 2px solid #e5e5e5; border-radius: 20px; padding: 28px 22px; text-align: center; background: linear-gradient(135deg, #f0fff4, #eff8ff); color: #1e1b4b; }
+    .notice-box { background: #fffbeb; border: 2px solid #fde68a; border-radius: 14px; padding: 14px 18px; color: #92400e; font-size: 14px; font-weight: 700; margin: 12px 0; text-align: left; }
+    .resource-card { border: 2px solid #ffc800; border-radius: 18px; padding: 18px; background: #fffbe6; margin-top: 18px; text-align: left; color: #334155; }
+    .resource-card h3 { color: #1e1b4b; margin: 0 0 6px; font-size: 17px; }
+    .resource-card p, .resource-card ul, .resource-card li, .resource-links, .resource-links li { color: #334155; font-weight: 700; font-size: 14px; line-height: 1.8; }
+    .resource-card a:not(.btn-3d), .resource-links a { color: #0284c7; font-weight: 800; text-decoration: underline; }
+
+    .score-badge { display: inline-block; padding: 6px 14px; border-radius: 999px; font-weight: 900; font-size: 14px; }
+    .score-high { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+    .score-med { background: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
+    .score-low { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+
+    .action-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 18px; }
+    .btn-3d { min-height: 48px; min-width: 150px; font-size: 16px; font-weight: 900; border-radius: 14px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; padding: 12px 22px; border: none; font-family: inherit; }
+    .btn-green { background: #58cc02; color: #fff; box-shadow: 0 4px 0 #46a302; }
+    .btn-green:active { transform: translateY(3px); box-shadow: 0 1px 0 #46a302; }
+    .btn-blue { background: #1cb0f6; color: #fff; box-shadow: 0 4px 0 #0284c7; }
+    .btn-blue:active { transform: translateY(3px); box-shadow: 0 1px 0 #0284c7; }
+    .btn-slate { background: #64748b; color: #fff; box-shadow: 0 4px 0 #475569; }
+    .btn-slate:active { transform: translateY(3px); box-shadow: 0 1px 0 #475569; }
+
+    .tier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); gap: 12px; margin: 14px 0; }
+    .tier-card { background: #f8fafc; border: 2px solid #cbd5e1; border-radius: 16px; padding: 16px 14px; text-align: left; cursor: pointer; font-family: inherit; transition: all 0.15s; box-shadow: 0 3px 0 #e2e8f0; }
+    .tier-card:hover { border-color: #1cb0f6; background: #f0f9ff; }
+    .tier-card.active { border-color: #58cc02; background: #f0fff4; box-shadow: 0 3px 0 #86efac; }
+    .tier-title { font-size: 15.5px; font-weight: 900; color: #1e1b4b; margin: 0 0 4px; }
+    .tier-sub { font-size: 13px; font-weight: 700; color: #64748b; margin: 0; }
+
+    .speed-strip { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 14px; padding: 12px 16px; margin: 14px 0; }
+    .speed-btn { border: 2px solid #0284c7; background: #ffffff; color: #0369a1; border-radius: 999px; padding: 6px 14px; font-family: inherit; font-size: 13px; font-weight: 900; cursor: pointer; }
+    .speed-btn.active { background: #0284c7; color: #ffffff; }
+
+    .rule-banner { background: #f8fafc; border: 2px dashed #94a3b8; border-radius: 16px; padding: 16px 18px; margin: 14px 0; text-align: center; }
+
+    /* BLIND LISTENING MASK CARD */
+    .blind-mask-card { background: linear-gradient(135deg, #0f172a, #1e293b); color: #ffffff; border-radius: 18px; padding: 34px 20px; margin: 16px 0; text-align: center; border: 3px solid #38bdf8; box-shadow: 0 6px 20px rgba(15, 23, 42, 0.18); }
+    .audio-wave-dots { display: inline-flex; gap: 8px; align-items: center; justify-content: center; height: 42px; margin-bottom: 12px; }
+    .audio-wave-dots span { display: inline-block; width: 8px; height: 26px; background: #38bdf8; border-radius: 999px; animation: waveBounce 0.9s infinite ease-in-out; }
+    .audio-wave-dots span:nth-child(2) { animation-delay: 0.15s; height: 38px; }
+    .audio-wave-dots span:nth-child(3) { animation-delay: 0.3s; height: 20px; }
+    .audio-wave-dots span:nth-child(4) { animation-delay: 0.45s; height: 34px; }
+    .audio-wave-dots span:nth-child(5) { animation-delay: 0.6s; height: 24px; }
+    @keyframes waveBounce {
+      0%, 100% { transform: scaleY(0.5); opacity: 0.6; }
+      50% { transform: scaleY(1.15); opacity: 1; }
+    }
+
+    .timer-ring-repeat { width: 108px; height: 108px; border-radius: 50%; background: #fef2f2; border: 4px solid #ef4444; display: flex; align-items: center; justify-content: center; margin: 12px auto; font-size: 38px; font-weight: 1000; color: #b91c1c; box-shadow: 0 4px 0 #fca5a5; animation: micPulse 1.3s infinite; }
+    @keyframes micPulse {
+      0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.35); }
+      70% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+
+    .mic-waveform-track { width: 100%; height: 12px; background: #e2e8f0; border-radius: 999px; overflow: hidden; margin: 12px 0; }
+    .mic-waveform-fill { height: 100%; width: 0%; background: #58cc02; transition: width 0.08s linear; }
+
+    .live-transcript-box { background: #ffffff; border: 2px solid #cbd5e1; border-radius: 14px; padding: 14px 16px; min-height: 78px; max-height: 150px; overflow-y: auto; text-align: left; font-size: 15.5px; font-weight: 700; color: #1e293b; line-height: 1.55; margin: 12px 0; }
+    .live-transcript-box:empty::before { content: "Repeat the sentence from memory now... recognised words appear here live."; color: #94a3b8; font-style: italic; }
+
+    .typed-memory-area { width: 100%; box-sizing: border-box; min-height: 86px; border: 2px solid #cbd5e1; border-radius: 14px; padding: 12px 14px; font-family: inherit; font-size: 15.5px; font-weight: 700; color: #1e293b; resize: vertical; margin: 8px 0; }
+    .typed-memory-area:focus { outline: none; border-color: #58cc02; }
+
+    .reveal-sentence-box { background: #ffffff; border: 2px solid #cbd5e1; border-radius: 16px; padding: 20px 18px; margin: 14px 0; text-align: center; line-height: 2.05; }
+    .seq-token { display: inline-block; padding: 3px 10px; margin: 3px; border-radius: 10px; font-size: 18px; font-weight: 900; }
+    .seq-ok { background: #dcfce7; color: #15803d; border: 2px solid #86efac; }
+    .seq-miss { background: #fee2e2; color: #b91c1c; border: 2px solid #fca5a5; text-decoration: underline wavy #ef4444; }
+
+    .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 10px; margin: 16px 0; }
+    .metric-card { background: #ffffff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 14px 8px; text-align: center; box-shadow: 0 3px 0 #e2e8f0; color: #1e1b4b; }
+    .metric-num { font-size: 25px; font-weight: 1000; color: #1e1b4b; margin: 4px 0; }
+    .metric-label { font-size: 11px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    .ab-playback-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin: 16px 0; text-align: left; }
+    .ab-card { background: #ffffff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 14px 16px; box-shadow: 0 3px 0 #e2e8f0; color: #1e1b4b; }
+    .ab-card h4 { margin: 0 0 8px; font-size: 14px; font-weight: 900; color: #1e1b4b; }
+
+    .faq-card { background: #fff; border: 2px solid #e5e5e5; border-radius: 16px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 3px 0 #e5e5e5; text-align: left; }
+    .faq-q { font-size: 15.5px; font-weight: 900; color: #1e1b4b; margin: 0 0 6px; }
+    .faq-a { font-size: 14px; font-weight: 700; color: #475569; line-height: 1.6; margin: 0; }
+  </style>
+</head>
+<body>
+<header class="gp-header">
+<a class="gp-brand" href="../index.html">🦉 English <b>Flow</b></a>
+<nav class="gp-nav"><a href="../index.html">Home</a><a href="../game-practice.html">Practice</a><a href="../tenses.html">Tenses</a></nav>
+<div class="gp-stats"><span class="gp-stat streak">🔥 <b id="st-streak">0</b></span><span class="gp-stat xp">⚡ <b id="st-xp">0</b></span></div>
+</header>
+
+<main class="quiz-wrap">
+  <div style="text-align: left; margin-bottom: 8px;">
+    <a href="../index.html" style="font-weight: 800; font-size: 13px; color: #1cb0f6; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">🌐 English Flow</a>
+  </div>
+  <h1 style="font-size: 28px; font-weight: 1000; margin: 0 0 6px; color: #1e1b4b; line-height: 1.3;">Free Repeat Sentence Speaking Practice — Hear It Once, Say It Back</h1>
+  <p style="color: #64748b; font-weight: 700; margin: 0 0 16px; font-size: 15px;">Train your auditory memory and spoken recall: listen to a hidden sentence once, wait for the chime cue, repeat it aloud into your mic within 15 seconds, and check your words recognised in sequence.</p>
+
+  <div id="mic-compat-notice" class="notice-box" hidden>
+    ⚠️ <strong>Browser Notice:</strong> Live microphone speech recognition and recording work best in Google Chrome on desktop and Android. You can still listen to the hidden sentence and type what you remember in typed fallback mode below.
+  </div>
+
+  <!-- STAGE 1: SETUP -->
+  <div id="stage-setup" class="q-card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+      <span style="font-size: 12px; font-weight: 900; color: #1cb0f6; letter-spacing: 1px; text-transform: uppercase;">1. PICK A DIFFICULTY TIER (24 SENTENCES)</span>
+      <span style="font-size: 13px; font-weight: 800; color: #ff9600;">+20 XP · +10 XP for 90%+ recall</span>
+    </div>
+
+    <div class="tier-grid">
+      <button type="button" class="tier-card active" onclick="selectTier('short', this)">
+        <div class="tier-title">🟢 Short (7–9 words)</div>
+        <p class="tier-sub">8 everyday & workplace prompts — warm up your working memory.</p>
+      </button>
+      <button type="button" class="tier-card" onclick="selectTier('medium', this)">
+        <div class="tier-title">🟡 Medium (10–12 words)</div>
+        <p class="tier-sub">8 standard exam-length sentences with two clauses.</p>
+      </button>
+      <button type="button" class="tier-card" onclick="selectTier('long', this)">
+        <div class="tier-title">🔴 Long (13–14 words)</div>
+        <p class="tier-sub">8 high-difficulty academic & professional sentences.</p>
+      </button>
+    </div>
+
+    <div class="speed-strip">
+      <span style="font-size: 13px; font-weight: 900; color: #0369a1;">⚡ Audio Playback Speed:</span>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <button type="button" id="speed-btn-train" class="speed-btn" onclick="setPlaybackRate(0.9)">0.9x Training Speed</button>
+        <button type="button" id="speed-btn-exam" class="speed-btn active" onclick="setPlaybackRate(1.0)">1.0x Exam Speed</button>
+      </div>
+    </div>
+
+    <div class="rule-banner">
+      <p style="margin: 0 0 6px; font-size: 15.5px; font-weight: 900; color: #1e1b4b;">
+        🔒 Exam-Faithful Rule: Audio plays ONCE, and the sentence text stays hidden until you speak.
+      </p>
+      <p style="margin: 0; font-size: 13.5px; font-weight: 700; color: #64748b;">
+        Listen closely for meaning chunks — right after the audio ends, a short chime plays and your 15-second microphone window opens automatically.
+      </p>
+    </div>
+
+    <div class="action-row">
+      <button type="button" class="btn-3d btn-green" onclick="startBlindListening()">
+        🔊 Hear Sentence (Text Hidden)
+      </button>
+    </div>
+    <p style="text-align: center; font-size: 12.5px; font-weight: 700; color: #64748b; margin: 10px 0 0;">
+      Audio uses native-style browser speech (<code>speechSynthesis</code>), not a human recording.
+    </p>
+  </div>
+
+  <!-- STAGE 2: BLIND LISTENING & CUE -->
+  <div id="stage-listening" class="q-card" hidden>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+      <span style="font-size: 12px; font-weight: 900; color: #0284c7; letter-spacing: 1px; text-transform: uppercase;">STAGE 1 OF 2: BLIND LISTENING</span>
+      <span id="listening-tier-badge" style="font-size: 12px; font-weight: 800; background: #e0f2fe; color: #0369a1; padding: 4px 12px; border-radius: 999px;">Short Tier (7–9 words)</span>
+    </div>
+
+    <div class="blind-mask-card" aria-live="polite">
+      <div class="audio-wave-dots" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div id="blind-mask-status" style="font-size: 20px; font-weight: 900; margin-bottom: 6px;">
+        👂 Listen carefully — text reveals after you speak
+      </div>
+      <p style="margin: 0; font-size: 14px; font-weight: 700; color: #94a3b8;">
+        Wait for the chime cue, then repeat the sentence aloud from memory.
+      </p>
+    </div>
+  </div>
+
+  <!-- STAGE 3: 15-SECOND LIVE MIC REPEAT -->
+  <div id="stage-repeat" class="q-card" hidden>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+      <span id="repeat-mode-badge" style="font-size: 12px; font-weight: 900; color: #b91c1c; letter-spacing: 1px; text-transform: uppercase;">🔴 STAGE 2 OF 2: REPEAT FROM MEMORY NOW (15s)</span>
+      <span style="font-size: 12.5px; font-weight: 800; color: #475569;">🔒 Target text hidden until you finish</span>
+    </div>
+
+    <div class="timer-ring-repeat" id="repeat-timer-val">15</div>
+    <p style="text-align: center; font-weight: 800; color: #64748b; margin: -4px 0 10px;">
+      Say the sentence back clearly in one smooth take!
+    </p>
+
+    <!-- Live Mic Capture Panel -->
+    <div id="mic-repeat-panel">
+      <div class="mic-waveform-track" title="Live microphone volume">
+        <div id="mic-waveform-bar" class="mic-waveform-fill"></div>
+      </div>
+
+      <div id="live-transcript-box" class="live-transcript-box"></div>
+
+      <div id="repeat-retry-msg" class="notice-box" hidden>
+        No spoken words were recognised. Please check your microphone volume and try another sentence, or switch to Typed Fallback below.
+      </div>
+
+      <div class="action-row">
+        <button type="button" class="btn-3d btn-green" onclick="stopAndScoreRepeat(false)">
+          ⏹️ Stop & Score
+        </button>
+        <button type="button" id="btn-retry-after-empty" class="btn-3d btn-blue" onclick="tryAnotherSentenceSameTier()" hidden>
+          🔁 Try Another Sentence
+        </button>
+        <button type="button" class="btn-3d btn-slate" onclick="switchToTypedRepeatFallback()" style="min-width: auto; font-size: 14px; padding: 10px 16px;">
+          ⌨️ Typed Fallback
+        </button>
+      </div>
+    </div>
+
+    <!-- Typed Fallback Panel -->
+    <div id="typed-repeat-panel" hidden>
+      <p style="font-size: 14px; font-weight: 800; color: #475569; text-align: left; margin: 8px 0 4px;">
+        Type the sentence you just heard from memory before the 15s timer ends (Typed check — score capped at 85 without live mic confirmation; WPM shown as "—"):
+      </p>
+      <textarea id="typed-repeat-input" class="typed-memory-area" placeholder="Type what you remember hearing..."></textarea>
+      <div id="typed-empty-msg" class="notice-box" hidden>
+        Please type the words you remember before scoring.
+      </div>
+      <div class="action-row">
+        <button type="button" class="btn-3d btn-green" onclick="submitTypedRepeat(false)">
+          ✓ Stop & Score
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 4: REVEAL, WORD-SEQUENCE DIAGNOSTIC & A/B PLAYBACK -->
+  <div id="stage-results" class="result-card" hidden>
+    <div style="font-size: 48px;">🦉</div>
+    <h2 style="font-size: 25px; font-weight: 1000; margin: 4px 0 6px; color: #1e1b4b;">Sentence Reveal & Word-Sequence Check</h2>
+
+    <div style="margin: 8px 0;">
+      <span id="res-score-badge" class="score-badge score-high">All Words — Perfect Recall · 100%</span>
+    </div>
+    <p id="res-honesty-note" style="color: #475569; font-weight: 800; font-size: 13.5px; margin: 6px auto 14px; max-width: 600px; line-height: 1.5;"></p>
+
+    <!-- Unmasked Target Sentence Word-by-Word -->
+    <div style="text-align: left; margin: 12px 0 6px;">
+      <strong style="font-size: 13.5px; font-weight: 900; color: #1e1b4b;">Unmasked Target Sentence (Word-Sequence Check):</strong>
+      <span style="font-size: 12px; font-weight: 800; color: #64748b; margin-left: 8px;">
+        <span style="color:#15803d;">■ Green = recognised in sequence</span> · <span style="color:#b91c1c;">■ Red = missed / out of order</span>
+      </span>
+    </div>
+    <div id="res-sentence-reveal" class="reveal-sentence-box"></div>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-label">Sequence Score</div>
+        <div class="metric-num" id="res-score-num">0%</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Words Recognised</div>
+        <div class="metric-num" id="res-recognised-num" style="color: #15803d;">0 / 0</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Words Missed</div>
+        <div class="metric-num" id="res-missed-num" style="color: #b91c1c;">0</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Speaking Pace</div>
+        <div class="metric-num" id="res-wpm-num">—</div>
+        <div style="font-size: 11px; font-weight: 800; color: #64748b;">Words / min</div>
+      </div>
+    </div>
+
+    <!-- What the browser heard -->
+    <div style="background: #ffffff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 14px 16px; margin: 14px 0; text-align: left; color: #1e1b4b;">
+      <h4 style="margin: 0 0 6px; font-size: 13.5px; font-weight: 900; color: #1e1b4b;">What your browser recognised:</h4>
+      <p id="res-user-transcript" style="margin: 0; font-size: 15px; font-weight: 700; color: #334155; line-height: 1.55;"></p>
+    </div>
+
+    <!-- Side-by-Side A/B Playback -->
+    <div class="ab-playback-grid">
+      <div class="ab-card">
+        <h4>🎙️ A: Your Recorded Repeat</h4>
+        <audio id="user-audio-player" controls style="width: 100%; height: 38px; outline: none;"></audio>
+        <p id="no-audio-fallback-note" style="font-size: 13px; font-weight: 700; color: #64748b; margin: 6px 0 0;" hidden>
+          Self-playback is unavailable in typed fallback mode.
+        </p>
+      </div>
+      <div class="ab-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <h4>🔊 B: Native-Style Browser Audio</h4>
+        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+          <button type="button" class="btn-3d btn-blue" onclick="replayCurrentSentence()" style="min-height: 40px; padding: 8px 16px; font-size: 14px; flex: 1;">
+            🔊 Replay Sentence
+          </button>
+          <span id="res-speed-tag" style="font-size: 12px; font-weight: 800; color: #0284c7; background: #e0f2fe; padding: 6px 10px; border-radius: 8px;">1.0x</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-weight: 900; font-size: 16px; color: #1e1b4b; margin: 16px 0 8px;">
+      🔥 Streak: <span id="final-streak">0</span> days · ⚡ Total XP: <span id="final-xp">0</span>
+      <span id="res-xp-note" style="display: block; font-size: 13px; color: #58cc02; font-weight: 800; margin-top: 4px;">+20 XP repeat-sentence check completed!</span>
+    </p>
+
+    <div class="action-row">
+      <a id="wa-share-btn" href="#" target="_blank" rel="noopener" class="btn-3d btn-green">
+        💬 Share My Score on WhatsApp
+      </a>
+      <button type="button" class="btn-3d btn-blue" onclick="tryAnotherSentenceSameTier()">
+        🔁 Try Another Sentence
+      </button>
+      <button type="button" class="btn-3d btn-slate" onclick="changeDifficultySetup()">
+        🎚️ Change Difficulty
+      </button>
+    </div>
+
+    <!-- Recommended English Resources Card -->
+    <div class="resource-card">
+      <h3>📚 Recommended English Resources</h3>
+      <p style="margin: 0 0 10px;">Build natural listening-to-speaking fluency and recall with structured daily practice:</p>
+      <div style="margin-bottom: 12px;">
+        <a href="https://topmate.io/speak_english_with_confidence/2324225" target="_blank" rel="noopener noreferrer" class="btn-3d" style="background:#f59e0b; color:#1e1b4b; font-size:14px; padding:10px 18px; box-shadow:0 3px 0 #b45309;">
+          Get the 30-Day Speaking Workbook ($) →
+        </a>
+      </div>
+      <ul class="resource-links" style="margin: 0; padding-left: 18px;">
+        <li><a href="../30-day-english-flow-workbook.pdf">30-Day English Flow Workbook (PDF)</a> – daily speaking drills</li>
+        <li><a href="../resources.html">Free Resources Library</a> – trackers, podcasts & templates</li>
+        <li><a href="../game-practice.html">Daily Practice Session</a> – keep your daily streak active</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CHEAT-SHEET SECTION: 5 REPEAT SENTENCE TIPS -->
+  <section class="study-cheatsheet" aria-label="5 Repeat Sentence Tips" style="margin: 30px 0 20px; padding: 20px; border: 2px dashed #1cb0f6; border-radius: 18px; background: #f7fdff; text-align: left;">
+    <h2 style="font-size: 20px; font-weight: 900; margin-top: 0; color: #0284c7;">📖 5 Repeat Sentence Tips</h2>
+    <ul style="font-weight: 700; color: #334155; line-height: 1.7; padding-left: 20px;">
+      <li><strong>1. Listen for meaning in chunks, not word by word</strong> — picture the scene in your head and group the sentence into 2 or 3 meaningful phrases.</li>
+      <li><strong>2. Start speaking right after the chime</strong> — waiting too long lets the final words fade from your short-term working memory.</li>
+      <li><strong>3. Say the part you remember confidently — partial credit applies</strong> — even if you forget two words in the middle, deliver the opening and closing chunks smoothly.</li>
+      <li><strong>4. Copy the speaker's stress and rhythm</strong> — mimicking the melody of the sentence helps your brain recall the small connecting words automatically.</li>
+      <li><strong>5. Never stay silent</strong> — repeating 50% of the words in sequence earns solid partial credit, whereas silence scores zero.</li>
+    </ul>
+    <p style="font-size: 13px; color: #64748b; font-weight: 700; margin: 12px 0 0;">
+      🦉 Flo tip: Anchor the very first 3 words and the very last 2 words in your mind as you listen — your brain will bridge the middle naturally!
+    </p>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section style="margin-top: 30px;" aria-label="Frequently asked questions">
+    <h2 style="font-size: 22px; font-weight: 1000; color: #1e1b4b; text-align: left; margin-bottom: 16px;">Frequently Asked Questions</h2>
+    <div class="faq-card">
+      <h3 class="faq-q">How does Repeat Sentence speaking practice work?</h3>
+      <p class="faq-a">You pick a difficulty tier (Short 7–9 words, Medium 10–12 words, or Long 13–14 words) and tap Hear Sentence. The sentence is spoken once using native-style browser speech while the text stays hidden. After a short chime cue, you have 15 seconds to repeat the sentence from memory into your microphone, and then the hidden sentence reveals word-by-word showing which words were recognised in sequence.</p>
+    </div>
+    <div class="faq-card">
+      <h3 class="faq-q">Is my voice audio stored or uploaded anywhere?</h3>
+      <p class="faq-a">No. Your voice recording and browser speech recognition transcript stay 100% inside your local web browser session. Nothing is uploaded, stored on external servers, or shared.</p>
+    </div>
+    <div class="faq-card">
+      <h3 class="faq-q">Which web browsers support microphone recording and speech recognition?</h3>
+      <p class="faq-a">Live microphone speech recognition and audio recording work best in Google Chrome on desktop and Android. If your browser does not support Web Speech recognition, you can still listen to the hidden sentence and type what you remember in typed fallback mode.</p>
+    </div>
+    <div class="faq-card">
+      <h3 class="faq-q">How do XP and daily streaks work on English Flow?</h3>
+      <p class="faq-a">You earn +20 XP for completing a repeat-sentence check, plus a +10 XP bonus when 90% or more of the target words are recognised in sequence from memory using your microphone. Completing your first session of the day advances your daily English Flow streak.</p>
+    </div>
+  </section>
+
+  <footer style="margin-top: 28px; text-align: center; font-size: 14px; font-weight: 800; color: #94a3b8;">
+    <a href="../index.html" style="color: #64748b; text-decoration: none;">← Back to English Flow Home</a>
+  </footer>
+</main>
+
+<script>
+  // SENTENCE BANK (kept in JS only until Stage 4 reveal)
+  const SENTENCE_BANK = {
+    short: [
+      "The meeting starts at nine tomorrow morning.",
+      "Please send the report before Friday afternoon.",
+      "Our team finished the project ahead of schedule.",
+      "The train leaves the station in ten minutes.",
+      "She practises English every morning before work.",
+      "The library opens at eight on weekdays.",
+      "We need more time to finish the proposal.",
+      "He booked a taxi to the airport yesterday."
+    ],
+    medium: [
+      "The manager asked everyone to prepare a short summary for Monday.",
+      "Regular practice helps you speak English with more confidence every day.",
+      "The new office is located near the central station in the city.",
+      "She explained the plan clearly so the whole team understood it.",
+      "We should check the weather before we plan the outdoor event.",
+      "The students discussed the article during the English class yesterday.",
+      "Please remember to bring your passport and ticket to the airport.",
+      "The company offers flexible working hours for all its employees."
+    ],
+    long: [
+      "The committee decided to postpone the conference until the beginning of next month.",
+      "Learning a new language takes patience, daily practice, and a great deal of confidence.",
+      "The engineer explained how the new system would improve safety across the factory.",
+      "Our teacher encourages us to speak English during every single lesson without any fear.",
+      "The hotel provides free breakfast, fast internet, and a comfortable room for guests.",
+      "She decided to apply for the job because it offered better training and support.",
+      "The researchers published their findings after three long years of careful scientific work.",
+      "We arrived early at the station because the morning train is usually very crowded."
+    ]
+  };
+
+  let currentTier = 'short';
+  let tierIndices = { short: 0, medium: 0, long: 0 };
+  let activeSentenceSecret = SENTENCE_BANK.short[0];
+  let speechRate = 1.0;
+
+  // Timers & Repeat state
+  let repeatInterval = null;
+  let cueTimeout = null;
+  let repeatSecondsLeft = 15;
+  let repeatStartTime = 0;
+  let liveTranscriptText = "";
+  let isTypedFallback = false;
+
+  // Media & Speech APIs
+  let mediaStream = null;
+  let mediaRecorder = null;
+  let audioChunks = [];
+  let audioBlobUrl = null;
+  let audioCtx = null;
+  let analyser = null;
+  let animFrameId = null;
+
+  let recognition = null;
+  let isMicActive = false;
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const isSpeechSupported = !!SpeechRecognition;
+  const isMediaRecorderSupported = typeof MediaRecorder !== 'undefined';
+
+  // Unified localStorage stats
+  let xp = parseInt(localStorage.getItem('userXP')) || 0;
+  let streak = parseInt(localStorage.getItem('english_flow_streak')) || 0;
+
+  function renderStats() {
+    document.getElementById('st-streak').textContent = streak;
+    document.getElementById('st-xp').textContent = xp;
+  }
+
+  if (!isSpeechSupported || !isMediaRecorderSupported) {
+    document.getElementById('mic-compat-notice').removeAttribute('hidden');
+  }
+
+  function selectTier(tier, cardEl) {
+    currentTier = tier;
+    document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('active'));
+    cardEl.classList.add('active');
+  }
+
+  function setPlaybackRate(rate) {
+    speechRate = rate;
+    document.getElementById('speed-btn-train').classList.toggle('active', rate === 0.9);
+    document.getElementById('speed-btn-exam').classList.toggle('active', rate === 1.0);
+    document.getElementById('res-speed-tag').textContent = rate.toFixed(1) + 'x';
+  }
+
+  function pickNextSentenceInTier() {
+    const list = SENTENCE_BANK[currentTier];
+    const idx = tierIndices[currentTier] % list.length;
+    activeSentenceSecret = list[idx];
+    tierIndices[currentTier] = (idx + 1) % list.length;
+  }
+
+  function getTierLabel(tier) {
+    if (tier === 'short') return 'Short Tier (7–9 words)';
+    if (tier === 'medium') return 'Medium Tier (10–12 words)';
+    return 'Long Tier (13–14 words)';
+  }
+
+  // Short Web Audio chime cue when mic opens
+  function playChimeCue() {
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(880, ctx.currentTime);
+      gain.gain.setValueAtTime(0.15, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.25);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.26);
+      setTimeout(() => {
+        if (ctx.state !== 'closed') ctx.close().catch(() => {});
+      }, 350);
+    } catch (e) {}
+  }
+
+  // STAGE 2: BLIND LISTENING & CUE
+  function startBlindListening() {
+    cleanupMedia();
+    pickNextSentenceInTier();
+
+    // Ensure reveal container has zero secret text before Stage 4
+    document.getElementById('res-sentence-reveal').innerHTML = '';
+
+    document.getElementById('stage-setup').setAttribute('hidden', '');
+    document.getElementById('stage-repeat').setAttribute('hidden', '');
+    document.getElementById('stage-results').setAttribute('hidden', '');
+    document.getElementById('stage-listening').removeAttribute('hidden');
+
+    document.getElementById('listening-tier-badge').textContent = getTierLabel(currentTier);
+    document.getElementById('blind-mask-status').textContent = '👂 Listen carefully — text reveals after you speak';
+
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(activeSentenceSecret);
+      u.lang = 'en-US';
+      u.rate = speechRate;
+
+      u.onend = () => {
+        document.getElementById('blind-mask-status').textContent = '🔔 Get ready — chime & mic opening…';
+        cueTimeout = setTimeout(() => {
+          playChimeCue();
+          openLiveMicRepeatStage();
+        }, 850);
+      };
+
+      u.onerror = () => {
+        cueTimeout = setTimeout(() => {
+          playChimeCue();
+          openLiveMicRepeatStage();
+        }, 850);
+      };
+
+      window.speechSynthesis.speak(u);
+    } else {
+      cueTimeout = setTimeout(() => {
+        playChimeCue();
+        openLiveMicRepeatStage();
+      }, 2000);
+    }
+  }
+
+  // STAGE 3: 15-SECOND LIVE MIC REPEAT
+  async function openLiveMicRepeatStage() {
+    document.getElementById('stage-listening').setAttribute('hidden', '');
+    document.getElementById('stage-repeat').removeAttribute('hidden');
+
+    liveTranscriptText = "";
+    isTypedFallback = false;
+    document.getElementById('live-transcript-box').textContent = '';
+    document.getElementById('repeat-retry-msg').setAttribute('hidden', '');
+    document.getElementById('btn-retry-after-empty').setAttribute('hidden', '');
+
+    if (!isSpeechSupported || !isMediaRecorderSupported) {
+      switchToTypedRepeatFallback();
+      return;
+    }
+
+    try {
+      mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    } catch (err) {
+      document.getElementById('mic-compat-notice').removeAttribute('hidden');
+      switchToTypedRepeatFallback();
+      return;
+    }
+
+    document.getElementById('mic-repeat-panel').removeAttribute('hidden');
+    document.getElementById('typed-repeat-panel').setAttribute('hidden', '');
+    document.getElementById('repeat-mode-badge').textContent = '🔴 STAGE 2 OF 2: REPEAT FROM MEMORY NOW (15s)';
+
+    isMicActive = true;
+    setupAudioMeter(mediaStream);
+    setupMediaRecorder(mediaStream);
+    setupSpeechRecognition();
+
+    try { recognition.start(); } catch (e) {}
+    try { mediaRecorder.start(); } catch (e) {}
+
+    startRepeatCountdown();
+  }
+
+  function startRepeatCountdown() {
+    repeatSecondsLeft = 15;
+    repeatStartTime = Date.now();
+    document.getElementById('repeat-timer-val').textContent = repeatSecondsLeft;
+
+    if (repeatInterval) clearInterval(repeatInterval);
+    repeatInterval = setInterval(() => {
+      repeatSecondsLeft--;
+      document.getElementById('repeat-timer-val').textContent = Math.max(0, repeatSecondsLeft);
+      if (repeatSecondsLeft <= 0) {
+        clearInterval(repeatInterval);
+        repeatInterval = null;
+        if (isTypedFallback) {
+          submitTypedRepeat(true);
+        } else {
+          stopAndScoreRepeat(true);
+        }
+      }
+    }, 1000);
+  }
+
+  function setupAudioMeter(stream) {
+    try {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      analyser = audioCtx.createAnalyser();
+      const source = audioCtx.createMediaStreamSource(stream);
+      source.connect(analyser);
+      analyser.fftSize = 64;
+      const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+      function updateWave() {
+        if (!isMicActive) return;
+        analyser.getByteFrequencyData(dataArray);
+        let sum = 0;
+        for (let i = 0; i < dataArray.length; i++) sum += dataArray[i];
+        const pct = Math.min(100, Math.round(((sum / dataArray.length) / 128) * 100));
+        const bar = document.getElementById('mic-waveform-bar');
+        if (bar) bar.style.width = pct + '%';
+        animFrameId = requestAnimationFrame(updateWave);
+      }
+      updateWave();
+    } catch (e) {}
+  }
+
+  function setupMediaRecorder(stream) {
+    audioChunks = [];
+    try {
+      mediaRecorder = new MediaRecorder(stream);
+      mediaRecorder.ondataavailable = e => {
+        if (e.data && e.data.size > 0) audioChunks.push(e.data);
+      };
+      mediaRecorder.onstop = () => {
+        if (audioChunks.length > 0) {
+          const blob = new Blob(audioChunks, { type: 'audio/webm' });
+          if (audioBlobUrl) URL.revokeObjectURL(audioBlobUrl);
+          audioBlobUrl = URL.createObjectURL(blob);
+          const player = document.getElementById('user-audio-player');
+          player.src = audioBlobUrl;
+          player.removeAttribute('hidden');
+          document.getElementById('no-audio-fallback-note').setAttribute('hidden', '');
+        }
+      };
+    } catch (e) {}
+  }
+
+  function setupSpeechRecognition() {
+    recognition = new SpeechRecognition();
+    recognition.lang = 'en-US';
+    recognition.continuous = true;
+    recognition.interimResults = true;
+
+    recognition.onresult = event => {
+      let interim = '';
+      let final = '';
+      for (let i = 0; i < event.results.length; i++) {
+        if (event.results[i].isFinal) {
+          final += event.results[i][0].transcript + ' ';
+        } else {
+          interim += event.results[i][0].transcript;
+        }
+      }
+      liveTranscriptText = (final + interim).trim();
+      document.getElementById('live-transcript-box').textContent = liveTranscriptText;
+    };
+
+    recognition.onerror = event => {
+      if (event.error === 'not-allowed') {
+        cleanupMedia();
+        document.getElementById('mic-compat-notice').removeAttribute('hidden');
+        switchToTypedRepeatFallback();
+      }
+    };
+  }
+
+  function cleanupMedia() {
+    isMicActive = false;
+    if (cueTimeout) { clearTimeout(cueTimeout); cueTimeout = null; }
+    if (repeatInterval) { clearInterval(repeatInterval); repeatInterval = null; }
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    if (animFrameId) cancelAnimationFrame(animFrameId);
+    if (recognition) { try { recognition.stop(); } catch (e) {} }
+    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+      try { mediaRecorder.stop(); } catch (e) {}
+    }
+    if (mediaStream) {
+      mediaStream.getTracks().forEach(t => t.stop());
+    }
+    if (audioCtx && audioCtx.state !== 'closed') {
+      try { audioCtx.close(); } catch (e) {}
+    }
+  }
+
+  function switchToTypedRepeatFallback() {
+    cleanupMedia();
+    isTypedFallback = true;
+    document.getElementById('mic-repeat-panel').setAttribute('hidden', '');
+    document.getElementById('typed-repeat-panel').removeAttribute('hidden');
+    document.getElementById('typed-repeat-input').value = '';
+    document.getElementById('typed-empty-msg').setAttribute('hidden', '');
+    document.getElementById('repeat-mode-badge').textContent = '⌨️ TYPED FALLBACK MODE (15s)';
+    startRepeatCountdown();
+  }
+
+  function cleanWord(w) {
+    return w.toLowerCase().replace(/[^a-z0-9']/g, '');
+  }
+
+  function getCleanTokens(str) {
+    if (!str || !str.trim()) return [];
+    return str.trim().split(/\s+/).map(cleanWord).filter(Boolean);
+  }
+
+  function stopAndScoreRepeat(autoFinished) {
+    const tokens = getCleanTokens(liveTranscriptText);
+    if (tokens.length === 0 && !autoFinished) {
+      document.getElementById('repeat-retry-msg').removeAttribute('hidden');
+      document.getElementById('btn-retry-after-empty').removeAttribute('hidden');
+      return;
+    }
+    if (tokens.length === 0 && autoFinished) {
+      cleanupMedia();
+      document.getElementById('repeat-retry-msg').removeAttribute('hidden');
+      document.getElementById('btn-retry-after-empty').removeAttribute('hidden');
+      return;
+    }
+
+    const elapsedSec = Math.max(1.5, (Date.now() - repeatStartTime) / 1000);
+    cleanupMedia();
+    document.getElementById('stage-repeat').setAttribute('hidden', '');
+    evaluateRepeatSequence(liveTranscriptText, elapsedSec, false);
+  }
+
+  function submitTypedRepeat(autoFinished) {
+    const typedText = document.getElementById('typed-repeat-input').value.trim();
+    const tokens = getCleanTokens(typedText);
+    if (tokens.length === 0 && !autoFinished) {
+      document.getElementById('typed-empty-msg').removeAttribute('hidden');
+      return;
+    }
+    const elapsedSec = Math.max(2, (Date.now() - repeatStartTime) / 1000);
+    cleanupMedia();
+    document.getElementById('stage-repeat').setAttribute('hidden', '');
+    document.getElementById('user-audio-player').setAttribute('hidden', '');
+    document.getElementById('no-audio-fallback-note').removeAttribute('hidden');
+    evaluateRepeatSequence(typedText, elapsedSec, true);
+  }
+
+  // Compute Longest Common Subsequence (LCS) indices in target array for in-order word sequence matching
+  function computeSequenceMatches(targetClean, spokenClean) {
+    const m = targetClean.length;
+    const n = spokenClean.length;
+    const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+
+    for (let i = 1; i <= m; i++) {
+      for (let j = 1; j <= n; j++) {
+        if (targetClean[i - 1] === spokenClean[j - 1]) {
+          dp[i][j] = dp[i - 1][j - 1] + 1;
+        } else {
+          dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+        }
+      }
+    }
+
+    const matchedTargetIndices = new Set();
+    let i = m, j = n;
+    while (i > 0 && j > 0) {
+      if (targetClean[i - 1] === spokenClean[j - 1]) {
+        matchedTargetIndices.add(i - 1);
+        i--;
+        j--;
+      } else if (dp[i - 1][j] >= dp[i][j - 1]) {
+        i--;
+      } else {
+        j--;
+      }
+    }
+    return matchedTargetIndices;
+  }
+
+  // STAGE 4: REVEAL, WORD-SEQUENCE DIAGNOSTIC & A/B PLAYBACK
+  function evaluateRepeatSequence(userTranscript, elapsedSec, isTyped) {
+    const targetRawWords = activeSentenceSecret.trim().split(/\s+/).filter(Boolean);
+    const targetCleanWords = targetRawWords.map(cleanWord);
+    const spokenCleanWords = getCleanTokens(userTranscript);
+
+    const matchedIndices = computeSequenceMatches(targetCleanWords, spokenCleanWords);
+    const totalTarget = targetRawWords.length;
+    const matchedCount = matchedIndices.size;
+    const missedCount = Math.max(0, totalTarget - matchedCount);
+
+    // Reveal sentence word-by-word
+    const revealBox = document.getElementById('res-sentence-reveal');
+    revealBox.innerHTML = '';
+    targetRawWords.forEach((rawWord, idx) => {
+      const span = document.createElement('span');
+      const isOk = matchedIndices.has(idx);
+      span.className = 'seq-token ' + (isOk ? 'seq-ok' : 'seq-miss');
+      span.textContent = rawWord;
+      revealBox.appendChild(span);
+    });
+
+    let rawPct = totalTarget > 0 ? Math.round((matchedCount / totalTarget) * 100) : 0;
+    let finalScore = isTyped ? Math.min(85, rawPct) : rawPct;
+
+    // Band label (exam-style partial credit bands)
+    const badge = document.getElementById('res-score-badge');
+    badge.className = 'score-badge';
+    let bandTitle = '';
+    if (!isTyped && rawPct === 100) {
+      bandTitle = 'All Words — Perfect Recall';
+      badge.classList.add('score-high');
+    } else if (finalScore >= 50) {
+      bandTitle = 'Over Half — Good Memory';
+      badge.classList.add(finalScore >= 80 ? 'score-high' : 'score-med');
+    } else {
+      bandTitle = 'Keep Practising';
+      badge.classList.add('score-low');
+    }
+    badge.textContent = bandTitle + ' · ' + finalScore + '%';
+
+    const honestyEl = document.getElementById('res-honesty-note');
+    if (isTyped) {
+      honestyEl.textContent =
+        'Practice estimate only (not an official exam score). Typed check — score capped at 85% without live mic confirmation, and WPM is shown as "—". Based on words recognised vs missed in sequence (' +
+        matchedCount + '/' + totalTarget + ' words).';
+    } else {
+      honestyEl.textContent =
+        'Practice estimate only (not an official exam score). Scored via browser speech recognition on words recognised vs missed in sequence (' +
+        matchedCount + ' words recognised, ' + missedCount + ' missed), not phoneme-level grading.';
+    }
+
+    document.getElementById('res-score-num').textContent = finalScore + '%';
+    document.getElementById('res-recognised-num').textContent = matchedCount + ' / ' + totalTarget;
+    document.getElementById('res-missed-num').textContent = missedCount;
+
+    if (!isTyped && elapsedSec >= 2 && spokenCleanWords.length >= 3) {
+      const wpm = Math.round(spokenCleanWords.length / (elapsedSec / 60));
+      document.getElementById('res-wpm-num').textContent = wpm;
+    } else {
+      document.getElementById('res-wpm-num').textContent = '—';
+    }
+
+    document.getElementById('res-user-transcript').textContent =
+      userTranscript.trim() ? '“' + userTranscript.trim() + '”' : 'No words recorded.';
+
+    // XP & Streak (+20 XP + 10 XP bonus for 90%+ words recognised from memory via mic)
+    const earnedBonus = !isTyped && rawPct >= 90;
+    const earnedXP = earnedBonus ? 30 : 20;
+    xp += earnedXP;
+    localStorage.setItem('userXP', xp);
+
+    const today = new Date().toDateString();
+    const lastPractice = localStorage.getItem('english_flow_last_practice');
+    if (lastPractice !== today) {
+      streak += 1;
+      localStorage.setItem('english_flow_streak', streak);
+      localStorage.setItem('english_flow_last_practice', today);
+    }
+    renderStats();
+
+    document.getElementById('final-streak').textContent = streak;
+    document.getElementById('final-xp').textContent = xp;
+    document.getElementById('res-xp-note').textContent = earnedBonus
+      ? '+20 XP repeat check + 10 XP 90%+ memory recall bonus awarded! (+30 XP)'
+      : '+20 XP repeat-sentence check completed!';
+
+    // WhatsApp Share
+    const canonical = "https://englishflowofficial.github.io/tools/repeat-sentence-speaking-practice.html";
+    const shareText =
+      "I scored " + finalScore + "% (" + matchedCount + "/" + totalTarget +
+      " words in sequence) on the English Flow Repeat Sentence Speaking Practice! 🦉 Test your memory & speaking free: " + canonical;
+    document.getElementById('wa-share-btn').href = "https://api.whatsapp.com/send?text=" + encodeURIComponent(shareText);
+
+    document.getElementById('stage-results').removeAttribute('hidden');
+  }
+
+  function replayCurrentSentence() {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(activeSentenceSecret);
+      u.lang = 'en-US';
+      u.rate = speechRate;
+      window.speechSynthesis.speak(u);
+    }
+  }
+
+  function tryAnotherSentenceSameTier() {
+    cleanupMedia();
+    document.getElementById('stage-results').setAttribute('hidden', '');
+    document.getElementById('stage-repeat').setAttribute('hidden', '');
+    startBlindListening();
+  }
+
+  function changeDifficultySetup() {
+    cleanupMedia();
+    document.getElementById('stage-results').setAttribute('hidden', '');
+    document.getElementById('stage-repeat').setAttribute('hidden', '');
+    document.getElementById('stage-listening').setAttribute('hidden', '');
+    document.getElementById('stage-setup').removeAttribute('hidden');
+  }
+
+  // Initialize
+  renderStats();
+</script>
+<script src="../ef-analytics.js" defer></script>
+</body>
+</html>
