@@ -496,6 +496,7 @@
           '<span class="comm-feed-badge" id="comm-total-badge">Comments</span>' +
         '</div>' +
         '<div class="comm-list" id="comm-list-container"></div>' +
+        '<button type="button" id="comm-show-all-btn" class="ff-btn comm-btn-toggle" style="display:none;margin:14px auto 0">Show all comments</button>' +
       '</div>';
 
     container.appendChild(shell);
@@ -506,6 +507,10 @@
     var locInput = shell.querySelector("#comm-loc-input");
     var textInput = shell.querySelector("#comm-text-input");
     var submitBtn = shell.querySelector("#comm-submit-btn");
+    var showAllBtn = shell.querySelector("#comm-show-all-btn");
+    var showAllComments = false;
+    var MAX_VISIBLE_COMMENTS = 5;
+    showAllBtn.addEventListener("click", function () { showAllComments = !showAllComments; renderFeed(); });
 
     function renderFeed() {
       var localList = getLocalUserComments();
@@ -527,13 +532,20 @@
 
       totalBadge.textContent = combined.length + " Comments";
 
+      var visible = showAllComments ? combined : combined.slice(0, MAX_VISIBLE_COMMENTS);
       var html = "";
-      combined.forEach(function (c) {
+      visible.forEach(function (c) {
         var isLocal = localList.some(function (u) { return u.id === c.id; });
         html += renderCommentCard(c, isLocal);
       });
       listContainer.innerHTML = html;
       bindLikes();
+      if (combined.length > MAX_VISIBLE_COMMENTS) {
+        showAllBtn.style.display = "block";
+        showAllBtn.textContent = showAllComments ? "Show fewer comments" : "Show all " + combined.length + " comments";
+      } else {
+        showAllBtn.style.display = "none";
+      }
     }
 
     function bindLikes() {
