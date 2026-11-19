@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T10:54:04.218573Z",
+  "generated_at": "2026-11-19T10:56:12.542595Z",
   "site": "https://englishflowofficial.github.io/",
   "sitemap_submit": {
     "url": "https://englishflowofficial.github.io/sitemap.xml",
@@ -8,7 +8,7 @@
   "sitemaps": [
     {
       "path": "https://englishflowofficial.github.io/sitemap.xml",
-      "lastSubmitted": "2026-11-18T10:54:04.358Z",
+      "lastSubmitted": "2026-11-19T10:56:12.769Z",
       "isPending": true,
       "isSitemapsIndex": false,
       "warnings": "0",
@@ -16,9 +16,19 @@
     }
   ],
   "search_analytics_28d": {
-    "startDate": "2026-10-21",
-    "endDate": "2026-11-18",
+    "startDate": "2026-10-22",
+    "endDate": "2026-11-19",
     "rows": [
+      {
+        "keys": [
+          "english flow online",
+          "https://englishflowofficial.github.io/"
+        ],
+        "clicks": 1,
+        "impressions": 34,
+        "ctr": 0.029411764705882353,
+        "position": 6.529411764705882
+      },
       {
         "keys": [
           "english.flow",
@@ -45,19 +55,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
-        "impressions": 181,
+        "impressions": 189,
         "ctr": 0,
-        "position": 6.30939226519337
-      },
-      {
-        "keys": [
-          "english flow online",
-          "https://englishflowofficial.github.io/"
-        ],
-        "clicks": 0,
-        "impressions": 33,
-        "ctr": 0,
-        "position": 6.606060606060606
+        "position": 6.195767195767195
       },
       {
         "keys": [
@@ -65,9 +65,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 2
+        "position": 5
       },
       {
         "keys": [
@@ -105,9 +105,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 4,
         "ctr": 0,
-        "position": 7.666666666666667
+        "position": 8.25
       },
       {
         "keys": [
