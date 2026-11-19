@@ -318,13 +318,10 @@
      FIX 3 & 4: Trust lines + highlights pill — hero-scoped, high contrast
      ------------------------------------------------------------------ */
   @media (min-width: 851px) {
-    section[aria-labelledby="voice-tools-heading"] .ph-grid, section[aria-labelledby="practice-hub-heading"] .ph-grid { grid-template-columns: repeat(6, 1fr); }
-    section[aria-labelledby="voice-tools-heading"] .ph-grid .ph-card, section[aria-labelledby="practice-hub-heading"] .ph-grid .ph-card { grid-column: span 2; }
-    section[aria-labelledby="voice-tools-heading"] .ph-grid .ph-card:nth-last-child(2):nth-child(3n+1) { grid-column: 2 / span 2; }
-    section[aria-labelledby="practice-hub-heading"] .ph-grid .ph-card:nth-last-child(1):nth-child(3n+1) { grid-column: 3 / span 2; }
+    section[aria-labelledby="voice-tools-heading"] .ph-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   #next-practice:disabled { background: #e5e7eb !important; color: #64748b !important; box-shadow: 0 3px 0 #cbd5e1 !important; opacity: 1 !important; cursor: not-allowed; }
-  .short-card img { object-fit: cover !important; object-position: center top !important; }
+  .short-card img { object-fit: cover !important; object-position: center !important; }
   .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; }
   .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: #f0fdf4; border: 1.5px solid #bbf7d0; color: #166534; font-weight: 800; font-size: 13px; padding: 7px 12px; border-radius: 999px; }
   .ef-trust {
@@ -764,7 +761,6 @@
             </div>
             <p><strong>29 interactive quizzes &amp; tools</strong><br />100% free &middot; zero sign-up required</p>
           </div>
-          <a onclick="if(window.gtag)gtag('event','workbook_download',{page_path:location.pathname})" class="ef-workbook-link" href="https://topmate.io/speak_english_with_confidence/2324225" data-analytics-event="workbook_cta_click" data-variant="var_c_hero_link" style="margin-top:10px;display:inline-block">Get the 30-Day Speaking Workbook ($) →</a>
         </div>
 
         <div class="hero-visual" style="position:relative" aria-label="An example English Flow lesson">
@@ -835,12 +831,12 @@
           <div class="ph-grid ef-hub">
             <a class="ph-card" href="tools/60-second-fluency-score-test.html">
               <span class="ph-ic ph-ic-gold" aria-hidden="true">🎙️</span>
-              <span class="ph-txt"><h3>60-Second Fluency Score</h3><p>Surprise topic &middot; WPM, fillers &amp; 0&ndash;100 score</p></span>
+              <span class="ph-txt"><h3>60-Second Fluency Test</h3><p>Surprise topic &middot; WPM, fillers &amp; 0&ndash;100 score</p></span>
               <b class="ph-arrow" aria-hidden="true">→</b>
             </a>
             <a class="ph-card" href="tools/english-pronunciation-checker.html">
               <span class="ph-ic ph-ic-gold" aria-hidden="true">🗣️</span>
-              <span class="ph-txt"><h3>English Pronunciation Checker</h3><p>Any sentence &middot; Green/red word check &amp; A/B audio</p></span>
+              <span class="ph-txt"><h3>Pronunciation Checker</h3><p>Any sentence &middot; Green/red word check &amp; A/B audio</p></span>
               <b class="ph-arrow" aria-hidden="true">→</b>
             </a>
             <a class="ph-card" href="tools/english-conversation-simulator.html">
@@ -850,7 +846,7 @@
             </a>
             <a class="ph-card" href="tools/english-shadowing-practice.html">
               <span class="ph-ic ph-ic-gold" aria-hidden="true">🎧</span>
-              <span class="ph-txt"><h3>Shadowing Practice</h3><p>Karaoke word pacing &middot; Echo &amp; sync modes</p></span>
+              <span class="ph-txt"><h3>Shadowing Practice Tool</h3><p>Karaoke word pacing &middot; Echo &amp; sync modes</p></span>
               <b class="ph-arrow" aria-hidden="true">→</b>
             </a>
             <a class="ph-card" href="tools/english-read-aloud-practice.html">
@@ -880,12 +876,12 @@
             </a>
             <a class="ph-card" href="tools/filler-word-counter.html">
               <span class="ph-ic ph-ic-gold" aria-hidden="true">🗣️</span>
-              <span class="ph-txt"><h3>Filler Word Counter (Um/Uh Detector)</h3><p>60s live mic &middot; Highlights fillers &amp; 2s+ pauses</p></span>
+              <span class="ph-txt"><h3>Filler Word Counter</h3><p>60s live mic &middot; Highlights fillers &amp; 2s+ pauses</p></span>
               <b class="ph-arrow" aria-hidden="true">→</b>
             </a>
             <a class="ph-card" href="tools/presentation-teleprompter-script-timer.html">
               <span class="ph-ic ph-ic-gold" aria-hidden="true">📺</span>
-              <span class="ph-txt"><h3>Presentation Teleprompter &amp; Timer</h3><p>Paste your script &middot; Auto-scroll at 100&ndash;180 WPM</p></span>
+              <span class="ph-txt"><h3>Speech Teleprompter</h3><p>Paste your script &middot; Auto-scroll at 100&ndash;180 WPM</p></span>
               <b class="ph-arrow" aria-hidden="true">→</b>
             </a>
             <a class="ph-card" href="tools/30-second-speaking-challenge.html">
@@ -895,12 +891,12 @@
             </a>
             <a class="ph-card" href="tools/describe-picture-speaking-practice.html">
               <span class="ph-ic ph-ic-green" aria-hidden="true">🖼️</span>
-              <span class="ph-txt"><h3>Describe Picture Practice</h3><p>8 illustrated scenes &middot; 25s study + 40s PTE-style timer</p></span>
+              <span class="ph-txt"><h3>Describe the Picture</h3><p>8 illustrated scenes &middot; 25s study + 40s PTE-style timer</p></span>
               <b class="ph-arrow" aria-hidden="true">→</b>
             </a>
             <a class="ph-card" href="tools/repeat-sentence-speaking-practice.html">
               <span class="ph-ic ph-ic-green" aria-hidden="true">🔁</span>
-              <span class="ph-txt"><h3>Repeat Sentence Practice</h3><p>24 sentences &middot; hear once, text hidden &middot; 15s mic repeat &amp; playback</p></span>
+              <span class="ph-txt"><h3>Repeat Sentence Test</h3><p>24 sentences &middot; hear once, text hidden &middot; 15s mic repeat &amp; playback</p></span>
               <b class="ph-arrow" aria-hidden="true">→</b>
             </a>
           </div>
@@ -928,11 +924,6 @@
           <span class="ph-live" title="Free voice tools, no sign-in">🎧 14 free voice tools · No sign-in</span>
         </div>
         <div class="ph-grid ef-hub">
-          <a class="ph-card" href="quizzes/pronunciation-coach-2026-11-04.html">
-            <span class="ph-ic ph-ic-gold" aria-hidden="true">🎙️</span>
-            <span class="ph-txt"><h3>Voice Pronunciation Coach</h3><p>12 workplace phrases &middot; free</p></span>
-            <b class="ph-arrow" aria-hidden="true">→</b>
-          </a>
           <a class="ph-card" href="practice.html">
             <span class="ph-ic ph-ic-green" aria-hidden="true">✍️</span>
             <span class="ph-txt"><h3>Daily Practice</h3><p>30 lessons · streaks + XP</p></span>
