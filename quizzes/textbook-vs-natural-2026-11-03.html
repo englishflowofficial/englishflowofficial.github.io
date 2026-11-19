@@ -85,7 +85,7 @@
 <body>
   <header class="gp-header">
     <a class="gp-brand" href="../index.html">🦉 English <b>Flow</b></a>
-    <nav class="gp-nav"><a href="../index.html">Home</a><a href="../game-practice.html">Practice</a><a href="../tenses.html">Tenses</a></nav>
+    <nav class="gp-nav"><a href="../index.html">Home</a><a href="../game-practice.html">Practice</a><a href="../tenses.html">Tenses</a><a href="../index.html#voice-tools">Voice Tools</a></nav>
     <div class="gp-stats">
       <span class="gp-stat streak">🔥 <b id="st-streak">0</b></span>
       <span class="gp-stat xp">⚡ <b id="st-xp">0</b></span>
@@ -116,7 +116,7 @@
           <h3 style="margin:0 0 8px">📚 Recommended English Resources</h3>
           <p style="margin:0 0 10px;color:#555;font-weight:700;font-size:14px">Want the full system? Flo recommends:</p>
           <ul style="margin:0;padding-left:18px;font-weight:700;font-size:14px">
-            <li><a onclick="if(window.gtag)gtag('event','workbook_download',{page_path:location.pathname})" href="https://topmate.io/speak_english_with_confidence/2324225">Get the 30-Day Speaking Workbook ($) →</a> – the 30-day speaking blueprint</li>
+            <li><a onclick="if(window.gtag)gtag('event','workbook_download',{page_path:location.pathname})" href="https://topmate.io/speak_english_with_confidence/2324225" class="btn-3d" style="background:#f59e0b;color:#1e1b4b;font-size:14px;padding:10px 18px;box-shadow:0 3px 0 #b45309;text-decoration:none;display:inline-block;border-radius:12px;font-weight:900;" target="_blank" rel="noopener noreferrer">Get the 30-Day Speaking Workbook ($) →</a> – the 30-day speaking blueprint</li>
             <li><a onclick="if(window.gtag)gtag('event','workbook_download',{page_path:location.pathname})" href="../30-day-english-flow-workbook.pdf">30-Day English Flow Workbook (PDF)</a> – daily speaking drills</li>
             <li><a onclick="if(window.gtag)gtag('event','resource_cta_click',{page_path:location.pathname})" href="../resources.html">Free Resources Library</a> – trackers, podcasts, worksheets</li>
             <li><a onclick="if(window.gtag)gtag('event','resource_cta_click',{page_path:location.pathname})" href="../game-practice.html">Daily Practice Session</a> – keep your streak alive</li>
@@ -125,7 +125,7 @@
       </div>
     </div>
 
-    <section class="study-cheatsheet" aria-label="Quick study guide" style="margin:26px 0;padding:20px;border:2px dashed #1cb0f6;border-radius:18px;background:#f7fdff;text-align:left">
+    <details class="study-cheatsheet" aria-label="Quick study guide" style="margin:26px 0;padding:20px;border:2px dashed #1cb0f6;border-radius:18px;background:#f7fdff;text-align:left"><summary style="cursor:pointer;font-weight:900;color:#0c4a6e">📖 📖 5 Textbook → Natural Upgrades — Tap to reveal the cheat-sheet (contains quiz answers)</summary><div id="cheat-sheet-content" hidden>
       <h2>📖 5 Textbook → Natural Upgrades</h2>
 <ul>
 <li>☕ <i>I want coffee</i> → <b><i>Can I get a latte to go?</i></b> — soften every request.</li>
@@ -135,7 +135,7 @@
 <li>📞 <i>Cutting the phone</i> → <b><i>Let's catch up soon!</i></b></li>
 </ul>
       <p style="font-size:13px;color:#777;font-weight:700;margin:10px 0 0">🦉 Flo's tip: bookmark this page and challenge a friend — nothing cements learning like a little rivalry.</p>
-    </section>
+    </div></details>
   </main>
 
 <script>
@@ -154,24 +154,27 @@ function startTimer(){
     if(timeLeft<=0 && !done) finish();
   },1000);
 }
+function shuffleArray(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const t=a[i];a[i]=a[j];a[j]=t;}return a;}
 function renderQ(){
   locked=false;
+  const cs=document.getElementById('cheat-sheet-content'); if(cs) cs.hidden=true;
   const box=document.getElementById('quiz'); box.innerHTML='';
   document.getElementById('counter').textContent=(idx+1)+' / '+SCENARIOS.length;
   document.getElementById('progress').style.width=(idx/SCENARIOS.length*100)+'%';
   const s=SCENARIOS[idx];
+  const order=shuffleArray(s.opts.map((_,i)=>i)); const opts=order.map(i=>s.opts[i]); const sh={scene:s.scene,q:s.q,opts:opts,natural:order.indexOf(s.natural),why:s.why};
   const card=document.createElement('div');
   const sc=document.createElement('p'); sc.style.cssText='font-weight:1000;color:#1cb0f6;letter-spacing:1px;font-size:13px'; sc.textContent=s.scene; card.appendChild(sc);
   const h=document.createElement('h2'); h.style.fontSize='20px'; h.textContent=s.q; card.appendChild(h);
-  s.opts.forEach((o,i)=>{
+  sh.opts.forEach((o,i)=>{
     const b=document.createElement('button'); b.className='opt'; b.textContent=o;
     b.onclick=()=>{
       if(locked||done) return; locked=true;
       const btns=[...card.querySelectorAll('.opt')];
-      if(i===s.natural){ b.classList.add('right'); correct++; xp+=10; }
-      else{ b.classList.add('wrong'); btns[s.natural].classList.add('right'); }
+      if(i===sh.natural){ b.classList.add('right'); correct++; xp+=10; }
+      else{ b.classList.add('wrong'); btns[sh.natural].classList.add('right'); }
       localStorage.setItem('userXP',xp); renderStats();
-      const f=document.createElement('p'); f.className='flo-say'; f.textContent='🦉 Flo: '+s.why; card.appendChild(f);
+      const f=document.createElement('p'); f.className='flo-say'; f.textContent='🦉 Flo: '+sh.why; card.appendChild(f);
       const n=document.createElement('button'); n.className='btn-3d btn-green'; n.style.marginTop='12px';
       n.textContent= idx===SCENARIOS.length-1 ? 'See my score →' : 'Next →';
       n.onclick=()=>{ idx++; if(idx>=SCENARIOS.length) finish(); else renderQ(); };
@@ -185,6 +188,7 @@ function finish(){
   if(done) return; done=true; clearInterval(timerId);
   document.getElementById('quiz').hidden=true;
   document.getElementById('results').hidden=false;
+  const cs2=document.getElementById('cheat-sheet-content'); if(cs2){cs2.removeAttribute('hidden');} const dcs=document.querySelector('.study-cheatsheet'); if(dcs) dcs.setAttribute('open','');
   document.getElementById('progress').style.width='100%';
   const today=new Date().toDateString(); const last=localStorage.getItem('english_flow_last_practice');
   if(last!==today){streak+=1;localStorage.setItem('english_flow_streak',streak);localStorage.setItem('english_flow_last_practice',today);}
