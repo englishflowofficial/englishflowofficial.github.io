@@ -195,10 +195,10 @@ let xp = parseInt(localStorage.getItem('userXP'))||0;
 let streak = parseInt(localStorage.getItem('english_flow_streak'))||0;
 function renderStats(){document.getElementById('st-streak').textContent=streak;document.getElementById('st-xp').textContent=xp;}
 function renderQ(){
+  if(idx>=QUESTIONS.length){showResults();return;}
   const box=document.getElementById('quiz'); box.innerHTML='';
   document.getElementById('counter').textContent=(idx+1)+' / '+QUESTIONS.length;
   document.getElementById('progress').style.width=(idx/QUESTIONS.length*100)+'%';
-  if(idx>=QUESTIONS.length){showResults();return;}
   const item=QUESTIONS[idx];
   const card=document.createElement('div'); card.className='q-card';
   card.innerHTML='<h2>'+item.q+'</h2>';
