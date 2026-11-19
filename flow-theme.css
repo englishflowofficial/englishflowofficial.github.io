@@ -77,7 +77,7 @@ em { color: var(--ff-green); font-style: normal; }
 .brand-mark i { background: var(--ff-green); }
 .brand-mark i:nth-child(2) { background: var(--ff-blue); }
 .brand-mark i:nth-child(3) { background: var(--ff-yellow); }
-.site-nav a { font-weight: 800; font-size: 14px; color: var(--ff-muted); padding: 8px 8px; border-radius: 12px; text-transform: uppercase; letter-spacing: .04em; transition: background .15s, color .15s; }
+.site-nav a { font-weight: 800; font-size: 14px; color: var(--ff-muted); padding: 8px 6px; border-radius: 12px; text-transform: uppercase; letter-spacing: .04em; transition: background .15s, color .15s; }
 .site-nav { gap: 6px; }
 .site-nav a:hover { background: var(--ff-bg-2); color: var(--ff-ink); }
 .site-nav .is-active { color: var(--ff-blue); background: var(--ff-blue-soft); }
@@ -91,6 +91,11 @@ em { color: var(--ff-green); font-style: normal; }
 .ff-chip-sep { width: 2px; height: 16px; background: var(--ff-line); margin: 0 3px; }
 .ff-chip-fire { filter: grayscale(1); opacity: .55; }
 .ff-chip.is-lit .ff-chip-fire { filter: none; opacity: 1; animation: ff-flicker 1.6s ease-in-out infinite; }
+
+@media (max-width: 1550px) {
+  .site-nav a { font-size: 13px; }
+  .ff-chip { display: none; }
+}
 
 @media (max-width: 850px) {
   .header-cta { display: none !important; }
