@@ -165,7 +165,7 @@
       </div>
 
       <div class="action-row">
-        <button class="btn-blue btn-3d" id="btn-shuffle" style="padding: 0 16px;">🎲 New Topic</button>
+        <button type="button" class="btn-3d btn-blue" onclick="shuffleTopic()"><span>🎲</span>New Topic</button>
         <button class="btn-green btn-3d" id="btn-start-prep" style="flex: 1;">Start 30-Second Challenge →</button>
       </div>
     </div>
@@ -539,7 +539,6 @@
   }
 
   // -- Event Listeners --
-  document.getElementById('btn-shuffle').addEventListener('click', shuffleTopic);
   document.getElementById('btn-start-prep').addEventListener('click', startPrep);
   document.getElementById('btn-stop-speak').addEventListener('click', finishSpeaking);
   document.getElementById('btn-retry').addEventListener('click', () => {
