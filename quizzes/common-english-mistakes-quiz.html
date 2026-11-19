@@ -92,7 +92,7 @@
 <body>
   <header class="gp-header">
     <a class="gp-brand" href="../index.html">🦉 English <b>Flow</b></a>
-    <nav class="gp-nav"><a href="../index.html">Home</a><a href="../game-practice.html">Practice</a><a href="../tenses.html">Tenses</a></nav>
+    <nav class="gp-nav"><a href="../index.html">Home</a><a href="../game-practice.html">Practice</a><a href="../tenses.html">Tenses</a><a href="../index.html#voice-tools">Voice Tools</a></nav>
     <div class="gp-stats">
       <span class="gp-stat streak">🔥 <b id="st-streak">0</b></span>
       <span class="gp-stat xp">⚡ <b id="st-xp">0</b></span>
@@ -122,7 +122,7 @@
           <h3 style="margin:0 0 8px">📚 Recommended English Resources</h3>
           <p style="margin:0 0 10px;color:#555;font-weight:700;font-size:14px">Keep the momentum. Flo recommends:</p>
           <ul style="margin:0;padding-left:18px;font-weight:700;font-size:14px">
-            <li><a onclick="if(window.gtag)gtag('event','workbook_download',{page_path:location.pathname})" href="https://topmate.io/speak_english_with_confidence/2324225">Get the 30-Day Speaking Workbook ($) →</a> – the 30-day speaking blueprint</li>
+            <li><a onclick="if(window.gtag)gtag('event','workbook_download',{page_path:location.pathname})" href="https://topmate.io/speak_english_with_confidence/2324225" class="btn-3d" style="background:#f59e0b;color:#1e1b4b;font-size:14px;padding:10px 18px;box-shadow:0 3px 0 #b45309;text-decoration:none;display:inline-block;border-radius:12px;font-weight:900;" target="_blank" rel="noopener noreferrer">Get the 30-Day Speaking Workbook ($) →</a> – the 30-day speaking blueprint</li>
             <li><a onclick="if(window.gtag)gtag('event','workbook_download',{page_path:location.pathname})" href="../30-day-english-flow-workbook.pdf">30-Day English Flow Workbook (PDF)</a> – daily speaking drills</li>
             <li><a onclick="if(window.gtag)gtag('event','resource_cta_click',{page_path:location.pathname})" href="../resources.html">Free Resources Library</a> – trackers, podcasts, worksheets</li>
             <li><a onclick="if(window.gtag)gtag('event','resource_cta_click',{page_path:location.pathname})" href="../game-practice.html">Daily Practice Session</a> – keep your streak alive</li>
@@ -131,7 +131,7 @@
       </div>
     </div>
 
-    <section class="study-cheatsheet" aria-label="Quick study guide" style="margin:26px 0;padding:20px;border:2px dashed #1cb0f6;border-radius:18px;background:#f7fdff;text-align:left">
+    <details class="study-cheatsheet" aria-label="Quick study guide" style="margin:26px 0;padding:20px;border:2px dashed #1cb0f6;border-radius:18px;background:#f7fdff;text-align:left"><summary style="cursor:pointer;font-weight:900;color:#0c4a6e">📖 📖 10 Mistakes, Fixed Forever — Tap to reveal the cheat-sheet (contains quiz answers)</summary><div id="cheat-sheet-content" hidden>
       <h2>📖 10 Mistakes, Fixed Forever</h2>
 <ul>
 <li>❌ <i>discuss about</i> → ✅ <i>discuss</i> — "Let's discuss the plan."</li>
@@ -142,7 +142,7 @@
 <li>❌ <i>an advice</i> → ✅ <i>a piece of advice</i> — advice is uncountable.</li>
 </ul>
       <p style="font-size:13px;color:#777;font-weight:700;margin:10px 0 0">🦉 Flo's tip: read this once, then replay the quiz above — you'll feel the difference.</p>
-    </section>
+    </div></details>
   </main>
 
 <script>
@@ -162,17 +162,20 @@ let idx=0, score=0;
 let xp = parseInt(localStorage.getItem('userXP'))||0;
 let streak = parseInt(localStorage.getItem('english_flow_streak'))||0;
 function renderStats(){document.getElementById('st-streak').textContent=streak;document.getElementById('st-xp').textContent=xp;}
+function shuffleArray(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const t=a[i];a[i]=a[j];a[j]=t;}return a;}
 function renderQ(){
   if(idx>=QUESTIONS.length){showResults();return;}
+  const cs=document.getElementById('cheat-sheet-content'); if(cs) cs.hidden=true;
   const box=document.getElementById('quiz'); box.innerHTML='';
   document.getElementById('counter').textContent=(idx+1)+' / '+QUESTIONS.length;
   document.getElementById('progress').style.width=(idx/QUESTIONS.length*100)+'%';
   const item=QUESTIONS[idx];
+  const order=shuffleArray(item.opts.map((_,i)=>i)); const opts=order.map(i=>item.opts[i]); const sh={q:item.q,opts:opts,a:order.indexOf(item.a),tip:item.tip};
   const card=document.createElement('div'); card.className='q-card';
   card.innerHTML='<h2>'+item.q+'</h2>';
-  item.opts.forEach((o,i)=>{
+  sh.opts.forEach((o,i)=>{
     const b=document.createElement('button'); b.className='opt'; b.textContent=o;
-    b.onclick=()=>answer(b,i,item); card.appendChild(b);
+    b.onclick=()=>answer(b,i,sh); card.appendChild(b);
   });
   const tip=document.createElement('p'); tip.style.cssText='color:#777;font-size:13px;font-weight:700'; tip.textContent='🦉 Flo tip: native speakers notice this one a lot.';
   card.appendChild(tip); box.appendChild(card);
@@ -190,6 +193,7 @@ function answer(btn,i,item){
 function showResults(){
   document.getElementById('quiz').hidden=true;
   document.getElementById('results').hidden=false;
+  const cs2=document.getElementById('cheat-sheet-content'); if(cs2){cs2.removeAttribute('hidden');} const dcs=document.querySelector('.study-cheatsheet'); if(dcs) dcs.setAttribute('open','');
   document.getElementById('progress').style.width='100%';
   // streak bump once per completion
   const today=new Date().toDateString(); const last=localStorage.getItem('english_flow_last_practice');
