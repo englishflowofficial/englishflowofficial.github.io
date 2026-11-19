@@ -37,6 +37,8 @@
     color: #333;
   }
   .quiz-wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 40px; }
+  #stage-start .q-card { position: relative; }
+  .flo-mini-badge { position: absolute; top: -14px; right: 16px; background: #fff; border: 2px solid #ffc800; border-radius: 999px; padding: 6px 12px; font-size: 12.5px; font-weight: 900; color: #1e1b4b; box-shadow: 0 3px 0 #e5e5e5; z-index: 2; }
   .q-card { border: 2px solid #e5e5e5; border-radius: 20px; padding: 26px 22px; background: #fff; box-shadow: 0 4px 0 #e5e5e5; margin: 16px 0; text-align: center; }
   .result-card { border: 2px solid #e5e5e5; border-radius: 20px; padding: 28px; text-align: center; background: linear-gradient(135deg, #f0fff4, #eff8ff); }
   .resource-card { border: 2px solid #ffc800; border-radius: 18px; padding: 18px; background: #fffbe6; margin-top: 18px; text-align: left; }
@@ -143,7 +145,7 @@
 
 <header class="gp-header">
 <a class="gp-brand" href="../index.html">🦉 English <b>Flow</b></a>
-<nav class="gp-nav"><a href="../index.html">Home</a><a href="../game-practice.html">Practice</a><a href="../tenses.html">Tenses</a></nav>
+<nav class="gp-nav"><a href="../index.html">Home</a><a href="../game-practice.html">Practice</a><a href="../tenses.html">Tenses</a><a href="../index.html#voice-tools">Voice Tools</a></nav>
 <div class="gp-stats"><span class="gp-stat streak">🔥 <b id="st-streak">0</b></span><span class="gp-stat xp">⚡ <b id="st-xp">0</b></span></div>
 </header>
 
@@ -152,6 +154,7 @@
   <!-- STAGE: START -->
   <div id="stage-start">
     <div class="q-card">
+      <div class="flo-mini-badge" aria-hidden="true">🦉 Flo is listening — speak for 30 seconds!</div>
       <h1 style="font-size: 24px; margin-top: 0;">30-Second Speaking Challenge</h1>
       <p style="color: #6b7280; font-weight: 600; margin-bottom: 24px;">Get a surprise workplace topic. 10 seconds to prepare. 30 seconds to speak.</p>
       
@@ -162,7 +165,7 @@
       </div>
 
       <div class="action-row">
-        <button class="btn-outline btn-3d" id="btn-shuffle" style="padding: 0 16px;">🔄 New Topic</button>
+        <button class="btn-blue btn-3d" id="btn-shuffle" style="padding: 0 16px;">🎲 New Topic</button>
         <button class="btn-green btn-3d" id="btn-start-prep" style="flex: 1;">Start 30-Second Challenge →</button>
       </div>
     </div>
