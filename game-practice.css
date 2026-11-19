@@ -201,3 +201,9 @@ a{color:var(--blue);text-decoration:none}
   .result-cards{grid-template-columns:repeat(3,1fr);gap:8px}
   .sess-btn{min-width:118px}
 }
+
+/* Quiz results screen (2026-11-19): the bare .result-card has white text
+   (color:#fff) with no background, so the score / streak / resources text was
+   invisible on the pale page. Scoped to #results so the game page's coloured
+   stat cards (xp/acc/combo) keep their white text. */
+#results .result-card{color:#3c3c3c;background:#f4fff7;border:2px solid #d7ffb8;padding:22px 18px}
