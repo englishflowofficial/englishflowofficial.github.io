@@ -330,63 +330,8 @@
     setTimeout(function () { Array.prototype.forEach.call(targets, function (t) { t.classList.add("ff-in"); }); }, 4000);
   }
 
-  /* ---------- realistic dynamic live visitor tracker ---------- */
-  function initLiveVisitorCounter() {
-    var countElements = doc.querySelectorAll("#live-visitor-count, .live-visitor-count");
-    if (!countElements.length) return;
-
-    var now = new Date();
-    var hour = now.getHours();
-
-    // 1. Natural hourly base curve
-    var hourBases = [
-      115, 98, 88, 94, 118, 148,       // 00:00 - 05:00
-      188, 235, 278, 315, 292, 268,   // 06:00 - 11:00
-      245, 228, 215, 238, 265, 298,   // 12:00 - 17:00
-      335, 372, 355, 318, 262, 185    // 18:00 - 23:00
-    ];
-    var base = hourBases[hour] || 250;
-
-    // 2. Organic random offset per session/reload so it never gets stuck at 283
-    var sessionRandomOffset = Math.floor(Math.random() * 84) - 42;
-    var currentCount = Math.max(92, base + sessionRandomOffset);
-
-    // Render count with a lively visual pulse
-    function render(val, pulse) {
-      countElements.forEach(function (el) {
-        el.textContent = val.toLocaleString();
-        if (pulse) {
-          el.classList.add("count-pulse");
-          setTimeout(function () { el.classList.remove("count-pulse"); }, 400);
-        }
-      });
-    }
-
-    render(currentCount, false);
-
-    // 3. Fast, realistic bursts every 2.8s - 5.4s
-    // Real users join (+2, +3, +4) and leave (-1, -2, -3) in organic rhythm
-    var stepOptions = [2, -1, 3, -2, 1, 4, -3, 2, -1, -2, 3, 5, -4];
-    function tick() {
-      var delta = stepOptions[Math.floor(Math.random() * stepOptions.length)];
-
-      // Keep within believable envelope
-      if (currentCount > 410 && delta > 0) delta = -Math.abs(delta);
-      if (currentCount < 110 && delta < 0) delta = Math.abs(delta);
-
-      currentCount += delta;
-      render(currentCount, true);
-
-      var nextDelay = 2800 + Math.floor(Math.random() * 2600);
-      setTimeout(tick, nextDelay);
-    }
-
-    // Start ticking quickly after page load so it immediately feels alive
-    setTimeout(tick, 2200);
-  }
-
   window.FlowFun = { mount: mount, mountAll: mountAll, create: create, mood: setMood, confetti: confetti, pop: pop, snapshot: snapshot };
 
-  function init() { mountAll(); headerChip(); helper(); reveals(); initLiveVisitorCounter(); }
+  function init() { mountAll(); headerChip(); helper(); reveals(); }
   if (doc.readyState === "loading") doc.addEventListener("DOMContentLoaded", init); else init();
 })();
