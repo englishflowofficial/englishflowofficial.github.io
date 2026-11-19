@@ -27,7 +27,7 @@ a{color:var(--blue);text-decoration:none}
 .gp-brand{font-size:20px;font-weight:1000;color:var(--green-dark)}
 .gp-brand b{color:var(--blue)}
 .gp-nav{display:flex;gap:14px;font-weight:800;font-size:14px}
-.gp-nav a{color:var(--muted)} .gp-nav a:hover{color:var(--blue)}
+.gp-nav a{color:var(--muted);white-space:nowrap} .gp-nav a:hover{color:var(--blue)}
 .gp-stats{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
 .gp-stat{border:2px solid var(--line);border-radius:999px;padding:4px 12px;font-weight:900;font-size:14px;background:#fff}
 .gp-stat.streak{color:#ff9600}.gp-stat.gems{color:#0ea5e9}.gp-stat.hearts{color:var(--red)}.gp-stat.xp{color:#eab308}
