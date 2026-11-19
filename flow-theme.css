@@ -92,6 +92,11 @@ em { color: var(--ff-green); font-style: normal; }
 .ff-chip-fire { filter: grayscale(1); opacity: .55; }
 .ff-chip.is-lit .ff-chip-fire { filter: none; opacity: 1; animation: ff-flicker 1.6s ease-in-out infinite; }
 
+@media (max-width: 1650px) {
+  /* hide two secondary nav links so the header fits and the Start CTA clears the fixed auth pill */
+  .site-nav a[href="library.html"], .site-nav a[href="about.html"] { display: none; }
+}
+
 @media (max-width: 1550px) {
   .site-nav a { font-size: 13px; }
   .ff-chip { display: none; }
