@@ -109,7 +109,7 @@
         <h2 id="score-big" style="margin:8px 0;font-size:44px">0%</h2>
         <h3 id="verdict-badge" style="margin:0 0 8px">Your verdict</h3>
         <p id="verdict-desc" style="color:#555;font-weight:700"></p>
-        <p style="font-weight:900">🔥 Streak: <span id="final-streak">0</span> days · ⚡ XP: <span id="final-xp">0</span></p>
+        <p style="font-weight:900">🔥 Streak: <span id="final-streak">0</span> <span id="final-streak-unit">days</span> · ⚡ XP: <span id="final-xp">0</span></p>
         <a onclick="if(window.gtag)gtag('event','whatsapp_share',{page_path:location.pathname})" id="wa-share" href="#" target="_blank" rel="noopener" class="btn-3d btn-green" style="display:inline-block;text-decoration:none;margin:8px 4px">Share My Score on WhatsApp</a>
         <button class="btn-3d btn-blue" onclick="location.reload()" style="margin:8px 4px">Beat My Score</button>
         <div class="resource-card">
@@ -197,7 +197,7 @@ function finish(){
   document.getElementById('score-big').textContent=pct+'%';
   document.getElementById('verdict-badge').textContent=v.badge;
   document.getElementById('verdict-desc').textContent=v.desc;
-  document.getElementById('final-streak').textContent=streak;
+  document.getElementById('final-streak').textContent=streak;document.getElementById('final-streak-unit').textContent=(streak===1?'day':'days');
   document.getElementById('final-xp').textContent=xp;
   const text=encodeURIComponent('I scored '+pct+'% on Flo\u2019s English Flow Scorecard! 🦉 Do you speak textbook English or natural English? Beat my score here: https://englishflowofficial.github.io/quizzes/textbook-vs-natural-2026-11-03.html');
   document.getElementById('wa-share').href='https://api.whatsapp.com/send?text='+text;
