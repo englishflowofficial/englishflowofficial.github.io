@@ -167,6 +167,27 @@
       display: inline-block;
     }
 
+    /* NEON ROUND 3 (2026-11-20): top nav links, matching the quiz pages. */
+    .ef-topnav {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      flex-wrap: wrap;
+    }
+
+    .ef-topnav a {
+      color: var(--ef-ink);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.9rem;
+      padding: 6px 10px;
+      border-radius: 8px;
+    }
+
+    .ef-topnav a:hover {
+      background: #f0fdf4;
+    }
+
     .ef-stats-pills {
       display: flex;
       align-items: center;
@@ -288,6 +309,17 @@
       color: var(--ef-muted);
     }
 
+    /* NEON ROUND 3 (2026-11-20): Shuffle All is a slim full-width strip
+       so it never orphans alone on row 2. */
+    .pack-btn--shuffle {
+      grid-column: 1 / -1;
+      padding: 8px 14px;
+    }
+
+    .pack-btn--shuffle .pack-btn-title {
+      margin-bottom: 0;
+    }
+
     /* Locked preview list */
     .locked-list {
       list-style: none;
@@ -305,7 +337,7 @@
       background: #f8fafc;
       border: 1.5px dashed #cbd5e1;
       border-radius: 12px;
-      padding: 10px 14px;
+      padding: 7px 14px;
       font-size: 0.92rem;
       font-weight: 700;
       color: #334155;
@@ -976,6 +1008,7 @@
         <span class="ef-brand-dot" aria-hidden="true"></span>
         <span>English Flow</span>
       </a>
+      <nav class="ef-topnav" aria-label="Site navigation"><a href="../index.html">Home</a><a href="../game-practice.html">Practice</a><a href="../tenses.html">Tenses</a><a href="../index.html#voice-tools">Voice Tools</a></nav>
       <div class="ef-stats-pills" aria-label="Your local progress">
         <span class="stat-pill" id="pill-streak">🔥 0-day streak</span>
         <span class="stat-pill" id="pill-xp">⚡ 0 XP</span>
@@ -1010,7 +1043,7 @@
           <span class="pack-btn-title">🔤 Tricky Homophones & Contractions</span>
           <span class="pack-btn-sub">Pack D · 5 sentences · they're / their / there</span>
         </button>
-        <button type="button" class="pack-btn" data-pack="SHUFFLE" role="radio" aria-checked="false">
+        <button type="button" class="pack-btn pack-btn--shuffle" data-pack="SHUFFLE" role="radio" aria-checked="false">
           <span class="pack-btn-title">🔀 Shuffle All</span>
           <span class="pack-btn-sub">5 random sentences from all 20</span>
         </button>
@@ -1616,7 +1649,7 @@
         liveWordCount.textContent = '0 words typed';
         inputWarn.textContent = '';
         inputWarn.setAttribute('hidden', '');
-        btnCheck.disabled = false;
+        btnCheck.hidden = false;
         typeArea.removeAttribute('hidden');
 
         // Reset diff & speak-back
@@ -1646,7 +1679,7 @@
         inputWarn.setAttribute('hidden', '');
         hasSubmittedCurrent = true;
         dictationInput.disabled = true;
-        btnCheck.disabled = true;
+        btnCheck.hidden = true;
         stopAudio();
 
         var item = roundItems[currentIdx];
