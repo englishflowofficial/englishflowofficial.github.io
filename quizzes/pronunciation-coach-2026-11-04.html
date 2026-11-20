@@ -177,7 +177,7 @@
         <h2 id="score-title" style="margin: 8px 0; font-size: 26px; font-weight: 1000; color: #1e1b4b;">Speaking Session Complete!</h2>
         <p id="score-msg" style="color: #475569; font-weight: 800; font-size: 16px; margin: 6px 0 16px;"></p>
         <p style="font-weight: 900; font-size: 17px; color: #1e1b4b;">
-          🔥 Streak: <span id="final-streak">0</span> days · ⚡ Total XP: <span id="final-xp">0</span>
+          🔥 Streak: <span id="final-streak">0</span> <span id="final-streak-unit">days</span> · ⚡ Total XP: <span id="final-xp">0</span>
         </p>
         <a onclick="if(window.gtag)gtag('event','whatsapp_share',{page_path:location.pathname})" id="wa-share" href="#" target="_blank" rel="noopener" class="btn-3d btn-green" style="display: inline-block; text-decoration: none; margin: 12px 6px; padding: 14px 24px; font-size: 15px; font-weight: 900;">
           Share My Score on WhatsApp
@@ -424,6 +424,7 @@
       renderStats();
 
       document.getElementById('final-streak').textContent = streak;
+      document.getElementById('final-streak-unit').textContent = (streak === 1 ? 'day' : 'days');
       document.getElementById('final-xp').textContent = xp;
 
       let summaryMsg = 'Average Word-Match Score: ' + avgScore + '%. ';
