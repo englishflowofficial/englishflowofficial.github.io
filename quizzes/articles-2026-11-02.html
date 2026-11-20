@@ -149,7 +149,7 @@
         <div style="font-size:52px">🦉</div>
         <h2 id="score-title" style="margin:8px 0">You scored 0/10!</h2>
         <p id="score-msg" style="color:#555;font-weight:700"></p>
-        <p style="font-weight:900">🔥 Streak: <span id="final-streak">0</span> days · ⚡ XP: <span id="final-xp">0</span></p>
+        <p style="font-weight:900">🔥 Streak: <span id="final-streak">0</span> <span id="final-streak-unit">days</span> · ⚡ XP: <span id="final-xp">0</span></p>
         <a onclick="if(window.gtag)gtag('event','whatsapp_share',{page_path:location.pathname})" id="wa-share" href="#" target="_blank" rel="noopener" class="btn-3d btn-green" style="display:inline-block;text-decoration:none;margin:8px 4px">Share My Score on WhatsApp</a>
         <button class="btn-3d btn-blue" onclick="location.reload()" style="margin:8px 4px">Play Again</button>
         <div class="resource-card">
@@ -232,7 +232,7 @@ function showResults(){
   if(last!==today){streak+=1;localStorage.setItem('english_flow_streak',streak);localStorage.setItem('english_flow_last_practice',today);}
   renderStats();
   document.getElementById('score-title').textContent='You scored '+score+'/'+QUESTIONS.length+'!';
-  document.getElementById('final-streak').textContent=streak;
+  document.getElementById('final-streak').textContent=streak;document.getElementById('final-streak-unit').textContent=(streak===1?'day':'days');
   document.getElementById('final-xp').textContent=xp;
   const msg= score===10?'Perfect! Native-level polish. 🏆': score>=7?'Great job! Almost there.':'Good start — play again to fix them all!';
   document.getElementById('score-msg').textContent=msg;
