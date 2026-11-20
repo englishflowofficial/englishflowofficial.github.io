@@ -107,7 +107,7 @@
         <h2 id="level-badge" style="margin:8px 0">Your level</h2>
         <p id="level-desc" style="color:#555;font-weight:700"></p>
         <p id="level-next" style="font-weight:800"></p>
-        <p style="font-weight:900">🔥 Streak: <span id="final-streak">0</span> days · ⚡ XP: <span id="final-xp">0</span></p>
+        <p style="font-weight:900">🔥 Streak: <span id="final-streak">0</span> <span id="final-streak-unit">days</span> · ⚡ XP: <span id="final-xp">0</span></p>
         <a onclick="if(window.gtag)gtag('event','whatsapp_share',{page_path:location.pathname})" id="wa-share" href="#" target="_blank" rel="noopener" class="btn-3d btn-green" style="display:inline-block;text-decoration:none;margin:8px 4px">Share My Level on WhatsApp</a>
         <button class="btn-3d btn-blue" onclick="location.reload()" style="margin:8px 4px">Retake Test</button>
         <div class="resource-card">
@@ -184,7 +184,7 @@ function finish(){
   document.getElementById('level-desc').textContent=lvl.desc;
   const nx=document.getElementById('level-next');
   nx.innerHTML='Your next step: <a href="../'+lvl.next+'">continue here →</a>';
-  document.getElementById('final-streak').textContent=streak;
+  document.getElementById('final-streak').textContent=streak;document.getElementById('final-streak-unit').textContent=(streak===1?'day':'days');
   document.getElementById('final-xp').textContent=xp;
   const text=encodeURIComponent('I got "'+lvl.badge+'" on the 60-Second English Fluency Test on English Flow! 🦉 What\u2019s your level? https://englishflowofficial.github.io/quizzes/fluency-level-calculator-2026-11-03.html');
   document.getElementById('wa-share').href='https://api.whatsapp.com/send?text='+text;
