@@ -1,0 +1,1975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Dictation Practice Online Free | English Flow</title>
+  <meta name="description" content="Practise English dictation online free. Hear browser audio at 3 speeds, type what you hear, and get instant word-by-word accuracy + mic replay. No sign-up.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://englishflowofficial.github.io/tools/english-dictation-practice.html">
+  <link rel="icon" type="image/jpeg" href="../favicon.jpg">
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="English Flow">
+  <meta property="og:title" content="English Dictation Practice Online Free | English Flow">
+  <meta property="og:description" content="Practise English dictation online free. Hear browser audio at 3 speeds, type what you hear, and get instant word-by-word accuracy + mic replay. No sign-up.">
+  <meta property="og:url" content="https://englishflowofficial.github.io/tools/english-dictation-practice.html">
+  <meta property="og:image" content="https://englishflowofficial.github.io/og-image.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@EnglishFlowPodcastt">
+  <meta name="twitter:title" content="English Dictation Practice Online Free | English Flow">
+  <meta name="twitter:description" content="Practise English dictation online free. Hear browser audio at 3 speeds, type what you hear, and get instant word-by-word accuracy + mic replay. No sign-up.">
+  <meta name="twitter:image" content="https://englishflowofficial.github.io/og-image.jpg">
+
+  <!-- Fonts & Shared Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../game-practice.css">
+
+  <!-- JSON-LD: WebApplication + FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Free English Dictation Practice — Listen, Type & Check",
+        "url": "https://englishflowofficial.github.io/tools/english-dictation-practice.html",
+        "description": "Practise English dictation online free. Hear native-style browser audio at 3 speeds, type what you hear, and get instant word-by-word accuracy with an optional mic speak-back check. No sign-up.",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any (Web Browser)",
+        "isAccessibleForFree": true,
+        "inLanguage": "en",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "English Flow",
+          "url": "https://englishflowofficial.github.io/"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does English Dictation Practice work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pick one of four 5-sentence packs (or Shuffle All). Your browser plays each hidden sentence aloud at 0.85x, 1.0x, or 1.15x speed. Type what you hear and click Check My Spelling to get an instant client-side word-by-word diff showing matched, misspelled, missed, and extra words, plus a 1-line listening note."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is the audio a real human voice?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The audio is generated directly in your browser using native-style browser audio (Web Speech speechSynthesis in en-US), not a studio human recording. That keeps the tool fast, free, and available with zero sign-up."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need a microphone to practise?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The entire 5-sentence dictation round works with typing alone. A microphone is only used if you choose the optional Say It Back bonus after checking a sentence."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do XP and daily streaks work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You earn +20 XP for every completed 5-sentence round, +10 bonus XP for 90% or higher word accuracy with 2 or fewer total replays, and an optional +10 mic-only Speak-Back bonus if you speak all 5 sentences back at 80% or higher. Your XP and daily streak are saved locally in your browser."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --ef-green: #58cc02;
+      --ef-green-dark: #46a302;
+      --ef-blue: #1cb0f6;
+      --ef-blue-dark: #0e8cc7;
+      --ef-amber: #ff9600;
+      --ef-amber-dark: #cc7700;
+      --ef-red: #ea2b2b;
+      --ef-red-bg: #fee2e2;
+      --ef-ok-bg: #dcfce7;
+      --ef-sub-bg: #fef3c7;
+      --ef-ink: #1e293b;
+      --ef-muted: #475569;
+      --ef-border: #e2e8f0;
+      --ef-card: #ffffff;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f8fafc;
+      color: var(--ef-ink);
+      margin: 0;
+      line-height: 1.55;
+    }
+
+    .ef-topbar {
+      background: #ffffff;
+      border-bottom: 2px solid var(--ef-border);
+      padding: 12px 18px;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+    }
+
+    .ef-topbar-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .ef-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--ef-ink);
+      font-weight: 900;
+      font-size: 1.05rem;
+    }
+
+    .ef-brand-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--ef-green);
+      display: inline-block;
+    }
+
+    .ef-stats-pills {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      background: #f1f5f9;
+      border: 1.5px solid var(--ef-border);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--ef-ink);
+      white-space: nowrap;
+    }
+
+    .wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 24px 16px 56px;
+    }
+
+    .hero-head {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .flo-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #ecfdf5;
+      border: 2px solid #bbf7d0;
+      color: #166534;
+      font-weight: 800;
+      font-size: 0.9rem;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin: 0 auto 12px;
+    }
+
+    h1 {
+      font-size: clamp(1.55rem, 3.6vw, 2.15rem);
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0 0 10px;
+      line-height: 1.2;
+    }
+
+    .hero-sub {
+      color: var(--ef-muted);
+      font-size: 1rem;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--ef-card);
+      border: 2px solid var(--ef-border);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 0 #e2e8f0;
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 900;
+      margin: 0 0 12px;
+      color: #0f172a;
+    }
+
+    /* Pack selector */
+    .pack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .pack-btn {
+      appearance: none;
+      background: #ffffff;
+      border: 2px solid var(--ef-border);
+      border-bottom-width: 4px;
+      border-radius: 14px;
+      padding: 12px 14px;
+      text-align: left;
+      cursor: pointer;
+      font-family: inherit;
+      transition: transform 0.08s ease, border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .pack-btn:hover {
+      border-color: #94a3b8;
+      background: #f8fafc;
+    }
+
+    .pack-btn.active {
+      border-color: var(--ef-green);
+      background: #f0fdf4;
+    }
+
+    .pack-btn-title {
+      display: block;
+      font-weight: 900;
+      font-size: 0.95rem;
+      color: #0f172a;
+      margin-bottom: 3px;
+    }
+
+    .pack-btn-sub {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--ef-muted);
+    }
+
+    /* Locked preview list */
+    .locked-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .locked-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: #f8fafc;
+      border: 1.5px dashed #cbd5e1;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #334155;
+    }
+
+    .locked-badge {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #64748b;
+      background: #e2e8f0;
+      padding: 3px 9px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    /* Tactile 3D Buttons */
+    .btn-3d {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-weight: 900;
+      font-size: 1rem;
+      border: none;
+      border-radius: 14px;
+      padding: 13px 22px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.08s ease, box-shadow 0.08s ease, opacity 0.15s ease;
+    }
+
+    .btn-3d:active:not(:disabled) {
+      transform: translateY(2px);
+    }
+
+    .btn-3d:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    .btn-green {
+      background: var(--ef-green);
+      color: #ffffff;
+      box-shadow: 0 4px 0 var(--ef-green-dark);
+    }
+
+    .btn-green:active:not(:disabled) {
+      box-shadow: 0 2px 0 var(--ef-green-dark);
+    }
+
+    .btn-blue {
+      background: var(--ef-blue);
+      color: #ffffff;
+      box-shadow: 0 4px 0 var(--ef-blue-dark);
+    }
+
+    .btn-blue:active:not(:disabled) {
+      box-shadow: 0 2px 0 var(--ef-blue-dark);
+    }
+
+    .btn-amber {
+      background: var(--ef-amber);
+      color: #ffffff;
+      box-shadow: 0 4px 0 var(--ef-amber-dark);
+    }
+
+    .btn-amber:active:not(:disabled) {
+      box-shadow: 0 2px 0 var(--ef-amber-dark);
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      color: #1e293b;
+      border: 2px solid #cbd5e1;
+      box-shadow: 0 3px 0 #cbd5e1;
+    }
+
+    .btn-outline:active:not(:disabled) {
+      box-shadow: 0 1px 0 #cbd5e1;
+    }
+
+    .btn-block {
+      width: 100%;
+    }
+
+    .how-list {
+      margin: 18px 0 0;
+      padding-left: 20px;
+      color: #334155;
+      font-size: 0.94rem;
+    }
+
+    .how-list li {
+      margin-bottom: 6px;
+    }
+
+    /* Practice stage */
+    .practice-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+      font-weight: 800;
+      font-size: 0.92rem;
+      color: #334155;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 12px;
+      background: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--ef-green);
+      border-radius: 999px;
+      transition: width 0.25s ease;
+    }
+
+    .audio-panel {
+      background: #f0f9ff;
+      border: 2px solid #bae6fd;
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+
+    .audio-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .audio-status {
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: #0369a1;
+    }
+
+    .speed-group {
+      display: inline-flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .speed-btn {
+      font-family: inherit;
+      font-weight: 800;
+      font-size: 0.84rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 2px solid #7dd3fc;
+      background: #ffffff;
+      color: #0369a1;
+      cursor: pointer;
+    }
+
+    .speed-btn.active {
+      background: #0284c7;
+      border-color: #0284c7;
+      color: #ffffff;
+    }
+
+    .audio-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .honest-micro {
+      font-size: 0.82rem;
+      color: #475569;
+      margin: 10px 0 0;
+    }
+
+    .hint-box {
+      margin-top: 12px;
+      padding: 10px 14px;
+      background: #fffbeb;
+      border: 1.5px solid #fde68a;
+      border-radius: 12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #92400e;
+      letter-spacing: 0.04em;
+      word-spacing: 0.35em;
+    }
+
+    /* Input area */
+    .dictation-label {
+      display: block;
+      font-weight: 800;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+      color: #0f172a;
+    }
+
+    .dictation-input {
+      width: 100%;
+      min-height: 96px;
+      padding: 14px;
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0f172a;
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+
+    .dictation-input:focus {
+      border-color: var(--ef-blue);
+    }
+
+    .input-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 8px 0 14px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--ef-muted);
+    }
+
+    .inline-warn {
+      color: #b91c1c;
+      font-weight: 800;
+      font-size: 0.88rem;
+      margin-bottom: 10px;
+    }
+
+    /* Diff Result Panel */
+    .diff-panel {
+      margin-top: 18px;
+      padding: 18px;
+      background: #f8fafc;
+      border: 2px solid var(--ef-border);
+      border-radius: 16px;
+    }
+
+    .diff-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .diff-score-badge {
+      font-size: 1.05rem;
+      font-weight: 900;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .diff-score-badge.mid {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .diff-score-badge.low {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .spoken-tick {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #e0f2fe;
+      color: #075985;
+      font-size: 0.84rem;
+      font-weight: 800;
+      padding: 4px 11px;
+      border-radius: 999px;
+    }
+
+    .diff-tokens {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .tok {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      border-radius: 9px;
+      font-weight: 800;
+      font-size: 0.98rem;
+    }
+
+    .tok-ok {
+      background: var(--ef-ok-bg);
+      color: #166534;
+      border: 1.5px solid #86efac;
+    }
+
+    .tok-sub {
+      background: var(--ef-sub-bg);
+      color: #92400e;
+      border: 1.5px solid #fcd34d;
+    }
+
+    .tok-sub s {
+      color: #b45309;
+      opacity: 0.85;
+    }
+
+    .tok-miss {
+      background: var(--ef-red-bg);
+      color: #991b1b;
+      border: 1.5px solid #fca5a5;
+    }
+
+    .tok-extra {
+      background: #f1f5f9;
+      color: #64748b;
+      border: 1.5px dashed #cbd5e1;
+      text-decoration: line-through;
+    }
+
+    .diff-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #475569;
+      margin-bottom: 12px;
+    }
+
+    .correct-reveal {
+      background: #ffffff;
+      border: 1.5px solid var(--ef-border);
+      border-radius: 12px;
+      padding: 10px 14px;
+      margin-bottom: 10px;
+      font-size: 0.96rem;
+      color: #0f172a;
+    }
+
+    .listening-note {
+      background: #eff6ff;
+      border-left: 4px solid var(--ef-blue);
+      border-radius: 8px;
+      padding: 10px 13px;
+      font-size: 0.92rem;
+      color: #1e3a8a;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    /* Optional Speak-Back Box */
+    .speakback-box {
+      background: #ffffff;
+      border: 2px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .speakback-title {
+      font-weight: 900;
+      font-size: 0.95rem;
+      color: #0f172a;
+      margin: 0 0 4px;
+    }
+
+    .speakback-sub {
+      font-size: 0.83rem;
+      color: #475569;
+      margin: 0 0 10px;
+    }
+
+    .speakback-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-link-skip {
+      background: none;
+      border: none;
+      color: #475569;
+      font-family: inherit;
+      font-weight: 800;
+      font-size: 0.88rem;
+      text-decoration: underline;
+      cursor: pointer;
+      padding: 6px 4px;
+    }
+
+    .speakback-feedback {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      background: #f8fafc;
+      color: #1e293b;
+      border: 1.5px solid #e2e8f0;
+    }
+
+    /* Results stage */
+    .results-hero {
+      text-align: center;
+      padding: 20px 16px;
+      background: linear-gradient(135deg, #f0fdf4, #ecfeff);
+      border: 2px solid #bbf7d0;
+      border-radius: 18px;
+      margin-bottom: 18px;
+    }
+
+    .big-score {
+      font-size: 2.75rem;
+      font-weight: 900;
+      color: #166534;
+      line-height: 1.05;
+      margin: 6px 0;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .kpi-box {
+      background: #f8fafc;
+      border: 1.5px solid var(--ef-border);
+      border-radius: 14px;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .kpi-val {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: #0f172a;
+    }
+
+    .kpi-lbl {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #475569;
+      margin-top: 2px;
+    }
+
+    .xp-breakdown {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 18px;
+      font-size: 0.92rem;
+      color: #14532d;
+      font-weight: 700;
+    }
+
+    .review-block {
+      margin-bottom: 18px;
+    }
+
+    .review-item {
+      background: #fff7ed;
+      border: 1.5px solid #fed7aa;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      font-size: 0.92rem;
+      color: #1e293b;
+    }
+
+    .best-item {
+      background: #f0fdf4;
+      border: 1.5px solid #bbf7d0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      font-size: 0.92rem;
+      color: #1e293b;
+    }
+
+    .results-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .cross-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .cross-card {
+      display: block;
+      text-decoration: none;
+      background: #f8fafc;
+      border: 2px solid var(--ef-border);
+      border-radius: 14px;
+      padding: 13px 15px;
+      color: #0f172a;
+      transition: border-color 0.15s ease;
+    }
+
+    .cross-card:hover {
+      border-color: var(--ef-blue);
+    }
+
+    .cross-card strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 3px;
+    }
+
+    .cross-card span {
+      font-size: 0.83rem;
+      color: #475569;
+    }
+
+    /* Locked Recommended Resources Card (explicit dark text on #fffbe6) */
+    .resource-card {
+      background: #fffbe6 !important;
+      border: 2px solid #facc15;
+      border-radius: 18px;
+      padding: 20px;
+      margin-top: 16px;
+      color: #334155 !important;
+    }
+
+    .resource-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: #1e1b4b !important;
+    }
+
+    .resource-card p {
+      margin: 0 0 14px;
+      font-size: 0.94rem;
+      color: #334155 !important;
+    }
+
+    .resource-cta-wrap {
+      margin-bottom: 14px;
+    }
+
+    .resource-card ul {
+      margin: 0;
+      padding-left: 20px;
+      color: #334155 !important;
+    }
+
+    .resource-card li {
+      margin-bottom: 6px;
+      font-size: 0.92rem;
+      color: #334155 !important;
+    }
+
+    .resource-card li a {
+      color: #0369a1 !important;
+      font-weight: 800;
+    }
+
+    /* Tips & FAQ */
+    .tips-list {
+      margin: 0 0 12px;
+      padding-left: 20px;
+      color: #334155;
+      font-size: 0.95rem;
+    }
+
+    .tips-list li {
+      margin-bottom: 7px;
+    }
+
+    .flo-tip {
+      background: #f0fdf4;
+      border: 1.5px solid #bbf7d0;
+      border-radius: 12px;
+      padding: 11px 14px;
+      font-weight: 800;
+      font-size: 0.92rem;
+      color: #166534;
+    }
+
+    .faq-item {
+      border: 1.5px solid var(--ef-border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      background: #ffffff;
+    }
+
+    .faq-item summary {
+      font-weight: 800;
+      cursor: pointer;
+      color: #0f172a;
+    }
+
+    .faq-item p {
+      margin: 8px 0 0;
+      font-size: 0.92rem;
+      color: #475569;
+    }
+
+    .site-footer {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    .site-footer a {
+      color: #0369a1;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (max-width: 560px) {
+      .card {
+        padding: 18px;
+      }
+      .btn-3d {
+        width: 100%;
+      }
+      .audio-actions .btn-3d {
+        width: auto;
+        flex: 1 1 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="ef-topbar">
+    <div class="ef-topbar-inner">
+      <a class="ef-brand" href="../index.html">
+        <span class="ef-brand-dot" aria-hidden="true"></span>
+        <span>English Flow</span>
+      </a>
+      <div class="ef-stats-pills" aria-label="Your local progress">
+        <span class="stat-pill" id="pill-streak">🔥 0-day streak</span>
+        <span class="stat-pill" id="pill-xp">⚡ 0 XP</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="hero-head">
+      <div class="flo-pill">🦉 Flo says: Listen first, type every word, then check your diff</div>
+      <h1>Free English Dictation Practice — Listen, Type & Check</h1>
+      <p class="hero-sub">Train your ear with native-style browser audio at 3 speeds, type what you hear, and get an instant word-by-word spelling diff. No sign-up required.</p>
+    </div>
+
+    <!-- STAGE 1: SETUP -->
+    <section id="stage-setup" class="card" aria-labelledby="setup-heading">
+      <h2 id="setup-heading" class="section-title">1. Choose a 5-Sentence Dictation Pack</h2>
+      <div class="pack-grid" id="pack-grid" role="radiogroup" aria-label="Dictation packs">
+        <button type="button" class="pack-btn active" data-pack="A" role="radio" aria-checked="true">
+          <span class="pack-btn-title">☕ Everyday Small Talk</span>
+          <span class="pack-btn-sub">Pack A · 5 sentences · Linking & contractions</span>
+        </button>
+        <button type="button" class="pack-btn" data-pack="B" role="radio" aria-checked="false">
+          <span class="pack-btn-title">💼 Workplace & Calls</span>
+          <span class="pack-btn-sub">Pack B · 5 sentences · Meetings & polite repairs</span>
+        </button>
+        <button type="button" class="pack-btn" data-pack="C" role="radio" aria-checked="false">
+          <span class="pack-btn-title">✈️ Travel & Directions</span>
+          <span class="pack-btn-sub">Pack C · 5 sentences · Transit & street chunks</span>
+        </button>
+        <button type="button" class="pack-btn" data-pack="D" role="radio" aria-checked="false">
+          <span class="pack-btn-title">🔤 Tricky Homophones & Contractions</span>
+          <span class="pack-btn-sub">Pack D · 5 sentences · they're / their / there</span>
+        </button>
+        <button type="button" class="pack-btn" data-pack="SHUFFLE" role="radio" aria-checked="false">
+          <span class="pack-btn-title">🔀 Shuffle All</span>
+          <span class="pack-btn-sub">5 random sentences from all 20</span>
+        </button>
+      </div>
+
+      <h3 class="section-title" style="font-size:1rem; margin-bottom:8px;">Round Preview (Text Locked Until You Submit)</h3>
+      <ul class="locked-list" id="locked-preview"></ul>
+
+      <button type="button" id="btn-start" class="btn-3d btn-green btn-block">🎧 Start Dictation</button>
+
+      <ul class="how-list">
+        <li><strong>Listen at your speed:</strong> Native-style browser audio plays each hidden sentence at 0.85x, 1.0x, or 1.15x — replay as often as you like.</li>
+        <li><strong>Type & inspect the diff:</strong> Submit what you heard to see matched words in green, typos in amber, missed words in red, and a 1-line listening note.</li>
+        <li><strong>Optional mic bonus:</strong> The full round works with typing alone, or tap <em>Say It Back</em> to practise each sentence aloud.</li>
+      </ul>
+    </section>
+
+    <!-- STAGE 2 & 3: LISTEN + TYPE & DIFF -->
+    <section id="stage-practice" class="card" hidden aria-live="polite">
+      <div class="practice-meta">
+        <span id="meta-pack-label">Pack A — Everyday Small Talk</span>
+        <span id="meta-progress">Sentence 1 of 5</span>
+        <span id="meta-replays">🔁 Replays: 0</span>
+      </div>
+      <div class="progress-track" aria-hidden="true">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+
+      <!-- LISTEN PANEL -->
+      <div class="audio-panel">
+        <div class="audio-top">
+          <span class="audio-status" id="audio-status">🎧 Ready — listening to native-style browser audio</span>
+          <div class="speed-group" role="group" aria-label="Playback speed">
+            <button type="button" class="speed-btn" data-rate="0.85">0.85x Slow</button>
+            <button type="button" class="speed-btn active" data-rate="1">1.0x Normal</button>
+            <button type="button" class="speed-btn" data-rate="1.15">1.15x Fast</button>
+          </div>
+        </div>
+
+        <div class="audio-actions">
+          <button type="button" id="btn-replay" class="btn-3d btn-blue">🔁 Replay</button>
+          <button type="button" id="btn-hint" class="btn-3d btn-outline">💡 Hint (First Letters)</button>
+        </div>
+
+        <div id="hint-box" class="hint-box" hidden></div>
+        <p class="honest-micro" id="audio-honesty">Audio uses native-style browser speechSynthesis (not a human studio recording). Replay as often as you like — your replay count is shown above.</p>
+      </div>
+
+      <!-- TYPE PANEL -->
+      <div id="type-area">
+        <label for="dictation-input" class="dictation-label">Type what you heard:</label>
+        <textarea id="dictation-input" class="dictation-input" placeholder="Type what you heard…" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+        <div class="input-footer">
+          <span id="live-word-count">0 words typed</span>
+          <span>Tip: Press Ctrl + Enter to check</span>
+        </div>
+        <div id="input-warn" class="inline-warn" hidden></div>
+        <button type="button" id="btn-check" class="btn-3d btn-green btn-block">✅ Check My Spelling</button>
+      </div>
+
+      <!-- DIFF & OPTIONAL SPEAK-BACK PANEL -->
+      <div id="diff-panel" class="diff-panel" hidden>
+        <div class="diff-header">
+          <div>
+            <span id="diff-score-badge" class="diff-score-badge">100%</span>
+            <span id="diff-score-detail" style="font-size:0.86rem; font-weight:700; color:#475569; margin-left:6px;"></span>
+          </div>
+          <span id="spoken-tick" class="spoken-tick" hidden>🔊 Spoken</span>
+        </div>
+
+        <div id="diff-tokens" class="diff-tokens" aria-label="Word-by-word spelling comparison"></div>
+        <div class="diff-legend">
+          <span>🟢 Exact word match</span>
+          <span>🟡 Misspelled / substituted</span>
+          <span>🔴 Missed word</span>
+          <span><s>Extra word</s></span>
+        </div>
+
+        <div class="correct-reveal">
+          <strong>Target sentence:</strong> <span id="correct-sentence-text"></span>
+        </div>
+        <div class="listening-note" id="listening-note-text"></div>
+
+        <!-- Optional Speak-Back Bonus -->
+        <div class="speakback-box" id="speakback-box">
+          <p class="speakback-title">Optional Speak-Back Bonus (Mic)</p>
+          <p class="speakback-sub">Say the sentence aloud to lock it into memory. Does not change your dictation score. Mic-only bonus: speak all 5 sentences back at 80%+ for +10 bonus XP.</p>
+          <div class="speakback-actions">
+            <button type="button" id="btn-speakback" class="btn-3d btn-blue">🎙️ Say It Back (Mic)</button>
+            <button type="button" id="btn-skip-speakback" class="btn-link-skip">Skip — typed only</button>
+          </div>
+          <div id="speakback-feedback" class="speakback-feedback" hidden></div>
+        </div>
+
+        <button type="button" id="btn-next" class="btn-3d btn-green btn-block">Next Sentence →</button>
+      </div>
+    </section>
+
+    <!-- STAGE 4: RESULTS (hidden via native hidden attribute) -->
+    <section id="stage-results" class="card" hidden aria-labelledby="results-heading">
+      <div class="results-hero">
+        <div class="flo-pill" style="margin-bottom:6px;">🦉 Round Complete!</div>
+        <h2 id="results-heading" style="margin:4px 0 0; font-size:1.3rem; font-weight:900;">Your Dictation Practice Summary</h2>
+        <div class="big-score" id="res-overall-pct">0%</div>
+        <div style="font-size:0.86rem; font-weight:700; color:#475569;">Practice estimate · Exact word match via client-side diff</div>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-box">
+          <div class="kpi-val" id="res-words-matched">0 / 0</div>
+          <div class="kpi-lbl">Exact Words Matched</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-val" id="res-replays">0</div>
+          <div class="kpi-lbl">Total Replays Used</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-val" id="res-spoken-count">0 / 5</div>
+          <div class="kpi-lbl">Spoken Back (80%+)</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-val" id="res-xp-earned">+20 XP</div>
+          <div class="kpi-lbl">XP Earned This Round</div>
+        </div>
+      </div>
+
+      <div class="xp-breakdown" id="res-xp-breakdown"></div>
+
+      <div class="best-item" id="res-best-sentence"></div>
+
+      <div class="review-block">
+        <h3 class="section-title" style="font-size:1.05rem;">Sentences to Review (Below 80%)</h3>
+        <div id="res-review-list"></div>
+      </div>
+
+      <div class="results-actions">
+        <a id="btn-whatsapp" class="btn-3d btn-green" href="#" target="_blank" rel="noopener noreferrer">💬 Share on WhatsApp</a>
+        <button type="button" id="btn-retry-pack" class="btn-3d btn-blue">🔁 Practise This Pack Again</button>
+        <button type="button" id="btn-another-pack" class="btn-3d btn-outline">📦 Try Another Pack</button>
+      </div>
+
+      <h3 class="section-title" style="font-size:1rem;">Keep Training Your Ear & Voice</h3>
+      <div class="cross-links">
+        <a class="cross-card" href="repeat-sentence-speaking-practice.html">
+          <strong>🔁 Repeat Sentence Speaking Practice →</strong>
+          <span>Hear a sentence once with text hidden, then say it back into your mic.</span>
+        </a>
+        <a class="cross-card" href="english-shadowing-practice.html">
+          <strong>🎧 Free English Shadowing Practice →</strong>
+          <span>Match natural rhythm and pacing by speaking right alongside browser audio.</span>
+        </a>
+      </div>
+
+      <!-- Locked Recommended English Resources Card -->
+      <div class="resource-card">
+        <h3>Take Your English Flow Offline: The 30-Day Speaking Blueprint</h3>
+        <p>Build a daily speaking and listening habit with structured prompts, self-check rubrics, and real-life conversation scripts you can use anywhere.</p>
+        <div class="resource-cta-wrap">
+          <a class="btn-3d btn-amber" href="https://topmate.io/speak_english_with_confidence/2324225" target="_blank" rel="noopener noreferrer">Get the 30-Day Speaking Workbook ($) →</a>
+        </div>
+        <ul>
+          <li><a href="../30-day-english-flow-workbook.pdf">Preview the 30-Day English Flow Workbook (PDF)</a></li>
+          <li><a href="../resources.html">Browse all free English Flow resources</a></li>
+          <li><a href="../game-practice.html">Explore more interactive English practice games</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 5 DICTATION TIPS -->
+    <section class="card" aria-labelledby="tips-heading">
+      <h2 id="tips-heading" class="section-title">📖 5 Dictation Tips</h2>
+      <ul class="tips-list">
+        <li><strong>Listen twice before typing:</strong> Catch the full meaning on the first play, then focus on exact wording on the second.</li>
+        <li><strong>Type the small words too:</strong> Tiny unstressed words like <em>a</em>, <em>the</em>, <em>to</em>, and <em>of</em> carry most dictation errors.</li>
+        <li><strong>Replay the tricky sentence:</strong> Replays are unlimited by design — drop to 0.85x Slow to hear linked sounds clearly.</li>
+        <li><strong>Read your diff out loud:</strong> Speaking the corrected sentence once locks the spelling and sound together.</li>
+        <li><strong>Practise one pack a day:</strong> Five focused sentences daily beat an occasional marathon session.</li>
+      </ul>
+      <div class="flo-tip">🦉 Flo's tip: Watch out for apostrophes in contractions like <em>they're</em>, <em>it's</em>, and <em>we've</em> — your ears hear one smooth syllable, but your keyboard needs the hidden word!</div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="card" aria-labelledby="faq-heading">
+      <h2 id="faq-heading" class="section-title">Frequently Asked Questions</h2>
+      <details class="faq-item">
+        <summary>How does English Dictation Practice work?</summary>
+        <p>Pick one of four 5-sentence packs (or Shuffle All). Your browser reads each hidden sentence aloud at 0.85x, 1.0x, or 1.15x speed. Type what you hear and click Check My Spelling for an instant word-by-word diff showing matched, misspelled, missed, and extra words, plus a 1-line listening note.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is the audio a real human voice?</summary>
+        <p>No. Audio is generated on your device using native-style browser audio (Web Speech <code>speechSynthesis</code> in en-US), not a studio human recording. This lets you replay unlimited times for free with no sign-up.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do I need a microphone to practise?</summary>
+        <p>No. The full dictation round works with typing alone. Your microphone is only used if you tap the optional <em>Say It Back (Mic)</em> bonus after checking a sentence.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do XP and daily streaks work?</summary>
+        <p>Every completed 5-sentence round earns +20 XP. Score 90%+ word accuracy with 2 or fewer replays for +10 bonus XP, and speak all 5 sentences back at 80%+ for an optional +10 mic-only bonus. Streak and XP are stored locally in your browser.</p>
+      </details>
+    </section>
+
+    <footer class="site-footer">
+      <p><a href="../index.html">← Back to English Flow Home</a> · <a href="../resources.html">Free Resources</a> · Practice estimate tool — zero sign-up, runs 100% in your browser.</p>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var CANONICAL_URL = 'https://englishflowofficial.github.io/tools/english-dictation-practice.html';
+
+      var PACK_META = {
+        A: { name: 'Pack A — Everyday Small Talk', short: 'Everyday Small Talk' },
+        B: { name: 'Pack B — Workplace & Calls', short: 'Workplace & Calls' },
+        C: { name: 'Pack C — Travel & Directions', short: 'Travel & Directions' },
+        D: { name: 'Pack D — Tricky Homophones & Contractions', short: 'Tricky Homophones & Contractions' },
+        SHUFFLE: { name: 'Shuffle All — 5 Random Sentences', short: 'Shuffle All' }
+      };
+
+      var SENTENCES = [
+        // PACK A — Everyday Small Talk
+        { id: 'A1', pack: 'A', title: 'At the table', text: 'Could you pass me the salt, please?', note: '"pass me" links together — the two words run as one sound.' },
+        { id: 'A2', pack: 'A', title: 'Weekend plans', text: "I'm really looking forward to the weekend.", note: '"I\'m" is the short form of "I am" — the apostrophe hides a word.' },
+        { id: 'A3', pack: 'A', title: 'Weather watch', text: "It looks like it's going to rain later.", note: '"going to" sounds like "gonna" in fast speech — listen for the /g/.' },
+        { id: 'A4', pack: 'A', title: 'Catching up', text: 'What did you get up to yesterday?', note: '"did you" links and sounds like "didja" — the /d/ and /y/ blend.' },
+        { id: 'A5', pack: 'A', title: 'Quick coffee', text: "Let's grab a coffee before the meeting starts.", note: '"Let\'s" is short for "Let us" — a friendly way to suggest something.' },
+
+        // PACK B — Workplace & Calls
+        { id: 'B1', pack: 'B', title: 'Report deadline', text: 'Please send me the report by Friday morning.', note: '"send me" links — the /d/ flows straight into "me".' },
+        { id: 'B2', pack: 'B', title: 'Rescheduling a call', text: 'Can we move our call to half past three?', note: '"half past three" is 3:30 — British-style time, used worldwide.' },
+        { id: 'B3', pack: 'B', title: 'Sharing slides', text: "I'll share my screen so you can see the slides.", note: '"I\'ll" is short for "I will" — the future in one small word.' },
+        { id: 'B4', pack: 'B', title: 'Asking for a repeat', text: 'Sorry, could you repeat that last part more slowly?', note: '"could you" links and sounds like "couldja" — a polite repair phrase.' },
+        { id: 'B5', pack: 'B', title: 'Wrapping up a topic', text: "Let's circle back to this after lunch.", note: '"circle back" means return to a topic later — workplace idiom.' },
+
+        // PACK C — Travel & Directions
+        { id: 'C1', pack: 'C', title: 'Finding the station', text: 'Excuse me, where is the nearest train station?', note: '"nearest" is spelled n-e-a-r-e-s-t — the /r/ is easy to miss.' },
+        { id: 'C2', pack: 'C', title: 'Street directions', text: 'Turn left at the traffic lights, then go straight on.', note: '"straight on" means keep going the same way — not "straight" the adjective.' },
+        { id: 'C3', pack: 'C', title: 'Airport travel time', text: 'How long does it take to get to the airport?', note: '"How long does it take" is one fixed chunk — learn it whole.' },
+        { id: 'C4', pack: 'C', title: 'Flight check-in', text: "I'd like a window seat, if that's possible.", note: '"I\'d" is short for "I would" — the polite way to ask for something.' },
+        { id: 'C5', pack: 'C', title: 'Hotel location', text: 'The hotel is just around the corner from here.', note: '"here" sounds exactly like "hear" — same sound, different meaning.' },
+
+        // PACK D — Tricky Homophones & Contractions
+        { id: 'D1', pack: 'D', title: 'Three sound-alikes', text: "They're going to their house over there.", note: "they're (they are) / their (belonging to them) / there (that place) — three spellings, one sound." },
+        { id: 'D2', pack: 'D', title: 'Apostrophe clue', text: "You're going to love your new office.", note: "you're (you are) vs your (belonging to you) — the apostrophe is the clue." },
+        { id: 'D3', pack: 'D', title: 'Bad call audio', text: "I can't hear you very well on this call.", note: '"can\'t" is the short form of "cannot" — and "hear" is not "here".' },
+        { id: 'D4', pack: 'D', title: 'Last bus home', text: "It's too late to catch the last two buses.", note: "it's (it is) / too (also, or too much) / two (the number 2) — three different words." },
+        { id: 'D5', pack: 'D', title: 'Files sent', text: "We've already sent the files, so we're done.", note: "we've (we have) and we're (we are) — both hide a word after the apostrophe." }
+      ];
+
+      // State
+      var selectedPack = 'A';
+      var roundItems = [];
+      var currentIdx = 0;
+      var currentRate = 1;
+      var totalReplays = 0;
+      var currentReplays = 0;
+      var roundResults = [];
+      var activeRecognition = null;
+      var isListeningMic = false;
+      var hasSubmittedCurrent = false;
+
+      // DOM refs
+      var pillStreak = document.getElementById('pill-streak');
+      var pillXp = document.getElementById('pill-xp');
+      var stageSetup = document.getElementById('stage-setup');
+      var stagePractice = document.getElementById('stage-practice');
+      var stageResults = document.getElementById('stage-results');
+      var packGrid = document.getElementById('pack-grid');
+      var lockedPreview = document.getElementById('locked-preview');
+      var btnStart = document.getElementById('btn-start');
+
+      var metaPackLabel = document.getElementById('meta-pack-label');
+      var metaProgress = document.getElementById('meta-progress');
+      var metaReplays = document.getElementById('meta-replays');
+      var progressFill = document.getElementById('progress-fill');
+      var audioStatus = document.getElementById('audio-status');
+      var btnReplay = document.getElementById('btn-replay');
+      var btnHint = document.getElementById('btn-hint');
+      var hintBox = document.getElementById('hint-box');
+
+      var typeArea = document.getElementById('type-area');
+      var dictationInput = document.getElementById('dictation-input');
+      var liveWordCount = document.getElementById('live-word-count');
+      var inputWarn = document.getElementById('input-warn');
+      var btnCheck = document.getElementById('btn-check');
+
+      var diffPanel = document.getElementById('diff-panel');
+      var diffScoreBadge = document.getElementById('diff-score-badge');
+      var diffScoreDetail = document.getElementById('diff-score-detail');
+      var spokenTick = document.getElementById('spoken-tick');
+      var diffTokens = document.getElementById('diff-tokens');
+      var correctSentenceText = document.getElementById('correct-sentence-text');
+      var listeningNoteText = document.getElementById('listening-note-text');
+      var btnSpeakback = document.getElementById('btn-speakback');
+      var btnSkipSpeakback = document.getElementById('btn-skip-speakback');
+      var speakbackFeedback = document.getElementById('speakback-feedback');
+      var btnNext = document.getElementById('btn-next');
+
+      var resOverallPct = document.getElementById('res-overall-pct');
+      var resWordsMatched = document.getElementById('res-words-matched');
+      var resReplays = document.getElementById('res-replays');
+      var resSpokenCount = document.getElementById('res-spoken-count');
+      var resXpEarned = document.getElementById('res-xp-earned');
+      var resXpBreakdown = document.getElementById('res-xp-breakdown');
+      var resBestSentence = document.getElementById('res-best-sentence');
+      var resReviewList = document.getElementById('res-review-list');
+      var btnWhatsapp = document.getElementById('btn-whatsapp');
+      var btnRetryPack = document.getElementById('btn-retry-pack');
+      var btnAnotherPack = document.getElementById('btn-another-pack');
+
+      // Storage helpers (unified English Flow keys + toDateString)
+      function getStreak() {
+        return parseInt(localStorage.getItem('english_flow_streak') || '0', 10) || 0;
+      }
+
+      function getXP() {
+        return parseInt(localStorage.getItem('userXP') || '0', 10) || 0;
+      }
+
+      function renderHeaderStats() {
+        var streak = getStreak();
+        var xp = getXP();
+        pillStreak.textContent = '🔥 ' + streak + '-day streak';
+        pillXp.textContent = '⚡ ' + xp + ' XP';
+      }
+
+      function advanceStreakAndXP(xpToAdd) {
+        var today = new Date().toDateString();
+        var last = localStorage.getItem('english_flow_last_practice');
+        var streak = getStreak();
+
+        if (last !== today) {
+          var yesterday = new Date();
+          yesterday.setDate(yesterday.getDate() - 1);
+          if (last === yesterday.toDateString()) {
+            streak += 1;
+          } else {
+            streak = 1;
+          }
+          localStorage.setItem('english_flow_streak', String(streak));
+          localStorage.setItem('english_flow_last_practice', today);
+        }
+
+        var nextXP = getXP() + xpToAdd;
+        localStorage.setItem('userXP', String(nextXP));
+        renderHeaderStats();
+      }
+
+      // Utility helpers
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      function normalizeWord(word) {
+        return String(word)
+          .toLowerCase()
+          .replace(/[\u2018\u2019`]/g, "'")
+          .replace(/^[^a-z0-9']+|[^a-z0-9']+$/g, '');
+      }
+
+      function tokenizeRaw(str) {
+        return String(str)
+          .trim()
+          .split(/\s+/)
+          .filter(function (w) { return w.length > 0; });
+      }
+
+      function countTypedWords(str) {
+        var trimmed = String(str).trim();
+        if (!trimmed) return 0;
+        return trimmed.split(/\s+/).filter(function (w) {
+          return normalizeWord(w).length > 0;
+        }).length;
+      }
+
+      function buildFirstLetterHint(sentence) {
+        var words = tokenizeRaw(sentence);
+        return words.map(function (w) {
+          var clean = w.replace(/[^A-Za-z0-9']/g, '');
+          if (!clean) return '';
+          var first = clean.charAt(0);
+          var underscores = '';
+          for (var i = 1; i < clean.length; i++) {
+            underscores += '_';
+          }
+          return first + underscores;
+        }).filter(Boolean).join('  ');
+      }
+
+      // Client-side word-by-word edit-distance diff
+      function computeWordDiff(targetSentence, typedText) {
+        var targetRaw = tokenizeRaw(targetSentence);
+        var typedRaw = tokenizeRaw(typedText);
+
+        var target = targetRaw.map(function (w) {
+          return { display: w, norm: normalizeWord(w) };
+        }).filter(function (t) { return t.norm.length > 0; });
+
+        var typed = typedRaw.map(function (w) {
+          return { display: w, norm: normalizeWord(w) };
+        }).filter(function (t) { return t.norm.length > 0; });
+
+        var m = target.length;
+        var n = typed.length;
+        var dp = [];
+        var i, j;
+
+        for (i = 0; i <= m; i++) {
+          dp[i] = new Array(n + 1);
+          dp[i][0] = i;
+        }
+        for (j = 0; j <= n; j++) {
+          dp[0][j] = j;
+        }
+
+        for (i = 1; i <= m; i++) {
+          for (j = 1; j <= n; j++) {
+            var cost = target[i - 1].norm === typed[j - 1].norm ? 0 : 1;
+            var delCost = dp[i - 1][j] + 1;
+            var insCost = dp[i][j - 1] + 1;
+            var subCost = dp[i - 1][j - 1] + cost;
+            dp[i][j] = Math.min(delCost, insCost, subCost);
+          }
+        }
+
+        var ops = [];
+        i = m;
+        j = n;
+        while (i > 0 || j > 0) {
+          if (i > 0 && j > 0 && target[i - 1].norm === typed[j - 1].norm && dp[i][j] === dp[i - 1][j - 1]) {
+            ops.push({ type: 'ok', target: target[i - 1].display, typed: typed[j - 1].display });
+            i--;
+            j--;
+          } else if (i > 0 && j > 0 && dp[i][j] === dp[i - 1][j - 1] + 1) {
+            ops.push({ type: 'sub', target: target[i - 1].display, typed: typed[j - 1].display });
+            i--;
+            j--;
+          } else if (i > 0 && dp[i][j] === dp[i - 1][j] + 1) {
+            ops.push({ type: 'miss', target: target[i - 1].display });
+            i--;
+          } else {
+            ops.push({ type: 'extra', typed: typed[j - 1].display });
+            j--;
+          }
+        }
+
+        ops.reverse();
+
+        var matched = 0;
+        for (i = 0; i < ops.length; i++) {
+          if (ops[i].type === 'ok') matched++;
+        }
+
+        var pct = m > 0 ? Math.round((matched / m) * 100) : 0;
+        return {
+          ops: ops,
+          matched: matched,
+          total: m,
+          pct: pct
+        };
+      }
+
+      // SpeechSynthesis playback (en-US)
+      var preferredVoice = null;
+
+      function pickEnUsVoice() {
+        if (!('speechSynthesis' in window)) return null;
+        var voices = window.speechSynthesis.getVoices() || [];
+        var exact = voices.find(function (v) { return v.lang === 'en-US' && /natural|google|samantha|alex|aria/i.test(v.name); });
+        if (exact) return exact;
+        var anyUs = voices.find(function (v) { return v.lang === 'en-US'; });
+        if (anyUs) return anyUs;
+        var anyEn = voices.find(function (v) { return /^en/i.test(v.lang); });
+        return anyEn || null;
+      }
+
+      if ('speechSynthesis' in window) {
+        preferredVoice = pickEnUsVoice();
+        window.speechSynthesis.onvoiceschanged = function () {
+          preferredVoice = pickEnUsVoice();
+        };
+      }
+
+      function stopAudio() {
+        if ('speechSynthesis' in window) {
+          try {
+            window.speechSynthesis.cancel();
+          } catch (e) {}
+        }
+      }
+
+      function speakSentence(text, isReplay) {
+        if (!('speechSynthesis' in window)) {
+          audioStatus.textContent = '⚠️ Browser speech audio is unavailable here — tap Hint or try Chrome/Edge/Safari.';
+          return;
+        }
+        stopAudio();
+
+        if (isReplay) {
+          currentReplays += 1;
+          totalReplays += 1;
+          metaReplays.textContent = '🔁 Replays: ' + totalReplays;
+        }
+
+        var utter = new SpeechSynthesisUtterance(text);
+        utter.lang = 'en-US';
+        utter.rate = currentRate;
+        if (!preferredVoice) preferredVoice = pickEnUsVoice();
+        if (preferredVoice) utter.voice = preferredVoice;
+
+        utter.onstart = function () {
+          audioStatus.textContent = '🔊 Playing at ' + currentRate + 'x speed…';
+        };
+        utter.onend = function () {
+          audioStatus.textContent = '🎧 Finished — type what you heard or tap Replay';
+        };
+        utter.onerror = function () {
+          audioStatus.textContent = '🎧 Tap Replay to play native-style browser audio';
+        };
+
+        try {
+          window.speechSynthesis.speak(utter);
+        } catch (e) {
+          audioStatus.textContent = '🎧 Tap Replay to hear the sentence';
+        }
+      }
+
+      // Setup stage: render locked preview (titles only, text NEVER in DOM)
+      function renderLockedPreview() {
+        var html = '';
+        if (selectedPack === 'SHUFFLE') {
+          for (var i = 1; i <= 5; i++) {
+            html += '<li class="locked-item"><span>🔒 Sentence ' + i + ' — Random pick from all 4 packs</span><span class="locked-badge">Hidden</span></li>';
+          }
+        } else {
+          var packItems = SENTENCES.filter(function (s) { return s.pack === selectedPack; });
+          packItems.forEach(function (s, idx) {
+            html += '<li class="locked-item"><span>🔒 Sentence ' + (idx + 1) + ' — ' + escapeHtml(s.title) + '</span><span class="locked-badge">Hidden</span></li>';
+          });
+        }
+        lockedPreview.innerHTML = html;
+      }
+
+      function buildRoundItems(packKey) {
+        if (packKey === 'SHUFFLE') {
+          var copy = SENTENCES.slice();
+          for (var i = copy.length - 1; i > 0; i--) {
+            var r = Math.floor(Math.random() * (i + 1));
+            var tmp = copy[i];
+            copy[i] = copy[r];
+            copy[r] = tmp;
+          }
+          return copy.slice(0, 5);
+        }
+        return SENTENCES.filter(function (s) { return s.pack === packKey; });
+      }
+
+      // Start round
+      function startRound() {
+        stopAudio();
+        stopMic();
+        roundItems = buildRoundItems(selectedPack);
+        currentIdx = 0;
+        totalReplays = 0;
+        currentReplays = 0;
+        roundResults = [];
+
+        stageSetup.setAttribute('hidden', '');
+        stageResults.setAttribute('hidden', '');
+        stagePractice.removeAttribute('hidden');
+
+        metaPackLabel.textContent = PACK_META[selectedPack].name;
+        metaReplays.textContent = '🔁 Replays: 0';
+        loadSentence(0);
+      }
+
+      function loadSentence(idx) {
+        stopAudio();
+        stopMic();
+        currentIdx = idx;
+        currentReplays = 0;
+        hasSubmittedCurrent = false;
+
+        var item = roundItems[idx];
+        metaProgress.textContent = 'Sentence ' + (idx + 1) + ' of ' + roundItems.length;
+        progressFill.style.width = Math.round((idx / roundItems.length) * 100) + '%';
+
+        // Reset hint (text never placed in DOM until hint toggled or submitted)
+        hintBox.textContent = '';
+        hintBox.setAttribute('hidden', '');
+        btnHint.textContent = '💡 Hint (First Letters)';
+
+        // Reset input
+        dictationInput.value = '';
+        dictationInput.disabled = false;
+        liveWordCount.textContent = '0 words typed';
+        inputWarn.textContent = '';
+        inputWarn.setAttribute('hidden', '');
+        btnCheck.disabled = false;
+        typeArea.removeAttribute('hidden');
+
+        // Reset diff & speak-back
+        diffPanel.setAttribute('hidden', '');
+        spokenTick.setAttribute('hidden', '');
+        speakbackFeedback.textContent = '';
+        speakbackFeedback.setAttribute('hidden', '');
+        btnSpeakback.disabled = false;
+        btnSpeakback.textContent = '🎙️ Say It Back (Mic)';
+        btnNext.textContent = (idx === roundItems.length - 1) ? '🏁 View Round Results →' : 'Next Sentence →';
+
+        dictationInput.focus();
+        speakSentence(item.text, false);
+      }
+
+      // Check spelling & render diff
+      function checkSpelling() {
+        if (hasSubmittedCurrent) return;
+        var typed = dictationInput.value.trim();
+        if (!typed) {
+          inputWarn.textContent = 'Type what you heard first (even a few words), or tap Replay to listen again.';
+          inputWarn.removeAttribute('hidden');
+          dictationInput.focus();
+          return;
+        }
+
+        inputWarn.setAttribute('hidden', '');
+        hasSubmittedCurrent = true;
+        dictationInput.disabled = true;
+        btnCheck.disabled = true;
+        stopAudio();
+
+        var item = roundItems[currentIdx];
+        var diff = computeWordDiff(item.text, typed);
+
+        roundResults[currentIdx] = {
+          item: item,
+          typed: typed,
+          matched: diff.matched,
+          total: diff.total,
+          pct: diff.pct,
+          replays: currentReplays,
+          spoken: false,
+          spokenPct: 0
+        };
+
+        // Score badge
+        diffScoreBadge.textContent = diff.pct + '%';
+        diffScoreBadge.className = 'diff-score-badge' + (diff.pct >= 80 ? '' : diff.pct >= 50 ? ' mid' : ' low');
+        diffScoreDetail.textContent = diff.matched + '/' + diff.total + ' exact words matched (practice estimate)';
+
+        // Render diff chips
+        var chipsHtml = diff.ops.map(function (op) {
+          if (op.type === 'ok') {
+            return '<span class="tok tok-ok">' + escapeHtml(op.target) + '</span>';
+          }
+          if (op.type === 'sub') {
+            return '<span class="tok tok-sub"><s>' + escapeHtml(op.typed) + '</s> → ' + escapeHtml(op.target) + '</span>';
+          }
+          if (op.type === 'miss') {
+            return '<span class="tok tok-miss">' + escapeHtml(op.target) + '</span>';
+          }
+          return '<span class="tok tok-extra">' + escapeHtml(op.typed) + '</span>';
+        }).join('');
+
+        diffTokens.innerHTML = chipsHtml;
+        correctSentenceText.textContent = item.text;
+        listeningNoteText.textContent = '🎧 Listening note: ' + item.note;
+
+        diffPanel.removeAttribute('hidden');
+        progressFill.style.width = Math.round(((currentIdx + 1) / roundItems.length) * 100) + '%';
+        diffPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      // Optional Speak-Back Mic (SpeechRecognition en-US)
+      function stopMic() {
+        isListeningMic = false;
+        if (activeRecognition) {
+          try {
+            activeRecognition.abort();
+          } catch (e) {}
+          activeRecognition = null;
+        }
+      }
+
+      function startSpeakBack() {
+        var SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SpeechRec) {
+          speakbackFeedback.textContent = 'Voice recognition is not supported in this browser. No problem — your typed dictation score is already saved! Tap Next Sentence to continue.';
+          speakbackFeedback.removeAttribute('hidden');
+          return;
+        }
+
+        if (isListeningMic) {
+          stopMic();
+          btnSpeakback.textContent = '🎙️ Say It Back (Mic)';
+          return;
+        }
+
+        stopAudio();
+        var item = roundItems[currentIdx];
+        var rec = new SpeechRec();
+        activeRecognition = rec;
+        rec.lang = 'en-US';
+        rec.continuous = false;
+        rec.interimResults = true;
+        rec.maxAlternatives = 1;
+
+        var finalTranscript = '';
+        isListeningMic = true;
+        btnSpeakback.textContent = '⏹️ Listening… speak now';
+        speakbackFeedback.textContent = '🎙️ Listening in en-US — say: "' + item.text + '"';
+        speakbackFeedback.removeAttribute('hidden');
+
+        rec.onresult = function (event) {
+          var interim = '';
+          for (var i = event.resultIndex; i < event.results.length; i++) {
+            var chunk = event.results[i][0].transcript;
+            if (event.results[i].isFinal) {
+              finalTranscript += chunk + ' ';
+            } else {
+              interim += chunk;
+            }
+          }
+          var liveText = (finalTranscript + interim).trim();
+          if (liveText) {
+            speakbackFeedback.textContent = '🎙️ Hearing: "' + liveText + '"';
+          }
+        };
+
+        rec.onerror = function (event) {
+          isListeningMic = false;
+          activeRecognition = null;
+          btnSpeakback.textContent = '🎙️ Try Say It Back Again';
+          if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
+            speakbackFeedback.textContent = 'Microphone permission was blocked. Allow mic access in your browser bar to retry, or click "Skip — typed only" — your dictation score is unaffected.';
+          } else if (event.error === 'no-speech') {
+            speakbackFeedback.textContent = 'No speech was detected. Speak clearly closer to your mic and try again, or skip — your dictation score is already saved.';
+          } else {
+            speakbackFeedback.textContent = 'Could not capture audio (' + event.error + '). Tap to retry or skip — typed-only works for the whole round.';
+          }
+          speakbackFeedback.removeAttribute('hidden');
+        };
+
+        rec.onend = function () {
+          if (!isListeningMic) return;
+          isListeningMic = false;
+          activeRecognition = null;
+          btnSpeakback.textContent = '🎙️ Say It Back Again';
+
+          var heard = finalTranscript.trim();
+          if (!heard) {
+            speakbackFeedback.textContent = 'No words were recognised. Tap "Say It Back Again" to retry, or skip — your dictation score stays saved.';
+            speakbackFeedback.removeAttribute('hidden');
+            return;
+          }
+
+          var speechDiff = computeWordDiff(item.text, heard);
+          var entry = roundResults[currentIdx];
+          if (entry) {
+            entry.spoken = true;
+            if (speechDiff.pct > entry.spokenPct) {
+              entry.spokenPct = speechDiff.pct;
+            }
+          }
+
+          spokenTick.removeAttribute('hidden');
+          speakbackFeedback.innerHTML =
+            '<strong>Spoken back:</strong> "' + escapeHtml(heard) + '" — ' +
+            '<strong>' + speechDiff.pct + '%</strong> (' + speechDiff.matched + '/' + speechDiff.total + ' words recognised — practice estimate). ' +
+            (speechDiff.pct >= 80 ? '✅ Counts toward the +10 mic-only Speak-Back bonus!' : 'Try once more to hit 80%+, or continue to the next sentence.');
+          speakbackFeedback.removeAttribute('hidden');
+        };
+
+        try {
+          rec.start();
+        } catch (e) {
+          isListeningMic = false;
+          activeRecognition = null;
+          btnSpeakback.textContent = '🎙️ Say It Back (Mic)';
+          speakbackFeedback.textContent = 'Could not start the microphone. Tap to retry or skip — typed-only works for the full round.';
+          speakbackFeedback.removeAttribute('hidden');
+        }
+      }
+
+      // Show Results Stage
+      function showResults() {
+        stopAudio();
+        stopMic();
+
+        stagePractice.setAttribute('hidden', '');
+        stageResults.removeAttribute('hidden');
+
+        var totalMatched = 0;
+        var totalWords = 0;
+        var spokenQualifying = 0;
+        var bestEntry = roundResults[0];
+        var reviewEntries = [];
+
+        roundResults.forEach(function (r) {
+          totalMatched += r.matched;
+          totalWords += r.total;
+          if (r.spoken && r.spokenPct >= 80) spokenQualifying += 1;
+          if (r.pct > bestEntry.pct) bestEntry = r;
+          if (r.pct < 80) reviewEntries.push(r);
+        });
+
+        var overallPct = totalWords > 0 ? Math.round((totalMatched / totalWords) * 100) : 0;
+
+        // XP calculation
+        var baseXP = 20;
+        var accuracyBonus = (overallPct >= 90 && totalReplays <= 2) ? 10 : 0;
+        var speakBackBonus = (spokenQualifying === roundResults.length) ? 10 : 0;
+        var totalXP = baseXP + accuracyBonus + speakBackBonus;
+
+        advanceStreakAndXP(totalXP);
+
+        resOverallPct.textContent = overallPct + '%';
+        resWordsMatched.textContent = totalMatched + ' / ' + totalWords;
+        resReplays.textContent = String(totalReplays);
+        resSpokenCount.textContent = spokenQualifying + ' / ' + roundResults.length;
+        resXpEarned.textContent = '+' + totalXP + ' XP';
+
+        var breakdownParts = ['+20 XP round completed'];
+        if (accuracyBonus > 0) {
+          breakdownParts.push('+10 XP accuracy bonus (90%+ with ≤2 replays)');
+        }
+        if (speakBackBonus > 0) {
+          breakdownParts.push('+10 XP mic-only Speak-Back bonus (all 5 sentences at 80%+)');
+        }
+        resXpBreakdown.textContent = '⚡ XP earned: ' + breakdownParts.join(' · ') + '.';
+
+        resBestSentence.innerHTML =
+          '<strong>🏆 Best sentence (' + bestEntry.pct + '%):</strong> "' + escapeHtml(bestEntry.item.text) + '"';
+
+        if (reviewEntries.length === 0) {
+          resReviewList.innerHTML = '<div class="best-item" style="margin-bottom:0;">🎉 Every sentence scored 80% or higher — nothing flagged for review!</div>';
+        } else {
+          resReviewList.innerHTML = reviewEntries.map(function (r) {
+            return (
+              '<div class="review-item">' +
+                '<div><strong>' + r.pct + '% (' + r.matched + '/' + r.total + ' words):</strong> "' + escapeHtml(r.item.text) + '"</div>' +
+                '<div style="font-size:0.84rem; color:#475569; margin-top:4px;">You typed: "' + escapeHtml(r.typed) + '"</div>' +
+                '<div style="font-size:0.84rem; color:#1e3a8a; margin-top:4px;">🎧 ' + escapeHtml(r.item.note) + '</div>' +
+              '</div>'
+            );
+          }).join('');
+        }
+
+        // WhatsApp share link
+        var shareText = 'I scored ' + overallPct + '% on English Dictation Practice (' + totalReplays + ' replays)! Try it free: ' + CANONICAL_URL;
+        btnWhatsapp.href = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(shareText);
+
+        stageResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      // Event bindings
+      packGrid.addEventListener('click', function (e) {
+        var btn = e.target.closest('.pack-btn');
+        if (!btn) return;
+        selectedPack = btn.getAttribute('data-pack');
+        var allBtns = packGrid.querySelectorAll('.pack-btn');
+        allBtns.forEach(function (b) {
+          var active = b === btn;
+          b.classList.toggle('active', active);
+          b.setAttribute('aria-checked', active ? 'true' : 'false');
+        });
+        renderLockedPreview();
+      });
+
+      btnStart.addEventListener('click', startRound);
+
+      document.querySelectorAll('.speed-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          currentRate = parseFloat(btn.getAttribute('data-rate')) || 1;
+          document.querySelectorAll('.speed-btn').forEach(function (b) {
+            b.classList.toggle('active', b === btn);
+          });
+          if (roundItems[currentIdx]) {
+            speakSentence(roundItems[currentIdx].text, true);
+          }
+        });
+      });
+
+      btnReplay.addEventListener('click', function () {
+        if (roundItems[currentIdx]) {
+          speakSentence(roundItems[currentIdx].text, true);
+        }
+      });
+
+      btnHint.addEventListener('click', function () {
+        if (!roundItems[currentIdx]) return;
+        if (hintBox.hasAttribute('hidden')) {
+          hintBox.textContent = buildFirstLetterHint(roundItems[currentIdx].text);
+          hintBox.removeAttribute('hidden');
+          btnHint.textContent = '🙈 Hide Hint';
+        } else {
+          hintBox.textContent = '';
+          hintBox.setAttribute('hidden', '');
+          btnHint.textContent = '💡 Hint (First Letters)';
+        }
+      });
+
+      dictationInput.addEventListener('input', function () {
+        var count = countTypedWords(dictationInput.value);
+        liveWordCount.textContent = count + (count === 1 ? ' word typed' : ' words typed');
+        if (!inputWarn.hasAttribute('hidden') && count > 0) {
+          inputWarn.setAttribute('hidden', '');
+        }
+      });
+
+      dictationInput.addEventListener('keydown', function (e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+          e.preventDefault();
+          checkSpelling();
+        }
+      });
+
+      btnCheck.addEventListener('click', checkSpelling);
+      btnSpeakback.addEventListener('click', startSpeakBack);
+
+      btnSkipSpeakback.addEventListener('click', function () {
+        stopMic();
+        btnSpeakback.textContent = '🎙️ Say It Back (Mic)';
+        speakbackFeedback.textContent = 'Skipped — typed-only mode active. Your dictation score is saved.';
+        speakbackFeedback.removeAttribute('hidden');
+      });
+
+      btnNext.addEventListener('click', function () {
+        if (currentIdx < roundItems.length - 1) {
+          loadSentence(currentIdx + 1);
+        } else {
+          showResults();
+        }
+      });
+
+      btnRetryPack.addEventListener('click', startRound);
+
+      btnAnotherPack.addEventListener('click', function () {
+        stopAudio();
+        stopMic();
+        stageResults.setAttribute('hidden', '');
+        stagePractice.setAttribute('hidden', '');
+        stageSetup.removeAttribute('hidden');
+        renderLockedPreview();
+        stageSetup.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      // Init
+      renderHeaderStats();
+      renderLockedPreview();
+    })();
+  </script>
+  <script src="../ef-analytics.js" defer></script>
+</body>
+</html>
