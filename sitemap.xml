@@ -5,7 +5,7 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://englishflowofficial.github.io/</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.00</priority>
   </url>
@@ -264,6 +264,12 @@
   <url>
     <loc>https://englishflowofficial.github.io/tools/repeat-sentence-speaking-practice.html</loc>
     <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://englishflowofficial.github.io/tools/english-dictation-practice.html</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
