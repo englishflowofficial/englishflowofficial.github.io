@@ -1249,6 +1249,7 @@
         <div style="font-size:0.82rem; font-weight:800; color:#475569; margin-bottom:5px;">🎧 Listen back to your answer:</div>
         <audio id="fb-audio" controls></audio>
       </div>
+      <p id="fb-audio-note" class="honest-micro" hidden>🎧 No audio recording in typed mode — this answer was typed, so there is no playback for it. Use your microphone to hear yourself back.</p>
 
       <p class="honest-micro" style="margin:0 0 14px;">This development check is a length and structure practice estimate only — never an official IELTS band score.</p>
 
@@ -1433,6 +1434,7 @@
       var roundQuestions = [];
       var currentIdx = 0;
       var roundAnswers = [];
+      var resultsShown = false;
       var timerInterval = null;
       var secondsLeft = QUESTION_SECONDS;
       var answerStartTime = 0;
@@ -1501,6 +1503,7 @@
       var fbTranscriptHtml = document.getElementById('fb-transcript-html');
       var fbAudioWrap = document.getElementById('fb-audio-wrap');
       var fbAudio = document.getElementById('fb-audio');
+      var fbAudioNote = document.getElementById('fb-audio-note');
       var btnNextQuestion = document.getElementById('btn-next-question');
 
       var resSweetRatio = document.getElementById('res-sweet-ratio');
@@ -1570,7 +1573,19 @@
       function analyzeFillers(text) {
         var safe = escapeHtml(text || '');
         var count = 0;
-        var highlighted = safe.replace(FILLER_REGEX, function (match) {
+        var highlighted = safe.replace(FILLER_REGEX, function (match, _group, offset, full) {
+          // "like" in "would like" / "I'd like" / "like to" / "I like apples" is a real verb, not a filler.
+          // Note: escapeHtml turns ' into &#39;, so check both forms.
+          if (match.toLowerCase() === 'like') {
+            var before = full.slice(0, offset).toLowerCase();
+            var after = full.slice(offset + match.length).toLowerCase();
+            if (/(would|&#39;d|’d)\s*$/.test(before) || /^\s+to\b/.test(after)) {
+              return match;
+            }
+            if (/\b(i|we|they|he|she|you|it)\s+$/.test(before) && !/^\s*,/.test(after)) {
+              return match;
+            }
+          }
           count += 1;
           return '<mark class="filler-mark">' + match + '</mark>';
         });
@@ -1943,6 +1958,7 @@
           ? (previewShuffleQuestions.length ? previewShuffleQuestions.slice() : pickShuffleFour())
           : PACKS[selectedPack].questions.slice();
         roundAnswers = [];
+        resultsShown = false;
         currentIdx = 0;
 
         metaPackLabel.textContent = selectedPack === 'SHUFFLE'
@@ -2095,9 +2111,15 @@
         if (rec.audioUrl) {
           fbAudio.src = rec.audioUrl;
           fbAudioWrap.removeAttribute('hidden');
+          fbAudioNote.setAttribute('hidden', '');
         } else {
           fbAudio.removeAttribute('src');
           fbAudioWrap.setAttribute('hidden', '');
+          if (rec.isTyped) {
+            fbAudioNote.removeAttribute('hidden');
+          } else {
+            fbAudioNote.setAttribute('hidden', '');
+          }
         }
 
         btnNextQuestion.textContent = (currentIdx === roundQuestions.length - 1)
@@ -2108,6 +2130,8 @@
       }
 
       function renderResultsStage() {
+        if (resultsShown) return;
+        resultsShown = true;
         stopExaminerVoice();
         stopTimer();
         stopRecognition();
