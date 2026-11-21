@@ -714,6 +714,23 @@
       margin-bottom: 12px;
     }
 
+    /* NEON ROUND 4 (2026-11-21) P2 #3: neutral info variant — the
+       "Typed mode active" note is not an error, so it must not wear the
+       red error banner. */
+    .mic-notice--info {
+      background: #eff6ff;
+      border-color: #bfdbfe;
+      color: #1e40af;
+    }
+
+    /* NEON ROUND 4 (2026-11-21) P1 #2: in typed mode the mirrored
+       transcript box repeats the textarea below it and pushes Finish
+       Answer below the fold. Cap the mirror and tighten typed-mode
+       vertical spacing so the button stays in view at 1080p. */
+    .typed-mode .live-transcript-box { max-height: 52px; overflow: hidden; margin-bottom: 8px; }
+    .typed-mode .typed-fallback-wrap { padding: 10px 12px; margin-bottom: 8px; }
+    .typed-mode .typed-textarea { min-height: 60px; }
+
     .examiner-action-row {
       display: flex;
       align-items: center;
@@ -1220,7 +1237,7 @@
       <div class="kpi-grid">
         <div class="kpi-box">
           <div class="kpi-val" id="fb-words">0</div>
-          <div class="kpi-lbl">Words Spoken</div>
+          <div class="kpi-lbl" id="fb-words-lbl">Words Spoken</div>
         </div>
         <div class="kpi-box">
           <div class="kpi-val" id="fb-fillers">0</div>
@@ -1439,6 +1456,7 @@
       var secondsLeft = QUESTION_SECONDS;
       var answerStartTime = 0;
       var isTypedMode = false;
+      var typedModeSticky = false; // NEON ROUND 4 P2 #4: mic-denied/typed choice carries across Q2-Q4
       var answerFinished = false;
 
       // Audio / Speech state
@@ -1497,6 +1515,7 @@
       var verdictBanner = document.getElementById('verdict-banner');
       var verdictText = document.getElementById('verdict-text');
       var fbWords = document.getElementById('fb-words');
+      var fbWordsLbl = document.getElementById('fb-words-lbl');
       var fbFillers = document.getElementById('fb-fillers');
       var fbWpm = document.getElementById('fb-wpm');
       var fbDuration = document.getElementById('fb-duration');
@@ -1768,8 +1787,10 @@
         }
       }
 
-      function enableTypedFallback(reasonMsg) {
+      function enableTypedFallback(reasonMsg, isInfo) {
         isTypedMode = true;
+        typedModeSticky = true;
+        stageExaminer.classList.add('typed-mode');
         stopRecognition();
         stopVolumeMeter();
         if (mediaRecorder && mediaRecorder.state === 'recording') {
@@ -1778,6 +1799,7 @@
         stopMediaStream();
 
         if (reasonMsg) {
+          micNotice.className = 'mic-notice' + (isInfo ? ' mic-notice--info' : '');
           micNotice.textContent = reasonMsg;
           micNotice.removeAttribute('hidden');
         }
@@ -1850,6 +1872,9 @@
         }
 
         isTypedMode = false;
+        typedModeSticky = false;
+        stageExaminer.classList.remove('typed-mode');
+        micNotice.className = 'mic-notice';
         micNotice.setAttribute('hidden', '');
         typedFallbackWrap.setAttribute('hidden', '');
         btnRetryMic.setAttribute('hidden', '');
@@ -1919,9 +1944,11 @@
             if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
               enableTypedFallback('Microphone permission was blocked. Allow mic access and tap Retry Mic, or type your answer below.');
             } else if (event.error === 'no-speech') {
+              micNotice.className = 'mic-notice';
               micNotice.textContent = 'No speech detected yet — speak clearly closer to your mic, or tap Type Instead.';
               micNotice.removeAttribute('hidden');
             } else {
+              micNotice.className = 'mic-notice';
               micNotice.textContent = 'Mic hiccup (' + event.error + '). Keep speaking, tap Retry Mic, or switch to Type Instead.';
               micNotice.removeAttribute('hidden');
             }
@@ -1959,6 +1986,7 @@
           : PACKS[selectedPack].questions.slice();
         roundAnswers = [];
         resultsShown = false;
+        typedModeSticky = false;
         currentIdx = 0;
 
         metaPackLabel.textContent = selectedPack === 'SHUFFLE'
@@ -2015,7 +2043,12 @@
 
         speakExaminerQuestion(q, function () {
           if (!answerFinished) {
-            startMicCapture();
+            if (typedModeSticky) {
+              enableTypedFallback(null);
+              startCountdown();
+            } else {
+              startMicCapture();
+            }
           }
         });
       }
@@ -2098,6 +2131,7 @@
         verdictText.textContent = rec.verdict.label;
 
         fbWords.textContent = String(rec.words);
+        fbWordsLbl.textContent = rec.isTyped ? 'Words Typed' : 'Words Spoken';
         fbFillers.textContent = String(rec.fillers);
         fbWpm.textContent = rec.wpm;
         fbDuration.textContent = rec.duration + 's';
@@ -2220,7 +2254,7 @@
       });
 
       btnSwitchTyped.addEventListener('click', function () {
-        enableTypedFallback('Typed mode active — keep going while the 20s timer runs.');
+        enableTypedFallback('Typed mode active — keep going while the 20s timer runs.', true);
         if (!timerInterval && !answerFinished) {
           startCountdown();
         }
