@@ -1247,7 +1247,7 @@
 
       <!-- Sticky Typed Fallback -->
       <div id="typed-fallback-wrap" class="typed-fallback-wrap" hidden>
-        <label for="typed-answer-input">Typed Answer Mode (150s timer — typing is slower than speaking; WPM shown as "—"):</label>
+        <label id="typed-answer-label" for="typed-answer-input">Typed Answer Mode (150s timer — typing is slower than speaking; WPM shown as "—"):</label>
         <textarea id="typed-answer-input" class="typed-textarea" placeholder="Type your Part 3 answer here…"></textarea>
         <div class="typed-count-line">
           <span id="typed-live-count">0 words typed</span>
@@ -1439,9 +1439,9 @@
       var TYPED_SECONDS = 150; // typing is ~3x slower than speaking: 55-90 words needs a longer window
       var RING_CIRCUMFERENCE = 251.33;
 
-      var LINKING_REGEX = /\b(on\s+the\s+other\s+hand|in\s+the\s+long\s+run|in\s+my\s+opinion|for\s+example|compared\s+to|as\s+a\s+result|however|because|firstly)\b/gi;
+      var LINKING_REGEX = /\b(on\s+the\s+other\s+hand|on\s+the\s+one\s+hand|in\s+the\s+long\s+run|in\s+my\s+opinion|in\s+addition|for\s+example|for\s+instance|compared\s+to|as\s+a\s+result|however|therefore|moreover|furthermore|because|firstly|secondly)\b/gi;
       var FILLER_REGEX = /\b(you\s+know|um+|uh+|erm+|like|basically|actually)\b/gi;
-      var NON_FILLER_BEFORE_LIKE = /\b(would|i'd|you'd|we'd|they'd|he'd|she'd|to|don't|doesn't|didn't|really|also|might|may|feel|feels|look|looks|sound|sounds|seem|seems)\s+$/i;
+      var HESITANT_LIKE_BEFORE = /(,\s*|\b(um+|uh+|erm+|was|were)\s+)$/i;
 
       var PACKS = {
         A: {
@@ -1561,6 +1561,11 @@
       var typedFallbackWrap = document.getElementById('typed-fallback-wrap');
       var typedAnswerInput = document.getElementById('typed-answer-input');
       var typedLiveCount = document.getElementById('typed-live-count');
+      // Bind the typed-mode label to the same timer constant as the notice (P1 #1)
+      var typedAnswerLabel = document.getElementById('typed-answer-label');
+      if (typedAnswerLabel) {
+        typedAnswerLabel.textContent = 'Typed Answer Mode (' + TYPED_SECONDS + 's timer — typing is slower than speaking; WPM shown as “—”):';
+      }
       var btnFinishAnswer = document.getElementById('btn-finish-answer');
       var btnRetryMic = document.getElementById('btn-retry-mic');
       var btnSwitchTyped = document.getElementById('btn-switch-typed');
@@ -1645,7 +1650,7 @@
         return clean.split(/\s+/).filter(Boolean).length;
       }
 
-      // Single-pass analyzer for linking phrases + fillers ("would like" excluded)
+      // Single-pass analyzer for linking phrases + fillers ("like" counts only as a hesitant filler)
       function analyzeAnswerText(rawText) {
         var src = String(rawText || '');
         var matches = [];
@@ -1665,8 +1670,13 @@
         while ((m = FILLER_REGEX.exec(src)) !== null) {
           var tokenLower = m[0].toLowerCase();
           if (tokenLower === 'like') {
+            // Count "like" as a filler only in hesitant patterns (", like",
+            // "like,", "um like", "was like"). Prepositional / example "like"
+            // ("areas like technology", "jobs like teaching", "I like swimming")
+            // is not a filler.
             var before = src.slice(Math.max(0, m.index - 24), m.index);
-            if (NON_FILLER_BEFORE_LIKE.test(before)) {
+            var afterCh = src.charAt(m.index + m[0].length);
+            if (!HESITANT_LIKE_BEFORE.test(before) && afterCh !== ',') {
               continue;
             }
           }
@@ -2259,7 +2269,7 @@
 
         fbWords.textContent = String(rec.words);
         fbWordsLbl.textContent = rec.isTyped ? 'Words Typed' : 'Words Spoken';
-        fbLinksCount.textContent = String(rec.linkingCount);
+        fbLinksCount.textContent = String(rec.linkingUnique.length);
         fbFillers.textContent = String(rec.fillers);
         fbWpm.textContent = rec.wpm;
 
@@ -2270,7 +2280,7 @@
         }
 
         if (rec.linkingUnique.length > 0) {
-          fbLinkingSummary.textContent = '🔗 Linking phrases used (' + rec.linkingCount + '): ' + rec.linkingUnique.join(', ');
+          fbLinkingSummary.textContent = '🔗 Linking phrases used (' + rec.linkingUnique.length + '): ' + rec.linkingUnique.join(', ');
         } else {
           fbLinkingSummary.textContent = '🔗 No tracked linking phrases detected yet — try adding "however", "for example", "because", or "on the other hand" next question.';
         }
@@ -2312,7 +2322,7 @@
         roundAnswers.forEach(function (a) {
           totalWords += a.words;
           totalFillers += a.fillers;
-          totalLinks += a.linkingCount;
+          totalLinks += a.linkingUnique.length;
           if (a.words >= 55 && a.words <= 90) sweetSpotCount += 1;
           if (a.words >= 55) atLeast55Count += 1;
         });
@@ -2343,13 +2353,13 @@
 
         resAnswersList.innerHTML = roundAnswers.map(function (a, i) {
           var linkNote = a.linkingUnique.length
-            ? 'Linking phrases (' + a.linkingCount + '): ' + escapeHtml(a.linkingUnique.join(', '))
+            ? 'Linking phrases (' + a.linkingUnique.length + '): ' + escapeHtml(a.linkingUnique.join(', '))
             : 'Linking phrases: 0';
           return (
             '<div class="answer-summary-card">' +
               '<div class="answer-summary-head">' +
                 '<span>Q' + (i + 1) + '. ' + escapeHtml(a.question) + '</span>' +
-                '<span class="pill-mini">' + a.words + ' words · ' + a.fillers + ' fillers · ' + escapeHtml(a.verdict.label) + '</span>' +
+                '<span class="pill-mini">' + (a.words === 1 ? '1 word' : a.words + ' words') + ' · ' + (a.fillers === 1 ? '1 filler' : a.fillers + ' fillers') + ' · ' + escapeHtml(a.verdict.label) + '</span>' +
               '</div>' +
               '<div style="font-size:0.82rem; font-weight:800; color:#166534; margin-bottom:5px;">' + linkNote + '</div>' +
               '<div style="font-size:0.89rem; color:#334155; margin-bottom:' + (a.audioUrl ? '8px' : '0') + ';">' +
@@ -2392,7 +2402,7 @@
       });
 
       btnSwitchTyped.addEventListener('click', function () {
-        enableTypedFallback('Typed mode active for this round — you have 150s to type each answer.', false);
+        enableTypedFallback('Typed mode active for this round — you have ' + TYPED_SECONDS + 's to type each answer.', false);
         if (!timerInterval && !answerFinished) {
           startCountdown();
         }
