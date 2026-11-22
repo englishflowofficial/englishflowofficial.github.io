@@ -63,7 +63,7 @@
             "name": "How does IELTS Speaking Part 3 practice work?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Pick one of five 4-question abstract topic packs (or Shuffle All). A browser voice asks each Part 3 question aloud, a 40-second countdown ring runs while you discuss your view into your mic (or type), and you receive instant word-count, filler-word, linking-phrase, and audio playback feedback."
+              "text": "Pick one of five 4-question abstract topic packs (or Shuffle All). A browser voice asks each Part 3 question aloud, a 40-second countdown ring runs while you discuss your view into your mic (150 seconds if you type instead), and you receive instant word-count, filler-word, linking-phrase, and audio playback feedback."
             }
           },
           {
@@ -79,7 +79,7 @@
             "name": "Do I need a microphone?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. A microphone enables live speech recognition, a volume bar, and per-answer audio playback, but if mic access is denied or unsupported, the tool switches to sticky typed mode across the round with the same 40-second timer, word count, filler highlight, and linking-phrase detector."
+              "text": "No. A microphone enables live speech recognition, a volume bar, and per-answer audio playback, but if mic access is denied or unsupported, the tool switches to sticky typed mode across the round with a longer 150-second timer, because typing is slower than speaking, word count, filler highlight, and linking-phrase detector."
             }
           },
           {
@@ -1183,7 +1183,7 @@
 
       <ul class="how-list">
         <li><strong>Examiner asks:</strong> A browser voice reads each Part 3 question aloud at 1.0x speed (with a Hear Again button).</li>
-        <li><strong>You discuss for 40 seconds:</strong> Speak into your mic with a live transcript and volume bar — or switch to sticky typed mode anytime.</li>
+        <li><strong>You discuss for 40 seconds (150s in typed mode):</strong> Speak into your mic with a live transcript and volume bar — or switch to sticky typed mode anytime.</li>
         <li><strong>Instant feedback on your argument:</strong> Check word development (55–90 word sweet spot), linking phrases, fillers, and play back your audio.</li>
       </ul>
     </section>
@@ -1247,7 +1247,7 @@
 
       <!-- Sticky Typed Fallback -->
       <div id="typed-fallback-wrap" class="typed-fallback-wrap" hidden>
-        <label for="typed-answer-input">Typed Answer Mode (40s timer still runs — WPM shown as "—"):</label>
+        <label for="typed-answer-input">Typed Answer Mode (150s timer — typing is slower than speaking; WPM shown as "—"):</label>
         <textarea id="typed-answer-input" class="typed-textarea" placeholder="Type your Part 3 answer here…"></textarea>
         <div class="typed-count-line">
           <span id="typed-live-count">0 words typed</span>
@@ -1408,7 +1408,7 @@
       <div class="faq-grid">
         <div class="faq-card">
           <h3>How does IELTS Speaking Part 3 practice work?</h3>
-          <p>Pick one of five 4-question abstract topic packs (or Shuffle All). A browser voice asks each Part 3 question aloud, a 40-second countdown ring runs while you speak or type, and you get instant word-development, linking-phrase, filler, and playback feedback.</p>
+          <p>Pick one of five 4-question abstract topic packs (or Shuffle All). A browser voice asks each Part 3 question aloud, a 40-second countdown ring runs while you speak (150 seconds while you type), and you get instant word-development, linking-phrase, filler, and playback feedback.</p>
         </div>
         <div class="faq-card">
           <h3>Is the examiner a real person?</h3>
@@ -1416,7 +1416,7 @@
         </div>
         <div class="faq-card">
           <h3>Do I need a microphone?</h3>
-          <p>No. A microphone enables live speech recognition, a volume bar, and per-answer audio playback, but if mic access is denied or unsupported, sticky typed mode lets you finish the full 4-question round with the 40-second timer and instant text feedback.</p>
+          <p>No. A microphone enables live speech recognition, a volume bar, and per-answer audio playback, but if mic access is denied or unsupported, sticky typed mode lets you finish the full 4-question round with a longer 150-second timer per answer and instant text feedback.</p>
         </div>
         <div class="faq-card">
           <h3>How do XP and daily streaks work?</h3>
@@ -1436,6 +1436,7 @@
 
       var CANONICAL_URL = 'https://englishflowofficial.github.io/tools/ielts-speaking-part-3-practice.html';
       var QUESTION_SECONDS = 40;
+      var TYPED_SECONDS = 150; // typing is ~3x slower than speaking: 55-90 words needs a longer window
       var RING_CIRCUMFERENCE = 251.33;
 
       var LINKING_REGEX = /\b(on\s+the\s+other\s+hand|in\s+the\s+long\s+run|in\s+my\s+opinion|for\s+example|compared\s+to|as\s+a\s+result|however|because|firstly)\b/gi;
@@ -1505,6 +1506,7 @@
       var currentIdx = 0;
       var roundAnswers = [];
       var timerInterval = null;
+      var timerLimit = QUESTION_SECONDS;
       var secondsLeft = QUESTION_SECONDS;
       var answerStartTime = 0;
       var isTypedMode = false;
@@ -1806,18 +1808,18 @@
 
         examinerStatus.textContent = '🔊 Browser-Voice Examiner speaking (1.0x)…';
         utter.onend = function () {
-          examinerStatus.textContent = '🎙️ Your turn — discuss for 40 seconds';
+          examinerStatus.textContent = '🎙️ Your turn — discuss your view';
           doneOnce();
         };
         utter.onerror = function () {
-          examinerStatus.textContent = '🎙️ Your turn — discuss for 40 seconds (tap Hear Again to replay)';
+          examinerStatus.textContent = '🎙️ Your turn — discuss your view (tap Hear Again to replay)';
           doneOnce();
         };
 
         try {
           window.speechSynthesis.speak(utter);
           speechFallbackTimeout = setTimeout(function () {
-            examinerStatus.textContent = '🎙️ Your turn — discuss for 40 seconds';
+            examinerStatus.textContent = '🎙️ Your turn — discuss your view';
             doneOnce();
           }, 5000);
         } catch (e) {
@@ -1874,7 +1876,7 @@
 
       function updateTimerRing(sec) {
         timerSecEl.textContent = String(sec);
-        var ratio = Math.max(0, Math.min(1, sec / QUESTION_SECONDS));
+        var ratio = Math.max(0, Math.min(1, sec / timerLimit));
         timerRingFg.style.strokeDashoffset = String(RING_CIRCUMFERENCE * (1 - ratio));
         timerRingFg.style.stroke = sec <= 8 ? '#ea2b2b' : sec <= 15 ? '#ff9600' : '#58cc02';
       }
@@ -1925,7 +1927,7 @@
           showNotice(reasonMsg, false);
         }
 
-        micStatusPill.textContent = '⌨️ Typed Answer Mode (40s timer running)';
+        micStatusPill.textContent = '⌨️ Typed Answer Mode (150s timer running)';
         micStatusPill.className = 'mic-status-pill info';
         volWrap.setAttribute('hidden', '');
         liveTranscriptBox.classList.add('compact-typed');
@@ -1972,13 +1974,17 @@
 
       function startCountdown() {
         stopTimer();
-        secondsLeft = QUESTION_SECONDS;
+        timerLimit = isTypedMode ? TYPED_SECONDS : QUESTION_SECONDS;
+        secondsLeft = timerLimit;
         answerStartTime = Date.now();
         updateTimerRing(secondsLeft);
 
         timerInterval = setInterval(function () {
           secondsLeft -= 1;
           updateTimerRing(Math.max(0, secondsLeft));
+          if (secondsLeft === 10) {
+            showNotice('⏰ 10 seconds left — wrap up your answer now.', true);
+          }
           if (secondsLeft <= 0) {
             stopTimer();
             finishCurrentAnswer();
@@ -1997,7 +2003,7 @@
         var hasGetUserMedia = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
 
         if (!SpeechRec && !hasGetUserMedia) {
-          enableTypedFallback('Voice capture is unavailable in this browser. Switched to typed mode for this round — the 40s timer and feedback work the same way.', true);
+          enableTypedFallback('Voice capture is unavailable in this browser. Switched to typed mode for this round — the 150s typed timer and feedback work the same way.', true);
           startCountdown();
           return;
         }
@@ -2038,7 +2044,7 @@
           }
 
           if (!SpeechRec) {
-            enableTypedFallback('Live speech-to-text is unavailable in this browser. Switched to typed mode for this round while the 40s timer runs.', true);
+            enableTypedFallback('Live speech-to-text is unavailable in this browser. Switched to typed mode for this round with a 150s typed timer.', true);
             startCountdown();
             return;
           }
@@ -2146,8 +2152,9 @@
         finalTranscript = '';
         interimTranscript = '';
         recordedChunks = [];
-        secondsLeft = QUESTION_SECONDS;
-        updateTimerRing(QUESTION_SECONDS);
+        timerLimit = isTypedMode ? TYPED_SECONDS : QUESTION_SECONDS;
+        secondsLeft = timerLimit;
+        updateTimerRing(timerLimit);
 
         var q = roundQuestions[idx];
         metaProgress.textContent = 'Question ' + (idx + 1) + ' of ' + roundQuestions.length;
@@ -2180,8 +2187,8 @@
         stopVolumeMeter();
 
         var elapsedSec = answerStartTime
-          ? Math.min(QUESTION_SECONDS, Math.max(1, Math.round((Date.now() - answerStartTime) / 1000)))
-          : QUESTION_SECONDS;
+          ? Math.min(timerLimit, Math.max(1, Math.round((Date.now() - answerStartTime) / 1000)))
+          : timerLimit;
 
         var rawText = isTypedMode
           ? typedAnswerInput.value.trim()
@@ -2385,7 +2392,7 @@
       });
 
       btnSwitchTyped.addEventListener('click', function () {
-        enableTypedFallback('Typed mode active for this round — keep going while the 40s timer runs.', false);
+        enableTypedFallback('Typed mode active for this round — you have 150s to type each answer.', false);
         if (!timerInterval && !answerFinished) {
           startCountdown();
         }
