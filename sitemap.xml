@@ -5,7 +5,7 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://englishflowofficial.github.io/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.00</priority>
   </url>
@@ -282,6 +282,12 @@
   <url>
     <loc>https://englishflowofficial.github.io/tools/ielts-speaking-part-3-practice.html</loc>
     <lastmod>2026-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://englishflowofficial.github.io/tools/toefl-speaking-practice-timer.html</loc>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
