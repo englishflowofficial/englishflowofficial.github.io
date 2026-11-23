@@ -789,7 +789,7 @@
       flex-wrap: wrap;
       padding: 12px 15px;
       border-radius: 14px;
-      margin-bottom: 14px;
+      margin-bottom: 8px;
       font-weight: 900;
     }
 
@@ -815,7 +815,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
       gap: 10px;
-      margin-bottom: 14px;
+      margin-bottom: 8px;
     }
 
     .kpi-box {
@@ -844,7 +844,7 @@
       border: 1.5px solid var(--ef-border);
       border-radius: 13px;
       padding: 12px 14px;
-      margin-bottom: 12px;
+      margin-bottom: 6px;
       font-size: 0.94rem;
       color: #1e293b;
       line-height: 1.65;
@@ -1241,15 +1241,15 @@
       <div class="scratchpad-grid">
         <div class="scratch-row">
           <label for="note-pos">1. Position</label>
-          <input id="note-pos" class="scratch-input" type="text" placeholder="e.g., Agree — quiet library wins">
+          <input id="note-pos" class="scratch-input" type="text" placeholder="e.g., Your main choice or stance">
         </div>
         <div class="scratch-row">
           <label for="note-r1">2. Reason 1</label>
-          <input id="note-r1" class="scratch-input" type="text" placeholder="e.g., Fewer distractions, deeper focus">
+          <input id="note-r1" class="scratch-input" type="text" placeholder="e.g., First key reason">
         </div>
         <div class="scratch-row">
           <label for="note-r2">3. Reason 2 / Example</label>
-          <input id="note-r2" class="scratch-input" type="text" placeholder="e.g., Finished my exam review in half the time">
+          <input id="note-r2" class="scratch-input" type="text" placeholder="e.g., Second reason or short personal example">
         </div>
       </div>
 
@@ -1497,7 +1497,7 @@
       var SPEAK_SECONDS_TYPED = 150;
       var RING_CIRCUMFERENCE = 251.33;
 
-      var TRANSITION_REGEX = /\b(for\s+example|for\s+instance|in\s+addition|as\s+a\s+result|firstly|secondly|however|therefore)\b/gi;
+      var TRANSITION_REGEX = /\b(?:for\s+example|for\s+instance|in\s+addition|as\s+a\s+result|firstly|secondly|however|therefore|although|moreover|on\s+the\s+other\s+hand)\b|\b(?:first|second|finally)(?=,)|(?<=^|[.!?]\s+)\b(?:first|second|finally)\b/gi;
       var FILLER_REGEX = /\b(you\s+know|um+|uh+|erm+|like|basically|actually)\b/gi;
       var NON_FILLER_BEFORE_LIKE = /\b(would|i'd|you'd|we'd|they'd|he'd|she'd|i|you|we|they|people|students|children|some|many|most|don't|doesn't|didn't|really|also|to|might|may|feel|feels|look|looks|sound|sounds|seem|seems|areas|things|places|jobs|skills|subjects|clubs|sports|tools|apps|cities|countries|activities|topics|examples|books|films|something|someone|anything|anyone)\s+$/i;
       var NON_FILLER_AFTER_LIKE = /^\s+to\b/i;
