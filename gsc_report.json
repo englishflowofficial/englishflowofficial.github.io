@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T10:31:51.375801Z",
+  "generated_at": "2026-11-23T11:31:41.178538Z",
   "site": "https://englishflowofficial.github.io/",
   "sitemap_submit": {
     "url": "https://englishflowofficial.github.io/sitemap.xml",
@@ -8,7 +8,7 @@
   "sitemaps": [
     {
       "path": "https://englishflowofficial.github.io/sitemap.xml",
-      "lastSubmitted": "2026-11-22T10:31:51.602Z",
+      "lastSubmitted": "2026-11-23T11:31:41.340Z",
       "isPending": true,
       "isSitemapsIndex": false,
       "warnings": "0",
@@ -16,8 +16,8 @@
     }
   ],
   "search_analytics_28d": {
-    "startDate": "2026-10-25",
-    "endDate": "2026-11-22",
+    "startDate": "2026-10-26",
+    "endDate": "2026-11-23",
     "rows": [
       {
         "keys": [
@@ -25,9 +25,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 1,
-        "impressions": 38,
-        "ctr": 0.02631578947368421,
-        "position": 6.394736842105263
+        "impressions": 41,
+        "ctr": 0.024390243902439025,
+        "position": 6.487804878048781
       },
       {
         "keys": [
@@ -45,9 +45,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
-        "impressions": 19,
+        "impressions": 21,
         "ctr": 0,
-        "position": 6.2631578947368425
+        "position": 6.333333333333333
       },
       {
         "keys": [
@@ -55,9 +55,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
-        "impressions": 227,
+        "impressions": 266,
         "ctr": 0,
-        "position": 6.370044052863436
+        "position": 6.454887218045113
       },
       {
         "keys": [
@@ -65,9 +65,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 6,
         "ctr": 0,
-        "position": 5
+        "position": 6.333333333333333
       },
       {
         "keys": [
@@ -75,9 +75,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 4,
         "ctr": 0,
-        "position": 5.666666666666667
+        "position": 6.25
       },
       {
         "keys": [
@@ -85,9 +85,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 8
+        "position": 8.5
       },
       {
         "keys": [
