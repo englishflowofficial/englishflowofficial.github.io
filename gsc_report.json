@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T11:31:41.178538Z",
+  "generated_at": "2026-11-24T13:06:22.598638Z",
   "site": "https://englishflowofficial.github.io/",
   "sitemap_submit": {
     "url": "https://englishflowofficial.github.io/sitemap.xml",
@@ -8,7 +8,7 @@
   "sitemaps": [
     {
       "path": "https://englishflowofficial.github.io/sitemap.xml",
-      "lastSubmitted": "2026-11-23T11:31:41.340Z",
+      "lastSubmitted": "2026-11-24T13:06:23.824Z",
       "isPending": true,
       "isSitemapsIndex": false,
       "warnings": "0",
@@ -16,8 +16,8 @@
     }
   ],
   "search_analytics_28d": {
-    "startDate": "2026-10-26",
-    "endDate": "2026-11-23",
+    "startDate": "2026-10-27",
+    "endDate": "2026-11-24",
     "rows": [
       {
         "keys": [
@@ -25,9 +25,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 1,
-        "impressions": 41,
-        "ctr": 0.024390243902439025,
-        "position": 6.487804878048781
+        "impressions": 47,
+        "ctr": 0.02127659574468085,
+        "position": 6.276595744680851
       },
       {
         "keys": [
@@ -45,9 +45,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
-        "impressions": 21,
+        "impressions": 24,
         "ctr": 0,
-        "position": 6.333333333333333
+        "position": 6.291666666666667
       },
       {
         "keys": [
@@ -55,9 +55,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
-        "impressions": 266,
+        "impressions": 306,
         "ctr": 0,
-        "position": 6.454887218045113
+        "position": 6.594771241830065
       },
       {
         "keys": [
@@ -78,6 +78,16 @@
         "impressions": 4,
         "ctr": 0,
         "position": 6.25
+      },
+      {
+        "keys": [
+          "english floww",
+          "https://englishflowofficial.github.io/"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
       },
       {
         "keys": [
