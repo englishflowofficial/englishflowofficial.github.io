@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T13:06:22.598638Z",
+  "generated_at": "2026-11-25T11:54:23.029754Z",
   "site": "https://englishflowofficial.github.io/",
   "sitemap_submit": {
     "url": "https://englishflowofficial.github.io/sitemap.xml",
@@ -8,7 +8,7 @@
   "sitemaps": [
     {
       "path": "https://englishflowofficial.github.io/sitemap.xml",
-      "lastSubmitted": "2026-11-24T13:06:23.824Z",
+      "lastSubmitted": "2026-11-25T11:54:23.155Z",
       "isPending": true,
       "isSitemapsIndex": false,
       "warnings": "0",
@@ -16,8 +16,8 @@
     }
   ],
   "search_analytics_28d": {
-    "startDate": "2026-10-27",
-    "endDate": "2026-11-24",
+    "startDate": "2026-10-28",
+    "endDate": "2026-11-25",
     "rows": [
       {
         "keys": [
@@ -45,9 +45,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
-        "impressions": 24,
+        "impressions": 25,
         "ctr": 0,
-        "position": 6.291666666666667
+        "position": 6.36
       },
       {
         "keys": [
@@ -55,9 +55,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
-        "impressions": 306,
+        "impressions": 344,
         "ctr": 0,
-        "position": 6.594771241830065
+        "position": 6.648255813953488
       },
       {
         "keys": [
@@ -95,9 +95,9 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 4,
         "ctr": 0,
-        "position": 8.5
+        "position": 8
       },
       {
         "keys": [
@@ -135,9 +135,19 @@
           "https://englishflowofficial.github.io/"
         ],
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 3,
         "ctr": 0,
-        "position": 9
+        "position": 9.333333333333334
+      },
+      {
+        "keys": [
+          "оно бесплатно",
+          "https://englishflowofficial.github.io/"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 4
       }
     ]
   }
