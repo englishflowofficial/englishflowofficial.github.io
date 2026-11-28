@@ -1,0 +1,2384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Speaking Challenge: 30 Seconds a Day | English Flow</title>
+  <meta name="description" content="One new English speaking topic every day. Speak for 30 seconds, get your score, share your card and challenge a friend. Free, no sign-up.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://englishflowofficial.github.io/tools/daily-speaking-challenge.html">
+  <link rel="icon" type="image/jpeg" href="../favicon.jpg">
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="English Flow">
+  <meta property="og:title" content="Daily Speaking Challenge: 30 Seconds a Day | English Flow">
+  <meta property="og:description" content="One new English speaking topic every day. Speak for 30 seconds, get your score, share your card and challenge a friend. Free, no sign-up.">
+  <meta property="og:url" content="https://englishflowofficial.github.io/tools/daily-speaking-challenge.html">
+  <meta property="og:image" content="https://englishflowofficial.github.io/og-image.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@EnglishFlowPodcastt">
+  <meta name="twitter:title" content="Daily Speaking Challenge: 30 Seconds a Day | English Flow">
+  <meta name="twitter:description" content="One new English speaking topic every day. Speak for 30 seconds, get your score, share your card and challenge a friend. Free, no sign-up.">
+  <meta name="twitter:image" content="https://englishflowofficial.github.io/og-image.jpg">
+
+  <!-- Fonts & Shared Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../game-practice.css">
+
+  <!-- JSON-LD: WebApplication + FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Daily Speaking Challenge",
+        "url": "https://englishflowofficial.github.io/tools/daily-speaking-challenge.html",
+        "description": "One new English speaking topic every day. Speak for 30 seconds, get your score, share your card and challenge a friend. Free, no sign-up.",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any (Web Browser)",
+        "isAccessibleForFree": true,
+        "inLanguage": "en",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "English Flow",
+          "url": "https://englishflowofficial.github.io/"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does the Daily Speaking Challenge work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every UTC day unlocks one fresh everyday speaking topic worldwide. Tap Start, speak for 30 seconds (minimum 15 seconds and 20 words to complete), and receive an instant practice estimate out of 100 based on words, speaking pace, fillers, and transitions, plus a shareable result card."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my audio stored or uploaded anywhere?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Your audio stays in your browser and is never uploaded or stored on any server. Everything runs locally on your device with zero sign-up."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which browsers support the microphone?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Modern Chrome, Edge, and Safari support live microphone speech recognition and waveform bars. If your browser does not support voice capture or microphone access is denied, a typed fallback activates automatically so you can still complete the 30-second challenge."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do streak and XP work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Completing a daily challenge awards +25 XP once per calendar day, plus a +10 XP bonus if your practice estimate reaches 80 or higher. Your daily streak advances once per day and is saved locally in your browser."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --ef-green: #58cc02;
+      --ef-green-dark: #46a302;
+      --ef-blue: #1cb0f6;
+      --ef-blue-dark: #0e8cc7;
+      --ef-amber: #ff9600;
+      --ef-amber-dark: #cc7700;
+      --ef-red: #ea2b2b;
+      --ef-ink: #1e293b;
+      --ef-muted: #475569;
+      --ef-border: #e2e8f0;
+      --ef-card: #ffffff;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f8fafc;
+      color: var(--ef-ink);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Sticky Topbar */
+    .ef-topbar {
+      background: #ffffff;
+      border-bottom: 2px solid var(--ef-border);
+      padding: 8px 14px;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+    }
+
+    .ef-topbar-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .ef-brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .ef-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
+      color: var(--ef-ink);
+      font-weight: 900;
+      font-size: 1rem;
+    }
+
+    .ef-brand-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--ef-green);
+      display: inline-block;
+    }
+
+    .ef-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      flex-wrap: wrap;
+    }
+
+    .ef-nav-links a {
+      text-decoration: none;
+      color: #475569;
+      font-weight: 800;
+      font-size: 0.84rem;
+    }
+
+    .ef-nav-links a:hover {
+      color: var(--ef-green-dark);
+    }
+
+    .ef-stats-pills {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .stat-pill {
+      background: #f1f5f9;
+      border: 1.5px solid var(--ef-border);
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--ef-ink);
+      white-space: nowrap;
+    }
+
+    /* Main Container & Safe Card Overrides */
+    .quiz-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 14px 14px 48px;
+      color: var(--ef-ink);
+    }
+
+    .q-card,
+    .result-card {
+      background: var(--ef-card) !important;
+      color: var(--ef-ink) !important;
+      border: 2px solid var(--ef-border);
+      border-radius: 20px;
+      padding: 18px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 0 #e2e8f0;
+      text-align: left;
+    }
+
+    /* Friend Challenge Banner */
+    .friend-banner {
+      background: #fef3c7;
+      border: 2px solid #f59e0b;
+      color: #78350f;
+      border-radius: 14px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-weight: 900;
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    /* Setup First Screen (Mobile 390x844 above-the-fold optimized) */
+    .setup-head {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .day-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: #ecfdf5;
+      border: 2px solid #86efac;
+      color: #166534;
+      font-weight: 900;
+      font-size: 0.82rem;
+      padding: 4px 13px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    h1 {
+      font-size: clamp(1.38rem, 4.2vw, 1.92rem);
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0 0 4px;
+      line-height: 1.18;
+    }
+
+    .flo-sub {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--ef-muted);
+      margin: 0;
+    }
+
+    .topic-card {
+      background: linear-gradient(135deg, #f0fdf4, #ecfeff);
+      border: 2px solid #86efac;
+      border-radius: 16px;
+      padding: 15px 16px;
+      margin-bottom: 13px;
+    }
+
+    .topic-kicker {
+      font-size: 0.74rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #15803d;
+      margin-bottom: 4px;
+    }
+
+    .topic-title {
+      font-size: clamp(1.18rem, 3.8vw, 1.48rem);
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0 0 6px;
+      line-height: 1.22;
+    }
+
+    .topic-prompt {
+      font-size: 0.94rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 0 0 9px;
+    }
+
+    .topic-opener {
+      background: #ffffff;
+      border: 1.5px solid #bbf7d0;
+      border-radius: 10px;
+      padding: 8px 11px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: #334155;
+      margin: 0;
+    }
+
+    .best-today-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      background: #f8fafc;
+      border: 1.5px solid var(--ef-border);
+      border-radius: 11px;
+      padding: 7px 12px;
+      margin-bottom: 12px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: #334155;
+    }
+
+    .how-steps {
+      margin: 14px 0 0;
+      padding-left: 20px;
+      color: #334155;
+      font-size: 0.89rem;
+    }
+
+    .how-steps li {
+      margin-bottom: 5px;
+    }
+
+    /* Tactile 3D Buttons */
+    .btn-3d {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-weight: 900;
+      font-size: 0.98rem;
+      border: none;
+      border-radius: 14px;
+      padding: 13px 20px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.08s ease, box-shadow 0.08s ease, opacity 0.15s ease;
+    }
+
+    .btn-3d:active:not(:disabled) {
+      transform: translateY(2px);
+    }
+
+    .btn-3d:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    .btn-green {
+      background: var(--ef-green);
+      color: #ffffff;
+      box-shadow: 0 4px 0 var(--ef-green-dark);
+    }
+
+    .btn-green:active:not(:disabled) {
+      box-shadow: 0 2px 0 var(--ef-green-dark);
+    }
+
+    .btn-blue {
+      background: var(--ef-blue);
+      color: #ffffff;
+      box-shadow: 0 4px 0 var(--ef-blue-dark);
+    }
+
+    .btn-blue:active:not(:disabled) {
+      box-shadow: 0 2px 0 var(--ef-blue-dark);
+    }
+
+    .btn-amber {
+      background: var(--ef-amber);
+      color: #ffffff;
+      box-shadow: 0 4px 0 var(--ef-amber-dark);
+    }
+
+    .btn-amber:active:not(:disabled) {
+      box-shadow: 0 2px 0 var(--ef-amber-dark);
+    }
+
+    .btn-red {
+      background: var(--ef-red);
+      color: #ffffff;
+      box-shadow: 0 4px 0 #b91c1c;
+    }
+
+    .btn-red:active:not(:disabled) {
+      box-shadow: 0 2px 0 #b91c1c;
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      color: #1e293b;
+      border: 2px solid #cbd5e1;
+      box-shadow: 0 3px 0 #cbd5e1;
+    }
+
+    .btn-outline:active:not(:disabled) {
+      box-shadow: 0 1px 0 #cbd5e1;
+    }
+
+    .btn-block {
+      width: 100%;
+    }
+
+    /* Live Screen */
+    .live-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: center;
+      background: #f0f9ff;
+      border: 2px solid #bae6fd;
+      border-radius: 16px;
+      padding: 13px 15px;
+      margin-bottom: 12px;
+    }
+
+    .live-mode-tag {
+      font-size: 0.76rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #0369a1;
+      margin-bottom: 4px;
+    }
+
+    .live-topic-title {
+      font-size: 1.12rem;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0 0 4px;
+    }
+
+    .live-topic-prompt {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #334155;
+      margin: 0;
+    }
+
+    .timer-ring-wrap {
+      position: relative;
+      width: 86px;
+      height: 86px;
+      flex-shrink: 0;
+    }
+
+    .timer-ring-wrap svg {
+      transform: rotate(-90deg);
+      width: 86px;
+      height: 86px;
+    }
+
+    .ring-bg {
+      fill: none;
+      stroke: #e2e8f0;
+      stroke-width: 8;
+    }
+
+    .ring-fg {
+      fill: none;
+      stroke: var(--ef-green);
+      stroke-width: 8;
+      stroke-linecap: round;
+      stroke-dasharray: 251.33;
+      stroke-dashoffset: 0;
+      transition: stroke-dashoffset 0.2s linear, stroke 0.2s ease;
+    }
+
+    .timer-ring-label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.05;
+    }
+
+    .timer-sec {
+      font-size: 1.42rem;
+    }
+
+    .timer-cap {
+      font-size: 0.64rem;
+      color: #475569;
+      text-transform: uppercase;
+    }
+
+    .notice-box {
+      border-radius: 12px;
+      padding: 9px 12px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      background: #eff6ff;
+      border: 1.5px solid #bfdbfe;
+      color: #1e3a8a;
+    }
+
+    .notice-box.warn {
+      background: #fffbeb;
+      border-color: #fde68a;
+      color: #92400e;
+    }
+
+    /* AudioContext Waveform Bars */
+    .wave-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .mic-pill {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #166534;
+      background: #dcfce7;
+      padding: 4px 11px;
+      border-radius: 999px;
+    }
+
+    .mic-pill.info {
+      color: #1e3a8a;
+      background: #dbeafe;
+    }
+
+    .waveform-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      height: 28px;
+      padding: 2px 6px;
+      background: #f1f5f9;
+      border-radius: 10px;
+    }
+
+    .wave-bar {
+      width: 5px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #1cb0f6, #58cc02);
+      transition: height 0.07s linear;
+    }
+
+    .live-transcript-box {
+      min-height: 64px;
+      max-height: 100px;
+      overflow-y: auto;
+      background: #f8fafc;
+      border: 2px solid var(--ef-border);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 0.94rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 8px;
+      white-space: pre-wrap;
+    }
+
+    .live-placeholder {
+      color: #94a3b8;
+    }
+
+    .live-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 0.83rem;
+      font-weight: 800;
+      color: #475569;
+      margin-bottom: 10px;
+    }
+
+    .typed-wrap {
+      background: #f8fafc;
+      border: 2px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+    }
+
+    .typed-wrap label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: #334155;
+      margin-bottom: 5px;
+    }
+
+    .typed-input {
+      width: 100%;
+      min-height: 76px;
+      padding: 9px 11px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0f172a;
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 10px;
+      resize: vertical;
+      outline: none;
+    }
+
+    .typed-input:focus {
+      border-color: var(--ef-blue);
+    }
+
+    .action-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .short-attempt-box {
+      background: #fffbeb;
+      border: 2px solid #f59e0b;
+      border-radius: 14px;
+      padding: 14px;
+      margin-top: 12px;
+      color: #78350f;
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    /* Results Screen (explicit dark text on pale surfaces) */
+    .results-hero {
+      text-align: center;
+      padding: 18px 14px;
+      background: linear-gradient(135deg, #f0fdf4, #ecfeff);
+      border: 2px solid #86efac;
+      border-radius: 18px;
+      margin-bottom: 14px;
+      color: #1e293b;
+    }
+
+    .score-big {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #15803d;
+      line-height: 1.05;
+      margin: 4px 0;
+    }
+
+    .estimate-note {
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: #475569;
+      margin: 0;
+    }
+
+    .friend-verdict {
+      margin-top: 10px;
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 0.9rem;
+    }
+
+    .friend-verdict.win {
+      background: #dcfce7;
+      color: #166534;
+      border: 1.5px solid #4ade80;
+    }
+
+    .friend-verdict.lose {
+      background: #fef3c7;
+      color: #92400e;
+      border: 1.5px solid #fbbf24;
+    }
+
+    .breakdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .kpi-box {
+      background: #f8fafc;
+      border: 1.5px solid var(--ef-border);
+      border-radius: 12px;
+      padding: 10px 8px;
+      text-align: center;
+      color: #1e293b;
+    }
+
+    .kpi-val {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: #0f172a;
+    }
+
+    .kpi-sub {
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: #15803d;
+      margin-top: 1px;
+    }
+
+    .kpi-lbl {
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: #475569;
+      margin-top: 2px;
+    }
+
+    .xp-strip {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+      border-radius: 12px;
+      padding: 10px 13px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #14532d;
+      margin-bottom: 14px;
+    }
+
+    .transcript-card {
+      background: #f8fafc;
+      border: 1.5px solid var(--ef-border);
+      border-radius: 12px;
+      padding: 11px 13px;
+      margin-bottom: 14px;
+      color: #1e293b;
+      font-size: 0.92rem;
+    }
+
+    .audio-wrap {
+      margin-bottom: 14px;
+    }
+
+    .audio-wrap audio {
+      width: 100%;
+      height: 38px;
+    }
+
+    /* Share Card Preview + Actions */
+    .share-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 14px;
+      align-items: center;
+      background: #f8fafc;
+      border: 1.5px solid var(--ef-border);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+
+    .share-preview-img {
+      width: 100%;
+      max-width: 220px;
+      aspect-ratio: 1 / 1;
+      border-radius: 12px;
+      border: 2px solid #cbd5e1;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .share-btns {
+      display: grid;
+      gap: 8px;
+    }
+
+    .copy-feedback {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #15803d;
+      min-height: 1.1em;
+    }
+
+    /* Countdown + Bonus Prompt */
+    .countdown-box {
+      background: #f0f9ff;
+      border: 1.5px solid #bae6fd;
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      color: #0c4a6e;
+    }
+
+    .countdown-clock {
+      font-size: 1.22rem;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+      color: #0369a1;
+    }
+
+    .results-footer-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 900;
+      margin: 0 0 10px;
+      color: #0f172a;
+    }
+
+    .cross-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .cross-card {
+      display: block;
+      text-decoration: none;
+      background: #f8fafc;
+      border: 2px solid var(--ef-border);
+      border-radius: 14px;
+      padding: 12px 14px;
+      color: #0f172a;
+    }
+
+    .cross-card:hover {
+      border-color: var(--ef-blue);
+    }
+
+    .cross-card strong {
+      display: block;
+      font-size: 0.93rem;
+      margin-bottom: 2px;
+    }
+
+    .cross-card span {
+      font-size: 0.82rem;
+      color: #475569;
+    }
+
+    /* Locked Recommended English Resources Card */
+    .resource-card {
+      background: #fffbe6 !important;
+      border: 2px solid #facc15;
+      border-radius: 18px;
+      padding: 18px;
+      margin-top: 12px;
+      color: #334155 !important;
+    }
+
+    .resource-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+      font-weight: 900;
+      color: #1e1b4b !important;
+    }
+
+    .resource-card p {
+      margin: 0 0 12px;
+      font-size: 0.92rem;
+      color: #334155 !important;
+    }
+
+    .resource-cta-wrap {
+      margin-bottom: 12px;
+    }
+
+    .resource-card ul,
+    .resource-links {
+      margin: 0;
+      padding-left: 20px;
+      color: #334155 !important;
+    }
+
+    .resource-card li,
+    .resource-links li {
+      margin-bottom: 6px;
+      font-size: 0.91rem;
+      color: #334155 !important;
+    }
+
+    .resource-card li a,
+    .resource-links li a {
+      color: #0369a1 !important;
+      font-weight: 800;
+    }
+
+    /* FAQ */
+    .faq-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .faq-card {
+      background: #f8fafc;
+      border: 1.5px solid var(--ef-border);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+
+    .faq-card h3 {
+      margin: 0 0 4px;
+      font-size: 0.95rem;
+      font-weight: 900;
+      color: #0f172a;
+    }
+
+    .faq-card p {
+      margin: 0;
+      font-size: 0.89rem;
+      color: #475569;
+    }
+
+    .site-footer {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 0.83rem;
+      color: #64748b;
+    }
+
+    .site-footer a {
+      color: #0369a1;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (max-width: 640px) {
+      .breakdown-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .share-grid {
+        grid-template-columns: 1fr;
+      }
+      .live-top {
+        grid-template-columns: 1fr;
+      }
+      .timer-ring-wrap {
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 440px) {
+      .quiz-wrap {
+        padding: 10px 10px 40px;
+      }
+      .q-card,
+      .result-card {
+        padding: 14px;
+      }
+      .ef-nav-links {
+        display: none;
+      }
+      .btn-3d {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="ef-topbar">
+    <div class="ef-topbar-inner">
+      <div class="ef-brand-group">
+        <a class="ef-brand" href="../index.html">
+          <span class="ef-brand-dot" aria-hidden="true"></span>
+          <span>English Flow</span>
+        </a>
+        <nav class="ef-nav-links" aria-label="Main navigation">
+          <a href="../index.html">Home</a>
+          <a href="../game-practice.html">Practice</a>
+          <a href="../tenses.html">Tenses</a>
+          <a href="../index.html#voice-tools">Voice Tools</a>
+        </nav>
+      </div>
+      <div class="ef-stats-pills" aria-label="Your local progress">
+        <span class="stat-pill" id="pill-streak">🔥 0 days</span>
+        <span class="stat-pill" id="pill-xp">⚡ 0 XP</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="quiz-wrap">
+    <!-- Friend Challenge Banner (hidden unless ?d=&s= present) -->
+    <div id="friend-banner" class="friend-banner" hidden></div>
+
+    <!-- SCREEN 1: SETUP (1-tap first screen, topic + START above the fold on 390x844) -->
+    <section id="stage-setup" class="q-card" aria-labelledby="setup-h1">
+      <div class="setup-head">
+        <div class="day-badge" id="day-badge">📅 Loading…</div>
+        <h1 id="setup-h1">Daily Speaking Challenge</h1>
+        <p class="flo-sub">🦉 Flo the owl has today's 30-second speaking topic ready — no sign-up.</p>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-kicker" id="topic-kicker">Today's 30-Second Topic</div>
+        <h2 class="topic-title" id="setup-topic-title"></h2>
+        <p class="topic-prompt" id="setup-topic-prompt"></p>
+        <p class="topic-opener"><strong>Example opener:</strong> <span id="setup-topic-opener"></span></p>
+      </div>
+
+      <div id="best-today-bar" class="best-today-bar" hidden>
+        <span id="best-today-text">🏆 Best score on this topic: —</span>
+        <span>Unlimited repeats</span>
+      </div>
+
+      <button type="button" id="btn-start" class="btn-3d btn-green btn-block">🎙️ START 30-SECOND CHALLENGE</button>
+
+      <ol class="how-steps">
+        <li><strong>Speak for 30 seconds:</strong> Tap Start and talk naturally (minimum 15 seconds and 20 words to complete).</li>
+        <li><strong>Get your practice estimate:</strong> Instant score out of 100 across words, WPM pace, fillers, and transitions.</li>
+        <li><strong>Share & challenge a friend:</strong> Download your result card or send a spoiler-free challenge link.</li>
+      </ol>
+    </section>
+
+    <!-- SCREEN 2: LIVE (hidden via native hidden attribute) -->
+    <section id="stage-live" class="q-card" hidden aria-live="polite">
+      <div class="live-top">
+        <div>
+          <div class="live-mode-tag" id="live-mode-tag">🔴 Daily Challenge · 30 Seconds</div>
+          <h2 class="live-topic-title" id="live-topic-title"></h2>
+          <p class="live-topic-prompt" id="live-topic-prompt"></p>
+        </div>
+        <div class="timer-ring-wrap" aria-label="30 second countdown">
+          <svg viewBox="0 0 96 96">
+            <circle class="ring-bg" cx="48" cy="48" r="40"></circle>
+            <circle class="ring-fg" id="live-ring-fg" cx="48" cy="48" r="40"></circle>
+          </svg>
+          <div class="timer-ring-label">
+            <span class="timer-sec" id="live-timer-sec">30</span>
+            <span class="timer-cap">sec</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="live-notice" class="notice-box" hidden></div>
+
+      <div class="wave-row">
+        <span class="mic-pill" id="mic-pill">🎙️ Preparing microphone…</span>
+        <div class="waveform-bars" id="waveform-bars" aria-hidden="true">
+          <span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span>
+          <span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span>
+          <span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span>
+        </div>
+      </div>
+
+      <div class="live-transcript-box" id="live-transcript-box">
+        <span class="live-placeholder">Start speaking — your live transcript will appear here…</span>
+      </div>
+
+      <div class="live-meta">
+        <span id="live-word-count">0 words</span>
+        <span>Sweet spot: 60–90 words · Min 15s & 20 words</span>
+      </div>
+
+      <!-- Typed Fallback -->
+      <div id="typed-wrap" class="typed-wrap" hidden>
+        <label for="typed-input">Typed Mode — type what you would say while the 30-second timer runs:</label>
+        <textarea id="typed-input" class="typed-input" placeholder="Type your 30-second response here…"></textarea>
+      </div>
+
+      <div class="action-row">
+        <button type="button" id="btn-stop" class="btn-3d btn-red" style="flex:1 1 200px;">⏹️ STOP EARLY</button>
+        <button type="button" id="btn-switch-typed" class="btn-3d btn-outline">⌨️ Type Instead</button>
+      </div>
+
+      <div id="short-attempt-box" class="short-attempt-box" hidden>
+        <div id="short-attempt-msg"></div>
+        <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+          <button type="button" id="btn-retry-short" class="btn-3d btn-green">🔁 Try Again</button>
+          <button type="button" id="btn-back-setup-short" class="btn-3d btn-outline">← Back to Topic</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: RESULTS (hidden via native hidden attribute ONLY) -->
+    <section id="stage-results" class="result-card" hidden aria-labelledby="results-h2">
+      <div class="results-hero">
+        <div class="day-badge" id="res-mode-badge">🦉 Daily Challenge Complete!</div>
+        <h2 id="results-h2" style="margin:4px 0 0; font-size:1.18rem; font-weight:900; color:#0f172a;">Your 30-Second Speaking Score</h2>
+        <div class="score-big" id="res-score-big">0/100</div>
+        <p class="estimate-note">Practice estimate — not an official score</p>
+        <div id="friend-verdict" class="friend-verdict" hidden></div>
+      </div>
+
+      <div class="breakdown-grid">
+        <div class="kpi-box">
+          <div class="kpi-val" id="res-words">0</div>
+          <div class="kpi-sub" id="res-words-pts">0/40 pts</div>
+          <div class="kpi-lbl">Words</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-val" id="res-wpm">—</div>
+          <div class="kpi-sub" id="res-wpm-pts">0/20 pts</div>
+          <div class="kpi-lbl">WPM Pace</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-val" id="res-fillers">0</div>
+          <div class="kpi-sub" id="res-fillers-pts">0/20 pts</div>
+          <div class="kpi-lbl">Fillers</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-val" id="res-trans">0</div>
+          <div class="kpi-sub" id="res-trans-pts">0/20 pts</div>
+          <div class="kpi-lbl">Transitions</div>
+        </div>
+      </div>
+
+      <div class="xp-strip" id="res-xp-strip"></div>
+
+      <div class="transcript-card">
+        <div style="font-size:0.78rem; font-weight:900; color:#475569; margin-bottom:4px;">YOUR RESPONSE:</div>
+        <div id="res-transcript-text"></div>
+        <div id="res-trans-list" style="font-size:0.82rem; font-weight:800; color:#15803d; margin-top:6px;"></div>
+      </div>
+
+      <div id="res-audio-wrap" class="audio-wrap" hidden>
+        <div style="font-size:0.8rem; font-weight:800; color:#475569; margin-bottom:4px;">🎧 Local playback (never uploaded):</div>
+        <audio id="res-audio" controls></audio>
+      </div>
+
+      <!-- Share Card Preview & Buttons -->
+      <div class="share-grid">
+        <img id="share-preview-img" class="share-preview-img" alt="Daily Speaking Challenge shareable score card preview">
+        <div class="share-btns">
+          <button type="button" id="btn-download-tall" class="btn-3d btn-green">⬇️ DOWNLOAD CARD (1080×1920)</button>
+          <button type="button" id="btn-download-square" class="btn-3d btn-outline">⬇️ Download Square (1080×1080)</button>
+          <button type="button" id="btn-copy-friend" class="btn-3d btn-blue">🤝 CHALLENGE A FRIEND</button>
+          <a id="btn-whatsapp" class="btn-3d btn-green" href="#" target="_blank" rel="noopener noreferrer">💬 Share My Score on WhatsApp</a>
+          <div id="copy-feedback" class="copy-feedback" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <!-- Live UTC Midnight Countdown -->
+      <div class="countdown-box">
+        <div>
+          <div style="font-size:0.78rem; font-weight:900; text-transform:uppercase; letter-spacing:0.04em;">Next Daily Challenge</div>
+          <div style="font-size:0.88rem; font-weight:800;" id="tomorrow-date-label">Tomorrow's topic unlocks soon</div>
+        </div>
+        <div class="countdown-clock" id="utc-countdown">00:00:00</div>
+      </div>
+
+      <div class="results-footer-btns">
+        <button type="button" id="btn-try-again" class="btn-3d btn-blue">🔁 TRY AGAIN</button>
+        <button type="button" id="btn-bonus-prompt" class="btn-3d btn-outline" hidden>🎲 BONUS PROMPT (No Extra XP)</button>
+      </div>
+
+      <h3 class="section-title">Keep Practising</h3>
+      <div class="cross-links">
+        <a class="cross-card" href="repeat-sentence-speaking-practice.html">
+          <strong>🔁 Repeat Sentence Speaking Practice →</strong>
+          <span>Hear a sentence once with text hidden, then say it back into your mic.</span>
+        </a>
+        <a class="cross-card" href="toefl-speaking-interview-practice.html">
+          <strong>🎙️ TOEFL Speaking Interview Practice (2026) →</strong>
+          <span>4 consecutive interview questions, 0s prep, 45s per answer.</span>
+        </a>
+      </div>
+
+      <!-- Locked Recommended English Resources Card -->
+      <div class="resource-card">
+        <h3>Recommended English Resources</h3>
+        <p>Keep your daily speaking streak going offline with structured prompts, real-life conversation scripts, and self-check rubrics.</p>
+        <div class="resource-cta-wrap">
+          <a class="btn-3d btn-amber" href="https://topmate.io/speak_english_with_confidence/2324225" target="_blank" rel="noopener noreferrer">Get the 30-Day Speaking Workbook ($) →</a>
+        </div>
+        <ul class="resource-links">
+          <li><a href="../30-day-english-flow-workbook.pdf">Preview the 30-Day English Flow Workbook (PDF)</a></li>
+          <li><a href="../resources.html">Browse all free English Flow resources</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="q-card" aria-labelledby="faq-h2">
+      <h2 id="faq-h2" class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-grid">
+        <div class="faq-card">
+          <h3>How does the Daily Speaking Challenge work?</h3>
+          <p>Every UTC day unlocks one fresh everyday speaking topic worldwide. Tap Start, speak for 30 seconds (minimum 15 seconds and 20 words to complete), and get an instant practice estimate out of 100 plus a shareable score card.</p>
+        </div>
+        <div class="faq-card">
+          <h3>Is my audio stored or uploaded anywhere?</h3>
+          <p>No. Your audio stays in your browser and is never uploaded or stored on any server. Everything runs locally on your device with no account required.</p>
+        </div>
+        <div class="faq-card">
+          <h3>Which browsers support the microphone?</h3>
+          <p>Modern Chrome, Edge, and Safari support live microphone speech recognition and waveform bars. If your browser does not support voice capture or mic access is denied, a typed fallback opens automatically so you can still complete the 30-second challenge.</p>
+        </div>
+        <div class="faq-card">
+          <h3>How do streak and XP work?</h3>
+          <p>Completing a daily challenge earns +25 XP once per calendar day, plus a +10 XP bonus for scoring 80 or higher. Your streak advances once per day and is saved locally in your browser.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p><a href="../index.html">← Back to English Flow Home</a> · <a href="../resources.html">Free Resources</a> · Practice estimate tool — audio never leaves your browser.</p>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var CANONICAL_URL = 'https://englishflowofficial.github.io/tools/daily-speaking-challenge.html';
+      var CHALLENGE_SECONDS = 30;
+      var MIN_SECONDS = 15;
+      var MIN_WORDS = 20;
+      var RING_CIRCUMFERENCE = 251.33;
+      var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+      // 60 everyday global topics (keys: title, prompt, opener)
+      var TOPICS = [
+        // 1-10 (required examples)
+        { title: 'Describe your morning routine', prompt: 'Walk through the first hour of your typical morning.', opener: 'Most mornings I wake up around seven, and the first thing I do is...' },
+        { title: 'Your dream job', prompt: 'Talk about a career you would love to have and why.', opener: 'If I could choose any job in the world, I would love to work as...' },
+        { title: 'A place you want to visit', prompt: 'Name one destination on your travel list and what draws you there.', opener: 'One place I have always wanted to visit is...' },
+        { title: 'Your favourite meal', prompt: 'Describe a dish you never get tired of eating.', opener: 'My all-time favourite meal is...' },
+        { title: 'A skill you want to learn', prompt: 'Share a practical or creative skill you plan to pick up.', opener: 'A skill I really want to learn this year is...' },
+        { title: 'Your best friend', prompt: 'Explain what makes your closest friend so easy to be around.', opener: 'My best friend is someone I can always count on because...' },
+        { title: 'A funny memory', prompt: 'Tell a quick story about a moment that still makes you laugh.', opener: 'One of the funniest things that ever happened to me was...' },
+        { title: 'Your hometown', prompt: 'Describe what a visitor would notice first about where you grew up.', opener: 'My hometown is a place where...' },
+        { title: 'Your phone — useful or distracting', prompt: 'Explain whether your phone helps your day more than it interrupts it.', opener: 'Honestly, my phone is both helpful and distracting, but overall...' },
+        { title: 'What you did last weekend', prompt: 'Recap the best part of your last Saturday and Sunday.', opener: 'Last weekend was a nice break because I spent time...' },
+
+        // 11-20
+        { title: 'A book or movie you recommend', prompt: 'Pitch one story you think everyone should read or watch.', opener: 'If you are looking for something great to watch or read, I recommend...' },
+        { title: 'Coffee, tea, or neither', prompt: 'Share your go-to daily drink and when you enjoy it most.', opener: 'When it comes to daily drinks, I always reach for...' },
+        { title: 'Your ideal weekend', prompt: 'Describe how you would spend two completely free days.', opener: 'My ideal weekend starts slowly with...' },
+        { title: 'A teacher who inspired you', prompt: 'Talk about someone who changed the way you learn.', opener: 'One teacher I will never forget is...' },
+        { title: 'Early bird or night owl', prompt: 'Explain what time of day you feel sharpest and most productive.', opener: 'I am definitely more of a...' },
+        { title: 'Your favourite season', prompt: 'Describe the weather and mood you enjoy most each year.', opener: 'My favourite season of the year is...' },
+        { title: 'A small habit that helps you', prompt: 'Share one simple daily habit that improves your mood or focus.', opener: 'One tiny habit that makes a big difference in my day is...' },
+        { title: 'Cooking at home vs. eating out', prompt: 'Explain which option you prefer on a busy weeknight.', opener: 'On most nights I prefer...' },
+        { title: 'A hobby you enjoy', prompt: 'Talk about an activity that helps you unwind after work or study.', opener: 'Whenever I have spare time, I love to...' },
+        { title: 'Your favourite music to focus', prompt: 'Describe what you listen to when you need to get things done.', opener: 'When I need to concentrate, I usually put on...' },
+
+        // 21-30
+        { title: 'A city you enjoyed visiting', prompt: 'Describe a memorable trip to another city.', opener: 'A city that really surprised me when I visited was...' },
+        { title: 'Learning online vs. in a classroom', prompt: 'Share which learning style works better for you and why.', opener: 'In my experience, learning feels much easier when...' },
+        { title: 'Something you are proud of', prompt: 'Talk about a goal you worked hard to reach.', opener: 'One achievement I feel genuinely proud of is...' },
+        { title: 'Your favourite way to exercise', prompt: 'Explain how you like to stay active during the week.', opener: 'The easiest way for me to stay active is...' },
+        { title: 'A gift you loved receiving', prompt: 'Describe a thoughtful gift someone gave you.', opener: 'One of the most thoughtful gifts I ever received was...' },
+        { title: 'Working alone vs. in a team', prompt: 'Explain which setup brings out your best work.', opener: 'Depending on the task, I usually do my best work when...' },
+        { title: 'A sport you like to watch or play', prompt: 'Talk about a sport that excites you.', opener: 'A sport I really enjoy following is...' },
+        { title: 'Your favourite room at home', prompt: 'Describe the spot where you feel most comfortable.', opener: 'My favourite spot at home is...' },
+        { title: 'A language you want to speak', prompt: 'Name another language you would love to learn and why.', opener: 'Besides English, I would love to learn...' },
+        { title: 'How you relax after a stressful day', prompt: 'Share your best way to switch off in the evening.', opener: 'After a long, stressful day, the first thing I do to unwind is...' },
+
+        // 31-40
+        { title: 'Public transport vs. driving', prompt: 'Explain which way of getting around you prefer.', opener: 'For getting around town, I generally prefer...' },
+        { title: 'A memorable celebration', prompt: 'Describe a birthday, holiday, or party you really enjoyed.', opener: 'One celebration I still remember clearly is...' },
+        { title: 'Something you bought recently', prompt: 'Talk about a recent purchase that turned out to be worth it.', opener: 'Something I bought recently that I use every day is...' },
+        { title: 'Your favourite childhood game', prompt: 'Describe a game you used to play for hours as a kid.', opener: 'When I was younger, my favourite game to play was...' },
+        { title: 'Mountains or the beach', prompt: 'Choose your favourite kind of getaway and explain why.', opener: 'If I have to choose between mountains and the beach, I pick...' },
+        { title: 'An app you use every day', prompt: 'Explain how one helpful app saves you time.', opener: 'One app I open almost every single day is...' },
+        { title: 'A goal for the next six months', prompt: 'Share one concrete thing you want to finish soon.', opener: 'Over the next six months, my main goal is to...' },
+        { title: 'Your favourite snack', prompt: 'Describe what you reach for when you get hungry between meals.', opener: 'Whenever I want a quick snack in the afternoon, I go for...' },
+        { title: 'A person you admire', prompt: 'Talk about someone whose attitude or work inspires you.', opener: 'Someone I really admire is...' },
+        { title: 'Paper books vs. e-books', prompt: 'Explain which reading format you enjoy more.', opener: 'When I sit down to read, I much prefer...' },
+
+        // 41-50
+        { title: 'A time you helped someone', prompt: 'Share a quick story about lending a hand.', opener: 'A moment I felt glad I could help someone was when...' },
+        { title: 'Your favourite subject at school', prompt: 'Talk about a class you always looked forward to.', opener: 'Back in school, my favourite subject was...' },
+        { title: 'How you stay organised', prompt: 'Describe how you keep track of tasks and deadlines.', opener: 'To stay on top of my schedule, I rely on...' },
+        { title: 'A café or restaurant you like', prompt: 'Describe a local spot with great food or atmosphere.', opener: 'A place I love going to eat or grab a drink is...' },
+        { title: 'Cats, dogs, or no pets', prompt: 'Share your thoughts on having a pet at home.', opener: 'When it comes to pets, I have always been...' },
+        { title: 'A mistake that taught you something', prompt: 'Explain a small slip-up that gave you a useful lesson.', opener: 'A mistake that actually taught me a lot happened when...' },
+        { title: 'Your favourite way to travel', prompt: 'Talk about whether you prefer trains, planes, or road trips.', opener: 'My favourite way to travel long distances is...' },
+        { title: 'What makes a good leader', prompt: 'Name two qualities you respect most in a leader.', opener: 'In my opinion, a truly great leader is someone who...' },
+        { title: 'A movie you could watch twice', prompt: 'Describe a film that holds up every time you see it.', opener: 'One movie I never get tired of rewatching is...' },
+        { title: 'Rainy day activities', prompt: 'Explain what you like doing when the weather keeps you inside.', opener: 'On a rainy afternoon, my favourite thing to do is...' },
+
+        // 51-60
+        { title: 'A new food you tried', prompt: 'Talk about a dish you tasted for the first time recently.', opener: 'Not long ago, I tried a dish I had never eaten before...' },
+        { title: 'Living in a big city vs. a small town', prompt: 'Explain which pace of life suits you better.', opener: 'If I could choose where to live, I would pick...' },
+        { title: 'A podcast or channel you enjoy', prompt: 'Share something you like watching or listening to each week.', opener: 'Something I love listening to or watching regularly is...' },
+        { title: 'Your favourite time of the week', prompt: 'Describe the day or evening you look forward to most.', opener: 'My favourite part of every week is...' },
+        { title: 'How you practise English', prompt: 'Explain one thing that helps your spoken English improve.', opener: 'The best way I have found to practise my English is...' },
+        { title: 'A piece of advice you remember', prompt: 'Share a short tip someone gave you that stuck.', opener: 'One piece of advice that has stayed with me is...' },
+        { title: 'Shopping online vs. in stores', prompt: 'Explain where you prefer to buy clothes or gadgets.', opener: 'When I need to buy something new, I usually prefer...' },
+        { title: 'A concert or live event', prompt: 'Describe a live show, match, or event you enjoyed.', opener: 'One live event that had amazing energy was...' },
+        { title: 'What you would tell your younger self', prompt: 'Give one short piece of encouragement to yourself five years ago.', opener: 'If I could talk to myself five years ago, I would say...' },
+        { title: 'Something that made you smile today', prompt: 'Share one small bright moment from today or yesterday.', opener: 'Something small that genuinely made me smile recently was...' }
+      ];
+
+      var TRANSITIONS_LIST = [
+        'for example', 'in my opinion', 'first', 'second', 'then',
+        'next', 'finally', 'however', 'because', 'overall', 'also', 'but', 'so'
+      ];
+      var TRANSITION_REGEX = /\b(for\s+example|in\s+my\s+opinion|first|second|then|next|finally|however|because|overall|also|but|so)\b/gi;
+      var FILLER_REGEX = /\b(you\s+know|um+|uh+|erm+|like|basically|actually)\b/gi;
+      var NON_FILLER_BEFORE_LIKE = /\b(would|i'd|you'd|we'd|they'd|he'd|she'd|i|you|we|they|people|don't|doesn't|didn't|really|also|to|might|may|feel|feels|look|looks|sound|sounds|seem|seems|things|places|foods|movies|games|apps|habits|skills)\s+$/i;
+      var NON_FILLER_AFTER_LIKE = /^\s+to\b/i;
+
+      // Date helpers (UTC for topic seeding & midnight countdown; local for streak/XP)
+      function pad2(n) {
+        return n < 10 ? '0' + n : String(n);
+      }
+
+      function parseDateParam(str) {
+        if (!str || !/^\d{4}-\d{2}-\d{2}$/.test(str)) return null;
+        var parts = str.split('-');
+        var y = parseInt(parts[0], 10);
+        var m = parseInt(parts[1], 10) - 1;
+        var d = parseInt(parts[2], 10);
+        var check = new Date(Date.UTC(y, m, d));
+        if (check.getUTCFullYear() !== y || check.getUTCMonth() !== m || check.getUTCDate() !== d) {
+          return null;
+        }
+        return { y: y, m: m, d: d, key: str };
+      }
+
+      function getUtcTodayParts() {
+        var now = new Date();
+        var y = now.getUTCFullYear();
+        var m = now.getUTCMonth();
+        var d = now.getUTCDate();
+        return { y: y, m: m, d: d, key: y + '-' + pad2(m + 1) + '-' + pad2(d) };
+      }
+
+      function getLocalTodayKey() {
+        var now = new Date();
+        return now.getFullYear() + '-' + pad2(now.getMonth() + 1) + '-' + pad2(now.getDate());
+      }
+
+      function formatDisplayDate(parts) {
+        return parts.d + ' ' + MONTHS[parts.m] + ' ' + parts.y;
+      }
+
+      function computeDayIndex(parts) {
+        return Math.floor((Date.UTC(parts.y, parts.m, parts.d) - Date.UTC(2026, 0, 1)) / 86400000);
+      }
+
+      function topicIndexForDay(dayIndex) {
+        return ((dayIndex % 60) + 60) % 60;
+      }
+
+      // Parse URL params (?d=YYYY-MM-DD&s=SCORE)
+      var params = new URLSearchParams(window.location.search);
+      var paramDate = parseDateParam(params.get('d'));
+      var rawS = params.get('s');
+      var friendScore = (rawS !== null && /^\d{1,3}$/.test(rawS)) ? Math.min(100, parseInt(rawS, 10)) : null;
+
+      var activeDateParts = paramDate || getUtcTodayParts();
+      var activeDayIndex = computeDayIndex(activeDateParts);
+      var activeTopicIndex = topicIndexForDay(activeDayIndex);
+      var activeTopic = TOPICS[activeTopicIndex];
+      var isBonusMode = false;
+      var currentTopic = activeTopic;
+
+      // Live / media state
+      var timerInterval = null;
+      var countdownInterval = null;
+      var secondsLeft = CHALLENGE_SECONDS;
+      var startTimestamp = 0;
+      var isTypedMode = false;
+      var isFinished = false;
+      var recognition = null;
+      var finalTranscript = '';
+      var interimTranscript = '';
+      var mediaStream = null;
+      var mediaRecorder = null;
+      var recordedChunks = [];
+      var audioCtx = null;
+      var analyser = null;
+      var waveRafId = null;
+      var lastAudioUrl = null;
+      var lastResultObj = null;
+
+      // DOM refs
+      var pillStreak = document.getElementById('pill-streak');
+      var pillXp = document.getElementById('pill-xp');
+      var friendBanner = document.getElementById('friend-banner');
+      var stageSetup = document.getElementById('stage-setup');
+      var stageLive = document.getElementById('stage-live');
+      var stageResults = document.getElementById('stage-results');
+
+      var dayBadge = document.getElementById('day-badge');
+      var topicKicker = document.getElementById('topic-kicker');
+      var setupTopicTitle = document.getElementById('setup-topic-title');
+      var setupTopicPrompt = document.getElementById('setup-topic-prompt');
+      var setupTopicOpener = document.getElementById('setup-topic-opener');
+      var bestTodayBar = document.getElementById('best-today-bar');
+      var bestTodayText = document.getElementById('best-today-text');
+      var btnStart = document.getElementById('btn-start');
+
+      var liveModeTag = document.getElementById('live-mode-tag');
+      var liveTopicTitle = document.getElementById('live-topic-title');
+      var liveTopicPrompt = document.getElementById('live-topic-prompt');
+      var liveRingFg = document.getElementById('live-ring-fg');
+      var liveTimerSec = document.getElementById('live-timer-sec');
+      var liveNotice = document.getElementById('live-notice');
+      var micPill = document.getElementById('mic-pill');
+      var waveformBarsWrap = document.getElementById('waveform-bars');
+      var waveBars = waveformBarsWrap.querySelectorAll('.wave-bar');
+      var liveTranscriptBox = document.getElementById('live-transcript-box');
+      var liveWordCount = document.getElementById('live-word-count');
+      var typedWrap = document.getElementById('typed-wrap');
+      var typedInput = document.getElementById('typed-input');
+      var btnStop = document.getElementById('btn-stop');
+      var btnSwitchTyped = document.getElementById('btn-switch-typed');
+      var shortAttemptBox = document.getElementById('short-attempt-box');
+      var shortAttemptMsg = document.getElementById('short-attempt-msg');
+      var btnRetryShort = document.getElementById('btn-retry-short');
+      var btnBackSetupShort = document.getElementById('btn-back-setup-short');
+
+      var resModeBadge = document.getElementById('res-mode-badge');
+      var resScoreBig = document.getElementById('res-score-big');
+      var friendVerdict = document.getElementById('friend-verdict');
+      var resWords = document.getElementById('res-words');
+      var resWordsPts = document.getElementById('res-words-pts');
+      var resWpm = document.getElementById('res-wpm');
+      var resWpmPts = document.getElementById('res-wpm-pts');
+      var resFillers = document.getElementById('res-fillers');
+      var resFillersPts = document.getElementById('res-fillers-pts');
+      var resTrans = document.getElementById('res-trans');
+      var resTransPts = document.getElementById('res-trans-pts');
+      var resXpStrip = document.getElementById('res-xp-strip');
+      var resTranscriptText = document.getElementById('res-transcript-text');
+      var resTransList = document.getElementById('res-trans-list');
+      var resAudioWrap = document.getElementById('res-audio-wrap');
+      var resAudio = document.getElementById('res-audio');
+      var sharePreviewImg = document.getElementById('share-preview-img');
+      var btnDownloadTall = document.getElementById('btn-download-tall');
+      var btnDownloadSquare = document.getElementById('btn-download-square');
+      var btnCopyFriend = document.getElementById('btn-copy-friend');
+      var btnWhatsapp = document.getElementById('btn-whatsapp');
+      var copyFeedback = document.getElementById('copy-feedback');
+      var tomorrowDateLabel = document.getElementById('tomorrow-date-label');
+      var utcCountdown = document.getElementById('utc-countdown');
+      var btnTryAgain = document.getElementById('btn-try-again');
+      var btnBonusPrompt = document.getElementById('btn-bonus-prompt');
+
+      // Storage helpers (unified keys + local toDateString)
+      function getStreak() {
+        return parseInt(localStorage.getItem('english_flow_streak') || '0', 10) || 0;
+      }
+
+      function getXP() {
+        return parseInt(localStorage.getItem('userXP') || '0', 10) || 0;
+      }
+
+      function renderHeaderStats() {
+        var streak = getStreak();
+        var xp = getXP();
+        pillStreak.textContent = '🔥 ' + streak + (streak === 1 ? ' day' : ' days');
+        pillXp.textContent = '⚡ ' + xp + ' XP';
+      }
+
+      function getDailyBest(dateKey) {
+        var raw = localStorage.getItem('english_flow_daily_best_' + dateKey);
+        return raw !== null ? parseInt(raw, 10) : null;
+      }
+
+      function saveDailyBest(dateKey, score) {
+        var prev = getDailyBest(dateKey);
+        if (prev === null || score > prev) {
+          localStorage.setItem('english_flow_daily_best_' + dateKey, String(score));
+        }
+      }
+
+      function awardDailyXPAndStreak(score) {
+        var localTodayStr = new Date().toDateString();
+        var localTodayKey = getLocalTodayKey();
+        var xpGuardKey = 'english_flow_daily_xp_' + localTodayKey;
+        var xpAwarded = 0;
+
+        // Streak advances once per local calendar day
+        var lastPractice = localStorage.getItem('english_flow_last_practice');
+        var streak = getStreak();
+        if (lastPractice !== localTodayStr) {
+          streak += 1;
+          localStorage.setItem('english_flow_streak', String(streak));
+          localStorage.setItem('english_flow_last_practice', localTodayStr);
+        }
+
+        // XP awarded once per local calendar day (idempotency guard)
+        if (!localStorage.getItem(xpGuardKey)) {
+          xpAwarded = 25 + (score >= 80 ? 10 : 0);
+          localStorage.setItem(xpGuardKey, String(xpAwarded));
+          localStorage.setItem('userXP', String(getXP() + xpAwarded));
+        }
+
+        renderHeaderStats();
+        return { xpAwarded: xpAwarded, streak: getStreak() };
+      }
+
+      // Escaping & text analysis
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      function countWords(text) {
+        var clean = String(text || '').trim();
+        if (!clean) return 0;
+        return clean.split(/\s+/).filter(Boolean).length;
+      }
+
+      function countFillers(text) {
+        var src = String(text || '');
+        var count = 0;
+        var m;
+        FILLER_REGEX.lastIndex = 0;
+        while ((m = FILLER_REGEX.exec(src)) !== null) {
+          if (m[0].toLowerCase() === 'like') {
+            var before = src.slice(Math.max(0, m.index - 26), m.index);
+            var after = src.slice(m.index + m[0].length, m.index + m[0].length + 10);
+            if (NON_FILLER_BEFORE_LIKE.test(before) || NON_FILLER_AFTER_LIKE.test(after)) {
+              continue;
+            }
+          }
+          count += 1;
+        }
+        return count;
+      }
+
+      function detectUniqueTransitions(text) {
+        var src = String(text || '');
+        var found = [];
+        var m;
+        TRANSITION_REGEX.lastIndex = 0;
+        while ((m = TRANSITION_REGEX.exec(src)) !== null) {
+          var norm = m[0].toLowerCase().replace(/\s+/g, ' ');
+          if (found.indexOf(norm) === -1) {
+            found.push(norm);
+          }
+        }
+        return found;
+      }
+
+      function computeScore(words, elapsedSec, fillers, uniqueTransCount, typedMode) {
+        // Words: 40 pts (60-90 full)
+        var wordsPts = 0;
+        if (words >= 60 && words <= 90) {
+          wordsPts = 40;
+        } else if (words < 60) {
+          wordsPts = Math.max(0, Math.round(40 * (words / 60)));
+        } else {
+          wordsPts = Math.max(0, Math.round(40 - (words - 90) * 0.5));
+        }
+
+        // WPM: 20 pts (120-160 full; guard < 5s or typed mode)
+        var wpmNum = null;
+        var wpmDisplay = '—';
+        var wpmPts = 0;
+        if (!typedMode && elapsedSec >= 5 && words > 0) {
+          wpmNum = Math.round((words / elapsedSec) * 60);
+          wpmDisplay = String(wpmNum);
+          if (wpmNum >= 120 && wpmNum <= 160) {
+            wpmPts = 20;
+          } else if (wpmNum < 120) {
+            wpmPts = Math.max(0, Math.round(20 - (120 - wpmNum) * 0.25));
+          } else {
+            wpmPts = Math.max(0, Math.round(20 - (wpmNum - 160) * 0.25));
+          }
+        }
+
+        // Fillers: 20 pts (0 = 20, -4 each, floor 0)
+        var fillersPts = Math.max(0, 20 - fillers * 4);
+
+        // Transitions: 20 pts (4+ unique = 20, 5 each below)
+        var transPts = Math.min(20, uniqueTransCount * 5);
+
+        var total = Math.max(0, Math.min(100, wordsPts + wpmPts + fillersPts + transPts));
+        return {
+          total: total,
+          wordsPts: wordsPts,
+          wpmNum: wpmNum,
+          wpmDisplay: wpmDisplay,
+          wpmPts: wpmPts,
+          fillersPts: fillersPts,
+          transPts: transPts
+        };
+      }
+
+      // Render Setup Screen
+      function renderSetup() {
+        var displayDate = formatDisplayDate(activeDateParts);
+        var dayNum = activeDayIndex + 1;
+        dayBadge.textContent = '📅 ' + displayDate + ' · Day #' + dayNum;
+        topicKicker.textContent = paramDate ? 'Friend Challenge Topic (' + displayDate + ')' : "Today's 30-Second Topic";
+        setupTopicTitle.textContent = activeTopic.title;
+        setupTopicPrompt.textContent = activeTopic.prompt;
+        setupTopicOpener.textContent = '"' + activeTopic.opener + '"';
+
+        if (paramDate && friendScore !== null) {
+          friendBanner.textContent = '🏆 Your friend scored ' + friendScore + ' on ' + displayDate + ' topic — beat it!';
+          friendBanner.removeAttribute('hidden');
+        } else {
+          friendBanner.setAttribute('hidden', '');
+        }
+
+        var best = getDailyBest(activeDateParts.key);
+        if (best !== null) {
+          bestTodayText.textContent = '🏆 Best score on this topic: ' + best + '/100';
+          bestTodayBar.removeAttribute('hidden');
+        } else {
+          bestTodayBar.setAttribute('hidden', '');
+        }
+      }
+
+      // Cleanup helpers
+      function stopTimer() {
+        if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+      }
+
+      function stopWaveform() {
+        if (waveRafId) { cancelAnimationFrame(waveRafId); waveRafId = null; }
+        if (audioCtx) { try { audioCtx.close(); } catch (e) {} audioCtx = null; }
+        analyser = null;
+        waveBars.forEach(function (b) { b.style.height = '4px'; });
+      }
+
+      function stopRecognition() {
+        if (recognition) {
+          try {
+            recognition.onend = null;
+            recognition.onerror = null;
+            recognition.onresult = null;
+            recognition.stop();
+          } catch (e) {}
+          recognition = null;
+        }
+      }
+
+      function stopMediaStream() {
+        if (mediaStream) {
+          mediaStream.getTracks().forEach(function (t) { t.stop(); });
+          mediaStream = null;
+        }
+      }
+
+      function updateRing(sec) {
+        liveTimerSec.textContent = String(Math.max(0, sec));
+        var ratio = Math.max(0, Math.min(1, sec / CHALLENGE_SECONDS));
+        liveRingFg.style.strokeDashoffset = String(RING_CIRCUMFERENCE * (1 - ratio));
+        liveRingFg.style.stroke = sec <= 5 ? '#ea2b2b' : sec <= 10 ? '#ff9600' : '#58cc02';
+      }
+
+      function renderLiveTranscript(text) {
+        var clean = String(text || '').trim();
+        if (!clean) {
+          liveTranscriptBox.innerHTML = '<span class="live-placeholder">' +
+            (isTypedMode ? 'Type below while the 30-second timer runs…' : 'Start speaking — your live transcript will appear here…') +
+            '</span>';
+          liveWordCount.textContent = '0 words';
+        } else {
+          liveTranscriptBox.textContent = clean;
+          liveTranscriptBox.scrollTop = liveTranscriptBox.scrollHeight;
+          var wc = countWords(clean);
+          liveWordCount.textContent = wc + (wc === 1 ? ' word' : ' words');
+        }
+      }
+
+      function showLiveNotice(msg, isWarn) {
+        if (!msg) {
+          liveNotice.setAttribute('hidden', '');
+          return;
+        }
+        liveNotice.textContent = msg;
+        liveNotice.className = isWarn ? 'notice-box warn' : 'notice-box';
+        liveNotice.removeAttribute('hidden');
+      }
+
+      function startWaveform(stream) {
+        try {
+          var AC = window.AudioContext || window.webkitAudioContext;
+          if (!AC) return;
+          audioCtx = new AC();
+          var src = audioCtx.createMediaStreamSource(stream);
+          analyser = audioCtx.createAnalyser();
+          analyser.fftSize = 64;
+          src.connect(analyser);
+          var bins = new Uint8Array(analyser.frequencyBinCount);
+
+          function tick() {
+            if (!analyser) return;
+            analyser.getByteFrequencyData(bins);
+            for (var i = 0; i < waveBars.length; i++) {
+              var val = bins[i % bins.length] || 0;
+              var h = Math.max(4, Math.min(26, Math.round((val / 255) * 26)));
+              waveBars[i].style.height = h + 'px';
+            }
+            waveRafId = requestAnimationFrame(tick);
+          }
+          tick();
+        } catch (e) {}
+      }
+
+      function enableTypedFallback(msg) {
+        isTypedMode = true;
+        stopRecognition();
+        stopWaveform();
+        if (mediaRecorder && mediaRecorder.state === 'recording') {
+          try { mediaRecorder.stop(); } catch (e) {}
+        }
+        stopMediaStream();
+
+        showLiveNotice(msg || 'Typed mode active — the 30-second timer still runs.', true);
+        micPill.textContent = '⌨️ Typed Mode (30s)';
+        micPill.className = 'mic-pill info';
+        waveformBarsWrap.setAttribute('hidden', '');
+        typedWrap.removeAttribute('hidden');
+        btnSwitchTyped.setAttribute('hidden', '');
+
+        if (!typedInput.value) {
+          typedInput.value = (finalTranscript + ' ' + interimTranscript).trim();
+        }
+        renderLiveTranscript(typedInput.value);
+        typedInput.focus();
+      }
+
+      function startLiveCountdown() {
+        stopTimer();
+        secondsLeft = CHALLENGE_SECONDS;
+        startTimestamp = Date.now();
+        updateRing(secondsLeft);
+
+        timerInterval = setInterval(function () {
+          secondsLeft -= 1;
+          updateRing(secondsLeft);
+          if (secondsLeft <= 0) {
+            stopTimer();
+            finishChallenge();
+          }
+        }, 1000);
+      }
+
+      function startChallenge(bonusFlag) {
+        stopTimer();
+        stopRecognition();
+        stopWaveform();
+        stopMediaStream();
+
+        isBonusMode = !!bonusFlag;
+        currentTopic = isBonusMode ? TOPICS[(activeTopicIndex + 30) % 60] : activeTopic;
+        isFinished = false;
+        isTypedMode = false;
+        finalTranscript = '';
+        interimTranscript = '';
+        recordedChunks = [];
+
+        liveModeTag.textContent = isBonusMode
+          ? '🎲 Bonus Practice Topic (No Extra XP) · 30 Seconds'
+          : '🔴 Daily Challenge · 30 Seconds';
+        liveTopicTitle.textContent = currentTopic.title;
+        liveTopicPrompt.textContent = currentTopic.prompt;
+
+        typedInput.value = '';
+        typedWrap.setAttribute('hidden', '');
+        shortAttemptBox.setAttribute('hidden', '');
+        btnStop.disabled = false;
+        btnSwitchTyped.removeAttribute('hidden');
+        waveformBarsWrap.removeAttribute('hidden');
+        showLiveNotice('', false);
+        renderLiveTranscript('');
+        updateRing(CHALLENGE_SECONDS);
+
+        stageSetup.setAttribute('hidden', '');
+        stageResults.setAttribute('hidden', '');
+        stageLive.removeAttribute('hidden');
+
+        var SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+        var hasMedia = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
+
+        if (!SpeechRec && !hasMedia) {
+          enableTypedFallback('Voice recognition is unavailable in this browser. Type your response below while the 30s timer runs.');
+          startLiveCountdown();
+          return;
+        }
+
+        micPill.textContent = '🎙️ Requesting microphone…';
+        micPill.className = 'mic-pill';
+
+        var micPromise = hasMedia
+          ? navigator.mediaDevices.getUserMedia({ audio: true })
+          : Promise.reject(new Error('no-media'));
+
+        micPromise.then(function (stream) {
+          if (isFinished || isTypedMode) {
+            stream.getTracks().forEach(function (t) { t.stop(); });
+            return;
+          }
+          mediaStream = stream;
+          startWaveform(stream);
+
+          if (typeof MediaRecorder !== 'undefined') {
+            try {
+              mediaRecorder = new MediaRecorder(stream);
+              mediaRecorder.ondataavailable = function (e) {
+                if (e.data && e.data.size > 0) recordedChunks.push(e.data);
+              };
+              mediaRecorder.start();
+            } catch (e) {
+              mediaRecorder = null;
+            }
+          }
+
+          if (!SpeechRec) {
+            enableTypedFallback('Live speech-to-text is unavailable in this browser. Type what you said below while the 30s timer runs.');
+            startLiveCountdown();
+            return;
+          }
+
+          recognition = new SpeechRec();
+          recognition.lang = 'en-US';
+          recognition.continuous = true;
+          recognition.interimResults = true;
+
+          recognition.onstart = function () {
+            micPill.textContent = '🔴 Listening live (en-US)';
+            micPill.className = 'mic-pill';
+          };
+
+          recognition.onresult = function (event) {
+            var interim = '';
+            for (var i = event.resultIndex; i < event.results.length; i++) {
+              var piece = event.results[i][0].transcript;
+              if (event.results[i].isFinal) {
+                finalTranscript += piece + ' ';
+              } else {
+                interim += piece;
+              }
+            }
+            interimTranscript = interim;
+            renderLiveTranscript((finalTranscript + interimTranscript).trim());
+          };
+
+          recognition.onerror = function (event) {
+            if (isFinished || isTypedMode) return;
+            if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
+              enableTypedFallback('Microphone permission was denied. Type your response below while the 30-second timer runs.');
+            } else if (event.error === 'no-speech') {
+              showLiveNotice('No speech detected yet — speak closer to your mic, or tap Type Instead.', true);
+            } else {
+              showLiveNotice('Mic hiccup (' + event.error + '). Keep speaking or tap Type Instead.', true);
+            }
+          };
+
+          recognition.onend = function () {
+            if (!isFinished && !isTypedMode && secondsLeft > 0) {
+              try { recognition.start(); } catch (e) {}
+            }
+          };
+
+          try {
+            recognition.start();
+          } catch (e) {}
+
+          startLiveCountdown();
+        }).catch(function () {
+          if (isFinished) return;
+          enableTypedFallback('Microphone access was denied or unavailable. Type your response below while the 30-second timer runs.');
+          startLiveCountdown();
+        });
+      }
+
+      function finishChallenge() {
+        if (isFinished) return;
+        isFinished = true;
+        stopTimer();
+        stopRecognition();
+        stopWaveform();
+        btnStop.disabled = true;
+
+        var elapsedSec = startTimestamp
+          ? Math.min(CHALLENGE_SECONDS, Math.max(0, Math.round((Date.now() - startTimestamp) / 1000)))
+          : 0;
+
+        var rawText = isTypedMode
+          ? typedInput.value.trim()
+          : (finalTranscript + ' ' + interimTranscript).trim();
+        var words = countWords(rawText);
+
+        // Enforce minimum 15s AND 20 words
+        if (elapsedSec < MIN_SECONDS || words < MIN_WORDS) {
+          if (mediaRecorder && mediaRecorder.state === 'recording') {
+            try { mediaRecorder.stop(); } catch (e) {}
+          }
+          mediaRecorder = null;
+          stopMediaStream();
+
+          var reasons = [];
+          if (elapsedSec < MIN_SECONDS) reasons.push('spoke for ' + elapsedSec + 's (minimum ' + MIN_SECONDS + 's)');
+          if (words < MIN_WORDS) reasons.push('captured ' + words + ' words (minimum ' + MIN_WORDS + ' words)');
+          shortAttemptMsg.textContent = 'Almost there! You ' + reasons.join(' and ') + '. Speak for at least 15 seconds and 20 words to complete today\'s challenge and earn XP.';
+          shortAttemptBox.removeAttribute('hidden');
+          return;
+        }
+
+        function finalizeResults(audioUrl) {
+          stopMediaStream();
+          var fillers = countFillers(rawText);
+          var uniqueTrans = detectUniqueTransitions(rawText);
+          var scored = computeScore(words, elapsedSec, fillers, uniqueTrans.length, isTypedMode);
+
+          var xpInfo = { xpAwarded: 0, streak: getStreak() };
+          if (!isBonusMode) {
+            saveDailyBest(activeDateParts.key, scored.total);
+            xpInfo = awardDailyXPAndStreak(scored.total);
+          }
+
+          lastResultObj = {
+            topic: currentTopic,
+            dateKey: activeDateParts.key,
+            displayDate: formatDisplayDate(activeDateParts),
+            score: scored.total,
+            words: words,
+            wordsPts: scored.wordsPts,
+            wpmDisplay: scored.wpmDisplay,
+            wpmPts: scored.wpmPts,
+            fillers: fillers,
+            fillersPts: scored.fillersPts,
+            uniqueTrans: uniqueTrans,
+            transPts: scored.transPts,
+            xpAwarded: xpInfo.xpAwarded,
+            streak: xpInfo.streak,
+            transcript: rawText,
+            audioUrl: audioUrl,
+            isBonus: isBonusMode
+          };
+
+          renderResults(lastResultObj);
+        }
+
+        if (mediaRecorder && mediaRecorder.state === 'recording') {
+          var recRef = mediaRecorder;
+          mediaRecorder = null;
+          recRef.onstop = function () {
+            var url = null;
+            if (recordedChunks.length > 0) {
+              try {
+                if (lastAudioUrl) { URL.revokeObjectURL(lastAudioUrl); }
+                var blob = new Blob(recordedChunks, { type: recRef.mimeType || 'audio/webm' });
+                url = URL.createObjectURL(blob);
+                lastAudioUrl = url;
+              } catch (e) {}
+            }
+            finalizeResults(url);
+          };
+          try {
+            recRef.stop();
+          } catch (e) {
+            finalizeResults(null);
+          }
+        } else {
+          mediaRecorder = null;
+          finalizeResults(null);
+        }
+      }
+
+      // Canvas 2D Share Card Generator (1080x1080 and 1080x1920, system fonts only)
+      function drawRoundedRect(ctx, x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.lineTo(x + w - r, y);
+        ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+        ctx.lineTo(x + w, y + h - r);
+        ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+        ctx.lineTo(x + r, y + h);
+        ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+        ctx.lineTo(x, y + r);
+        ctx.quadraticCurveTo(x, y, x + r, y);
+        ctx.closePath();
+      }
+
+      function wrapCanvasText(ctx, text, maxWidth) {
+        var words = String(text).split(' ');
+        var lines = [];
+        var line = '';
+        for (var i = 0; i < words.length; i++) {
+          var test = line ? line + ' ' + words[i] : words[i];
+          if (ctx.measureText(test).width > maxWidth && line) {
+            lines.push(line);
+            line = words[i];
+          } else {
+            line = test;
+          }
+        }
+        if (line) lines.push(line);
+        return lines;
+      }
+
+      function renderShareCardCanvas(data, width, height) {
+        var canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        var ctx = canvas.getContext('2d');
+        var isTall = height > width;
+
+        // 1. Green gradient background (#16a34a -> #059669)
+        var grad = ctx.createLinearGradient(0, 0, width, height);
+        grad.addColorStop(0, '#16a34a');
+        grad.addColorStop(1, '#059669');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, width, height);
+
+        // Subtle decorative circles
+        ctx.fillStyle = 'rgba(255,255,255,0.06)';
+        ctx.beginPath();
+        ctx.arc(width * 0.88, height * 0.14, width * 0.24, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(width * 0.12, height * 0.86, width * 0.22, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.textAlign = 'center';
+        var cx = width / 2;
+
+        // 2. ENGLISH FLOW wordmark at top
+        var y = isTall ? 150 : 88;
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '900 ' + (isTall ? 46 : 38) + 'px system-ui, -apple-system, BlinkMacSystemFont, sans-serif';
+        ctx.fillText('ENGLISH FLOW', cx, y);
+
+        // 3. Simple Flo badge drawn with shapes + text "Flo" (no emoji)
+        y += isTall ? 70 : 48;
+        var badgeW = 160;
+        var badgeH = 54;
+        ctx.fillStyle = 'rgba(255,255,255,0.18)';
+        drawRoundedRect(ctx, cx - badgeW / 2, y - 34, badgeW, badgeH, 27);
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(255,255,255,0.45)';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        // Owl head circle + two eyes + beak drawn with shapes
+        var owlX = cx - 36;
+        var owlY = y - 7;
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.arc(owlX, owlY, 16, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#16a34a';
+        ctx.beginPath();
+        ctx.arc(owlX - 6, owlY - 2, 3.2, 0, Math.PI * 2);
+        ctx.arc(owlX + 6, owlY - 2, 3.2, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#f59e0b';
+        ctx.beginPath();
+        ctx.moveTo(owlX - 4, owlY + 4);
+        ctx.lineTo(owlX + 4, owlY + 4);
+        ctx.lineTo(owlX, owlY + 10);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '800 30px system-ui, -apple-system, BlinkMacSystemFont, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText('Flo', owlX + 26, y + 3);
+        ctx.textAlign = 'center';
+
+        // 4. DAILY CHALLENGE label
+        y += isTall ? 115 : 74;
+        ctx.fillStyle = '#bbf7d0';
+        ctx.font = '800 ' + (isTall ? 34 : 26) + 'px system-ui, -apple-system, BlinkMacSystemFont, sans-serif';
+        ctx.fillText('DAILY CHALLENGE', cx, y);
+
+        // 5. Today's topic title large and wrapped
+        y += isTall ? 92 : 66;
+        ctx.fillStyle = '#ffffff';
+        var titleSize = isTall ? 64 : 50;
+        ctx.font = '900 ' + titleSize + 'px system-ui, -apple-system, BlinkMacSystemFont, sans-serif';
+        var lines = wrapCanvasText(ctx, data.topic.title, width - 140);
+        var lineHeight = isTall ? 78 : 60;
+        for (var li = 0; li < Math.min(lines.length, 3); li++) {
+          ctx.fillText(lines[li], cx, y + li * lineHeight);
+        }
+        y += Math.min(lines.length, 3) * lineHeight + (isTall ? 100 : 54);
+
+        // 6. Big score text (e.g. 87/100)
+        var scoreCardW = width - 160;
+        var scoreCardH = isTall ? 270 : 196;
+        ctx.fillStyle = 'rgba(255,255,255,0.16)';
+        drawRoundedRect(ctx, 80, y - 40, scoreCardW, scoreCardH, 32);
+        ctx.fill();
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '900 ' + (isTall ? 160 : 124) + 'px system-ui, -apple-system, BlinkMacSystemFont, sans-serif';
+        ctx.fillText(data.score + '/100', cx, y + (isTall ? 122 : 94));
+
+        ctx.fillStyle = '#dcfce7';
+        ctx.font = '700 ' + (isTall ? 30 : 24) + 'px system-ui, -apple-system, BlinkMacSystemFont, sans-serif';
+        ctx.fillText('Practice Estimate', cx, y + (isTall ? 182 : 134));
+
+        // 7. Three stat chips (Words, WPM, Streak)
+        y += scoreCardH + (isTall ? 66 : 30);
+        var chipGap = 24;
+        var chipW = (width - 160 - chipGap * 2) / 3;
+        var chipH = isTall ? 156 : 118;
+        var chips = [
+          { val: String(data.words), lbl: 'WORDS' },
+          { val: data.wpmDisplay, lbl: 'WPM' },
+          { val: data.streak + (data.streak === 1 ? ' DAY' : ' DAYS'), lbl: 'STREAK' }
+        ];
+
+        for (var ci = 0; ci < chips.length; ci++) {
+          var chipX = 80 + ci * (chipW + chipGap);
+          ctx.fillStyle = '#ffffff';
+          drawRoundedRect(ctx, chipX, y, chipW, chipH, 22);
+          ctx.fill();
+
+          ctx.fillStyle = '#0f172a';
+          ctx.font = '900 ' + (isTall ? 50 : 40) + 'px system-ui, -apple-system, BlinkMacSystemFont, sans-serif';
+          ctx.fillText(chips[ci].val, chipX + chipW / 2, y + (isTall ? 78 : 58));
+
+          ctx.fillStyle = '#475569';
+          ctx.font = '800 ' + (isTall ? 24 : 20) + 'px system-ui, -apple-system, BlinkMacSystemFont, sans-serif';
+          ctx.fillText(chips[ci].lbl, chipX + chipW / 2, y + (isTall ? 124 : 94));
+        }
+
+        // 8. Date text
+        y += chipH + (isTall ? 90 : 54);
+        ctx.fillStyle = '#dcfce7';
+        ctx.font = '800 ' + (isTall ? 36 : 28) + 'px system-ui, -apple-system, BlinkMacSystemFont, sans-serif';
+        ctx.fillText(data.displayDate, cx, y);
+
+        // 9. Footer text with real date & score
+        var footerY = height - (isTall ? 130 : 72);
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '900 ' + (isTall ? 34 : 25) + 'px system-ui, -apple-system, BlinkMacSystemFont, sans-serif';
+        ctx.fillText('Can you beat me?', cx, footerY);
+
+        ctx.fillStyle = '#dcfce7';
+        ctx.font = '700 ' + (isTall ? 24 : 20) + 'px system-ui, -apple-system, BlinkMacSystemFont, sans-serif';
+        ctx.fillText(
+          'englishflowofficial.github.io/tools/daily-speaking-challenge.html?d=' + data.dateKey + '&s=' + data.score,
+          cx,
+          footerY + (isTall ? 44 : 32)
+        );
+
+        return canvas;
+      }
+
+      function buildFriendLink(dateKey, score) {
+        return CANONICAL_URL + '?d=' + dateKey + '&s=' + score;
+      }
+
+      function downloadCard(width, height, filename) {
+        if (!lastResultObj) return;
+        var canvas = renderShareCardCanvas(lastResultObj, width, height);
+        canvas.toBlob(function (blob) {
+          if (!blob) return;
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = filename;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
+        }, 'image/png');
+      }
+
+      // Live UTC Midnight Countdown (shows tomorrow's UTC date ONLY, never tomorrow's topic)
+      function startUtcCountdown() {
+        if (countdownInterval) clearInterval(countdownInterval);
+
+        function updateClock() {
+          var now = new Date();
+          var nextMidnight = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 1, 0, 0, 0);
+          var diffSec = Math.max(0, Math.floor((nextMidnight - now.getTime()) / 1000));
+          var hrs = Math.floor(diffSec / 3600);
+          var mins = Math.floor((diffSec % 3600) / 60);
+          var secs = diffSec % 60;
+
+          var tomorrow = new Date(nextMidnight);
+          var tParts = { y: tomorrow.getUTCFullYear(), m: tomorrow.getUTCMonth(), d: tomorrow.getUTCDate() };
+          tomorrowDateLabel.textContent = 'Tomorrow (' + formatDisplayDate(tParts) + ' UTC) unlocks in:';
+          utcCountdown.textContent = pad2(hrs) + ':' + pad2(mins) + ':' + pad2(secs);
+        }
+
+        updateClock();
+        countdownInterval = setInterval(updateClock, 1000);
+      }
+
+      function renderResults(res) {
+        stageSetup.setAttribute('hidden', '');
+        stageLive.setAttribute('hidden', '');
+        stageResults.removeAttribute('hidden');
+
+        resModeBadge.textContent = res.isBonus
+          ? '🎲 Bonus Practice Complete (No Extra XP)'
+          : '🦉 Daily Challenge Complete · ' + res.displayDate;
+        resScoreBig.textContent = res.score + '/100';
+
+        // Friend comparison
+        if (!res.isBonus && friendScore !== null) {
+          if (res.score > friendScore) {
+            friendVerdict.textContent = '🎉 You beat your friend (' + res.score + ' vs ' + friendScore + ')!';
+            friendVerdict.className = 'friend-verdict win';
+          } else {
+            friendVerdict.textContent = '💪 Your friend still leads (' + friendScore + ') — try again!';
+            friendVerdict.className = 'friend-verdict lose';
+          }
+          friendVerdict.removeAttribute('hidden');
+        } else {
+          friendVerdict.setAttribute('hidden', '');
+        }
+
+        resWords.textContent = String(res.words);
+        resWordsPts.textContent = res.wordsPts + '/40 pts';
+        resWpm.textContent = res.wpmDisplay;
+        resWpmPts.textContent = res.wpmPts + '/20 pts';
+        resFillers.textContent = String(res.fillers);
+        resFillersPts.textContent = res.fillersPts + '/20 pts';
+        resTrans.textContent = String(res.uniqueTrans.length);
+        resTransPts.textContent = res.transPts + '/20 pts';
+
+        if (res.isBonus) {
+          resXpStrip.textContent = '🎲 Bonus practice complete — no extra XP awarded, and your daily best & streak stay unchanged.';
+        } else if (res.xpAwarded > 0) {
+          resXpStrip.textContent = '⚡ +' + res.xpAwarded + ' XP earned today! 🔥 Current streak: ' + res.streak + (res.streak === 1 ? ' day.' : ' days.');
+        } else {
+          resXpStrip.textContent = '✅ Today\'s daily XP is already claimed! 🔥 Streak: ' + res.streak + (res.streak === 1 ? ' day.' : ' days.') + ' Repeat freely to beat your best score.';
+        }
+
+        // Escaped transcript
+        resTranscriptText.innerHTML = escapeHtml(res.transcript);
+        resTransList.textContent = res.uniqueTrans.length
+          ? '🔗 Transitions used (' + res.uniqueTrans.length + '): ' + res.uniqueTrans.join(', ')
+          : '🔗 Tip: Try adding transitions like "first", "because", "for example", or "however" next time.';
+
+        if (res.audioUrl) {
+          resAudio.src = res.audioUrl;
+          resAudioWrap.removeAttribute('hidden');
+        } else {
+          resAudio.removeAttribute('src');
+          resAudioWrap.setAttribute('hidden', '');
+        }
+
+        // Square preview image from Canvas 2D
+        var squareCanvas = renderShareCardCanvas(res, 1080, 1080);
+        sharePreviewImg.src = squareCanvas.toDataURL('image/png');
+
+        // Spoiler-free WhatsApp share (formatted date, WPM, filler count, streak — NEVER topic title)
+        var friendUrl = buildFriendLink(res.dateKey, res.score);
+        var fillerWord = res.fillers === 1 ? 'filler' : 'fillers';
+        var streakWord = res.streak + '-day streak';
+        var wpmPart = (res.wpmDisplay && res.wpmDisplay !== '—') ? res.wpmDisplay + ' WPM' : res.words + ' words';
+        var waText = 'Daily Challenge ' + res.displayDate + ' - ' + wpmPart + ', ' + res.fillers + ' ' + fillerWord + ', ' + streakWord + '. Can you beat me? ' + friendUrl;
+        btnWhatsapp.href = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(waText);
+        copyFeedback.textContent = '';
+
+        // Unlock Bonus Prompt only after today's challenge is logged complete
+        if (getDailyBest(activeDateParts.key) !== null) {
+          btnBonusPrompt.removeAttribute('hidden');
+        } else {
+          btnBonusPrompt.setAttribute('hidden', '');
+        }
+
+        startUtcCountdown();
+        stageResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      // Copy friend link with fallback
+      function copyFriendLink() {
+        if (!lastResultObj) return;
+        var link = buildFriendLink(lastResultObj.dateKey, lastResultObj.score);
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(link).then(function () {
+            copyFeedback.textContent = '✅ Friend challenge link copied!';
+          }).catch(function () {
+            fallbackCopy(link);
+          });
+        } else {
+          fallbackCopy(link);
+        }
+      }
+
+      function fallbackCopy(text) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand('copy');
+          copyFeedback.textContent = '✅ Friend challenge link copied!';
+        } catch (e) {
+          copyFeedback.textContent = 'Link ready: ' + text;
+        }
+        document.body.removeChild(ta);
+      }
+
+      // Event listeners
+      btnStart.addEventListener('click', function () {
+        startChallenge(false);
+      });
+
+      btnStop.addEventListener('click', finishChallenge);
+
+      btnSwitchTyped.addEventListener('click', function () {
+        enableTypedFallback('Typed mode active — the 30-second timer still runs.');
+      });
+
+      typedInput.addEventListener('input', function () {
+        renderLiveTranscript(typedInput.value);
+      });
+
+      btnRetryShort.addEventListener('click', function () {
+        startChallenge(isBonusMode);
+      });
+
+      btnBackSetupShort.addEventListener('click', function () {
+        stageLive.setAttribute('hidden', '');
+        stageResults.setAttribute('hidden', '');
+        stageSetup.removeAttribute('hidden');
+        renderSetup();
+      });
+
+      btnDownloadTall.addEventListener('click', function () {
+        if (!lastResultObj) return;
+        downloadCard(1080, 1920, 'english-flow-daily-' + lastResultObj.dateKey + '-story.png');
+      });
+
+      btnDownloadSquare.addEventListener('click', function () {
+        if (!lastResultObj) return;
+        downloadCard(1080, 1080, 'english-flow-daily-' + lastResultObj.dateKey + '-square.png');
+      });
+
+      btnCopyFriend.addEventListener('click', copyFriendLink);
+
+      btnTryAgain.addEventListener('click', function () {
+        stageResults.setAttribute('hidden', '');
+        stageLive.setAttribute('hidden', '');
+        stageSetup.removeAttribute('hidden');
+        renderSetup();
+        stageSetup.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      btnBonusPrompt.addEventListener('click', function () {
+        startChallenge(true);
+      });
+
+      // Init
+      renderHeaderStats();
+      renderSetup();
+    })();
+  </script>
+  <script src="../ef-analytics.js" defer></script>
+</body>
+</html>
